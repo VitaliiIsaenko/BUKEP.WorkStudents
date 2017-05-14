@@ -2,6 +2,9 @@
 using Android.Widget;
 using Android.OS;
 using System;
+using ScheduleBukepAPI;
+using ScheduleBukepAPI.apiDTO;
+using System.Collections.Generic;
 
 namespace ScheduleBukep
 {
@@ -13,14 +16,28 @@ namespace ScheduleBukep
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
+            List<string> dataForSpinnerFaculty = GetDataForSpinnerFaculty();
 
-            string[] data = { "Item_1", "Item_2", "Item_3", "Item_4" };
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, data);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, dataForSpinnerFaculty);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
-            Spinner spinner = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
-            spinner.Adapter = adapter;
+            Spinner spinnerFaculty = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
+            spinnerFaculty.Adapter = adapter;
+        }
+
+        private static List<string> GetDataForSpinnerFaculty()
+        {
+            FacadeAPI api = new FacadeAPI();
+            List<Faculty> faculties = api.getFaculties("2016", "1000");
+
+            List<string> dataForSpinnerFaculty = new List<string>();
+
+            foreach (var faculty in faculties)
+            {
+                dataForSpinnerFaculty.Add(faculty.name);
+            }
+
+            return dataForSpinnerFaculty;
         }
     }
 }
