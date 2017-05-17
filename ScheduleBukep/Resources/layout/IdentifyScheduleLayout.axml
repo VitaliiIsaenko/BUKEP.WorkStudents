@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:text="@string/selectSchedules"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:gravity="center" />
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinnerFaculty" />
-</LinearLayout>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1">
+    <TableRow>
+        <TextView
+            android:text="Факультет"
+            android:id="@+id/faculty"
+            android:layout_height="17.0dp"
+            android:layout_width="130.0dp"
+            android:layout_marginBottom="10.0dp" />
+        <Spinner
+            android:id="@+id/spinnerFaculty"
+            android:layout_height="wrap_content"
+            android:layout_width="66.0dp"
+            android:layout_marginLeft="0.0dp" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="Cпециальности"
+            android:id="@+id/specialty"
+            android:layout_height="17.0dp"
+            android:layout_width="130.0dp"
+            android:layout_marginBottom="10.0dp" />
+        <Spinner
+            android:id="@+id/spinnerSpecialty"
+            android:layout_height="wrap_content"
+            android:layout_width="66.0dp"
+            android:layout_marginLeft="0.0dp"
+            android:entries="@array/itemList" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="Курс"
+            android:id="@+id/сourse"
+            android:layout_height="17.0dp"
+            android:layout_width="130.0dp"
+            android:layout_marginBottom="10.0dp" />
+        <Spinner
+            android:id="@+id/spinnerCourse"
+            android:layout_height="wrap_content"
+            android:layout_width="66.0dp"
+            android:layout_marginLeft="0.0dp"
+            android:entries="@array/itemList" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="Группа"
+            android:id="@+id/group"
+            android:layout_height="17.0dp"
+            android:layout_width="130.0dp"
+            android:layout_marginBottom="10.0dp" />
+        <Spinner
+            android:id="@+id/spinnerGroup"
+            android:layout_height="wrap_content"
+            android:layout_width="66.0dp"
+            android:layout_marginLeft="0.0dp"
+            android:entries="@array/itemList" />
+    </TableRow>
+</TableLayout>
