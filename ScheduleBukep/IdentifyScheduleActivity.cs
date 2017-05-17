@@ -26,7 +26,7 @@ namespace Bukep.Sheduler
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.IdentifyScheduleLayout);
             List<string> dataForSpinnerFaculty = GetDataForSpinnerFaculty();
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, dataForSpinnerFaculty);

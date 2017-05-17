@@ -75,7 +75,7 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml">
+    <AndroidResource Include="Resources\layout\IdentifyScheduleLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
