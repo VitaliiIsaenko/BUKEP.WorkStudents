@@ -12,11 +12,8 @@ using Android.Widget;
 
 namespace ScheduleBukep.Controllers
 {
-    class IdentifySchedule : IController
+    interface IController
     {
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
+        void Update();
     }
 }

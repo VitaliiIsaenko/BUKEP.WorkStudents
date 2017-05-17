@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\IController.cs" />
     <Compile Include="Controllers\IdentifySchedule.cs" />
     <Compile Include="IdentifyScheduleActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
