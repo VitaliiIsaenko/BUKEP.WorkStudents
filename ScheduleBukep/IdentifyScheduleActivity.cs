@@ -5,8 +5,9 @@ using System;
 using Bukep.ShedulerApi;
 using Bukep.ShedulerApi.apiDTO;
 using System.Collections.Generic;
+using Android;
 
-namespace ScheduleBukep
+namespace Bukep.Sheduler
 {
     /// <summary>
     /// Данное Activity используется как форма идентификации для студентов.

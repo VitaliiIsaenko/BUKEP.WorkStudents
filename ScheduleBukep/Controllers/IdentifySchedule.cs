@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace ScheduleBukep.Controllers
+namespace Bukep.Sheduler.Controllers
 {
     class IdentifySchedule : IController
     {

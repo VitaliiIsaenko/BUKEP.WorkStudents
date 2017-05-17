@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("ScheduleBukep.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("Bukep.Sheduler.Resource", IsApplication=true)]
 
-namespace ScheduleBukep
+namespace Bukep.Sheduler
 {
 	
 	
