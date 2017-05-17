@@ -2,14 +2,24 @@
 using Android.Widget;
 using Android.OS;
 using System;
-using ScheduleBukepAPI;
-using ScheduleBukepAPI.apiDTO;
+using Bukep.ShedulerApi;
+using Bukep.ShedulerApi.apiDTO;
 using System.Collections.Generic;
 
 namespace ScheduleBukep
 {
+    /// <summary>
+    /// Данное Activity используется как форма идентификации для студентов.
+    /// Предоставляет пошаговый доступ к расписанию, состоящий из шагов:
+    /// -   выбор факультета
+    /// -	выбор специальности
+    /// -	выбор курса
+    /// -	выбор группы
+    /// После выполнение всех шагов появляется кнопка «показать».
+    /// Нажатие на эту кнопку открывает расписание по заданным параметрам.
+    /// </summary>
     [Activity(Label = "ScheduleBukep", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+    public class IdentifyScheduleActivity : Activity
     {
 
         protected override void OnCreate(Bundle bundle)
@@ -28,13 +38,13 @@ namespace ScheduleBukep
         private static List<string> GetDataForSpinnerFaculty()
         {
             FacadeAPI api = new FacadeAPI();
-            List<Faculty> faculties = api.getFaculties("2016", "1000");
+            List<Faculty> faculties = api.GetFaculties();
 
             List<string> dataForSpinnerFaculty = new List<string>();
 
             foreach (var faculty in faculties)
             {
-                dataForSpinnerFaculty.Add(faculty.name);
+                dataForSpinnerFaculty.Add(faculty.Name);
             }
 
             return dataForSpinnerFaculty;
