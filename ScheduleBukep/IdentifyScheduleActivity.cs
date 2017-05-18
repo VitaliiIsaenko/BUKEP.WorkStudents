@@ -2,10 +2,8 @@
 using Android.Widget;
 using Android.OS;
 using System;
-using Bukep.ShedulerApi;
 using Bukep.ShedulerApi.apiDTO;
 using System.Collections.Generic;
-using Android;
 using Bukep.Sheduler.Controllers;
 
 namespace Bukep.Sheduler
@@ -23,33 +21,56 @@ namespace Bukep.Sheduler
     [Activity(Label = "ScheduleBukep", MainLauncher = true, Icon = "@drawable/icon")]
     public class IdentifyScheduleActivity : Activity
     {
-        private IdentifySchedule identifySchedule;
-        private ArrayAdapter<Faculty> adapter;
+        private const string TAG = "IdentifyScheduleActivity";
+        private IdentifySchedule controller;
+        private ArrayAdapter<Faculty> adapterFaculty;
+        private ArrayAdapter<Specialty> adapterSpecialty;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
 
-            identifySchedule = new IdentifySchedule(this);
-            identifySchedule.Update();
+            controller = new IdentifySchedule(this);
+            controller.Update();
+        }
+
+        internal void ShowSpecialtys(List<Specialty> specialtys)
+        {
+            adapterSpecialty = new ArrayAdapter<Specialty>(
+                this, Android.Resource.Layout.SimpleSpinnerItem, specialtys);
+            adapterSpecialty.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+
+            Spinner spinnerSpecialtys = FindViewById<Spinner>(Resource.Id.spinnerSpecialty);
+            spinnerSpecialtys.Adapter = adapterSpecialty;
+            spinnerSpecialtys.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(
+                SelectSpinnerSpecialtys);
+        }
+
+        private void SelectSpinnerSpecialtys(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner spinner = (Spinner)sender;
+            Specialty specialty = adapterSpecialty.GetItem(e.Position);
+            Toast.MakeText(this, "Specialtys = " + specialty, ToastLength.Short).Show();
+            controller.SelectSpecialt(specialty);
         }
 
         internal void ShowFaculty(List<Faculty> faculties)
         {
-            adapter = new ArrayAdapter<Faculty>(this, Android.Resource.Layout.SimpleSpinnerItem, faculties);
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            adapterFaculty = new ArrayAdapter<Faculty>(this, Android.Resource.Layout.SimpleSpinnerItem, faculties);
+            adapterFaculty.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
             Spinner spinnerFaculty = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
-            spinnerFaculty.Adapter = adapter;
+            spinnerFaculty.Adapter = adapterFaculty;
             spinnerFaculty.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(SelectSpinnerFaculty);
         }
 
         private void SelectSpinnerFaculty(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            Faculty faculty = adapter.GetItem(e.Position);
-            Toast.MakeText(this, "Slelect = "+faculty, ToastLength.Long).Show();
+            Faculty faculty = adapterFaculty.GetItem(e.Position);
+            Toast.MakeText(this, "Faculty = " + faculty, ToastLength.Short).Show();
+            controller.SelectFaculty(faculty);
         }
     }
 }
