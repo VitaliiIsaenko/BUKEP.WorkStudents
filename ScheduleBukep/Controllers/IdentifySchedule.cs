@@ -42,7 +42,7 @@ namespace Bukep.Sheduler.Controllers
         public FacultyWrapper(Faculty faculty)
         {
             this.faculty = faculty;
-        }
+        } 
 
         public override string ToString()
         {

@@ -23,24 +23,34 @@ namespace Bukep.Sheduler
     [Activity(Label = "ScheduleBukep", MainLauncher = true, Icon = "@drawable/icon")]
     public class IdentifyScheduleActivity : Activity
     {
+        private IdentifySchedule identifySchedule;
+        private ArrayAdapter<Faculty> adapter;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
 
-            IdentifySchedule identifySchedule = new IdentifySchedule(this);
+            identifySchedule = new IdentifySchedule(this);
             identifySchedule.Update();
         }
 
         internal void ShowFaculty(List<Faculty> faculties)
         {
-            ArrayAdapter<Faculty> adapter = new ArrayAdapter<Faculty>(this, Android.Resource.Layout.SimpleSpinnerItem, faculties);
+            adapter = new ArrayAdapter<Faculty>(this, Android.Resource.Layout.SimpleSpinnerItem, faculties);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
             Spinner spinnerFaculty = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
             spinnerFaculty.Adapter = adapter;
-        } 
+            spinnerFaculty.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(SelectSpinnerFaculty);
+        }
+
+        private void SelectSpinnerFaculty(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner spinner = (Spinner)sender;
+            Faculty faculty = adapter.GetItem(e.Position);
+            Toast.MakeText(this, "Slelect = "+faculty, ToastLength.Long).Show();
+        }
     }
 }
 
