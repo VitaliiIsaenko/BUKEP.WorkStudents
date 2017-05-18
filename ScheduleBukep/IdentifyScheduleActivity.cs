@@ -6,6 +6,7 @@ using Bukep.ShedulerApi;
 using Bukep.ShedulerApi.apiDTO;
 using System.Collections.Generic;
 using Android;
+using Bukep.Sheduler.Controllers;
 
 namespace Bukep.Sheduler
 {
@@ -27,29 +28,19 @@ namespace Bukep.Sheduler
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
-            List<string> dataForSpinnerFaculty = GetDataForSpinnerFaculty();
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, dataForSpinnerFaculty);
+            IdentifySchedule identifySchedule = new IdentifySchedule(this);
+            identifySchedule.Update();
+        }
+
+        internal void ShowFaculty(List<Faculty> faculties)
+        {
+            ArrayAdapter<Faculty> adapter = new ArrayAdapter<Faculty>(this, Android.Resource.Layout.SimpleSpinnerItem, faculties);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
             Spinner spinnerFaculty = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
             spinnerFaculty.Adapter = adapter;
-        }
-
-        private static List<string> GetDataForSpinnerFaculty()
-        {
-            FacadeAPI api = new FacadeAPI();
-            List<Faculty> faculties = api.GetFaculties();
-
-            List<string> dataForSpinnerFaculty = new List<string>();
-
-            foreach (var faculty in faculties)
-            {
-                dataForSpinnerFaculty.Add(faculty.Name);
-            }
-
-            return dataForSpinnerFaculty;
-        }
+        } 
     }
 }
 
