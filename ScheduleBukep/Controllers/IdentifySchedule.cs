@@ -34,6 +34,27 @@ namespace Bukep.Sheduler.Controllers
 
         internal void SelectSpecialt(Specialty specialty)
         {
+            selectedSpecialty = specialty;
+            List<Courses> courses = FacadeAPI.GetCourses(
+                selectedFaculty.IdFaculty,
+                FacadeAPI.ConvertIdsToString(specialty.IdsSpecialty)
+                );
+            view.ShowCourses(courses);
+        }
+
+        internal void SelectCourses(Courses cours)
+        {
+            selectedCourse = cours;
+            List<Group> groups = FacadeAPI.GetGroups(
+                selectedFaculty.IdFaculty,
+                selectedCourse.IdCourse,
+                FacadeAPI.ConvertIdsToString(selectedSpecialty.IdsSpecialty)
+                );
+            view.ShowGroup(groups);
+        }
+
+        internal void SelectGroup(Group group)
+        {
             //throw new NotImplementedException();
         }
     }
