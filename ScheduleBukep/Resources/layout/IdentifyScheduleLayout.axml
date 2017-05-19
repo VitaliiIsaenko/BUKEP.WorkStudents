@@ -9,7 +9,7 @@
             android:id="@+id/faculty"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp" />
+            android:style="@style/TextForSpinner" />
         <Spinner
             android:id="@+id/spinnerFaculty"
             android:layout_height="wrap_content"
@@ -22,7 +22,8 @@
             android:id="@+id/specialty"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp" />
+            android:layout_marginBottom="10.0dp"
+            android:style="@style/TextForSpinner" />
         <Spinner
             android:id="@+id/spinnerSpecialty"
             android:layout_height="wrap_content"
@@ -36,7 +37,8 @@
             android:id="@+id/сourse"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp" />
+            android:layout_marginBottom="10.0dp"
+            android:style="@style/TextForSpinner" />
         <Spinner
             android:id="@+id/spinnerCourse"
             android:layout_height="wrap_content"
@@ -50,7 +52,8 @@
             android:id="@+id/group"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp" />
+            android:layout_marginBottom="10.0dp"
+            android:style="@style/TextForSpinner" />
         <Spinner
             android:id="@+id/spinnerGroup"
             android:layout_height="wrap_content"
