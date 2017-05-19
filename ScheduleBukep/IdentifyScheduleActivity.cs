@@ -24,10 +24,10 @@ namespace Bukep.Sheduler
     {
         private const string TAG = "IdentifyScheduleActivity";
         private IdentifySchedule controller;
-        private ArrayAdapter<Faculty> adapterFaculty;
-        private ArrayAdapter<Specialty> adapterSpecialty;
-        private ArrayAdapter<Courses> adapterCourses;
-        private ArrayAdapter<Group>  adapterGroup;
+        private DTOAdapter<Faculty> adapterFaculty;
+        private DTOAdapter<Specialty> adapterSpecialty;
+        private DTOAdapter<Courses> adapterCourses;
+        private DTOAdapter<Group>  adapterGroup;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -40,12 +40,7 @@ namespace Bukep.Sheduler
 
         internal void ShowGroup(List<Group> groups)
         {
-            adapterGroup = new ArrayAdapter<Group>(
-                this,
-                Android.Resource.Layout.SimpleSpinnerItem,
-                groups
-                );
-            adapterSpecialty.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            adapterGroup = new GroupAdapter<Group>(groups, this);
 
             Spinner spinnerGroup = FindViewById<Spinner>(Resource.Id.spinnerGroup);
             spinnerGroup.Adapter = adapterGroup;
@@ -56,19 +51,14 @@ namespace Bukep.Sheduler
         private void SelectSpinnerGroup(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            Group group = adapterGroup.GetItem(e.Position);
+            Group group = adapterGroup.GetObject(e.Position);
             Log.Info(TAG,"Group = " + group);
             controller.SelectGroup(group);
         }
 
         internal void ShowCourses(List<Courses> courses)
         {
-            adapterCourses = new ArrayAdapter<Courses>(
-                this,
-                Android.Resource.Layout.SimpleSpinnerItem,
-                courses
-                );
-            adapterSpecialty.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            adapterCourses = new CoursesAdapter<Courses>(courses, this);
 
             Spinner spinnerCourse = FindViewById<Spinner>(Resource.Id.spinnerCourse);
             spinnerCourse.Adapter = adapterCourses;
@@ -79,16 +69,14 @@ namespace Bukep.Sheduler
         private void SelectSpinnerCourses(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            Courses cours = adapterCourses.GetItem(e.Position);
+            Courses cours = adapterCourses.GetObject(e.Position);
            Log.Info(TAG,"Courses = " + cours);
             controller.SelectCourses(cours);
         }
 
         internal void ShowSpecialtys(List<Specialty> specialtys)
         {
-            adapterSpecialty = new ArrayAdapter<Specialty>(
-                this, Android.Resource.Layout.SimpleSpinnerItem, specialtys);
-            adapterSpecialty.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            adapterSpecialty = new SpecialtyAdapter<Specialty>(specialtys, this);
 
             Spinner spinnerSpecialtys = FindViewById<Spinner>(Resource.Id.spinnerSpecialty);
             spinnerSpecialtys.Adapter = adapterSpecialty;
@@ -99,15 +87,15 @@ namespace Bukep.Sheduler
         private void SelectSpinnerSpecialtys(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            Specialty specialty = adapterSpecialty.GetItem(e.Position);
+            Specialty specialty = adapterSpecialty.GetObject(e.Position);
            Log.Info(TAG,"Specialtys = " + specialty);
             controller.SelectSpecialt(specialty);
         }
 
         internal void ShowFaculty(List<Faculty> faculties)
         {
-            adapterFaculty = new ArrayAdapter<Faculty>(this, Android.Resource.Layout.SimpleSpinnerItem, faculties);
-            adapterFaculty.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+
+            adapterFaculty = new FacultyAdapter<Faculty>(faculties, this);
 
             Spinner spinnerFaculty = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
             spinnerFaculty.Adapter = adapterFaculty;
@@ -117,8 +105,8 @@ namespace Bukep.Sheduler
         private void SelectSpinnerFaculty(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            Faculty faculty = adapterFaculty.GetItem(e.Position);
-           Log.Info(TAG,"Faculty = " + faculty);
+            Faculty faculty = adapterFaculty.GetObject(e.Position);
+            Log.Info(TAG,"Faculty = " + faculty);
             controller.SelectFaculty(faculty);
         }
     }
