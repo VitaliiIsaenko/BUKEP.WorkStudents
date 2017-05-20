@@ -50,8 +50,10 @@ namespace Bukep.Sheduler
 
         private void SelectSpinnerGroup(object sender, AdapterView.ItemSelectedEventArgs e)
         {
+            int posotion = e.Position;
+            if (posotion == 0) return;
             Spinner spinner = (Spinner)sender;
-            Group group = adapterGroup.GetObject(e.Position);
+            Group group = adapterGroup.GetObject(posotion);
             Log.Info(TAG,"Group = " + group.NameGroup);
             controller.SelectGroup(group);
         }
@@ -62,15 +64,17 @@ namespace Bukep.Sheduler
 
             Spinner spinnerCourse = FindViewById<Spinner>(Resource.Id.spinnerCourse);
             spinnerCourse.Adapter = adapterCourses;
-            spinnerCourse.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(
-                SelectSpinnerCourses);
+            spinnerCourse.ItemSelected +=
+                new EventHandler<AdapterView.ItemSelectedEventArgs>(SelectSpinnerCourses);
         }
 
         private void SelectSpinnerCourses(object sender, AdapterView.ItemSelectedEventArgs e)
         {
+            int posotion = e.Position;
+            if (posotion == 0) return;
             Spinner spinner = (Spinner)sender;
-            Courses cours = adapterCourses.GetObject(e.Position);
-           Log.Info(TAG,"Courses = " + cours.NameCourse);
+            Courses cours = adapterCourses.GetObject(posotion);
+            Log.Info(TAG,"Courses = " + cours.NameCourse);
             controller.SelectCourses(cours);
         }
 
@@ -86,8 +90,10 @@ namespace Bukep.Sheduler
 
         private void SelectSpinnerSpecialtys(object sender, AdapterView.ItemSelectedEventArgs e)
         {
+            int posotion = e.Position;
+            if (posotion == 0) return;
             Spinner spinner = (Spinner)sender;
-            Specialty specialty = adapterSpecialty.GetObject(e.Position);
+            Specialty specialty = adapterSpecialty.GetObject(posotion);
            Log.Info(TAG,"Specialtys = " + specialty.NameSpeciality);
             controller.SelectSpecialt(specialty);
         }
@@ -104,8 +110,10 @@ namespace Bukep.Sheduler
 
         private void SelectSpinnerFaculty(object sender, AdapterView.ItemSelectedEventArgs e)
         {
+            int posotion = e.Position;
+            if (posotion == 0) return;
             Spinner spinner = (Spinner)sender;
-            Faculty faculty = adapterFaculty.GetObject(e.Position);
+            Faculty faculty = adapterFaculty.GetObject(posotion);
             Log.Info(TAG,"Faculty = " + faculty.Name);
             controller.SelectFaculty(faculty);
         }

@@ -22,7 +22,7 @@ namespace Bukep.Sheduler.Controllers
         public IdentifySchedule(IdentifyScheduleActivity view)
         {
             this.view = view;
-            FacadeAPI.UseServiceFake();
+            //FacadeAPI.UseServiceFake();
         }
 
         public void Update()
@@ -98,9 +98,17 @@ namespace Bukep.Sheduler.Controllers
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
+            string text;
+            if(position == 0)
+            {
+                text = "select";
+            } else
+            {
+                text = ConvertDTOInString(objects[position]);
+            }
             TextView textView = new TextView(context)
             {
-                Text = ConvertDTOInString(objects[position])
+                Text = text
             };
             return textView;
         }
@@ -116,8 +124,15 @@ namespace Bukep.Sheduler.Controllers
 
     internal class FacultyAdapter<T> : DTOAdapter<Faculty>
     {
+        /// <summary>
+        /// Добавляет пустой DTO в objects в позицию 0.
+        /// Так как заместо позиции 0 стоит элемент по умолчанию.
+        /// </summary>
+        /// <param name="objects"></param>
+        /// <param name="context"></param>
         public FacultyAdapter(IList<Faculty> objects, Context context) : base(objects, context)
         {
+            objects.Insert(0, new Faculty());
         }
 
         public override string ConvertDTOInString(Faculty t)
@@ -130,6 +145,7 @@ namespace Bukep.Sheduler.Controllers
     {
         public SpecialtyAdapter(IList<Specialty> objects, Context context) : base(objects, context)
         {
+            objects.Insert(0, new Specialty());
         }
 
         public override string ConvertDTOInString(Specialty t)
@@ -142,6 +158,7 @@ namespace Bukep.Sheduler.Controllers
     {
         public CoursesAdapter(IList<Courses> objects, Context context) : base(objects, context)
         {
+            objects.Insert(0, new Courses());
         }
 
         public override string ConvertDTOInString(Courses t)
@@ -154,6 +171,7 @@ namespace Bukep.Sheduler.Controllers
     {
         public GroupAdapter(IList<Group> objects, Context context) : base(objects, context)
         {
+            objects.Insert(0, new Group());
         }
 
         public override string ConvertDTOInString(Group t)
