@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:stretchColumns="1">
@@ -9,12 +10,11 @@
             android:id="@+id/faculty"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
-            android:style="@style/TextForSpinner" />
+            android:layout_marginBottom="10.0dp" />
         <Spinner
             android:id="@+id/spinnerFaculty"
             android:layout_height="wrap_content"
-            android:layout_width="66.0dp"
-            android:layout_marginLeft="0.0dp" />
+            android:layout_width="66.0dp" />
     </TableRow>
     <TableRow>
         <TextView
@@ -22,13 +22,11 @@
             android:id="@+id/specialty"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp"
-            android:style="@style/TextForSpinner" />
+            android:layout_marginBottom="10.0dp" />
         <Spinner
             android:id="@+id/spinnerSpecialty"
             android:layout_height="wrap_content"
             android:layout_width="66.0dp"
-            android:layout_marginLeft="0.0dp"
             android:entries="@array/itemList" />
     </TableRow>
     <TableRow>
@@ -37,13 +35,11 @@
             android:id="@+id/сourse"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp"
-            android:style="@style/TextForSpinner" />
+            android:layout_marginBottom="10.0dp" />
         <Spinner
             android:id="@+id/spinnerCourse"
             android:layout_height="wrap_content"
             android:layout_width="66.0dp"
-            android:layout_marginLeft="0.0dp"
             android:entries="@array/itemList" />
     </TableRow>
     <TableRow>
@@ -52,13 +48,11 @@
             android:id="@+id/group"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp"
-            android:style="@style/TextForSpinner" />
+            android:layout_marginBottom="10.0dp" />
         <Spinner
             android:id="@+id/spinnerGroup"
             android:layout_height="wrap_content"
             android:layout_width="66.0dp"
-            android:layout_marginLeft="0.0dp"
             android:entries="@array/itemList" />
     </TableRow>
 </TableLayout>
