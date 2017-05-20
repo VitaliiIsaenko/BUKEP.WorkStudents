@@ -29,6 +29,7 @@ namespace Bukep.Sheduler.Controllers
         {
             List<Faculty> faculties = FacadeAPI.GetFaculties();           
             view.ShowFaculty(faculties);
+            view.SetButtoneShowClickable(false);
         }
 
         public void SelectFaculty(Faculty faculty)
@@ -61,6 +62,13 @@ namespace Bukep.Sheduler.Controllers
 
         public void SelectGroup(Group group)
         {
+            selectedGroup = group;
+            view.SetButtoneShowClickable(true);
+        }
+
+        internal void ClickeButtoneShow()
+        {
+            Toast.MakeText(view, "ClickeButtoneShow", ToastLength.Short).Show();
             //throw new NotImplementedException();
         }
     }

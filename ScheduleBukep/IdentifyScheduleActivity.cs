@@ -29,13 +29,28 @@ namespace Bukep.Sheduler
         private DTOAdapter<Courses> adapterCourses;
         private DTOAdapter<Group>  adapterGroup;
 
+        private Button buttoneShow;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
 
+            buttoneShow = FindViewById<Button>(Resource.Id.buttoneShow);
+            buttoneShow.Click += new EventHandler(OnClickeButtoneShow);
+
             controller = new IdentifySchedule(this);
             controller.Update();
+        }
+
+        public void SetButtoneShowClickable(bool clickable)
+        {
+            buttoneShow.Clickable = clickable;
+        }
+
+        private void OnClickeButtoneShow(object sender, EventArgs e)
+        {
+            controller.ClickeButtoneShow();
         }
 
         public void ShowGroup(List<Group> groups)

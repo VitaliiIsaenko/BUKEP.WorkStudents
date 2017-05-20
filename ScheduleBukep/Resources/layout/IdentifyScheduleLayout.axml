@@ -55,4 +55,14 @@
             android:layout_width="66.0dp"
             android:entries="@array/itemList" />
     </TableRow>
+    <TableRow
+        android:id="@+id/tableRow1">
+        <Button
+            android:text="Показать"
+            android:layout_column="0"
+            android:id="@+id/buttoneShow"
+            android:gravity="center"
+            android:layout_span="2"
+            android:layout_marginTop="60.0dp" />
+    </TableRow>
 </TableLayout>

@@ -76,6 +76,9 @@ namespace Bukep.Sheduler
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f060009
+			public const int buttoneShow = 2131099657;
+			
 			// aapt resource value: 0x7f060000
 			public const int faculty = 2131099648;
 			
@@ -96,6 +99,9 @@ namespace Bukep.Sheduler
 			
 			// aapt resource value: 0x7f060003
 			public const int spinnerSpecialty = 2131099651;
+			
+			// aapt resource value: 0x7f060008
+			public const int tableRow1 = 2131099656;
 			
 			// aapt resource value: 0x7f060004
 			public const int сourse = 2131099652;
