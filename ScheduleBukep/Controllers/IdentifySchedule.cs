@@ -22,6 +22,7 @@ namespace Bukep.Sheduler.Controllers
         public IdentifySchedule(IdentifyScheduleActivity view)
         {
             this.view = view;
+            FacadeAPI.UseServiceFake();
         }
 
         public void Update()
@@ -30,14 +31,14 @@ namespace Bukep.Sheduler.Controllers
             view.ShowFaculty(faculties);
         }
 
-        internal void SelectFaculty(Faculty faculty)
+        public void SelectFaculty(Faculty faculty)
         {
             selectedFaculty = faculty;
             List<Specialty> specialtys = FacadeAPI.GetSpecialtys(faculty.IdFaculty);
             view.ShowSpecialtys(specialtys);
         }
 
-        internal void SelectSpecialt(Specialty specialty)
+        public void SelectSpecialt(Specialty specialty)
         {
             selectedSpecialty = specialty;
             List<Courses> courses = FacadeAPI.GetCourses(
@@ -47,7 +48,7 @@ namespace Bukep.Sheduler.Controllers
             view.ShowCourses(courses);
         }
 
-        internal void SelectCourses(Courses cours)
+        public void SelectCourses(Courses cours)
         {
             selectedCourse = cours;
             List<Group> groups = FacadeAPI.GetGroups(
@@ -58,7 +59,7 @@ namespace Bukep.Sheduler.Controllers
             view.ShowGroup(groups);
         }
 
-        internal void SelectGroup(Group group)
+        public void SelectGroup(Group group)
         {
             //throw new NotImplementedException();
         }

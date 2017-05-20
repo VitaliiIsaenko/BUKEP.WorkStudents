@@ -38,7 +38,7 @@ namespace Bukep.Sheduler
             controller.Update();
         }
 
-        internal void ShowGroup(List<Group> groups)
+        public void ShowGroup(List<Group> groups)
         {
             adapterGroup = new GroupAdapter<Group>(groups, this);
 
@@ -52,11 +52,11 @@ namespace Bukep.Sheduler
         {
             Spinner spinner = (Spinner)sender;
             Group group = adapterGroup.GetObject(e.Position);
-            Log.Info(TAG,"Group = " + group);
+            Log.Info(TAG,"Group = " + group.NameGroup);
             controller.SelectGroup(group);
         }
 
-        internal void ShowCourses(List<Courses> courses)
+        public void ShowCourses(List<Courses> courses)
         {
             adapterCourses = new CoursesAdapter<Courses>(courses, this);
 
@@ -70,11 +70,11 @@ namespace Bukep.Sheduler
         {
             Spinner spinner = (Spinner)sender;
             Courses cours = adapterCourses.GetObject(e.Position);
-           Log.Info(TAG,"Courses = " + cours);
+           Log.Info(TAG,"Courses = " + cours.NameCourse);
             controller.SelectCourses(cours);
         }
 
-        internal void ShowSpecialtys(List<Specialty> specialtys)
+        public void ShowSpecialtys(List<Specialty> specialtys)
         {
             adapterSpecialty = new SpecialtyAdapter<Specialty>(specialtys, this);
 
@@ -88,11 +88,11 @@ namespace Bukep.Sheduler
         {
             Spinner spinner = (Spinner)sender;
             Specialty specialty = adapterSpecialty.GetObject(e.Position);
-           Log.Info(TAG,"Specialtys = " + specialty);
+           Log.Info(TAG,"Specialtys = " + specialty.NameSpeciality);
             controller.SelectSpecialt(specialty);
         }
 
-        internal void ShowFaculty(List<Faculty> faculties)
+        public void ShowFaculty(List<Faculty> faculties)
         {
 
             adapterFaculty = new FacultyAdapter<Faculty>(faculties, this);
@@ -106,7 +106,7 @@ namespace Bukep.Sheduler
         {
             Spinner spinner = (Spinner)sender;
             Faculty faculty = adapterFaculty.GetObject(e.Position);
-            Log.Info(TAG,"Faculty = " + faculty);
+            Log.Info(TAG,"Faculty = " + faculty.Name);
             controller.SelectFaculty(faculty);
         }
     }
