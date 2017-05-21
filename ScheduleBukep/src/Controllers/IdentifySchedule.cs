@@ -7,6 +7,8 @@ using Android.Views;
 using Java.Lang;
 using Android.Runtime;
 using Android.Content;
+using Bukep.Sheduler.src;
+using Android.OS;
 
 namespace Bukep.Sheduler.Controllers
 {
@@ -68,8 +70,10 @@ namespace Bukep.Sheduler.Controllers
 
         internal void ClickeButtoneShow()
         {
-            Toast.MakeText(view, "ClickeButtoneShow", ToastLength.Short).Show();
-            //throw new NotImplementedException();
+            var intent = new Intent(view, typeof(ScheduleActivity));
+            string jsonGroup = JSONConvert.ConvertDTOToJSON<Group>(selectedGroup);
+            intent.PutExtra(ScheduleActivity.DataKeyGroupsJson, jsonGroup);
+            view.StartActivity(intent);
         }
     }
 

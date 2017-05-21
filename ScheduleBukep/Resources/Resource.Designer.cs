@@ -85,6 +85,9 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f060006
 			public const int group = 2131099654;
 			
+			// aapt resource value: 0x7f06000a
+			public const int relativeLayout1 = 2131099658;
+			
 			// aapt resource value: 0x7f060002
 			public const int specialty = 2131099650;
 			
@@ -102,6 +105,9 @@ namespace Bukep.Sheduler
 			
 			// aapt resource value: 0x7f060008
 			public const int tableRow1 = 2131099656;
+			
+			// aapt resource value: 0x7f06000b
+			public const int textView2 = 2131099659;
 			
 			// aapt resource value: 0x7f060004
 			public const int сourse = 2131099652;
@@ -121,6 +127,9 @@ namespace Bukep.Sheduler
 			
 			// aapt resource value: 0x7f030000
 			public const int IdentifyScheduleLayout = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int ScheduleLayout = 2130903041;
 			
 			static Layout()
 			{
