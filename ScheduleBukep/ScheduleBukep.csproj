@@ -86,7 +86,7 @@
     <AndroidResource Include="Resources\layout\ScheduleLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\card_lesson_viwe.axml">
+    <AndroidResource Include="Resources\layout\Card_lesson_viwe.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

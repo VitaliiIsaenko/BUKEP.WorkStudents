@@ -165,71 +165,71 @@ namespace Bukep.Sheduler
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f090013
-			public const int buttoneShow = 2131296275;
-			
-			// aapt resource value: 0x7f09000a
-			public const int faculty = 2131296266;
-			
-			// aapt resource value: 0x7f090010
-			public const int group = 2131296272;
-			
-			// aapt resource value: 0x7f090007
-			public const int imageLocation = 2131296263;
-			
-			// aapt resource value: 0x7f090006
-			public const int imageTeacher = 2131296262;
-			
-			// aapt resource value: 0x7f090005
-			public const int nameLesson = 2131296261;
-			
-			// aapt resource value: 0x7f090009
-			public const int nameLocation = 2131296265;
-			
-			// aapt resource value: 0x7f090008
-			public const int nameTeacher = 2131296264;
-			
-			// aapt resource value: 0x7f090001
-			public const int number = 2131296257;
-			
 			// aapt resource value: 0x7f090014
-			public const int relativeLayout1 = 2131296276;
-			
-			// aapt resource value: 0x7f09000c
-			public const int specialty = 2131296268;
-			
-			// aapt resource value: 0x7f09000f
-			public const int spinnerCourse = 2131296271;
-			
-			// aapt resource value: 0x7f09000b
-			public const int spinnerFaculty = 2131296267;
-			
-			// aapt resource value: 0x7f090011
-			public const int spinnerGroup = 2131296273;
-			
-			// aapt resource value: 0x7f09000d
-			public const int spinnerSpecialty = 2131296269;
-			
-			// aapt resource value: 0x7f090012
-			public const int tableRow1 = 2131296274;
-			
-			// aapt resource value: 0x7f090015
-			public const int textView2 = 2131296277;
-			
-			// aapt resource value: 0x7f090002
-			public const int textView3 = 2131296258;
-			
-			// aapt resource value: 0x7f090003
-			public const int timeEnd = 2131296259;
+			public const int buttoneShow = 2131296276;
 			
 			// aapt resource value: 0x7f090000
-			public const int timeStart = 2131296256;
+			public const int cardLesson = 2131296256;
 			
-			// aapt resource value: 0x7f090004
-			public const int typeLesson = 2131296260;
+			// aapt resource value: 0x7f09000b
+			public const int faculty = 2131296267;
+			
+			// aapt resource value: 0x7f090011
+			public const int group = 2131296273;
+			
+			// aapt resource value: 0x7f090008
+			public const int imageLocation = 2131296264;
+			
+			// aapt resource value: 0x7f090007
+			public const int imageTeacher = 2131296263;
+			
+			// aapt resource value: 0x7f090015
+			public const int liner_layout = 2131296277;
+			
+			// aapt resource value: 0x7f090006
+			public const int nameLesson = 2131296262;
+			
+			// aapt resource value: 0x7f09000a
+			public const int nameLocation = 2131296266;
+			
+			// aapt resource value: 0x7f090009
+			public const int nameTeacher = 2131296265;
+			
+			// aapt resource value: 0x7f090002
+			public const int number = 2131296258;
+			
+			// aapt resource value: 0x7f09000d
+			public const int specialty = 2131296269;
+			
+			// aapt resource value: 0x7f090010
+			public const int spinnerCourse = 2131296272;
+			
+			// aapt resource value: 0x7f09000c
+			public const int spinnerFaculty = 2131296268;
+			
+			// aapt resource value: 0x7f090012
+			public const int spinnerGroup = 2131296274;
 			
 			// aapt resource value: 0x7f09000e
-			public const int сourse = 2131296270;
+			public const int spinnerSpecialty = 2131296270;
+			
+			// aapt resource value: 0x7f090013
+			public const int tableRow1 = 2131296275;
+			
+			// aapt resource value: 0x7f090003
+			public const int textView3 = 2131296259;
+			
+			// aapt resource value: 0x7f090004
+			public const int timeEnd = 2131296260;
+			
+			// aapt resource value: 0x7f090001
+			public const int timeStart = 2131296257;
+			
+			// aapt resource value: 0x7f090005
+			public const int typeLesson = 2131296261;
+			
+			// aapt resource value: 0x7f09000f
+			public const int сourse = 2131296271;
 			
 			static Id()
 			{
@@ -245,7 +245,7 @@ namespace Bukep.Sheduler
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int card_lesson_viwe = 2130903040;
+			public const int Card_lesson_viwe = 2130903040;
 			
 			// aapt resource value: 0x7f030001
 			public const int IdentifyScheduleLayout = 2130903041;
