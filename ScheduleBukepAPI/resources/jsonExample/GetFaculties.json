@@ -1,0 +1,72 @@
+﻿[
+  {
+    "idFaculty": 10004,
+    "name": "Второго высшего образования и магистерской подготовки",
+    "isActiveSchedule": true
+  },
+  {
+    "idFaculty": 9,
+    "name": "Заочного обучения",
+    "isActiveSchedule": true
+  },
+  {
+    "idFaculty": 10,
+    "name": "Общественного питания и товароведения",
+    "isActiveSchedule": true
+  },
+  {
+    "idFaculty": 12,
+    "name": "Отдел аспирантуры",
+    "isActiveSchedule": false
+  },
+  {
+    "idFaculty": 14,
+    "name": "Подготовительный факультет",
+    "isActiveSchedule": false
+  },
+  {
+    "idFaculty": 10045,
+    "name": "СПО - заочная форма",
+    "isActiveSchedule": false
+  },
+  {
+    "idFaculty": 1,
+    "name": "Среднего профессионального образования",
+    "isActiveSchedule": false
+  },
+  {
+    "idFaculty": 10083,
+    "name": "Среднего профессионального образования №1",
+    "isActiveSchedule": true
+  },
+  {
+    "idFaculty": 10084,
+    "name": "Среднего профессионального образования №2",
+    "isActiveSchedule": true
+  },
+  {
+    "idFaculty": 7,
+    "name": "Таможенного дела и информационных технологий",
+    "isActiveSchedule": true
+  },
+  {
+    "idFaculty": 10046,
+    "name": "Учебно-методический центр",
+    "isActiveSchedule": false
+  },
+  {
+    "idFaculty": 15,
+    "name": "Учебно-методический центр повышения квалификации и переподготовки кадров",
+    "isActiveSchedule": false
+  },
+  {
+    "idFaculty": 11,
+    "name": "Экономики и менеджмента",
+    "isActiveSchedule": true
+  },
+  {
+    "idFaculty": 8,
+    "name": "Юридический",
+    "isActiveSchedule": true
+  }
+]

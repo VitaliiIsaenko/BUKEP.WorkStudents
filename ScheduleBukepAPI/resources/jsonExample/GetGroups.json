@@ -1,0 +1,75 @@
+﻿[
+  {
+    "idsSchedulGroup": [
+      5199
+    ],
+    "nameGroup": "БД-41",
+    "affixusNameGroup": "(9)",
+    "nameGroupOld": "БД9(3+)-11",
+    "idSemestr": 1,
+    "nameTypeShedule": "(расписание на семестр)",
+    "scheduleDateFrom": "01.09.2016",
+    "scheduleDateTo": "19.02.2017"
+  },
+  {
+    "idsSchedulGroup": [
+      6901
+    ],
+    "nameGroup": "БД-41",
+    "affixusNameGroup": "(9)",
+    "nameGroupOld": "БД9(3+)-11",
+    "idSemestr": 1,
+    "nameTypeShedule": "(сессия)",
+    "scheduleDateFrom": "15.04.2017",
+    "scheduleDateTo": "23.04.2017"
+  },
+  {
+    "idsSchedulGroup": [
+      5200
+    ],
+    "nameGroup": "БД-42",
+    "affixusNameGroup": "(9)",
+    "nameGroupOld": "БД9(3+)-12",
+    "idSemestr": 1,
+    "nameTypeShedule": "(расписание на семестр)",
+    "scheduleDateFrom": "01.09.2016",
+    "scheduleDateTo": "19.02.2017"
+  },
+  {
+    "idsSchedulGroup": [
+      7016
+    ],
+    "nameGroup": "БД-42",
+    "affixusNameGroup": "(9)",
+    "nameGroupOld": "БД9(3+)-12",
+    "idSemestr": 1,
+    "nameTypeShedule": "(сессия)",
+    "scheduleDateFrom": "15.04.2017",
+    "scheduleDateTo": "23.04.2017"
+  },
+  {
+    "idsSchedulGroup": [
+      5200,
+      5201
+    ],
+    "nameGroup": "БД-43",
+    "affixusNameGroup": "(9)",
+    "nameGroupOld": "БД9(3+)-13",
+    "idSemestr": 1,
+    "nameTypeShedule": "(расписание на семестр)",
+    "scheduleDateFrom": "01.09.2016",
+    "scheduleDateTo": "19.02.2017"
+  },
+  {
+    "idsSchedulGroup": [
+      7016
+    ],
+    "nameGroup": "БД-43",
+    "affixusNameGroup": "(9)",
+    "nameGroupOld": "БД9(3+)-13",
+    "idSemestr": 1,
+    "nameTypeShedule": "(сессия)",
+    "scheduleDateFrom": "15.04.2017",
+    "scheduleDateTo": "23.04.2017"
+  }
+]

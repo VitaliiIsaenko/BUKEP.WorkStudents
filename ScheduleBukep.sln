@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleBukep", "ScheduleBukep\ScheduleBukep.csproj", "{9BFFB9F6-CFF9-4FC3-9591-C724B55CDD3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleBukepAPI", "ScheduleBukepAPI\ScheduleBukepAPI.csproj", "{6C7E5E15-F4E0-40B7-9D2F-78D93B927CBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleBukepAPITest", "ScheduleBukepAPITest\ScheduleBukepAPITest.csproj", "{67639A80-8308-4198-9329-510166AD0E83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +21,14 @@ Global
 		{9BFFB9F6-CFF9-4FC3-9591-C724B55CDD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BFFB9F6-CFF9-4FC3-9591-C724B55CDD3C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9BFFB9F6-CFF9-4FC3-9591-C724B55CDD3C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6C7E5E15-F4E0-40B7-9D2F-78D93B927CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C7E5E15-F4E0-40B7-9D2F-78D93B927CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C7E5E15-F4E0-40B7-9D2F-78D93B927CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C7E5E15-F4E0-40B7-9D2F-78D93B927CBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67639A80-8308-4198-9329-510166AD0E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67639A80-8308-4198-9329-510166AD0E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67639A80-8308-4198-9329-510166AD0E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67639A80-8308-4198-9329-510166AD0E83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
