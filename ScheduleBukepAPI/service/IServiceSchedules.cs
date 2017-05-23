@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Bukep.ShedulerApi.apiDTO;
+using ScheduleBukepAPI.domain;
 
-namespace Bukep.ShedulerApi
+namespace ScheduleBukepAPI.service
 {
-    interface IServiceSchedules
+    public interface IServiceSchedules
     {
-        List<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo);
+        IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo);
     }
 }

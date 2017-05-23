@@ -43,17 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="apiDTO\Courses.cs" />
-    <Compile Include="apiDTO\Faculty.cs" />
-    <Compile Include="apiDTO\Group.cs" />
-    <Compile Include="apiDTO\GroupLesson.cs" />
-    <Compile Include="apiDTO\Specialty.cs" />
+    <Compile Include="domain\Courses.cs" />
+    <Compile Include="domain\Faculty.cs" />
+    <Compile Include="domain\Group.cs" />
+    <Compile Include="domain\GroupLesson.cs" />
+    <Compile Include="domain\Specialty.cs" />
     <Compile Include="FacadeAPI.cs" />
-    <Compile Include="helper\DTOBuilder.cs" />
-    <Compile Include="helper\fake\ServiceFacultiesFake.cs" />
-    <Compile Include="helper\fake\ServiceSchedulesFake.cs" />
-    <Compile Include="helper\HttpRequstHelper.cs" />
-    <Compile Include="helper\JSONConvert.cs" />
+    <Compile Include="helpers\HttpRequstHelper.cs" />
+    <Compile Include="helpers\JSONConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="service\IServiceFaculties.cs" />
     <Compile Include="service\IServiceSchedules.cs" />

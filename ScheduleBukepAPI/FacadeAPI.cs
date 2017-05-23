@@ -1,54 +1,55 @@
 ﻿using System.Collections.Generic;
-using Bukep.ShedulerApi.apiDTO;
 using System.Linq;
+using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.service;
 
-namespace Bukep.ShedulerApi
+namespace ScheduleBukepAPI
 {
-    public static class FacadeAPI
+    public static class FacadeApi
     {
-        private static IServiceFaculties serviceFaculties = new ServiceFaculties();
-        private static IServiceSchedules serviceSchedules = new ServiceSchedules();
+        private static IServiceFaculties ServiceFaculties { get; set; }
+        private static IServiceSchedules ServiceSchedules { get; set; }
 
-        private const string year = "2016";
-        private const string idFilial = "1000";
+        private const string Year = "2016";
+        private const string IdFilial = "1000";
 
-        public static List<Faculty> GetFaculties()
+        static FacadeApi()
         {
-            return serviceFaculties.GetFaculties(year, idFilial);
+            ServiceFaculties = new ServiceFaculties();
+            ServiceSchedules = new ServiceSchedules();
         }
 
-        public static List<Specialty> GetSpecialtys(string idFaculty)
+        public static IList<Faculty> GetFaculties()
         {
-            return serviceFaculties.GetSpecialtys(year, idFilial, idFaculty);
+            return ServiceFaculties.GetFaculties(Year, IdFilial);
         }
 
-        public static List<Group> GetGroups(string idFaculty, string idCourse, string idsSpecialty)
+        public static IList<Specialty> GetSpecialtys(string idFaculty)
         {
-            return serviceFaculties.GetGroups(year, idFilial, idFaculty, idCourse, idsSpecialty);
+            return ServiceFaculties.GetSpecialtys(Year, IdFilial, idFaculty);
         }
 
-        public static List<Courses> GetCourses(string idFaculty, string idsSpecialty)
+        public static IList<Group> GetGroups(string idFaculty, string idCourse, string idsSpecialty)
         {
-            return serviceFaculties.GetCourses(year, idFilial, idFaculty, idsSpecialty);
+            return ServiceFaculties.GetGroups(Year, IdFilial, idFaculty, idCourse, idsSpecialty);
         }
 
-        public static List<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        public static IList<Courses> GetCourses(string idFaculty, string idsSpecialty)
         {
-            return serviceSchedules.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
+            return ServiceFaculties.GetCourses(Year, IdFilial, idFaculty, idsSpecialty);
+        }
+
+        public static IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        {
+            return ServiceSchedules.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
         }
 
         public static string ConvertIdsToString(IList<int> ids)
         {
             if (ids == null) return "";
-            string result = string.Join(",", ids.ToArray());
+            var result = string.Join(",", ids.ToArray());
             result = "[" + result + "]";
             return result;
         }
-
-        public static void UseServiceFake()
-        {
-            serviceFaculties = new ServiceFacultiesFake();
-            serviceSchedules = new ServiceSchedulesFake();
-    }
     }
 }

@@ -1,20 +1,20 @@
-﻿
-using System.Collections.Generic;
-using Bukep.ShedulerApi.apiDTO;
-using Bukep.ShedulerApi;
+﻿using System.Collections.Generic;
+using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 
-class ServiceSchedules : IServiceSchedules
+namespace ScheduleBukepAPI.service
 {
-   
-
-    public List<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+    internal class ServiceSchedules : IServiceSchedules
     {
-        var parameters = new Dictionary<string, string>
+        public IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
         {
-            { "dateFrom", dateFrom },
-            { "dateTo", dateTo }
-        };
-        string json = HttpRequstHelper.ExecutePost("GetGroupLessons", parameters, idsSheduleGroup);
-        return JSONConvert.ConvertJSONToListDTO<GroupLesson>(json);
+            var parameters = new Dictionary<string, string>
+            {
+                { "dateFrom", dateFrom },
+                { "dateTo", dateTo }
+            };
+            var json = HttpRequstHelper.ExecutePost("GetGroupLessons", parameters, idsSheduleGroup);
+            return JsonConvert.ConvertToList<GroupLesson>(json);
+        }
     }
 }

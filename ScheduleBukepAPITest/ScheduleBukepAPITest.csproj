@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fake\DtoFactoryFake.cs" />
+    <Compile Include="fake\ServiceFacultiesFake.cs" />
+    <Compile Include="fake\ServiceSchedulesFake.cs" />
     <Compile Include="MainStart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

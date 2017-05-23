@@ -1,10 +1,11 @@
-﻿using Bukep.ShedulerApi.apiDTO;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 
-namespace Bukep.ShedulerApi
+namespace ScheduleBukepAPI.service
 {
     //TODO: Заменить List на IEnumerable
-    class ServiceFaculties : IServiceFaculties
+    internal class ServiceFaculties : IServiceFaculties
     {
         public List<Faculty> GetFaculties(string year, string idFilial)
         {
@@ -13,8 +14,8 @@ namespace Bukep.ShedulerApi
                 { "year", year },
                 { "idFilial", idFilial }
             };
-            string json = HttpRequstHelper.ExecuteGet("GetFaculties", parameters);
-            return JSONConvert.ConvertJSONToListDTO<Faculty>(json);
+            var json = HttpRequstHelper.ExecuteGet("GetFaculties", parameters);
+            return JsonConvert.ConvertToList<Faculty>(json);
         }
 
         public List<Specialty> GetSpecialtys(string year, string idFilial, string idFaculty)
@@ -25,8 +26,8 @@ namespace Bukep.ShedulerApi
                 { "idFilial", idFilial },
                 { "idFaculty", idFaculty }
             };
-            string json = HttpRequstHelper.ExecuteGet("GetSpecialtys", parameters);
-            return JSONConvert.ConvertJSONToListDTO<Specialty>(json);
+            var json = HttpRequstHelper.ExecuteGet("GetSpecialtys", parameters);
+            return JsonConvert.ConvertToList<Specialty>(json);
         }
 
         public List<Courses> GetCourses(string year, string idFilial, string idFaculty, string idsSpecialty)
@@ -37,8 +38,8 @@ namespace Bukep.ShedulerApi
                 { "idFilial", idFilial },
                 { "idFaculty", idFaculty }
             };
-            string json = HttpRequstHelper.ExecutePost("GetCourses", parameters, idsSpecialty);
-            return JSONConvert.ConvertJSONToListDTO<Courses>(json);
+            var json = HttpRequstHelper.ExecutePost("GetCourses", parameters, idsSpecialty);
+            return JsonConvert.ConvertToList<Courses>(json);
         }
 
         public List<Group> GetGroups(string year, string idFilial, string idFaculty, string idCourse, string idsSpecialty)
@@ -50,8 +51,8 @@ namespace Bukep.ShedulerApi
                 { "idFaculty", idFaculty },
                 { "idCourse", idCourse }
             };
-            string json = HttpRequstHelper.ExecutePost("GetGroups", parameters, idsSpecialty);
-            return JSONConvert.ConvertJSONToListDTO<Group>(json);
+            var json = HttpRequstHelper.ExecutePost("GetGroups", parameters, idsSpecialty);
+            return JsonConvert.ConvertToList<Group>(json);
         }
     }
 

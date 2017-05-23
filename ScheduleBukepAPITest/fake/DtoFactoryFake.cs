@@ -1,16 +1,15 @@
-﻿using System;
-using Bukep.ShedulerApi.apiDTO;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ScheduleBukepAPI.domain;
 
-namespace Bukep.ShedulerApi
+namespace ScheduleBukepAPITest.fake
 {
-    internal static class DTOBuilderFake
+    internal static class DtoFactoryFake
     {
         internal static Courses CreateCourses(string name, string idFaculty, string idsSpecialty)
         {
             return new Courses()
             {
-                NameCourse = string.Format("{0} {1} {2}", idFaculty, idsSpecialty, name),
+                NameCourse = $"{idFaculty} {idsSpecialty} {name}",
                 IdCourse = name
             };
         }
@@ -19,7 +18,7 @@ namespace Bukep.ShedulerApi
         {
             return new Faculty()
             {
-                Name = string.Format("{0} {1}", id, name),
+                Name = $"{id} {name}",
                 IdFaculty = name
             };
         }
@@ -36,19 +35,19 @@ namespace Bukep.ShedulerApi
         {
             return new Group()
             {
-                NameGroup = string.Format("{0} {1} {2} {3}", idFaculty, idsSpecialty, idCourse, name),
+                NameGroup = $"{idFaculty} {idsSpecialty} {idCourse} {name}",
             };
         }
 
         internal static Specialty CreateSpecialty(string name, string id)
         {
-            List<int> ids = new List<int>
+            var ids = new List<int>
             {
                 int.Parse(name)
             };
             return new Specialty()
             {
-                NameSpeciality = string.Format("{0} {1}", id, name),
+                NameSpeciality = $"{id} {name}",
                 IdsSpecialty = ids
             };
         }

@@ -1,4 +1,4 @@
-﻿namespace Bukep.ShedulerApi.apiDTO
+﻿namespace ScheduleBukepAPI.domain
 {
     /// <summary>
     ///  DTO from API method GetFaculties.

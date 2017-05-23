@@ -1,4 +1,4 @@
-﻿namespace Bukep.ShedulerApi.apiDTO
+﻿namespace ScheduleBukepAPI.domain
 {
     public class GroupLesson
     {

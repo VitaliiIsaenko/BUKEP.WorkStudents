@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Bukep.ShedulerApi.apiDTO;
+using ScheduleBukepAPI.domain;
 
-namespace Bukep.ShedulerApi
+namespace ScheduleBukepAPI.service
 {
-    interface IServiceFaculties
+    public interface IServiceFaculties
     {
         List<Courses> GetCourses(string year, string idFilial, string idFaculty, string idsSpecialty);
         List<Faculty> GetFaculties(string year, string idFilial);
