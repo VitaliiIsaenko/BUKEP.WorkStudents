@@ -1,79 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
-using Bukep.ShedulerApi;
-using Bukep.ShedulerApi.apiDTO;
 using Android.Widget;
 using Android.Views;
-using Java.Lang;
-using Android.Runtime;
 using Android.Content;
-using Bukep.Sheduler.src;
-using Android.OS;
+using ScheduleBukepAPI;
+using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
-    class IdentifySchedule : IController
+    internal class IdentifySchedule : IController
     {
-        private IdentifyScheduleActivity view;
+        private readonly IdentifyScheduleActivity _view;
 
-        private Faculty selectedFaculty;
-        private Specialty selectedSpecialty;
-        private Courses selectedCourse;
-        private Group selectedGroup;
+        private Faculty _selectedFaculty;
+        private Specialty _selectedSpecialty;
+        private Courses _selectedCourse;
+        private Group _selectedGroup;
 
         public IdentifySchedule(IdentifyScheduleActivity view)
         {
-            this.view = view;
-            //FacadeAPI.UseServiceFake();
+            _view = view;
         }
 
         public void Update()
         {
-            List<Faculty> faculties = FacadeAPI.GetFaculties();           
-            view.ShowFaculty(faculties);
-            view.SetButtoneShowClickable(false);
+            var faculties = FacadeApi.GetFaculties();           
+            _view.ShowFaculty(faculties);
+            _view.SetButtoneShowClickable(false);
         }
 
         public void SelectFaculty(Faculty faculty)
         {
-            selectedFaculty = faculty;
-            List<Specialty> specialtys = FacadeAPI.GetSpecialtys(faculty.IdFaculty);
-            view.ShowSpecialtys(specialtys);
+            _selectedFaculty = faculty;
+            var specialtys = FacadeApi.GetSpecialtys(faculty.IdFaculty);
+            _view.ShowSpecialtys(specialtys);
         }
 
         public void SelectSpecialt(Specialty specialty)
         {
-            selectedSpecialty = specialty;
-            List<Courses> courses = FacadeAPI.GetCourses(
-                selectedFaculty.IdFaculty,
-                FacadeAPI.ConvertIdsToString(specialty.IdsSpecialty)
+            _selectedSpecialty = specialty;
+            var courses = FacadeApi.GetCourses(
+                _selectedFaculty.IdFaculty,
+                FacadeApi.ConvertIdsToString(specialty.IdsSpecialty)
                 );
-            view.ShowCourses(courses);
+            _view.ShowCourses(courses);
         }
 
         public void SelectCourses(Courses cours)
         {
-            selectedCourse = cours;
-            List<Group> groups = FacadeAPI.GetGroups(
-                selectedFaculty.IdFaculty,
-                selectedCourse.IdCourse,
-                FacadeAPI.ConvertIdsToString(selectedSpecialty.IdsSpecialty)
+            _selectedCourse = cours;
+            var groups = FacadeApi.GetGroups(
+                _selectedFaculty.IdFaculty,
+                _selectedCourse.IdCourse,
+                FacadeApi.ConvertIdsToString(_selectedSpecialty.IdsSpecialty)
                 );
-            view.ShowGroup(groups);
+            _view.ShowGroup(groups);
         }
 
         public void SelectGroup(Group group)
         {
-            selectedGroup = group;
-            view.SetButtoneShowClickable(true);
+            _selectedGroup = group;
+            _view.SetButtoneShowClickable(true);
         }
 
         internal void ClickeButtoneShow()
         {
-            var intent = new Intent(view, typeof(ScheduleActivity));
-            string jsonGroup = JSONConvert.ConvertDTOToJSON<Group>(selectedGroup);
+            var intent = new Intent(_view, typeof(ScheduleActivity));
+            var jsonGroup = JsonConvert.ConvertToJson(_selectedGroup);
             intent.PutExtra(ScheduleActivity.DataKeyGroupsJson, jsonGroup);
-            view.StartActivity(intent);
+            _view.StartActivity(intent);
         }
     }
 
@@ -82,21 +78,18 @@ namespace Bukep.Sheduler.Controllers
     /// Приэтом иметь возможность получить DTO.
     /// </summary>
     /// <typeparam name="T">DTO для DTOAdapter</typeparam>
-    abstract class DTOAdapter<T> : BaseAdapter
+    internal abstract class DtoAdapter<T> : BaseAdapter
     {
-        private IList<T> objects;
-        private Context context;
+        private readonly IList<T> _objects;
+        private readonly Context _context;
 
-        public DTOAdapter(IList<T> objects, Context context)
+        protected DtoAdapter(IList<T> objects, Context context)
         {
-            this.context = context;
-            this.objects = objects;
+            _context = context;
+            _objects = objects;
         }
 
-        public override int Count
-        {
-            get { return objects.Count; }
-        }
+        public override int Count => _objects.Count;
 
         public override Java.Lang.Object GetItem(int position)
         {
@@ -110,15 +103,8 @@ namespace Bukep.Sheduler.Controllers
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            string text;
-            if(position == 0)
-            {
-                text = "select";
-            } else
-            {
-                text = ConvertDTOInString(objects[position]);
-            }
-            TextView textView = new TextView(context)
+            var text = position == 0 ? "select" : ConvertDtoInString(_objects[position]);
+            var textView = new TextView(_context)
             {
                 Text = text
             };
@@ -127,14 +113,14 @@ namespace Bukep.Sheduler.Controllers
 
         public T GetObject(int position)
         {
-            return objects[position];
+            return _objects[position];
         }
 
-        public abstract string ConvertDTOInString(T t);
+        public abstract string ConvertDtoInString(T t);
 
     }
 
-    internal class FacultyAdapter<T> : DTOAdapter<Faculty>
+    internal class FacultyAdapter : DtoAdapter<Faculty>
     {
         /// <summary>
         /// Добавляет пустой DTO в objects в позицию 0.
@@ -147,46 +133,46 @@ namespace Bukep.Sheduler.Controllers
             objects.Insert(0, new Faculty());
         }
 
-        public override string ConvertDTOInString(Faculty t)
+        public override string ConvertDtoInString(Faculty t)
         {
             return t.Name;
         }
     }
 
-    internal class SpecialtyAdapter<T> : DTOAdapter<Specialty>
+    internal class SpecialtyAdapter : DtoAdapter<Specialty>
     {
         public SpecialtyAdapter(IList<Specialty> objects, Context context) : base(objects, context)
         {
             objects.Insert(0, new Specialty());
         }
 
-        public override string ConvertDTOInString(Specialty t)
+        public override string ConvertDtoInString(Specialty t)
         {
             return t.NameSpeciality;
         }
     }
 
-    internal class CoursesAdapter<T> : DTOAdapter<Courses>
+    internal class CoursesAdapter : DtoAdapter<Courses>
     {
         public CoursesAdapter(IList<Courses> objects, Context context) : base(objects, context)
         {
             objects.Insert(0, new Courses());
         }
 
-        public override string ConvertDTOInString(Courses t)
+        public override string ConvertDtoInString(Courses t)
         {
             return t.NameCourse;
         }
     }
 
-    internal class GroupAdapter<T> : DTOAdapter<Group>
+    internal class GroupAdapter : DtoAdapter<Group>
     {
         public GroupAdapter(IList<Group> objects, Context context) : base(objects, context)
         {
             objects.Insert(0, new Group());
         }
 
-        public override string ConvertDTOInString(Group t)
+        public override string ConvertDtoInString(Group t)
         {
             return t.NameGroup;
         }

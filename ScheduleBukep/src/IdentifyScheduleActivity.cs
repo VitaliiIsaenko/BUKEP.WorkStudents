@@ -2,10 +2,10 @@
 using Android.Widget;
 using Android.OS;
 using System;
-using Bukep.ShedulerApi.apiDTO;
 using System.Collections.Generic;
 using Bukep.Sheduler.Controllers;
 using Android.Util;
+using ScheduleBukepAPI.domain;
 
 namespace Bukep.Sheduler
 {
@@ -22,116 +22,107 @@ namespace Bukep.Sheduler
     [Activity(Label = "ScheduleBukep", MainLauncher = true, Icon = "@drawable/icon")]
     public class IdentifyScheduleActivity : Activity
     {
-        private const string TAG = "IdentifyScheduleActivity";
-        private IdentifySchedule controller;
-        private DTOAdapter<Faculty> adapterFaculty;
-        private DTOAdapter<Specialty> adapterSpecialty;
-        private DTOAdapter<Courses> adapterCourses;
-        private DTOAdapter<Group>  adapterGroup;
+        private const string Tag = "IdentifyScheduleActivity";
+        private IdentifySchedule _controller;
+        private DtoAdapter<Faculty> _adapterFaculty;
+        private DtoAdapter<Specialty> _adapterSpecialty;
+        private DtoAdapter<Courses> _adapterCourses;
+        private DtoAdapter<Group> _adapterGroup;
 
-        private Button buttoneShow;
+        private Button _buttoneShow;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
 
-            buttoneShow = FindViewById<Button>(Resource.Id.buttoneShow);
-            buttoneShow.Click += new EventHandler(OnClickeButtoneShow);
+            _buttoneShow = FindViewById<Button>(Resource.Id.buttoneShow);
+            _buttoneShow.Click += OnClickeButtoneShow;
 
-            controller = new IdentifySchedule(this);
-            controller.Update();
+            _controller = new IdentifySchedule(this);
+            _controller.Update();
         }
 
         public void SetButtoneShowClickable(bool clickable)
         {
-            buttoneShow.Clickable = clickable;
+            _buttoneShow.Clickable = clickable;
         }
 
         private void OnClickeButtoneShow(object sender, EventArgs e)
         {
-            controller.ClickeButtoneShow();
+            _controller.ClickeButtoneShow();
         }
 
-        public void ShowGroup(List<Group> groups)
+        public void ShowGroup(IList<Group> groups)
         {
-            adapterGroup = new GroupAdapter<Group>(groups, this);
+            _adapterGroup = new GroupAdapter(groups, this);
 
-            Spinner spinnerGroup = FindViewById<Spinner>(Resource.Id.spinnerGroup);
-            spinnerGroup.Adapter = adapterGroup;
-            spinnerGroup.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(
-                SelectSpinnerGroup);
+            var spinnerGroup = FindViewById<Spinner>(Resource.Id.spinnerGroup);
+            spinnerGroup.Adapter = _adapterGroup;
+            spinnerGroup.ItemSelected += SelectSpinnerGroup;
         }
 
         private void SelectSpinnerGroup(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            int posotion = e.Position;
+            var posotion = e.Position;
             if (posotion == 0) return;
-            Spinner spinner = (Spinner)sender;
-            Group group = adapterGroup.GetObject(posotion);
-            Log.Info(TAG,"Group = " + group.NameGroup);
-            controller.SelectGroup(group);
+            var group = _adapterGroup.GetObject(posotion);
+            Log.Info(Tag, "Group = " + group.NameGroup);
+            _controller.SelectGroup(group);
         }
 
-        public void ShowCourses(List<Courses> courses)
+        public void ShowCourses(IList<Courses> courses)
         {
-            adapterCourses = new CoursesAdapter<Courses>(courses, this);
+            _adapterCourses = new CoursesAdapter(courses, this);
 
-            Spinner spinnerCourse = FindViewById<Spinner>(Resource.Id.spinnerCourse);
-            spinnerCourse.Adapter = adapterCourses;
-            spinnerCourse.ItemSelected +=
-                new EventHandler<AdapterView.ItemSelectedEventArgs>(SelectSpinnerCourses);
+            var spinnerCourse = FindViewById<Spinner>(Resource.Id.spinnerCourse);
+            spinnerCourse.Adapter = _adapterCourses;
+            spinnerCourse.ItemSelected += SelectSpinnerCourses;
         }
 
         private void SelectSpinnerCourses(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            int posotion = e.Position;
+            var posotion = e.Position;
             if (posotion == 0) return;
-            Spinner spinner = (Spinner)sender;
-            Courses cours = adapterCourses.GetObject(posotion);
-            Log.Info(TAG,"Courses = " + cours.NameCourse);
-            controller.SelectCourses(cours);
+            var cours = _adapterCourses.GetObject(posotion);
+            Log.Info(Tag, "Courses = " + cours.NameCourse);
+            _controller.SelectCourses(cours);
         }
 
-        public void ShowSpecialtys(List<Specialty> specialtys)
+        public void ShowSpecialtys(IList<Specialty> specialtys)
         {
-            adapterSpecialty = new SpecialtyAdapter<Specialty>(specialtys, this);
+            _adapterSpecialty = new SpecialtyAdapter(specialtys, this);
 
-            Spinner spinnerSpecialtys = FindViewById<Spinner>(Resource.Id.spinnerSpecialty);
-            spinnerSpecialtys.Adapter = adapterSpecialty;
-            spinnerSpecialtys.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(
-                SelectSpinnerSpecialtys);
+            var spinnerSpecialtys = FindViewById<Spinner>(Resource.Id.spinnerSpecialty);
+            spinnerSpecialtys.Adapter = _adapterSpecialty;
+            spinnerSpecialtys.ItemSelected += SelectSpinnerSpecialtys;
         }
 
         private void SelectSpinnerSpecialtys(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            int posotion = e.Position;
+            var posotion = e.Position;
             if (posotion == 0) return;
-            Spinner spinner = (Spinner)sender;
-            Specialty specialty = adapterSpecialty.GetObject(posotion);
-           Log.Info(TAG,"Specialtys = " + specialty.NameSpeciality);
-            controller.SelectSpecialt(specialty);
+            var specialty = _adapterSpecialty.GetObject(posotion);
+            Log.Info(Tag, "Specialtys = " + specialty.NameSpeciality);
+            _controller.SelectSpecialt(specialty);
         }
 
-        public void ShowFaculty(List<Faculty> faculties)
+        public void ShowFaculty(IList<Faculty> faculties)
         {
+            _adapterFaculty = new FacultyAdapter(faculties, this);
 
-            adapterFaculty = new FacultyAdapter<Faculty>(faculties, this);
-
-            Spinner spinnerFaculty = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
-            spinnerFaculty.Adapter = adapterFaculty;
-            spinnerFaculty.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(SelectSpinnerFaculty);
+            var spinnerFaculty = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
+            spinnerFaculty.Adapter = _adapterFaculty;
+            spinnerFaculty.ItemSelected += SelectSpinnerFaculty;
         }
 
         private void SelectSpinnerFaculty(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            int posotion = e.Position;
+            var posotion = e.Position;
             if (posotion == 0) return;
-            Spinner spinner = (Spinner)sender;
-            Faculty faculty = adapterFaculty.GetObject(posotion);
-            Log.Info(TAG,"Faculty = " + faculty.Name);
-            controller.SelectFaculty(faculty);
+            var faculty = _adapterFaculty.GetObject(posotion);
+            Log.Info(Tag, "Faculty = " + faculty.Name);
+            _controller.SelectFaculty(faculty);
         }
     }
 }
-
