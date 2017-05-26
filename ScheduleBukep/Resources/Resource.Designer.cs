@@ -180,17 +180,20 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f090008
 			public const int imageLocation = 2131296264;
 			
+			// aapt resource value: 0x7f090004
+			public const int imageSeparator = 2131296260;
+			
 			// aapt resource value: 0x7f090007
 			public const int imageTeacher = 2131296263;
 			
 			// aapt resource value: 0x7f090015
 			public const int liner_layout = 2131296277;
 			
+			// aapt resource value: 0x7f09000a
+			public const int nameAudience = 2131296266;
+			
 			// aapt resource value: 0x7f090006
 			public const int nameLesson = 2131296262;
-			
-			// aapt resource value: 0x7f09000a
-			public const int nameLocation = 2131296266;
 			
 			// aapt resource value: 0x7f090009
 			public const int nameTeacher = 2131296265;
@@ -217,13 +220,10 @@ namespace Bukep.Sheduler
 			public const int tableRow1 = 2131296275;
 			
 			// aapt resource value: 0x7f090003
-			public const int textView3 = 2131296259;
-			
-			// aapt resource value: 0x7f090004
-			public const int timeEnd = 2131296260;
+			public const int timeEndLesson = 2131296259;
 			
 			// aapt resource value: 0x7f090001
-			public const int timeStart = 2131296257;
+			public const int timeStartLesson = 2131296257;
 			
 			// aapt resource value: 0x7f090005
 			public const int typeLesson = 2131296261;
@@ -245,7 +245,7 @@ namespace Bukep.Sheduler
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Card_lesson_viwe = 2130903040;
+			public const int CardViewLesson = 2130903040;
 			
 			// aapt resource value: 0x7f030001
 			public const int IdentifyScheduleLayout = 2130903041;
