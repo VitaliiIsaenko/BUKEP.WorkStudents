@@ -12,6 +12,8 @@ namespace Bukep.Sheduler.Controllers
     internal class IdentifySchedule : IController
     {
         private readonly IdentifyScheduleActivity _view;
+        private readonly FacadeApi _facadeApi = new FacadeApi();
+        private readonly JsonConvert _jsonConvert = new JsonConvert();
 
         private Faculty _selectedFaculty;
         private Specialty _selectedSpecialty;
@@ -32,14 +34,14 @@ namespace Bukep.Sheduler.Controllers
             _view.CourseSpinnerEnabled(false);
             _view.GroupSpinnerEnabled(false);
 
-            var faculties = FacadeApi.GetFaculties();
+            var faculties = _facadeApi.GetFaculties();
             _view.ShowFaculty(faculties);
         }
 
         public void SelectFaculty(Faculty faculty)
         {
             _selectedFaculty = faculty;
-            var specialtys = FacadeApi.GetSpecialtys(faculty.IdFaculty);
+            var specialtys = _facadeApi.GetSpecialtys(faculty.IdFaculty);
             _view.ShowSpecialtys(specialtys);
 
             _view.SpecialtysSpinnerEnabled(true);
@@ -50,7 +52,7 @@ namespace Bukep.Sheduler.Controllers
         public void SelectSpecialt(Specialty specialty)
         {
             _selectedSpecialty = specialty;
-            var courses = FacadeApi.GetCourses(
+            var courses = _facadeApi.GetCourses(
                 _selectedFaculty.IdFaculty,
                 FacadeApi.ConvertIdsToString(specialty.IdsSpecialty)
                 );
@@ -64,7 +66,7 @@ namespace Bukep.Sheduler.Controllers
         public void SelectCourses(Courses cours)
         {
             _selectedCourse = cours;
-            var groups = FacadeApi.GetGroups(
+            var groups = _facadeApi.GetGroups(
                 _selectedFaculty.IdFaculty,
                 _selectedCourse.IdCourse,
                 FacadeApi.ConvertIdsToString(_selectedSpecialty.IdsSpecialty)
@@ -85,7 +87,7 @@ namespace Bukep.Sheduler.Controllers
         internal void ClickeButtoneShow()
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
-            var jsonGroup = JsonConvert.ConvertToJson(_selectedGroup);
+            var jsonGroup = _jsonConvert.ConvertToJson(_selectedGroup);
             intent.PutExtra(ScheduleActivity.DataKeyGroupsJson, jsonGroup);
             _view.StartActivity(intent);
         }

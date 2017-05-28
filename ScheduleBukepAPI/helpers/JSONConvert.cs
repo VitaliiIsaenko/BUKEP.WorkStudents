@@ -6,17 +6,17 @@ namespace ScheduleBukepAPI.helpers
     {
         public List<T> ConvertToList<T>(string json)
         {
-            return Newtonsoft.Json.DeserializeObject<List<T>>(json);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<List<T>>(json);
         }
 
         public T ConvertTo<T>(string json)
         {
-            return Newtonsoft.Json.DeserializeObject<T>(json);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(json);
         }
 
         public string ConvertToJson<T>(T dto)
         {
-            return Newtonsoft.Json.SerializeObject(dto);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(dto);
         }
     }
 }

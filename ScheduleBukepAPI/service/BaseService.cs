@@ -23,27 +23,27 @@ namespace ScheduleBukepAPI.service
         {
         }
 
-        public List<T> ConvertToList<T>(string json)
+        protected List<T> ConvertToList<T>(string json)
         {
             return _jsonConvert.ConvertToList<T>(json);
         }
 
-        public T ConvertTo<T>(string json)
+        protected T ConvertTo<T>(string json)
         {
             return _jsonConvert.ConvertTo<T>(json);
         }
 
-        public string ConvertToJson<T>(T dto)
+        protected string ConvertToJson<T>(T dto)
         {
             return _jsonConvert.ConvertToJson(dto);
         }
 
-        public string ExecuteGet(string nameMethod, IDictionary<string, string> parameters)
+        protected string ExecuteGet(string nameMethod, IDictionary<string, string> parameters)
         {
             return _httpRequestHelper.ExecuteGet(nameMethod, parameters);
         }
 
-        public string ExecutePost(string nameMethod, IDictionary<string, string> parameters,
+        protected string ExecutePost(string nameMethod, IDictionary<string, string> parameters,
             string bodyForPost)
         {
             return _httpRequestHelper.ExecutePost(nameMethod, parameters, bodyForPost);

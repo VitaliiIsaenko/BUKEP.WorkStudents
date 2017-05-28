@@ -16,6 +16,8 @@ namespace Bukep.Sheduler
     public class ScheduleActivity : Activity
     {
         private const string Tag = "ScheduleActivity";
+        private readonly JsonConvert _jsonConvert = new JsonConvert();
+        private readonly FacadeApi _facadeApi = new FacadeApi();
         public const string DataKeyGroupsJson = "GroupJson";
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -29,7 +31,7 @@ namespace Bukep.Sheduler
             var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
             var todayString = TodayString();
             var groupLessons =
-                FacadeApi.GetGroupLessons(ids, todayString, todayString);
+                _facadeApi.GetGroupLessons(ids, todayString, todayString);
 
             var linearLayout = FindViewById<LinearLayout>(Resource.Id.liner_layout);
             linearLayout.RemoveAllViews();
@@ -78,7 +80,7 @@ namespace Bukep.Sheduler
         {
             var jsonGroup = Intent.GetStringExtra(DataKeyGroupsJson);
             Log.Info(Tag, "jsonGroup = " + jsonGroup);
-            var group = JsonConvert.ConvertTo<Group>(jsonGroup);
+            var group = _jsonConvert.ConvertTo<Group>(jsonGroup);
             return group;
         }
     }
