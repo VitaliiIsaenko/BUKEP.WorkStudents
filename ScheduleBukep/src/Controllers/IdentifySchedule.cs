@@ -24,10 +24,16 @@ namespace Bukep.Sheduler.Controllers
         }
 
         public void Update()
-        {
-            var faculties = FacadeApi.GetFaculties();           
-            _view.ShowFaculty(faculties);
+        {        
             _view.SetButtoneShowClickable(false);
+
+
+            _view.SpecialtysSpinnerEnabled(false);
+            _view.CourseSpinnerEnabled(false);
+            _view.GroupSpinnerEnabled(false);
+
+            var faculties = FacadeApi.GetFaculties();
+            _view.ShowFaculty(faculties);
         }
 
         public void SelectFaculty(Faculty faculty)
@@ -35,6 +41,10 @@ namespace Bukep.Sheduler.Controllers
             _selectedFaculty = faculty;
             var specialtys = FacadeApi.GetSpecialtys(faculty.IdFaculty);
             _view.ShowSpecialtys(specialtys);
+
+            _view.SpecialtysSpinnerEnabled(true);
+            _view.CourseSpinnerEnabled(false);
+            _view.GroupSpinnerEnabled(false);
         }
 
         public void SelectSpecialt(Specialty specialty)
@@ -45,6 +55,10 @@ namespace Bukep.Sheduler.Controllers
                 FacadeApi.ConvertIdsToString(specialty.IdsSpecialty)
                 );
             _view.ShowCourses(courses);
+
+            _view.SpecialtysSpinnerEnabled(true);
+            _view.CourseSpinnerEnabled(true);
+            _view.GroupSpinnerEnabled(false);
         }
 
         public void SelectCourses(Courses cours)
@@ -56,6 +70,10 @@ namespace Bukep.Sheduler.Controllers
                 FacadeApi.ConvertIdsToString(_selectedSpecialty.IdsSpecialty)
                 );
             _view.ShowGroup(groups);
+
+            _view.SpecialtysSpinnerEnabled(true);
+            _view.CourseSpinnerEnabled(true);
+            _view.GroupSpinnerEnabled(true);
         }
 
         public void SelectGroup(Group group)

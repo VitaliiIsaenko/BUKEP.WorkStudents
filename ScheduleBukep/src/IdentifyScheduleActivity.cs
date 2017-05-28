@@ -1,128 +1,159 @@
-﻿using Android.App;
-using Android.Widget;
-using Android.OS;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Bukep.Sheduler.Controllers;
+using Android.App;
+using Android.OS;
 using Android.Util;
+using Android.Widget;
+using Bukep.Sheduler.Controllers;
 using ScheduleBukepAPI.domain;
 
 namespace Bukep.Sheduler
 {
     /// <summary>
-    /// Данное Activity используется как форма идентификации для студентов.
-    /// Предоставляет пошаговый доступ к расписанию, состоящий из шагов:
-    /// -   выбор факультета
-    /// -	выбор специальности
-    /// -	выбор курса
-    /// -	выбор группы
-    /// После выполнение всех шагов появляется кнопка «показать».
-    /// Нажатие на эту кнопку открывает расписание по заданным параметрам.
+    ///     Данное Activity используется как форма идентификации для студентов.
+    ///     Предоставляет пошаговый доступ к расписанию, состоящий из шагов:
+    ///     -   выбор факультета
+    ///     -	выбор специальности
+    ///     -	выбор курса
+    ///     -	выбор группы
+    ///     После выполнение всех шагов появляется кнопка «показать».
+    ///     Нажатие на эту кнопку открывает расписание по заданным параметрам.
     /// </summary>
     [Activity(Label = "ScheduleBukep", MainLauncher = true, Icon = "@drawable/icon")]
     public class IdentifyScheduleActivity : Activity
     {
         private const string Tag = "IdentifyScheduleActivity";
-        private IdentifySchedule _controller;
-        private DtoAdapter<Faculty> _adapterFaculty;
-        private DtoAdapter<Specialty> _adapterSpecialty;
-        private DtoAdapter<Courses> _adapterCourses;
-        private DtoAdapter<Group> _adapterGroup;
+        private DtoAdapter<Courses> _coursesAdapter;
+        private DtoAdapter<Faculty> _facultyAdapter;
+        private DtoAdapter<Group> _groupAdapter;
+        private DtoAdapter<Specialty> _specialtyAdapter;
 
-        private Button _buttoneShow;
+        private Button _showSchedulesButtone;
+        private IdentifySchedule _controller;
+        private Spinner _specialtysSpinner;
+        private Spinner _courseSpinner;
+        private Spinner _groupSpinner;
+        private Spinner _facultySpinner;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
 
-            _buttoneShow = FindViewById<Button>(Resource.Id.buttoneShow);
-            _buttoneShow.Click += OnClickeButtoneShow;
+            InitSpinner();
+
+            _showSchedulesButtone = FindViewById<Button>(Resource.Id.buttoneShow);
+            _showSchedulesButtone.Click += OnClickeShowSchedulesButtone;          
 
             _controller = new IdentifySchedule(this);
             _controller.Update();
         }
 
-        public void SetButtoneShowClickable(bool clickable)
+        private void InitSpinner()
         {
-            _buttoneShow.Clickable = clickable;
+            _facultySpinner = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
+            _specialtysSpinner = FindViewById<Spinner>(Resource.Id.spinnerSpecialty);
+            _courseSpinner = FindViewById<Spinner>(Resource.Id.spinnerCourse);
+            _groupSpinner = FindViewById<Spinner>(Resource.Id.spinnerGroup);
         }
 
-        private void OnClickeButtoneShow(object sender, EventArgs e)
+        public void SetButtoneShowClickable(bool clickable)
+        {
+            _showSchedulesButtone.Clickable = clickable;
+        }
+
+        private void OnClickeShowSchedulesButtone(object sender, EventArgs e)
         {
             _controller.ClickeButtoneShow();
         }
 
         public void ShowGroup(IList<Group> groups)
         {
-            _adapterGroup = new GroupAdapter(groups, this);
+            _groupAdapter = new GroupAdapter(groups, this);
 
-            var spinnerGroup = FindViewById<Spinner>(Resource.Id.spinnerGroup);
-            spinnerGroup.Adapter = _adapterGroup;
-            spinnerGroup.ItemSelected += SelectSpinnerGroup;
+            _groupSpinner.Adapter = _groupAdapter;
+            _groupSpinner.ItemSelected += SelectGroupSpinner;
         }
 
-        private void SelectSpinnerGroup(object sender, AdapterView.ItemSelectedEventArgs e)
+        private void SelectGroupSpinner(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             var posotion = e.Position;
             if (posotion == 0) return;
-            var group = _adapterGroup.GetObject(posotion);
+            var group = _groupAdapter.GetObject(posotion);
             Log.Info(Tag, "Group = " + group.NameGroup);
             _controller.SelectGroup(group);
         }
 
         public void ShowCourses(IList<Courses> courses)
         {
-            _adapterCourses = new CoursesAdapter(courses, this);
+            _coursesAdapter = new CoursesAdapter(courses, this);
 
-            var spinnerCourse = FindViewById<Spinner>(Resource.Id.spinnerCourse);
-            spinnerCourse.Adapter = _adapterCourses;
-            spinnerCourse.ItemSelected += SelectSpinnerCourses;
+            
+            _courseSpinner.Adapter = _coursesAdapter;
+            _courseSpinner.ItemSelected += SelectCourseSpinner;
         }
 
-        private void SelectSpinnerCourses(object sender, AdapterView.ItemSelectedEventArgs e)
+        private void SelectCourseSpinner(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             var posotion = e.Position;
             if (posotion == 0) return;
-            var cours = _adapterCourses.GetObject(posotion);
+            var cours = _coursesAdapter.GetObject(posotion);
             Log.Info(Tag, "Courses = " + cours.NameCourse);
             _controller.SelectCourses(cours);
         }
 
         public void ShowSpecialtys(IList<Specialty> specialtys)
         {
-            _adapterSpecialty = new SpecialtyAdapter(specialtys, this);
+            _specialtyAdapter = new SpecialtyAdapter(specialtys, this);
 
-            var spinnerSpecialtys = FindViewById<Spinner>(Resource.Id.spinnerSpecialty);
-            spinnerSpecialtys.Adapter = _adapterSpecialty;
-            spinnerSpecialtys.ItemSelected += SelectSpinnerSpecialtys;
+            _specialtysSpinner.Adapter = _specialtyAdapter;
+            _specialtysSpinner.ItemSelected += SelectSpecialtysSpinner;
         }
 
-        private void SelectSpinnerSpecialtys(object sender, AdapterView.ItemSelectedEventArgs e)
+        private void SelectSpecialtysSpinner(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             var posotion = e.Position;
             if (posotion == 0) return;
-            var specialty = _adapterSpecialty.GetObject(posotion);
+            var specialty = _specialtyAdapter.GetObject(posotion);
             Log.Info(Tag, "Specialtys = " + specialty.NameSpeciality);
             _controller.SelectSpecialt(specialty);
         }
 
         public void ShowFaculty(IList<Faculty> faculties)
         {
-            _adapterFaculty = new FacultyAdapter(faculties, this);
+            _facultyAdapter = new FacultyAdapter(faculties, this);
 
-            var spinnerFaculty = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
-            spinnerFaculty.Adapter = _adapterFaculty;
-            spinnerFaculty.ItemSelected += SelectSpinnerFaculty;
+            _facultySpinner.Adapter = _facultyAdapter;
+            _facultySpinner.ItemSelected += SelectFacultySpinner;
         }
 
-        private void SelectSpinnerFaculty(object sender, AdapterView.ItemSelectedEventArgs e)
+        private void SelectFacultySpinner(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             var posotion = e.Position;
             if (posotion == 0) return;
-            var faculty = _adapterFaculty.GetObject(posotion);
+            var faculty = _facultyAdapter.GetObject(posotion);
             Log.Info(Tag, "Faculty = " + faculty.Name);
             _controller.SelectFaculty(faculty);
+        }
+
+        public void FacultySpinnerEnabled(bool enabled)
+        {
+            _facultySpinner.Enabled = enabled;
+        }
+
+        public void SpecialtysSpinnerEnabled(bool enabled)
+        {
+            _specialtysSpinner.Enabled = enabled;
+        }
+
+        public void CourseSpinnerEnabled(bool enabled)
+        {
+            _courseSpinner.Enabled = enabled;
+        }
+
+        public void GroupSpinnerEnabled(bool enabled)
+        {
+            _groupSpinner.Enabled = enabled;
         }
     }
 }
