@@ -3,7 +3,7 @@ using ScheduleBukepAPI.domain;
 
 namespace ScheduleBukepAPI.service
 {
-    public interface IServiceFaculties
+    public interface IFacultiesService
     {
         List<Courses> GetCourses(string year, string idFilial, string idFaculty, string idsSpecialty);
         List<Faculty> GetFaculties(string year, string idFilial);

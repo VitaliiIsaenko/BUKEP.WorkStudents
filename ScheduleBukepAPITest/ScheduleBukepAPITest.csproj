@@ -43,8 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="fake\DtoFactoryFake.cs" />
-    <Compile Include="fake\ServiceFacultiesFake.cs" />
-    <Compile Include="fake\ServiceSchedulesFake.cs" />
+    <Compile Include="fake\FacultiesServiceFake.cs" />
+    <Compile Include="fake\SchedulesServiceFake.cs" />
     <Compile Include="MainStart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

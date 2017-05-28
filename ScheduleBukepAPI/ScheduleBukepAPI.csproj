@@ -52,16 +52,13 @@
     <Compile Include="helpers\HttpRequstHelper.cs" />
     <Compile Include="helpers\JSONConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="service\IServiceFaculties.cs" />
-    <Compile Include="service\IServiceSchedules.cs" />
-    <Compile Include="service\ServiceFaculties.cs" />
-    <Compile Include="service\ServiceSchedules.cs" />
+    <Compile Include="service\IFacultiesService.cs" />
+    <Compile Include="service\ISchedulesService.cs" />
+    <Compile Include="service\FacultiesService.cs" />
+    <Compile Include="service\SchedulesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="resources\jsonExample\GetFaculties.json" />
-    <None Include="resources\jsonExample\GetGroups.json" />
-    <None Include="resources\jsonExample\GetSpecialtys.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

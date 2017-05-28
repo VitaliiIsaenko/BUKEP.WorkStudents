@@ -1,49 +1,64 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.service;
 
 namespace ScheduleBukepAPI
 {
-    public static class FacadeApi
+    /// <summary>
+    /// Нужен для упрощения работы с IFacultiesService и ISchedulesService.
+    /// </summary>
+    public class FacadeApi
     {
-        private static IServiceFaculties ServiceFaculties { get; set; }
-        private static IServiceSchedules ServiceSchedules { get; set; }
+        private static IFacultiesService _facultiesService;
+        private static ISchedulesService _schedulesService;
 
+        //TODO: написать метод который бы получал нужный год.
         private const string Year = "2016";
         private const string IdFilial = "1000";
 
-        static FacadeApi()
+        public FacadeApi(IFacultiesService facultiesService, ISchedulesService schedulesService)
         {
-            ServiceFaculties = new ServiceFaculties();
-            ServiceSchedules = new ServiceSchedules();
+            _facultiesService = facultiesService;
+            _schedulesService = schedulesService;
         }
 
-        public static IList<Faculty> GetFaculties()
+        public FacadeApi() : this(new FacultiesService(), new SchedulesService())
         {
-            return ServiceFaculties.GetFaculties(Year, IdFilial);
         }
 
-        public static IList<Specialty> GetSpecialtys(string idFaculty)
+        public IList<Faculty> GetFaculties()
         {
-            return ServiceFaculties.GetSpecialtys(Year, IdFilial, idFaculty);
+            return _facultiesService.GetFaculties(Year, IdFilial);
         }
 
-        public static IList<Group> GetGroups(string idFaculty, string idCourse, string idsSpecialty)
+        public IList<Specialty> GetSpecialtys(string idFaculty)
         {
-            return ServiceFaculties.GetGroups(Year, IdFilial, idFaculty, idCourse, idsSpecialty);
+            return _facultiesService.GetSpecialtys(Year, IdFilial, idFaculty);
         }
 
-        public static IList<Courses> GetCourses(string idFaculty, string idsSpecialty)
+        public IList<Group> GetGroups(string idFaculty, string idCourse, string idsSpecialty)
         {
-            return ServiceFaculties.GetCourses(Year, IdFilial, idFaculty, idsSpecialty);
+            return _facultiesService.GetGroups(Year, IdFilial, idFaculty, idCourse, idsSpecialty);
         }
 
-        public static IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        public IList<Courses> GetCourses(string idFaculty, string idsSpecialty)
         {
-            return ServiceSchedules.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
+            return _facultiesService.GetCourses(Year, IdFilial, idFaculty, idsSpecialty);
         }
 
+        public IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        {
+            return _schedulesService.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
+        }
+
+        //TODO: Вынести в ConvertId
+        /// <summary>
+        /// Нужен для конвертирования списка id в string.
+        /// </summary>
+        /// <param name="ids">Список id</param>
+        /// <returns>Список id в string разделенный запятыми. Пример: [34,345,60]</returns>
         public static string ConvertIdsToString(IList<int> ids)
         {
             if (ids == null) return "";

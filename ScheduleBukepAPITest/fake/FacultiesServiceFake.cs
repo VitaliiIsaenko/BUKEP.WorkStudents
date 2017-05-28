@@ -4,7 +4,7 @@ using ScheduleBukepAPI.service;
 
 namespace ScheduleBukepAPITest.fake
 {
-    internal class ServiceFacultiesFake : IServiceFaculties
+    internal class FacultiesServiceFake : IFacultiesService
     {
         public List<Faculty> GetFaculties(string year, string idFilial)
         {

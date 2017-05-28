@@ -3,7 +3,7 @@ using ScheduleBukepAPI.domain;
 
 namespace ScheduleBukepAPI.service
 {
-    public interface IServiceSchedules
+    public interface ISchedulesService
     {
         IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo);
     }
