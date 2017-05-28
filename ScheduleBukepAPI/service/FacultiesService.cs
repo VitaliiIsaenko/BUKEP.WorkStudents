@@ -5,7 +5,7 @@ using ScheduleBukepAPI.helpers;
 namespace ScheduleBukepAPI.service
 {
     //TODO: Заменить List на IEnumerable
-    public class FacultiesService : IFacultiesService
+    public class FacultiesService : BaseService, IFacultiesService
     {
         public List<Faculty> GetFaculties(string year, string idFilial)
         {
@@ -14,8 +14,8 @@ namespace ScheduleBukepAPI.service
                 { "year", year },
                 { "idFilial", idFilial }
             };
-            var json = HttpRequstHelper.ExecuteGet("GetFaculties", parameters);
-            return JsonConvert.ConvertToList<Faculty>(json);
+            var json = ExecuteGet("GetFaculties", parameters);
+            return ConvertToList<Faculty>(json);
         }
 
         public List<Specialty> GetSpecialtys(string year, string idFilial, string idFaculty)
@@ -26,8 +26,8 @@ namespace ScheduleBukepAPI.service
                 { "idFilial", idFilial },
                 { "idFaculty", idFaculty }
             };
-            var json = HttpRequstHelper.ExecuteGet("GetSpecialtys", parameters);
-            return JsonConvert.ConvertToList<Specialty>(json);
+            var json = ExecuteGet("GetSpecialtys", parameters);
+            return ConvertToList<Specialty>(json);
         }
 
         public List<Courses> GetCourses(string year, string idFilial, string idFaculty, string idsSpecialty)
@@ -38,8 +38,8 @@ namespace ScheduleBukepAPI.service
                 { "idFilial", idFilial },
                 { "idFaculty", idFaculty }
             };
-            var json = HttpRequstHelper.ExecutePost("GetCourses", parameters, idsSpecialty);
-            return JsonConvert.ConvertToList<Courses>(json);
+            var json = ExecutePost("GetCourses", parameters, idsSpecialty);
+            return ConvertToList<Courses>(json);
         }
 
         public List<Group> GetGroups(string year, string idFilial, string idFaculty, string idCourse, string idsSpecialty)
@@ -51,8 +51,8 @@ namespace ScheduleBukepAPI.service
                 { "idFaculty", idFaculty },
                 { "idCourse", idCourse }
             };
-            var json = HttpRequstHelper.ExecutePost("GetGroups", parameters, idsSpecialty);
-            return JsonConvert.ConvertToList<Group>(json);
+            var json = ExecutePost("GetGroups", parameters, idsSpecialty);
+            return ConvertToList<Group>(json);
         }
     }
 

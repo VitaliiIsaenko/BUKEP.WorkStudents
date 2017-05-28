@@ -4,7 +4,7 @@ using ScheduleBukepAPI.helpers;
 
 namespace ScheduleBukepAPI.service
 {
-    internal class SchedulesService : ISchedulesService
+    internal class SchedulesService : BaseService ,ISchedulesService
     {
         public IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
         {
@@ -13,8 +13,8 @@ namespace ScheduleBukepAPI.service
                 { "dateFrom", dateFrom },
                 { "dateTo", dateTo }
             };
-            var json = HttpRequstHelper.ExecutePost("GetGroupLessons", parameters, idsSheduleGroup);
-            return JsonConvert.ConvertToList<GroupLesson>(json);
+            var json = ExecutePost("GetGroupLessons", parameters, idsSheduleGroup);
+            return ConvertToList<GroupLesson>(json);
         }
     }
 }

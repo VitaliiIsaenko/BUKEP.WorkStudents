@@ -10,11 +10,11 @@ namespace ScheduleBukepAPI.helpers
     /// Use for get Json from API BUKEP.
     /// Execute post and get requests and return Json.
     /// </summary>
-    internal static class HttpRequstHelper
+    public class HttpRequstHelper
     {
         private const string UrlApi = "https://my.bukep.ru:447/api/Schedule";
 
-        public static string ExecuteGet(string nameMethod, IDictionary<string, string> parameters)
+        public string ExecuteGet(string nameMethod, IDictionary<string, string> parameters)
         {
             var url = CreateUrl(nameMethod, parameters);
             Console.WriteLine("URL = " + url);
@@ -32,14 +32,8 @@ namespace ScheduleBukepAPI.helpers
             return json;
         }
 
-        private static string CreateUrl(string nameMethod, IDictionary<string, string> parameter)
-        {
-            var urlParameter = CreateUrlParameter(parameter);
-            var url = $"{UrlApi}/{nameMethod}?{urlParameter}";
-            return url;
-        }
 
-        public static string ExecutePost(string nameMethod, IDictionary<string, string> parameters,
+        public string ExecutePost(string nameMethod, IDictionary<string, string> parameters,
             string bodyForPost)
         {
             var url = CreateUrl(nameMethod, parameters);
@@ -69,7 +63,14 @@ namespace ScheduleBukepAPI.helpers
             return json;
         }
 
-        private static string CreateUrlParameter(IDictionary<string, string> parameters)
+        private string CreateUrl(string nameMethod, IDictionary<string, string> parameter)
+        {
+            var urlParameter = CreateUrlParameter(parameter);
+            var url = $"{UrlApi}/{nameMethod}?{urlParameter}";
+            return url;
+        }
+
+        private string CreateUrlParameter(IDictionary<string, string> parameters)
         {
             var urlParameter = new StringBuilder();
             foreach (var name in parameters.Keys)
@@ -79,7 +80,5 @@ namespace ScheduleBukepAPI.helpers
             }
             return urlParameter.ToString();
         }
-
     }
 }
-
