@@ -88,7 +88,7 @@ namespace Bukep.Sheduler.Controllers
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
             var jsonGroup = _jsonConvert.ConvertToJson(_selectedGroup);
-            intent.PutExtra(ScheduleActivity.DataKeyGroupsJson, jsonGroup);
+            intent.PutExtra(Schedule.DataKeyGroupsJson, jsonGroup);
             _view.StartActivity(intent);
         }
     }

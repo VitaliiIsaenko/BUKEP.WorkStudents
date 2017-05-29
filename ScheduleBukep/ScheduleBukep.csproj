@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="src\Controllers\IController.cs" />
     <Compile Include="src\Controllers\IdentifySchedule.cs" />
+    <Compile Include="src\Controllers\Schedule.cs" />
     <Compile Include="src\IdentifyScheduleActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

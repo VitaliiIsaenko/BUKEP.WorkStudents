@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Bukep.Sheduler.Controllers;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
@@ -15,24 +17,21 @@ namespace Bukep.Sheduler
     [Activity(Label = "ScheduleActivity")]
     public class ScheduleActivity : Activity
     {
+        private Schedule _schedule;
         private const string Tag = "ScheduleActivity";
-        private readonly JsonConvert _jsonConvert = new JsonConvert();
-        private readonly FacadeApi _facadeApi = new FacadeApi();
-        public const string DataKeyGroupsJson = "GroupJson";
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ScheduleLayout);
 
-            var group = GetGropeFromeIntent();
-            Toast.MakeText(this, "Group = " + group.NameGroup, ToastLength.Short).Show();
+            _schedule = new Schedule(this);
+            _schedule.Update();
+        }
 
-            var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
-            var todayString = TodayString();
-            var groupLessons =
-                _facadeApi.GetGroupLessons(ids, todayString, todayString);
-
+        internal void ShowGroupLesson(IList<GroupLesson> groupLessons)
+        {
             var linearLayout = FindViewById<LinearLayout>(Resource.Id.liner_layout);
             linearLayout.RemoveAllViews();
 
@@ -40,13 +39,6 @@ namespace Bukep.Sheduler
             {
                 linearLayout.AddView(CreateCardLesson(item));
             }
-        }
-
-        private static string TodayString()
-        {
-            var today = DateTime.Today;
-            var todayString = today.ToString("yyyy-MM-dd");
-            return todayString;
         }
 
         private View CreateCardLesson(GroupLesson lesson)
@@ -76,12 +68,5 @@ namespace Bukep.Sheduler
             return card;
         }
 
-        private Group GetGropeFromeIntent()
-        {
-            var jsonGroup = Intent.GetStringExtra(DataKeyGroupsJson);
-            Log.Info(Tag, "jsonGroup = " + jsonGroup);
-            var group = _jsonConvert.ConvertTo<Group>(jsonGroup);
-            return group;
-        }
     }
 }
