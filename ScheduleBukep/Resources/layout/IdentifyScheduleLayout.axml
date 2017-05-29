@@ -6,7 +6,7 @@
     android:stretchColumns="1">
     <TableRow>
         <TextView
-            android:text="Факультет"
+            android:text="@string/faculty"
             android:id="@+id/faculty"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
@@ -18,7 +18,7 @@
     </TableRow>
     <TableRow>
         <TextView
-            android:text="Cпециальности"
+            android:text="@string/specialty"
             android:id="@+id/specialty"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
@@ -26,25 +26,23 @@
         <Spinner
             android:id="@+id/spinnerSpecialty"
             android:layout_height="wrap_content"
-            android:layout_width="66.0dp"
-            android:entries="@array/itemList" />
+            android:layout_width="66.0dp" />
     </TableRow>
     <TableRow>
         <TextView
-            android:text="Курс"
-            android:id="@+id/сourse"
+            android:text="@string/course"
+            android:id="@+id/course"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
             android:layout_marginBottom="10.0dp" />
         <Spinner
             android:id="@+id/spinnerCourse"
             android:layout_height="wrap_content"
-            android:layout_width="66.0dp"
-            android:entries="@array/itemList" />
+            android:layout_width="66.0dp" />
     </TableRow>
     <TableRow>
         <TextView
-            android:text="Группа"
+            android:text="@string/group"
             android:id="@+id/group"
             android:layout_height="17.0dp"
             android:layout_width="130.0dp"
@@ -52,15 +50,14 @@
         <Spinner
             android:id="@+id/spinnerGroup"
             android:layout_height="wrap_content"
-            android:layout_width="66.0dp"
-            android:entries="@array/itemList" />
+            android:layout_width="66.0dp" />
     </TableRow>
     <TableRow
         android:id="@+id/tableRow1">
         <Button
-            android:text="Показать"
-            android:layout_column="0"
             android:id="@+id/buttoneShow"
+            android:text="@string/show"
+            android:layout_column="0"
             android:gravity="center"
             android:layout_span="2"
             android:layout_marginTop="60.0dp" />
