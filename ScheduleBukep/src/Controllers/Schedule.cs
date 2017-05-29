@@ -8,11 +8,10 @@ using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
-    internal class Schedule : IController
+    internal class Schedule : Controller
     {
         private readonly ScheduleActivity _view;
-        private readonly FacadeApi _facadeApi = new FacadeApi();
-        private readonly JsonConvert _jsonConvert = new JsonConvert();
+
 
         public const string DataKeyGroupsJson = "GroupJson";
         private const string Tag = "Schedule";
@@ -22,13 +21,13 @@ namespace Bukep.Sheduler.Controllers
             _view = view;
         }
 
-        public void Update()
+        public override void Update()
         {
             var group = GetGropeFromeIntent();
             var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
             var todayString = DataToday();
             var groupLessons =
-                _facadeApi.GetGroupLessons(ids, todayString, todayString);
+                FacadeApi.GetGroupLessons(ids, todayString, todayString);
 
             _view.ShowGroupLesson(groupLessons);
         }
@@ -37,7 +36,7 @@ namespace Bukep.Sheduler.Controllers
         {
             var jsonGroup = _view.Intent.GetStringExtra(DataKeyGroupsJson);
             Log.Info(Tag, "jsonGroup = " + jsonGroup);
-            var group = _jsonConvert.ConvertTo<Group>(jsonGroup);
+            var group = JsonConvert.ConvertTo<Group>(jsonGroup);
             return group;
         }
 

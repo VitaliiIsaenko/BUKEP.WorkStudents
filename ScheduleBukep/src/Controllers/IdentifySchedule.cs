@@ -9,7 +9,7 @@ using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
-    internal class IdentifySchedule : IController
+    internal class IdentifySchedule : Controller
     {
         private readonly IdentifyScheduleActivity _view;
         private readonly FacadeApi _facadeApi = new FacadeApi();
@@ -25,7 +25,7 @@ namespace Bukep.Sheduler.Controllers
             _view = view;
         }
 
-        public void Update()
+        public override void Update()
         {        
             _view.SetButtoneShowClickable(false);
 
