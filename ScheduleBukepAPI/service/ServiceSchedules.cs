@@ -16,5 +16,15 @@ namespace ScheduleBukepAPI.service
             var json = HttpRequstHelper.ExecutePost("GetGroupLessons", parameters, idsSheduleGroup);
             return JsonConvert.ConvertToList<GroupLesson>(json);
         }
+        public List<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        {
+            var parameters = new Dictionary<string, string>
+        {
+             { "dateFrom", dateFrom },
+             { "dateTo", dateTo }
+        };
+            string json = HttpRequstHelper.ExecuteGet("GetGroupLessons", parameters);
+            return JsonConvert.ConvertToList<GroupLesson>(json);
+        }
     }
 }

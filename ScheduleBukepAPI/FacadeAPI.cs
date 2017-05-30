@@ -44,6 +44,11 @@ namespace ScheduleBukepAPI
             return ServiceSchedules.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
         }
 
+        public static List<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        {
+            return ServiceSchedules.GetTeacherLessons(idTeacher, dateFrom, dateTo);
+        }
+
         public static string ConvertIdsToString(IList<int> ids)
         {
             if (ids == null) return "";
