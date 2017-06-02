@@ -262,6 +262,9 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f070005
 			public const int group = 2131165189;
 			
+			// aapt resource value: 0x7f070007
+			public const int selectFromeList = 2131165191;
+			
 			// aapt resource value: 0x7f070001
 			public const int selectSchedules = 2131165185;
 			

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="ApplicationName">ScheduleBukep</string>
+  <string name="ApplicationName">Расписание БУКЭП</string>
   <string name="selectSchedules">Выбор расписания</string>
 
   <string name="faculty">Факультет</string>
@@ -8,4 +8,5 @@
   <string name="course">Курс</string>
   <string name="group">Группа</string>
   <string name="show">Показать</string>
+  <string name="selectFromeList">Выберите из списка</string>
 </resources>

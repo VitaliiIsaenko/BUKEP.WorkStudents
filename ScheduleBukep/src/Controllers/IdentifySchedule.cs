@@ -123,12 +123,17 @@ namespace Bukep.Sheduler.Controllers
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var text = position == 0 ? "select" : ConvertDtoInString(_objects[position]);
-            var textView = new TextView(_context)
+            var view = new TextView(_context);
+            if (position == 0)
             {
-                Text = text
-            };
-            return textView;
+                var textForView = _context.GetText(Resource.String.selectFromeList);
+                view.Text = textForView;
+            }
+            else
+            {
+                view.Text = ConvertDtoInString(_objects[position]);
+            }           
+            return view;
         }
 
         public T GetObject(int position)

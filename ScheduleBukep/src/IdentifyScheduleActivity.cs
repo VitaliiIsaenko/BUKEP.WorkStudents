@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using Android.App;
 using Android.OS;
 using Android.Util;
@@ -19,7 +20,7 @@ namespace Bukep.Sheduler
     ///     После выполнение всех шагов появляется кнопка «показать».
     ///     Нажатие на эту кнопку открывает расписание по заданным параметрам.
     /// </summary>
-    [Activity(Label = "ScheduleBukep", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(MainLauncher = true, Icon = "@drawable/icon")]
     public class IdentifyScheduleActivity : Activity
     {
         private const string Tag = "IdentifyScheduleActivity";
@@ -39,6 +40,9 @@ namespace Bukep.Sheduler
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
+
+            //TODO: создать BaseActivity и вынести в него общую логику.
+            this.Title = GetString(Resource.String.ApplicationName);
 
             InitSpinner();
 

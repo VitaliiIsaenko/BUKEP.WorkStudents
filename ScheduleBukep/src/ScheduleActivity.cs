@@ -14,7 +14,7 @@ using ScheduleBukepAPI.helpers;
 namespace Bukep.Sheduler
 {
     //TODO: Вынести логику в Controller
-    [Activity(Label = "ScheduleActivity")]
+    [Activity]
     public class ScheduleActivity : Activity
     {
         private Schedule _schedule;
@@ -25,6 +25,9 @@ namespace Bukep.Sheduler
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ScheduleLayout);
+
+            //TODO: создать BaseActivity и вынести в него общую логику.
+            this.Title = GetString(Resource.String.ApplicationName);
 
             _schedule = new Schedule(this);
             _schedule.Update();
