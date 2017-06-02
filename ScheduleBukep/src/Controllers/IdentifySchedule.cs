@@ -127,12 +127,14 @@ namespace Bukep.Sheduler.Controllers
             if (position == 0)
             {
                 var textForView = _context.GetText(Resource.String.selectFromeList);
-                view.Text = textForView;
+                view.Text = textForView;              
             }
             else
             {
                 view.Text = ConvertDtoInString(_objects[position]);
-            }           
+            }
+            //TODO: Вынести в стиль
+            view.TextSize = 17;
             return view;
         }
 

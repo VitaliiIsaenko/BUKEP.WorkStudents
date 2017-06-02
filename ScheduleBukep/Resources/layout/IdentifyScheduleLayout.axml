@@ -6,11 +6,9 @@
     android:stretchColumns="1">
     <TableRow>
         <TextView
-            android:text="@string/faculty"
             android:id="@+id/faculty"
-            android:layout_height="17.0dp"
-            android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp" />
+            android:text="@string/faculty"
+            android:theme="@style/MyTheme" />
         <Spinner
             android:id="@+id/spinnerFaculty"
             android:layout_height="wrap_content"
@@ -20,9 +18,7 @@
         <TextView
             android:text="@string/specialty"
             android:id="@+id/specialty"
-            android:layout_height="17.0dp"
-            android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp" />
+            android:theme="@style/MyTheme" />
         <Spinner
             android:id="@+id/spinnerSpecialty"
             android:layout_height="wrap_content"
@@ -32,9 +28,7 @@
         <TextView
             android:text="@string/course"
             android:id="@+id/course"
-            android:layout_height="17.0dp"
-            android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp" />
+            android:theme="@style/MyTheme" />
         <Spinner
             android:id="@+id/spinnerCourse"
             android:layout_height="wrap_content"
@@ -44,9 +38,7 @@
         <TextView
             android:text="@string/group"
             android:id="@+id/group"
-            android:layout_height="17.0dp"
-            android:layout_width="130.0dp"
-            android:layout_marginBottom="10.0dp" />
+            android:theme="@style/MyTheme" />
         <Spinner
             android:id="@+id/spinnerGroup"
             android:layout_height="wrap_content"
