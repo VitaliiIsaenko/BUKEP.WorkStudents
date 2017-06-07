@@ -152,6 +152,15 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f080014
 			public const int buttoneShow = 2131230740;
 			
+			// aapt resource value: 0x7f080016
+			public const int card1 = 2131230742;
+			
+			// aapt resource value: 0x7f080017
+			public const int card2 = 2131230743;
+			
+			// aapt resource value: 0x7f080018
+			public const int card3 = 2131230744;
+			
 			// aapt resource value: 0x7f080000
 			public const int cardLesson = 2131230720;
 			
