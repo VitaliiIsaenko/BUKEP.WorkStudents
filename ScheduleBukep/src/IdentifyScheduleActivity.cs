@@ -20,7 +20,7 @@ namespace Bukep.Sheduler
     ///     После выполнение всех шагов появляется кнопка «показать».
     ///     Нажатие на эту кнопку открывает расписание по заданным параметрам.
     /// </summary>
-    [Activity(MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Icon = "@drawable/icon")]
     public class IdentifyScheduleActivity : Activity
     {
         private const string Tag = "IdentifyScheduleActivity";

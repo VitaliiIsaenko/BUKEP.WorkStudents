@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Android.App;
 using Android.OS;
+using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
@@ -14,8 +15,8 @@ using ScheduleBukepAPI.helpers;
 namespace Bukep.Sheduler
 {
     //TODO: Вынести логику в Controller
-    [Activity]
-    public class ScheduleActivity : Activity
+    [Activity (MainLauncher = true)]
+    public class ScheduleActivity : AppCompatActivity
     {
         private Schedule _schedule;
         private const string Tag = "ScheduleActivity";
@@ -29,8 +30,25 @@ namespace Bukep.Sheduler
             //TODO: создать BaseActivity и вынести в него общую логику.
             this.Title = GetString(Resource.String.ApplicationName);
 
-            _schedule = new Schedule(this);
-            _schedule.Update();
+
+            var editToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.edit_toolbar);
+
+            if (editToolbar != null)
+            {
+                Log.Info(Tag, "editToolbar is not null");
+                editToolbar.Title = "Editing";
+                editToolbar.InflateMenu(Resource.Menu.bottom_menu);
+                editToolbar.MenuItemClick += (sender, e) => {
+                    Toast.MakeText(this, "Bottom toolbar tapped: " + e.Item.TitleFormatted, ToastLength.Short).Show();
+                };
+            }
+            else
+            {
+                Log.Info(Tag, "editToolbar is null!!!!");
+            }
+
+            //_schedule = new Schedule(this);
+            //_schedule.Update();
         }
 
         internal void ShowGroupLesson(IList<GroupLesson> groupLessons)
