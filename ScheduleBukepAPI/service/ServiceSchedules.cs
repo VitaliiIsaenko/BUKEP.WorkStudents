@@ -20,10 +20,12 @@ namespace ScheduleBukepAPI.service
         {
             var parameters = new Dictionary<string, string>
         {
+             {"idTeacher", idTeacher },
              { "dateFrom", dateFrom },
              { "dateTo", dateTo }
         };
-            string json = HttpRequstHelper.ExecuteGet("GetGroupLessons", parameters);
+            
+            string json = HttpRequstHelper.ExecuteGet("GetTeacherLessons", parameters);
             return JsonConvert.ConvertToList<GroupLesson>(json);
         }
     }
