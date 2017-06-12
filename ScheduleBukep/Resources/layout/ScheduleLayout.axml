@@ -14,9 +14,10 @@
         android:focusable="false"
         android:orientation="vertical"
         android:paddingBottom="50dp"
-        android:layout_above="@+id/edit_toolbar"
+        android:layout_above="@id/bottom_navigation"
         android:layout_marginTop="0.0dp"
-        android:layout_below="@id/tool_bar">
+        android:layout_below="@id/tool_bar"
+        android:layout_marginBottom="0.0dp">
         <LinearLayout
             android:id="@+id/liner_layout"
             android:layout_width="match_parent"
@@ -34,10 +35,7 @@
                 layout="@layout/CardViewLesson" />
         </LinearLayout>
     </ScrollView>
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/edit_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_menu" />
+    <include
+        android:id="@+id/bottom_navigation"
+        layout="@layout/BottomNavigationView" />
 </RelativeLayout>

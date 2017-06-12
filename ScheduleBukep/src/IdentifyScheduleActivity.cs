@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using Android.App;
 using Android.OS;
+using Android.Support.V7.App;
 using Android.Util;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
@@ -20,8 +21,8 @@ namespace Bukep.Sheduler
     ///     После выполнение всех шагов появляется кнопка «показать».
     ///     Нажатие на эту кнопку открывает расписание по заданным параметрам.
     /// </summary>
-    [Activity(Icon = "@drawable/icon")]
-    public class IdentifyScheduleActivity : Activity
+    [Activity(Icon = "@drawable/icon", MainLauncher = true)]
+    public class IdentifyScheduleActivity : AppCompatActivity
     {
         private const string Tag = "IdentifyScheduleActivity";
         private DtoAdapter<Courses> _coursesAdapter;
@@ -41,16 +42,29 @@ namespace Bukep.Sheduler
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
 
-            //TODO: создать BaseActivity и вынести в него общую логику.
-            this.Title = GetString(Resource.String.ApplicationName);
-
             InitSpinner();
+            InitShowButtone();
+            InitToolbar();
+            InitController();
+        }
 
-            _showSchedulesButtone = FindViewById<Button>(Resource.Id.buttoneShow);
-            _showSchedulesButtone.Click += OnClickeShowSchedulesButtone;          
-
+        private void InitController()
+        {
             _controller = new IdentifySchedule(this);
             _controller.Update();
+        }
+
+        private void InitToolbar()
+        {
+            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.tool_bar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = GetString(Resource.String.ApplicationName);
+        }
+
+        private void InitShowButtone()
+        {
+            _showSchedulesButtone = FindViewById<Button>(Resource.Id.buttoneShow);
+            _showSchedulesButtone.Click += OnClickeShowSchedulesButtone;
         }
 
         private void InitSpinner()

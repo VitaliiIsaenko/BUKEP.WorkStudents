@@ -1,57 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:stretchColumns="1">
-    <TableRow>
-        <TextView
-            android:id="@+id/faculty"
-            android:text="@string/faculty"
-            android:theme="@style/MyTheme" />
-        <Spinner
-            android:id="@+id/spinnerFaculty"
-            android:layout_height="wrap_content"
-            android:layout_width="66.0dp" />
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:text="@string/specialty"
-            android:id="@+id/specialty"
-            android:theme="@style/MyTheme" />
-        <Spinner
-            android:id="@+id/spinnerSpecialty"
-            android:layout_height="wrap_content"
-            android:layout_width="66.0dp" />
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:text="@string/course"
-            android:id="@+id/course"
-            android:theme="@style/MyTheme" />
-        <Spinner
-            android:id="@+id/spinnerCourse"
-            android:layout_height="wrap_content"
-            android:layout_width="66.0dp" />
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:text="@string/group"
-            android:id="@+id/group"
-            android:theme="@style/MyTheme" />
-        <Spinner
-            android:id="@+id/spinnerGroup"
-            android:layout_height="wrap_content"
-            android:layout_width="66.0dp" />
-    </TableRow>
-    <TableRow
-        android:id="@+id/tableRow1">
-        <Button
-            android:id="@+id/buttoneShow"
-            android:text="@string/show"
-            android:layout_column="0"
-            android:gravity="center"
-            android:layout_span="2"
-            android:layout_marginTop="60.0dp" />
-    </TableRow>
-</TableLayout>
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar" />
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:stretchColumns="1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tool_bar"
+        android:layout_above="@+id/buttoneShow">
+        <TableRow>
+            <TextView
+                android:id="@+id/faculty"
+                android:text="@string/faculty"
+                android:theme="@style/MyTheme" />
+            <Spinner
+                android:id="@+id/spinnerFaculty"
+                android:layout_height="wrap_content"
+                android:layout_width="66.0dp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="@string/specialty"
+                android:id="@+id/specialty"
+                android:theme="@style/MyTheme" />
+            <Spinner
+                android:id="@+id/spinnerSpecialty"
+                android:layout_height="wrap_content"
+                android:layout_width="66.0dp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="@string/course"
+                android:id="@+id/course"
+                android:theme="@style/MyTheme" />
+            <Spinner
+                android:id="@+id/spinnerCourse"
+                android:layout_height="wrap_content"
+                android:layout_width="66.0dp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="@string/group"
+                android:id="@+id/group"
+                android:theme="@style/MyTheme" />
+            <Spinner
+                android:id="@+id/spinnerGroup"
+                android:layout_height="wrap_content"
+                android:layout_width="66.0dp" />
+        </TableRow>
+    </TableLayout>
+    <Button
+        android:id="@+id/buttoneShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/show"
+        android:layout_above="@id/bottom_navigation"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true" />
+    <include
+        android:id="@+id/bottom_navigation"
+        layout="@layout/BottomNavigationView" />
+</RelativeLayout>

@@ -8,12 +8,11 @@ using Android.Views;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
 using ScheduleBukepAPI.domain;
-using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace Bukep.Sheduler
 {
     //TODO: Вынести логику в Controller
-    [Activity(MainLauncher = true)]
+    [Activity()]
     public class ScheduleActivity : AppCompatActivity
     {
         private Schedule _schedule;
@@ -25,12 +24,12 @@ namespace Bukep.Sheduler
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ScheduleLayout);
 
-            var toolbar = FindViewById<Toolbar>(Resource.Id.tool_bar);
+            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.tool_bar);
             SetSupportActionBar(toolbar);
             SupportActionBar.Title = GetString(Resource.String.ApplicationName);
 
-            //_schedule = new Schedule(this);
-            //_schedule.Update();
+            _schedule = new Schedule(this);
+            _schedule.Update();
         }
 
         internal void ShowGroupLesson(IList<GroupLesson> groupLessons)
