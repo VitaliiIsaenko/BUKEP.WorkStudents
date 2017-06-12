@@ -9,4 +9,8 @@
   <string name="group">Группа</string>
   <string name="show">Показать</string>
   <string name="selectFromeList">Выберите из списка</string>
+  <!--bottom_menu-->
+  <string name="list_task">Список заданий</string>
+  <string name="teachers">Преподаватели</string>
+  <string name="favorites">Избранное</string>
 </resources>

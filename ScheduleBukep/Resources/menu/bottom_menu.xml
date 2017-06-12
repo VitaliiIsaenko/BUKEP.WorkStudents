@@ -2,15 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:local="http://schemas.android.com/apk/res-auto">
   <item
-    android:id="@+id/menu_cut"
+    android:id="@+id/menu_list_task"
+    android:icon="@drawable/list_task"
     local:showAsAction="ifRoom"
-    android:title="Cut" />
+    android:title="@string/list_task" />
   <item
     android:id="@+id/menu_copy"
+    android:icon="@drawable/teachers"
     local:showAsAction="ifRoom"
-    android:title="Copy" />
+    android:title="@string/teachers" />
   <item
     android:id="@+id/menu_paste"
+    android:icon="@drawable/favorites"
     local:showAsAction="ifRoom"
-    android:title="Paste" />
+    android:title="@string/favorites" />
 </menu>

@@ -15,7 +15,7 @@ using ScheduleBukepAPI.helpers;
 namespace Bukep.Sheduler
 {
     //TODO: Вынести логику в Controller
-    [Activity (MainLauncher = true)]
+    [Activity(MainLauncher = true)]
     public class ScheduleActivity : AppCompatActivity
     {
         private Schedule _schedule;
@@ -29,23 +29,6 @@ namespace Bukep.Sheduler
 
             //TODO: создать BaseActivity и вынести в него общую логику.
             this.Title = GetString(Resource.String.ApplicationName);
-
-
-            var editToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.edit_toolbar);
-
-            if (editToolbar != null)
-            {
-                Log.Info(Tag, "editToolbar is not null");
-                editToolbar.Title = "Editing";
-                editToolbar.InflateMenu(Resource.Menu.bottom_menu);
-                editToolbar.MenuItemClick += (sender, e) => {
-                    Toast.MakeText(this, "Bottom toolbar tapped: " + e.Item.TitleFormatted, ToastLength.Short).Show();
-                };
-            }
-            else
-            {
-                Log.Info(Tag, "editToolbar is null!!!!");
-            }
 
             //_schedule = new Schedule(this);
             //_schedule.Update();
@@ -88,6 +71,5 @@ namespace Bukep.Sheduler
 
             return card;
         }
-
     }
 }
