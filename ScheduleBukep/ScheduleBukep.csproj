@@ -124,6 +124,9 @@
     <AndroidResource Include="Resources\layout\CardViewLesson.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\tool_bar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\IdentifyScheduleLayout.axml">

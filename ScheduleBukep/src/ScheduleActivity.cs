@@ -4,13 +4,11 @@ using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
-using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace Bukep.Sheduler
 {
@@ -27,8 +25,9 @@ namespace Bukep.Sheduler
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ScheduleLayout);
 
-            //TODO: создать BaseActivity и вынести в него общую логику.
-            this.Title = GetString(Resource.String.ApplicationName);
+            var toolbar = FindViewById<Toolbar>(Resource.Id.tool_bar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = GetString(Resource.String.ApplicationName);
 
             //_schedule = new Schedule(this);
             //_schedule.Update();
