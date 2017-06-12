@@ -7,8 +7,6 @@
   </style>
   <style name="MyThemeAppCompat" parent="Theme.AppCompat">
     <item name="windowNoTitle">true</item>
-    
-    <item name="colorPrimary">#5A8622</item>
-    <item name="colorAccent">#A88F2D</item>
+   
   </style>
 </resources>
