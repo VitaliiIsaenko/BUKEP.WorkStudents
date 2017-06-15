@@ -13,4 +13,9 @@
   <string name="list_task">Список заданий</string>
   <string name="teachers">Преподаватели</string>
   <string name="favorites">Избранное</string>
+  
+  <!--menu-->
+  <string name="schedule_group">Расписание группы</string>
+  <string name="schedule_teacher">Расписание преподавателя</string>
+  <string name="schedule_bell">Расписание звонков</string>
 </resources>
