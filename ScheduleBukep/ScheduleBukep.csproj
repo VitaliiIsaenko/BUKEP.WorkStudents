@@ -105,12 +105,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\NavigationActivity.cs" />
     <Compile Include="src\Controllers\Controller.cs" />
     <Compile Include="src\Controllers\IdentifySchedule.cs" />
     <Compile Include="src\Controllers\Schedule.cs" />
     <Compile Include="src\IdentifyScheduleActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\MenuActivity.cs" />
     <Compile Include="src\ScheduleActivity.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +127,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\tool_bar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\MenuActivity.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
