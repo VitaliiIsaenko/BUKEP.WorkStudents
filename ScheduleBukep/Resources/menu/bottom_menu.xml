@@ -8,12 +8,12 @@
     local:showAsAction="ifRoom"
     android:title="@string/list_task" />
   <item
-    android:id="@+id/menu_copy"
+    android:id="@+id/menu_teachers"
     android:icon="@drawable/teachers"
     local:showAsAction="ifRoom"
     android:title="@string/teachers" />
   <item
-    android:id="@+id/menu_paste"
+    android:id="@+id/menu_favorites"
     android:icon="@drawable/favorites"
     local:showAsAction="ifRoom"
     android:title="@string/favorites" />
