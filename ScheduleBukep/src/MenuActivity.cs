@@ -9,7 +9,7 @@ using Bukep.Sheduler.Controllers;
 
 namespace Bukep.Sheduler
 {
-    [Activity(MainLauncher = true)]
+    [Activity()]
     public class MenuActivity : NavigationActivity
     {
         private const string Tag = "MenuActivity";

@@ -4,7 +4,7 @@
     android:layout_height="fill_parent">
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar" />
+        layout="@layout/Toolbar" />
     <Button
         android:id="@+id/schedule_teacher"
         android:text="@string/schedule_teacher"

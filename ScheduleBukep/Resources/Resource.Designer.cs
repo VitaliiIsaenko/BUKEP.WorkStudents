@@ -2453,6 +2453,9 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f07007b
 			public const int imageTeacher = 2131165307;
 			
+			// aapt resource value: 0x7f0700b8
+			public const int imageView1 = 2131165368;
+			
 			// aapt resource value: 0x7f0700a5
 			public const int info = 2131165349;
 			
@@ -2480,20 +2483,20 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f070048
 			public const int list_item = 2131165256;
 			
-			// aapt resource value: 0x7f0700b4
-			public const int masked = 2131165364;
+			// aapt resource value: 0x7f0700bb
+			public const int masked = 2131165371;
 			
 			// aapt resource value: 0x7f07009e
 			public const int media_actions = 2131165342;
 			
-			// aapt resource value: 0x7f0700b7
-			public const int menu_favorites = 2131165367;
+			// aapt resource value: 0x7f0700be
+			public const int menu_favorites = 2131165374;
 			
-			// aapt resource value: 0x7f0700b5
-			public const int menu_list_task = 2131165365;
+			// aapt resource value: 0x7f0700bc
+			public const int menu_list_task = 2131165372;
 			
-			// aapt resource value: 0x7f0700b6
-			public const int menu_teachers = 2131165366;
+			// aapt resource value: 0x7f0700bd
+			public const int menu_teachers = 2131165373;
 			
 			// aapt resource value: 0x7f070022
 			public const int middle = 2131165218;
@@ -2554,6 +2557,9 @@ namespace Bukep.Sheduler
 			
 			// aapt resource value: 0x7f07005d
 			public const int radio = 2131165277;
+			
+			// aapt resource value: 0x7f0700b3
+			public const int relativeLayout1 = 2131165363;
 			
 			// aapt resource value: 0x7f070035
 			public const int right = 2131165237;
@@ -2690,6 +2696,9 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f07006f
 			public const int submit_area = 2131165295;
 			
+			// aapt resource value: 0x7f0700b9
+			public const int switch1 = 2131165369;
+			
 			// aapt resource value: 0x7f070011
 			public const int tabMode = 2131165201;
 			
@@ -2704,6 +2713,18 @@ namespace Bukep.Sheduler
 			
 			// aapt resource value: 0x7f070051
 			public const int textSpacerNoTitle = 2131165265;
+			
+			// aapt resource value: 0x7f0700b4
+			public const int textView1 = 2131165364;
+			
+			// aapt resource value: 0x7f0700b5
+			public const int textView2 = 2131165365;
+			
+			// aapt resource value: 0x7f0700b6
+			public const int textView3 = 2131165366;
+			
+			// aapt resource value: 0x7f0700b7
+			public const int textView4 = 2131165367;
 			
 			// aapt resource value: 0x7f07008a
 			public const int text_input_password_toggle = 2131165322;
@@ -2762,8 +2783,8 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f07000e
 			public const int view_offset_helper = 2131165198;
 			
-			// aapt resource value: 0x7f0700b3
-			public const int visible = 2131165363;
+			// aapt resource value: 0x7f0700ba
+			public const int visible = 2131165370;
 			
 			// aapt resource value: 0x7f070027
 			public const int withText = 2131165223;
@@ -3020,7 +3041,10 @@ namespace Bukep.Sheduler
 			public const int support_simple_spinner_dropdown_item = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int tool_bar = 2130903105;
+			public const int Toolbar = 2130903105;
+			
+			// aapt resource value: 0x7f030042
+			public const int ToolbarSchedule = 2130903106;
 			
 			static Layout()
 			{
