@@ -11,7 +11,7 @@ using ScheduleBukepAPI.domain;
 
 namespace Bukep.Sheduler
 {
-    [Activity()]
+    [Activity(MainLauncher = true)]
     public class ScheduleActivity : NavigationActivity
     {
         private Schedule _schedule;
