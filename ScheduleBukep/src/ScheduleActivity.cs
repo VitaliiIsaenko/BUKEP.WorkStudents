@@ -11,22 +11,18 @@ using ScheduleBukepAPI.domain;
 
 namespace Bukep.Sheduler
 {
-    //TODO: Вынести логику в Controller
     [Activity()]
-    public class ScheduleActivity : AppCompatActivity
+    public class ScheduleActivity : NavigationActivity
     {
         private Schedule _schedule;
         private const string Tag = "ScheduleActivity";
-
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ScheduleLayout);
 
-            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.tool_bar);
-            SetSupportActionBar(toolbar);
-            SupportActionBar.Title = GetString(Resource.String.ApplicationName);
+            InitNavigationView();
 
             _schedule = new Schedule(this);
             _schedule.Update();
@@ -43,6 +39,7 @@ namespace Bukep.Sheduler
             }
         }
 
+        //TODO: Вынести в отдельный класс
         private View CreateCardLesson(GroupLesson lesson)
         {
             var card = (CardView) LayoutInflater.Inflate(Resource.Layout.CardViewLesson, null, false);
