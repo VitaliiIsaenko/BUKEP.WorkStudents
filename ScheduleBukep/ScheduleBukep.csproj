@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Controllers\BaseActivity.cs" />
     <Compile Include="src\NavigationActivity.cs" />
     <Compile Include="src\Controllers\Controller.cs" />
     <Compile Include="src\Controllers\IdentifySchedule.cs" />
