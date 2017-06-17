@@ -7,6 +7,7 @@
     <include
         android:id="@+id/tool_bar"
         layout="@layout/ToolbarSchedule" />
+  <!--TODO: id tool_bar заменить на toolbar-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

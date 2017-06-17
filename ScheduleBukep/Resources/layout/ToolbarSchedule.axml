@@ -11,61 +11,63 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/relativeLayout1">
+        android:id="@+id/toolbarRelativeLayout">
+      <TextView
+        android:text="Расписание"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbarTitle"
+        android:gravity="center_horizontal"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="0.0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/textView1" />
         <TextView
+          android:id="@+id/toolbarData"
             android:text="Среда, 5 апреля"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView1"
-            android:id="@+id/textView2"
+            
             android:gravity="center_horizontal"
             android:layout_alignRight="@+id/textView1"
             android:layout_alignLeft="@+id/textView1"
             android:layout_marginTop="0.0dp"
             android:textSize="10sp" />
         <TextView
+          android:id="@+id/toolbarGroop"
             android:text="ИС-42"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView2"
-            android:id="@+id/textView3"
+            
             android:gravity="center_horizontal"
             android:layout_alignRight="@id/textView2"
             android:layout_alignLeft="@id/textView2"
             android:textSize="10sp" />
         <TextView
+          android:id="@+id/toolbarSchedulesPeriod"
             android:text="На день"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView3"
-            android:id="@+id/textView4"
             android:textSize="10sp"
             android:gravity="center_horizontal"
             android:layout_alignRight="@id/textView3"
             android:layout_alignLeft="@id/textView3" />
         <ImageView
+          android:id="@+id/toolbarImageFavorites"
             android:src="@drawable/favorites"
             android:layout_width="32.0dp"
             android:layout_height="21.5dp"
-            android:id="@+id/imageView1"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true" />
-        <TextView
-            android:text="Расписание"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView1"
-            android:gravity="center_horizontal"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="0.0dp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/textView1" />
         <Switch
+          android:id="@+id/toolbarSwitchSchedules"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/imageView1"
-            android:id="@+id/switch1"
             android:layout_alignParentRight="true" />
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>
