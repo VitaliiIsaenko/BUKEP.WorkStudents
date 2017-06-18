@@ -10,7 +10,7 @@ using ScheduleBukepAPI.domain;
 
 namespace Bukep.Sheduler
 {
-    [Activity(MainLauncher = true)]
+    [Activity()]
     public class ScheduleActivity : NavigationActivity
     {
         private Schedule _schedule;
