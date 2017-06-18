@@ -15,6 +15,7 @@ namespace Bukep.Sheduler
     public class ScheduleActivity : NavigationActivity
     {
         private Schedule _schedule;
+        private bool isClickImageFavorites;
         private const string Tag = "ScheduleActivity";
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -23,9 +24,20 @@ namespace Bukep.Sheduler
             SetContentView(Resource.Layout.ScheduleLayout);
 
             InitNavigationView();
+            var imageFavorites = FindViewById<ImageView>(Resource.Id.toolbarImageFavorites);
+            imageFavorites.Click += ImageFavorites_Click;
 
             _schedule = new Schedule(this);
             _schedule.Update();
+        }
+
+        private void ImageFavorites_Click(object sender, EventArgs e)
+        {
+            var imageFavorites = (ImageView)sender;
+            imageFavorites.SetImageResource(isClickImageFavorites
+                ? Resource.Drawable.favorites_empty
+                : Resource.Drawable.favorites);
+            isClickImageFavorites = !isClickImageFavorites;
         }
 
         internal void ShowGroupLesson(IList<GroupLesson> groupLessons)

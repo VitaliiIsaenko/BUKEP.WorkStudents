@@ -12,62 +12,62 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/toolbarRelativeLayout">
-      <TextView
-        android:text="Расписание"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbarTitle"
-        android:gravity="center_horizontal"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="0.0dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/textView1" />
+    <!--TODO: вынес текста в файл String-->
         <TextView
-          android:id="@+id/toolbarData"
+            android:text="Расписание"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbarTitle"
+            android:gravity="center_horizontal"
+            android:textSize="15sp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="0.0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/toolbarTitle" />
+        <TextView
+            android:id="@+id/toolbarData"
             android:text="Среда, 5 апреля"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
-            
+            android:layout_below="@+id/toolbarTitle"
             android:gravity="center_horizontal"
-            android:layout_alignRight="@+id/textView1"
-            android:layout_alignLeft="@+id/textView1"
+            android:layout_alignRight="@+id/toolbarTitle"
+            android:layout_alignLeft="@+id/toolbarTitle"
             android:layout_marginTop="0.0dp"
-            android:textSize="10sp" />
+            android:textSize="15sp" />
         <TextView
-          android:id="@+id/toolbarGroop"
+            android:id="@+id/toolbarGroop"
             android:text="ИС-42"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textView2"
-            
+            android:layout_below="@id/toolbarData"
             android:gravity="center_horizontal"
-            android:layout_alignRight="@id/textView2"
-            android:layout_alignLeft="@id/textView2"
-            android:textSize="10sp" />
+            android:layout_alignRight="@id/toolbarData"
+            android:layout_alignLeft="@id/toolbarData"
+            android:textSize="15sp" />
         <TextView
-          android:id="@+id/toolbarSchedulesPeriod"
+            android:id="@+id/toolbarSchedulesPeriod"
             android:text="На день"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textView3"
-            android:textSize="10sp"
+            android:layout_below="@id/toolbarGroop"
+            android:textSize="15sp"
             android:gravity="center_horizontal"
-            android:layout_alignRight="@id/textView3"
-            android:layout_alignLeft="@id/textView3" />
+            android:layout_alignRight="@id/toolbarGroop"
+            android:layout_alignLeft="@id/toolbarGroop" />
         <ImageView
-          android:id="@+id/toolbarImageFavorites"
+            android:id="@+id/toolbarImageFavorites"
             android:src="@drawable/favorites"
             android:layout_width="32.0dp"
             android:layout_height="21.5dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true" />
         <Switch
-          android:id="@+id/toolbarSwitchSchedules"
+            android:id="@+id/toolbarSwitchSchedules"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageView1"
+            android:layout_below="@id/toolbarImageFavorites"
             android:layout_alignParentRight="true" />
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>
