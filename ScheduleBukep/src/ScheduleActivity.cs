@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Android.App;
 using Android.OS;
-using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
@@ -15,7 +14,7 @@ namespace Bukep.Sheduler
     public class ScheduleActivity : NavigationActivity
     {
         private Schedule _schedule;
-        private bool isClickImageFavorites;
+        private bool _isClickImageFavorites;
         private const string Tag = "ScheduleActivity";
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -34,10 +33,10 @@ namespace Bukep.Sheduler
         private void ImageFavorites_Click(object sender, EventArgs e)
         {
             var imageFavorites = (ImageView)sender;
-            imageFavorites.SetImageResource(isClickImageFavorites
+            imageFavorites.SetImageResource(_isClickImageFavorites
                 ? Resource.Drawable.favorites_empty
                 : Resource.Drawable.favorites);
-            isClickImageFavorites = !isClickImageFavorites;
+            _isClickImageFavorites = !_isClickImageFavorites;
         }
 
         internal void ShowGroupLesson(IList<GroupLesson> groupLessons)
