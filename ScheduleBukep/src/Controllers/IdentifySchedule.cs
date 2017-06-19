@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Android.Widget;
 using Android.Views;
 using Android.Content;
+using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
@@ -88,7 +89,12 @@ namespace Bukep.Sheduler.Controllers
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
             var jsonGroup = _jsonConvert.ConvertToJson(_selectedGroup);
-            intent.PutExtra(Schedule.DataKeyGroupsJson, jsonGroup);
+            intent.PutExtra(Schedule.IntentKeyGroupsJson, jsonGroup);
+
+            var today = DateTime.Today.ToString(FacadeApi.DateTimeFormat);
+            intent.PutExtra(Schedule.IntentKeyDateLessonStart, today);
+            intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
+
             _view.StartActivity(intent);
         }
     }
@@ -121,7 +127,7 @@ namespace Bukep.Sheduler.Controllers
             return position;
         }
 
-        public override View GetView(int position, View convertView, ViewGroup parent)
+        public override Android.Views.View GetView(int position, Android.Views.View convertView, ViewGroup parent)
         {
             var view = new TextView(_context);
             if (position == 0)

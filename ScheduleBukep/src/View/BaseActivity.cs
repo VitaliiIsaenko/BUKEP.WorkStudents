@@ -1,7 +1,7 @@
 ﻿using Android.Support.V7.App;
 using Android.Util;
 
-namespace Bukep.Sheduler.Controllers
+namespace Bukep.Sheduler
 {
     public abstract class BaseActivity : AppCompatActivity
     {
@@ -17,7 +17,8 @@ namespace Bukep.Sheduler.Controllers
         {
             Log.Error(Tag, "ShowError() mesages = " + mesages);
             var builder = new AlertDialog.Builder(this);
-            builder.SetTitle("К сожалению, в приложении произошла ошибка!")
+            //TODO: вынести в файл String
+            builder.SetTitle("В приложении произошла ошибка!")
                 .SetMessage(mesages)
                 .SetNegativeButton("Ок", delegate
                 {

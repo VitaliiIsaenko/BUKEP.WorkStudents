@@ -13,6 +13,10 @@ namespace ScheduleBukepAPI
     {
         private static IFacultiesService _facultiesService;
         private static ISchedulesService _schedulesService;
+        /// <summary>
+        /// Формат даты для api.
+        /// </summary>
+        public const string DateTimeFormat = "yyyy-MM-dd";
 
         //TODO: написать метод который бы получал нужный год.
         private const string Year = "2016";

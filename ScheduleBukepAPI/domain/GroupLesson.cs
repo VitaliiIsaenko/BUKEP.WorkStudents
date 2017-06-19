@@ -1,5 +1,6 @@
 ﻿namespace ScheduleBukepAPI.domain
 {
+    //TODO: Переименовать в Lesson
     public class GroupLesson
     {
         public string NameTypeShedule { get; set; }

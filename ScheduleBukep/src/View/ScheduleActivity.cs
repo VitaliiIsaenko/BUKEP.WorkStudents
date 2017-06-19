@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Support.V7.Widget;
-using Android.Views;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
 using ScheduleBukepAPI.domain;
 
-namespace Bukep.Sheduler
+namespace Bukep.Sheduler.View
 {
     [Activity()]
     public class ScheduleActivity : NavigationActivity
@@ -51,7 +50,7 @@ namespace Bukep.Sheduler
         }
 
         //TODO: Вынести в отдельный класс
-        private View CreateCardLesson(GroupLesson lesson)
+        private Android.Views.View CreateCardLesson(GroupLesson lesson)
         {
             var card = (CardView) LayoutInflater.Inflate(Resource.Layout.CardViewLesson, null, false);
             var nameLesson = card.FindViewById<TextView>(Resource.Id.nameLesson);
