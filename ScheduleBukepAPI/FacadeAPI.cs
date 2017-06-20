@@ -53,6 +53,11 @@ namespace ScheduleBukepAPI
             return _schedulesService.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
         }
 
+        public static List<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        {
+            return _schedulesService.GetTeacherLessons(idTeacher, dateFrom, dateTo);
+        }
+
         //TODO: Вынести в ConvertId
         /// <summary>
         /// Нужен для конвертирования списка id в string.

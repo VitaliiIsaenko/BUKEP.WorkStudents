@@ -16,5 +16,17 @@ namespace ScheduleBukepAPI.service
             var json = ExecutePost("GetGroupLessons", parameters, idsSheduleGroup);
             return ConvertToList<GroupLesson>(json);
         }
+        public List<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        {
+            var parameters = new Dictionary<string, string>
+        {
+             {"idTeacher", idTeacher },
+             { "dateFrom", dateFrom },
+             { "dateTo", dateTo }
+        };
+            
+            var json = ExecuteGet("GetTeacherLessons", parameters);
+            return ConvertToList<GroupLesson>(json);
+        }
     }
 }

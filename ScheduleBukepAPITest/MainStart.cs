@@ -15,9 +15,13 @@ namespace ScheduleBukepAPITest
         private static void Main(string[] args)
         {
             Start();
+
         }
 
-        private static void ExampleGetDTOFromConsole()
+        /// <summary>
+        /// Получает Json из консоли и конвертирует в DTO
+        /// </summary>
+        private static void ConvertJsonInDto()
         {
             var jsonConvert = new JsonConvert();;
             var json = Console.ReadLine();
@@ -33,18 +37,30 @@ namespace ScheduleBukepAPITest
             var selectedSpecialty = SelectedSpecialty(selectedFaculty);
             var selectedCourse = SelectedCourse(selectedFaculty, selectedSpecialty);
             var selectedGroup = SelectedGroup(selectedFaculty, selectedSpecialty, selectedCourse);
-
-            ShowGroupLessons(selectedGroup);
+            var selectedGroupLessons = SelectedLessonsGroup(selectedGroup);
+            ShowGroupLessons(selectedGroupLessons);
+            ShowTeacherLessons(selectedGroupLessons[0]);
         }
 
-        private static void ShowGroupLessons(Group selectedGroup)
+        private static void ShowTeacherLessons(GroupLesson groupLessons)
         {
-            var groupLessons = Api.GetGroupLessons(
-                            FacadeApi.ConvertIdsToString(selectedGroup.IdsSchedulGroup),
-                            "2017-05-15",
-                            "2017-05-15"
-                            );
-            foreach (var groupLesson in groupLessons)
+            
+            var idTeacher = groupLessons.IdTeacher;
+            var lessons=FacadeApi.GetTeacherLessons(idTeacher, "2017-06-12", "2017-06-12");
+            Console.WriteLine("Расписание преподавателя " + groupLessons.NameDiscipline);
+            foreach (var item in lessons)
+            {
+                Console.WriteLine(item.NameDiscipline);
+            }
+
+        }
+        
+       
+
+        private static void ShowGroupLessons(IEnumerable<GroupLesson> selectedGroupLessons)
+        {
+
+            foreach (var groupLesson in selectedGroupLessons)
             {
                 Console.WriteLine("===========================================");
                 Console.WriteLine(
@@ -62,6 +78,15 @@ namespace ScheduleBukepAPITest
                     "NameDiscipline - " + groupLesson.NameDiscipline
                 );
             }
+        }
+
+        private static IList<GroupLesson> SelectedLessonsGroup(Group selectedGroup)
+        {
+            return Api.GetGroupLessons(
+                            FacadeApi.ConvertIdsToString(selectedGroup.IdsSchedulGroup),
+                            "2017-05-15",
+                            "2017-05-15"
+                            );
         }
 
         private static Group SelectedGroup(Faculty selectedFaculty, Specialty selectedSpecialty, Courses selectedCourse)
