@@ -38,7 +38,7 @@ namespace Bukep.Sheduler.View
             _isClickImageFavorites = !_isClickImageFavorites;
         }
 
-        internal void ShowGroupLesson(IList<GroupLesson> groupLessons)
+        internal void ShowGroupLesson(IList<Lesson> groupLessons)
         {
             var linearLayout = FindViewById<LinearLayout>(Resource.Id.liner_layout);
             linearLayout.RemoveAllViews();
@@ -50,7 +50,7 @@ namespace Bukep.Sheduler.View
         }
 
         //TODO: Вынести в отдельный класс
-        private Android.Views.View CreateCardLesson(GroupLesson lesson)
+        private Android.Views.View CreateCardLesson(Lesson lesson)
         {
             var card = (CardView) LayoutInflater.Inflate(Resource.Layout.CardViewLesson, null, false);
             var nameLesson = card.FindViewById<TextView>(Resource.Id.nameLesson);

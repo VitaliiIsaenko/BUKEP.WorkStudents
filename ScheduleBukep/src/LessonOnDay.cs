@@ -15,13 +15,13 @@ namespace Bukep.Sheduler
     {
         public LessonOnDay()
         {
-            GroupLessons = new List<GroupLesson>();
+            GroupLessons = new List<Lesson>();
         }
 
         public DateTime DateLesson { get; set; }
-        public IList<GroupLesson> GroupLessons { get; }
+        public IList<Lesson> GroupLessons { get; }
 
-        public static List<LessonOnDay> Parse(IList<GroupLesson> groupLessons)
+        public static List<LessonOnDay> Parse(IList<Lesson> groupLessons)
         {
             var lessonOnDays = new List<LessonOnDay>();
             foreach (var groupLesson in groupLessons)

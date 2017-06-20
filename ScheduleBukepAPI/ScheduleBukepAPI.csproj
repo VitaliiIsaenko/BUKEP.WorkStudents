@@ -47,7 +47,7 @@
     <Compile Include="domain\Courses.cs" />
     <Compile Include="domain\Faculty.cs" />
     <Compile Include="domain\Group.cs" />
-    <Compile Include="domain\GroupLesson.cs" />
+    <Compile Include="domain\Lesson.cs" />
     <Compile Include="domain\Specialty.cs" />
     <Compile Include="FacadeAPI.cs" />
     <Compile Include="helpers\HttpRequstHelper.cs" />

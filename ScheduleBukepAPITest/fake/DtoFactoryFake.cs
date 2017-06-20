@@ -23,9 +23,9 @@ namespace ScheduleBukepAPITest.fake
             };
         }
 
-        internal static GroupLesson CreateGroupLesson(string name)
+        internal static Lesson CreateGroupLesson(string name)
         {
-            return new GroupLesson()
+            return new Lesson()
             {
                 NameLesson = name
             };
