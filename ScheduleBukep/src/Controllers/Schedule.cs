@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using Android.Content;
-using Android.Nfc;
 using Android.Util;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
@@ -33,18 +29,20 @@ namespace Bukep.Sheduler.Controllers
             try
             {
                 //TODO: Вынести в отдельный метод.
-                var group = GetGrope();
+                var group = GetGropeFromeIntent();
                 var dateLessonStart = GetJsonFromeIntent(IntentKeyDateLessonStart);
                 var dateLessonEnd = GetJsonFromeIntent(IntentKeyDateLessonEnd);
                 //=========================================================
 
                 //TODO: Вынести в отдельный метод.
                 var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
-                var groupLessons = FacadeApi
+                var lessons = FacadeApi
                     .GetGroupLessons(ids, dateLessonStart, dateLessonEnd);
                 //=========================================================
 
-                _view.ShowGroupLesson(groupLessons);
+                var lessonOnDays = LessonOnDay.Parse(lessons);
+
+                _view.ShowLessonOnDay(lessonOnDays);
             }
             catch (Exception e)
             {
@@ -55,29 +53,12 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
-        private DateTime GetDateFromeIntent(string keyDateTime)
-        {
-            var jsonDate = GetJsonFromeIntent(keyDateTime);
-            var dateTime = ConvertToDateTime(jsonDate);
-            Log.Debug(Tag, "GetDateFromeIntent() dateTime = " + dateTime);
-            return dateTime;
-        }
-
-        private Group GetGrope()
+        private Group GetGropeFromeIntent()
         {
             var jsonGroup = GetJsonFromeIntent(IntentKeyGroupsJson);
             Log.Info(Tag, "jsonGroup = " + jsonGroup);
             var group = JsonConvert.ConvertTo<Group>(jsonGroup);
             return group;
-        }
-
-        private static DateTime ConvertToDateTime(string json)
-        {
-            if (DateTime.TryParse(json, out DateTime result))
-            {
-                return result;
-            }
-            throw new Exception("Failed convert DateTime frome json. json = " + json);
         }
 
         private string GetJsonFromeIntent(string key)
@@ -87,17 +68,6 @@ namespace Bukep.Sheduler.Controllers
                 throw new Exception("Failed get json " + key + " from Intent");
             Log.Debug(Tag, "GetJsonFromeIntent() json = " + json);
             return json;
-        }
-
-        //TODO: создать и вынести в класс DataHelper
-        /// <summary>
-        /// Конвентирует DateTime в string с форматом для api.
-        /// </summary>
-        /// <returns></returns>
-        private static string ConvertToString(DateTime dateTime)
-        {
-            var todayString = dateTime.ToString("yyyy-MM-dd");
-            return todayString;
         }
     }
 }

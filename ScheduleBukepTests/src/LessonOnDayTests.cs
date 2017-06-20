@@ -30,9 +30,9 @@ namespace ScheduleBukepTests
 
             var lessonOnDays = LessonOnDay.Parse(lessons);
             Assert.AreEqual(3, lessonOnDays.Count);
-            Assert.AreEqual(3, lessonOnDays[0].GroupLessons.Count);
-            Assert.AreEqual(2 ,lessonOnDays[1].GroupLessons.Count);
-            Assert.AreEqual(3 ,lessonOnDays[2].GroupLessons.Count);
+            Assert.AreEqual(3, lessonOnDays[0].Lessons.Count);
+            Assert.AreEqual(2 ,lessonOnDays[1].Lessons.Count);
+            Assert.AreEqual(3 ,lessonOnDays[2].Lessons.Count);
         }
     }
 }

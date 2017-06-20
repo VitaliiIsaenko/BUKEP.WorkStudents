@@ -14,6 +14,7 @@ namespace Bukep.Sheduler.View
     {
         private Schedule _schedule;
         private bool _isClickImageFavorites;
+        private const string LessonOnDayNameFormat = "dddd";
         private const string Tag = "ScheduleActivity";
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -38,15 +39,32 @@ namespace Bukep.Sheduler.View
             _isClickImageFavorites = !_isClickImageFavorites;
         }
 
-        internal void ShowGroupLesson(IList<Lesson> groupLessons)
+        internal void ShowLessonOnDay(List<LessonOnDay> lessonOnDay)
         {
             var linearLayout = FindViewById<LinearLayout>(Resource.Id.liner_layout);
             linearLayout.RemoveAllViews();
 
-            foreach (var item in groupLessons)
+            foreach (var item in lessonOnDay)
             {
-                linearLayout.AddView(CreateCardLesson(item));
+                linearLayout.AddView(CreateLinearLessonOnDays(item));
             }
+        }
+
+        //TODO: Вынести в отдельный класс
+        private Android.Views.View CreateLinearLessonOnDays(LessonOnDay lessonOnDay)
+        {
+            var linearLessonOnDays = (LinearLayout)LayoutInflater.Inflate(Resource.Layout.LessonOnDayView, null, false);
+            var lessonOnDayName = linearLessonOnDays.FindViewById<TextView>(Resource.Id.LessonOnDayName);
+            lessonOnDayName.Text = lessonOnDay.DateLesson.ToString(LessonOnDayNameFormat);
+
+            var lessonOnDaysView = linearLessonOnDays.FindViewById<LinearLayout>(Resource.Id.LessonOnDays);
+            lessonOnDaysView.RemoveAllViews();
+            
+            foreach (var lesson in lessonOnDay.Lessons)
+            {
+                lessonOnDaysView.AddView(CreateCardLesson(lesson));
+            }
+            return linearLessonOnDays;
         }
 
         //TODO: Вынести в отдельный класс

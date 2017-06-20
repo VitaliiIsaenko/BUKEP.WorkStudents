@@ -15,19 +15,19 @@ namespace Bukep.Sheduler
     {
         public LessonOnDay()
         {
-            GroupLessons = new List<Lesson>();
+            Lessons = new List<Lesson>();
         }
 
         public DateTime DateLesson { get; set; }
-        public IList<Lesson> GroupLessons { get; }
+        public IList<Lesson> Lessons { get; }
 
-        public static List<LessonOnDay> Parse(IList<Lesson> groupLessons)
+        public static List<LessonOnDay> Parse(IList<Lesson> lessons)
         {
             var lessonOnDays = new List<LessonOnDay>();
-            foreach (var groupLesson in groupLessons)
+            foreach (var lesson in lessons)
             {
-                Console.WriteLine("Start iteration. DateLesson = " + groupLesson.DateLesson);
-                var dateTimeLesson = ParseDateTime(groupLesson.DateLesson);
+                Console.WriteLine("Start iteration. DateLesson = " + lesson.DateLesson);
+                var dateTimeLesson = ParseDateTime(lesson.DateLesson);
 
                 var foundLessonOnDay = lessonOnDays.Find(
                     x => x.DateLesson.Equals(dateTimeLesson)
@@ -41,7 +41,7 @@ namespace Bukep.Sheduler
                     lessonOnDays.Add(foundLessonOnDay);
                 }
                 Console.WriteLine("Add groupLesson in lessonOnDay");
-                foundLessonOnDay.GroupLessons.Add(groupLesson);
+                foundLessonOnDay.Lessons.Add(lesson);
 
                 Console.WriteLine("End iteration.\n");
             }
