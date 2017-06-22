@@ -1,12 +1,8 @@
 ﻿using System;
-using Android.App;
 using Android.Support.Design.Widget;
-using Android.Support.V7.App;
 using Android.Widget;
-using Bukep.Sheduler.Controllers;
-using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-namespace Bukep.Sheduler
+namespace Bukep.Sheduler.View
 {
     /// <summary>
     /// Используется для работы с общей логикой навигации в Activity.

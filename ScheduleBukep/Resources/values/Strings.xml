@@ -3,6 +3,8 @@
   <string name="ApplicationName">Расписание БУКЭП</string>
   <string name="selectSchedules">Выбор расписания</string>
 
+  <!--IdentifySchedule-->
+  <string name="in_app_happened_error">В приложении произошла ошибка!</string>
   <string name="faculty">Факультет</string>
   <string name="specialty">Cпециальности</string>
   <string name="course">Курс</string>

@@ -28,17 +28,13 @@ namespace Bukep.Sheduler.Controllers
         {
             try
             {
-                //TODO: Вынести в отдельный метод.
                 var group = GetGropeFromeIntent();
                 var dateLessonStart = GetJsonFromeIntent(IntentKeyDateLessonStart);
                 var dateLessonEnd = GetJsonFromeIntent(IntentKeyDateLessonEnd);
-                //=========================================================
 
-                //TODO: Вынести в отдельный метод.
                 var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
                 var lessons = FacadeApi
                     .GetGroupLessons(ids, dateLessonStart, dateLessonEnd);
-                //=========================================================
 
                 var lessonOnDays = LessonOnDay.Parse(lessons);
 

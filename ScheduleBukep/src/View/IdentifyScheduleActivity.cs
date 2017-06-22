@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection.Emit;
 using Android.App;
 using Android.OS;
-using Android.Support.V7.App;
 using Android.Util;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
 using ScheduleBukepAPI.domain;
 
-namespace Bukep.Sheduler
+namespace Bukep.Sheduler.View
 {
     /// <summary>
     ///     Данное Activity используется как форма идентификации для студентов.
