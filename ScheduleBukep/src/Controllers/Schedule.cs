@@ -37,10 +37,12 @@ namespace Bukep.Sheduler.Controllers
                 //TODO: Вынести в отдельный метод.
                 var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
                 var lessons = FacadeApi
-                    .GetGroupLessons(ids, dateLessonStart, dateLessonEnd);
+                    .GetGroupLessons(ids, "2017-06-19", "2017-06-23");
                 //=========================================================
 
                 var lessonOnDays = LessonOnDay.Parse(lessons);
+
+                lessonOnDays.ForEach(x => x.CombineLesson());
 
                 _view.ShowLessonOnDay(lessonOnDays);
             }
