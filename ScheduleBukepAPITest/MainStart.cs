@@ -131,7 +131,7 @@ namespace ScheduleBukepAPITest
 
         private static int AskNumber()
         {
-            Console.WriteLine("Введите число:");
+            Console.Write("Введите число:");
             return System.Convert.ToInt32(Console.ReadLine());
         }
     }

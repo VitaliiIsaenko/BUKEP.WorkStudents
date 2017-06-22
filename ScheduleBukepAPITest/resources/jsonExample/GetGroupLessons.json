@@ -1,0 +1,44 @@
+﻿[
+   {
+      "nameTypeShedule":"Теоретическое обучение",
+      "nameTypeWeek":"Знам.",
+      "nameDay":"понедельник",
+      "nameLesson":"3 пара",
+      "typeLesson":"Лекционное занятие",
+      "dateLesson":"15.05.2017",
+      "timeStartLesson":"12:25",
+      "timeEndLesson":"14:00",
+      "nameAuditory":"415н",
+      "idTeacher":366,
+      "fioTeacher":"доц. Москаленко Н.И.",
+      "nameDiscipline":"Теория вероятностей и математическая статистика"
+   },
+   {
+      "nameTypeShedule":"Теоретическое обучение",
+      "nameTypeWeek":"Знам.",
+      "nameDay":"понедельник",
+      "nameLesson":"4пара",
+      "typeLesson":"Лекционное занятие",
+      "dateLesson":"15.05.2017",
+      "timeStartLesson":"14:35",
+      "timeEndLesson":"16:10",
+      "nameAuditory":"115",
+      "idTeacher":2169,
+      "fioTeacher":"доц. Гатилова И.Н.",
+      "nameDiscipline":"Обработка отраслевой информации"
+   },
+   {
+      "nameTypeShedule":"Теоретическое обучение",
+      "nameTypeWeek":"Знам.",
+      "nameDay":"понедельник",
+      "nameLesson":"5 пара",
+      "typeLesson":"Лекционное занятие",
+      "dateLesson":"15.05.2017",
+      "timeStartLesson":"16:20",
+      "timeEndLesson":"17:55",
+      "nameAuditory":"504н",
+      "idTeacher":2219,
+      "fioTeacher":"асс. Шевченко Е.И.",
+      "nameDiscipline":"Дискретная математика"
+   }
+]

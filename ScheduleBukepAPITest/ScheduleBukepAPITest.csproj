@@ -52,6 +52,7 @@
     <None Include="App.config" />
     <None Include="resources\jsonExample\GetFaculties.json" />
     <None Include="resources\jsonExample\GetGroups.json" />
+    <None Include="resources\jsonExample\GetGroupLessons.json" />
     <None Include="resources\jsonExample\GetSpecialtys.json" />
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,7 @@ namespace ScheduleBukepAPI.helpers
     {
         private const string UrlApi = "https://my.bukep.ru:447/api/Schedule";
 
+        
         public string ExecuteGet(string nameMethod, IDictionary<string, string> parameters)
         {
             var url = CreateUrl(nameMethod, parameters);
@@ -27,6 +28,7 @@ namespace ScheduleBukepAPI.helpers
             var reader = new StreamReader(dataStream);
             var json = reader.ReadToEnd();
 
+            //TODO: добавить close() в try/catch
             reader.Close();
             response.Close();
             return json;
@@ -57,9 +59,11 @@ namespace ScheduleBukepAPI.helpers
             var dataStream = response.GetResponseStream();
             var reader = new StreamReader(dataStream);
             var json = reader.ReadToEnd();
-            reader.Close();
 
+            //TODO: добавить close() в try/catch
+            reader.Close();
             response.Close();
+            Console.Write("Json = " + json + "\n");
             return json;
         }
 
