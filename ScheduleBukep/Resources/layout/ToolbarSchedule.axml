@@ -13,9 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/toolbarRelativeLayout">
-    <!--TODO: вынес текста в файл String-->
         <TextView
-            android:text="Расписание"
+            android:text="@string/schedule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/toolbarTitle"
@@ -48,7 +47,7 @@
             android:textSize="15sp" />
         <TextView
             android:id="@+id/toolbarSchedulesPeriod"
-            android:text="На день"
+            android:text="@string/for_one_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/toolbarGroop"
@@ -73,14 +72,14 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="10.0dp" />
         <TextView
-            android:text="текущ."
+            android:text="@string/current"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/toolbarSwitchSchedules"
             android:id="@+id/textView1"
             android:layout_below="@id/toolbarImageFavorites" />
         <TextView
-            android:text="след."
+            android:text="@string/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"

@@ -3210,11 +3210,23 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f0a002e
 			public const int course = 2131361838;
 			
+			// aapt resource value: 0x7f0a003d
+			public const int current = 2131361853;
+			
 			// aapt resource value: 0x7f0a002c
 			public const int faculty = 2131361836;
 			
 			// aapt resource value: 0x7f0a0034
 			public const int favorites = 2131361844;
+			
+			// aapt resource value: 0x7f0a0039
+			public const int for_one_day = 2131361849;
+			
+			// aapt resource value: 0x7f0a003a
+			public const int for_three_day = 2131361850;
+			
+			// aapt resource value: 0x7f0a003b
+			public const int for_week = 2131361851;
 			
 			// aapt resource value: 0x7f0a002f
 			public const int group = 2131361839;
@@ -3224,6 +3236,9 @@ namespace Bukep.Sheduler
 			
 			// aapt resource value: 0x7f0a0032
 			public const int list_task = 2131361842;
+			
+			// aapt resource value: 0x7f0a003c
+			public const int next = 2131361852;
 			
 			// aapt resource value: 0x7f0a0024
 			public const int password_toggle_content_description = 2131361828;
@@ -3239,6 +3254,9 @@ namespace Bukep.Sheduler
 			
 			// aapt resource value: 0x7f0a0028
 			public const int path_password_strike_through = 2131361832;
+			
+			// aapt resource value: 0x7f0a0038
+			public const int schedule = 2131361848;
 			
 			// aapt resource value: 0x7f0a0037
 			public const int schedule_bell = 2131361847;
