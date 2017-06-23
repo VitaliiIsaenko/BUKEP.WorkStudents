@@ -18,7 +18,7 @@ namespace Bukep.Sheduler.View
             Log.Error(Tag, "ShowError() mesages = " + mesages);
             var builder = new AlertDialog.Builder(this);
             builder
-                .SetTitle(Resources.GetString(Resource.String.in_app_happened_error))
+                .SetTitle(GetString(Resource.String.in_app_happened_error))
                 .SetMessage(mesages)
                 .SetNegativeButton("Ок", delegate
                 {

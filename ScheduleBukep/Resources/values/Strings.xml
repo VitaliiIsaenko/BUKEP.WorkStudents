@@ -25,9 +25,14 @@
   <!--ToolbarSchedule-->
   <string name="schedule">Расписание</string>
   <string name="for_one_day">На день</string>
-  <string name="for_three_day">На три дня</string>
-  <string name="for_week">На неделю</string>
   <string name="next">след.</string>
   <string name="current">текущ.</string>
+  <string name="select_period">"Выбор периода</string>
+
+  <string-array name="schedules_period">
+    <item>На день</item>
+    <item>На три дня</item>
+    <item>На неделю</item>
+  </string-array>
   
 </resources>

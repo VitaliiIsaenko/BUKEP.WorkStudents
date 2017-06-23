@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Support.V7.Widget;
+using Android.Util;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
 using ScheduleBukepAPI.domain;
@@ -24,13 +26,42 @@ namespace Bukep.Sheduler.View
 
             InitNavigationView();
             var imageFavorites = FindViewById<ImageView>(Resource.Id.toolbarImageFavorites);
-            imageFavorites.Click += ImageFavorites_Click;
+            imageFavorites.Click += ClickImageFavorites;
+
+            var period = FindViewById<TextView>(Resource.Id.toolbarSchedulesPeriod);
+            period.Click += ClickSchedulesPeriod;
 
             _schedule = new Schedule(this);
             _schedule.Update();
         }
 
-        private void ImageFavorites_Click(object sender, EventArgs e)
+        private void ClickSchedulesPeriod(object sender, EventArgs e)
+        {
+            var builder = new AlertDialog.Builder(this);
+            builder.SetTitle(GetString(Resource.String.select_period))
+                .SetItems(
+                Resources.GetStringArray(Resource.Array.schedules_period),
+                ClickListPeriod
+                )
+                .Create()
+                .Show();
+        }
+
+        private void ClickListPeriod(object sender, DialogClickEventArgs e)
+        {
+            Log.Debug(Tag, $"ClickListPeriod() Which = {e.Which}");
+            switch(e.Which)
+            {
+                case 0:
+                    _schedule.ChoosePeriodOneDay(); break;
+                case 1:
+                    _schedule.ChoosePeriodThreeDay(); break;
+                case 2:
+                    _schedule.ChoosePeriodWeek(); break; 
+            }
+        }
+
+        private void ClickImageFavorites(object sender, EventArgs e)
         {
             var imageFavorites = (ImageView)sender;
             imageFavorites.SetImageResource(_isClickImageFavorites

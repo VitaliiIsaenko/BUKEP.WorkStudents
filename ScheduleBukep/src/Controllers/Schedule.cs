@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.Util;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
@@ -28,17 +29,12 @@ namespace Bukep.Sheduler.Controllers
         {
             try
             {
-                var group = GetGropeFromeIntent();
-                var dateLessonStart = GetJsonFromeIntent(IntentKeyDateLessonStart);
-                var dateLessonEnd = GetJsonFromeIntent(IntentKeyDateLessonEnd);
-
-                var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
-                var lessons = FacadeApi
-                    .GetGroupLessons(ids, dateLessonStart, dateLessonEnd);
-
-                var lessonOnDays = LessonOnDay.Parse(lessons);
-
-                _view.ShowLessonOnDay(lessonOnDays);
+                var lessons = RequestSchedules(
+                    GetGropeFromeIntent(),
+                    GetJsonFromeIntent(IntentKeyDateLessonStart),
+                    GetJsonFromeIntent(IntentKeyDateLessonEnd)
+                );
+                _view.ShowLessonOnDay(LessonOnDay.Parse(lessons));
             }
             catch (Exception e)
             {
@@ -47,6 +43,14 @@ namespace Bukep.Sheduler.Controllers
                 _view.CloseIfHappenedExeption = false;
                 _view.ShowError(e.Message);
             }
+        }
+
+        private IList<Lesson> RequestSchedules(Group group, string dateLessonStart, string dateLessonEnd)
+        {
+            var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
+            var lessons = FacadeApi
+                .GetGroupLessons(ids, dateLessonStart, dateLessonEnd);
+            return lessons;
         }
 
         private Group GetGropeFromeIntent()
@@ -64,6 +68,67 @@ namespace Bukep.Sheduler.Controllers
                 throw new Exception("Failed get json " + key + " from Intent");
             Log.Debug(Tag, "GetJsonFromeIntent() json = " + json);
             return json;
+        }
+
+        public void ChoosePeriodOneDay()
+        {
+            Log.Debug(Tag, "ChoosePeriodOneDay()");
+            var today = DateTime.Today;
+            PutExtraData(IntentKeyDateLessonStart, today);
+            PutExtraData(IntentKeyDateLessonEnd, today);
+            Update();
+        }
+
+
+
+        public void ChoosePeriodThreeDay()
+        {
+            Log.Debug(Tag, "ChoosePeriodThreeDay()");
+            var today = DateTime.Today;
+            PutExtraData(IntentKeyDateLessonStart, today);
+
+            var threeDayFuture = today.AddDays(3);
+            PutExtraData(IntentKeyDateLessonEnd, threeDayFuture);
+
+            Log.Debug(Tag, $"today = {today} threeDayFuture = {threeDayFuture}");
+
+            Update();
+        }
+
+        public void ChoosePeriodWeek()
+        {
+            Log.Debug(Tag, "ChoosePeriodWeek()");
+            var monday = GetStartWeek(DateTime.Today);
+            PutExtraData(IntentKeyDateLessonStart, monday);
+
+            var saturday = monday.AddDays(5);
+            PutExtraData(IntentKeyDateLessonEnd, saturday);
+
+            Log.Debug(Tag, $"monday = {monday} saturday = {saturday}");
+
+            Update();
+        }
+
+        /// <summary>
+        /// Возвращает день с которого начинается текущая неделя.  
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        private static DateTime GetStartWeek(DateTime date)
+        {
+            while (date.DayOfWeek != DayOfWeek.Monday)
+            {
+                date = date.AddDays(-1);
+            }
+            return date;
+        }
+
+        private void PutExtraData(string key, DateTime dateTime)
+        {
+            _view.Intent.PutExtra(
+                key,
+                dateTime.ToString(FacadeApi.DateTimeFormat)
+            );
         }
     }
 }

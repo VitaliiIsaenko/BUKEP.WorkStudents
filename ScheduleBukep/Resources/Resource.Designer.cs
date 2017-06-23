@@ -105,6 +105,22 @@ namespace Bukep.Sheduler
 			}
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f0d0000
+			public const int schedules_period = 2131558400;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -3086,8 +3102,8 @@ namespace Bukep.Sheduler
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f0d0000
-			public const int bottom_menu = 2131558400;
+			// aapt resource value: 0x7f0e0000
+			public const int bottom_menu = 2131623936;
 			
 			static Menu()
 			{
@@ -3210,8 +3226,8 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f0a002e
 			public const int course = 2131361838;
 			
-			// aapt resource value: 0x7f0a003d
-			public const int current = 2131361853;
+			// aapt resource value: 0x7f0a003b
+			public const int current = 2131361851;
 			
 			// aapt resource value: 0x7f0a002c
 			public const int faculty = 2131361836;
@@ -3222,12 +3238,6 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f0a0039
 			public const int for_one_day = 2131361849;
 			
-			// aapt resource value: 0x7f0a003a
-			public const int for_three_day = 2131361850;
-			
-			// aapt resource value: 0x7f0a003b
-			public const int for_week = 2131361851;
-			
 			// aapt resource value: 0x7f0a002f
 			public const int group = 2131361839;
 			
@@ -3237,8 +3247,8 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f0a0032
 			public const int list_task = 2131361842;
 			
-			// aapt resource value: 0x7f0a003c
-			public const int next = 2131361852;
+			// aapt resource value: 0x7f0a003a
+			public const int next = 2131361850;
 			
 			// aapt resource value: 0x7f0a0024
 			public const int password_toggle_content_description = 2131361828;
@@ -3275,6 +3285,9 @@ namespace Bukep.Sheduler
 			
 			// aapt resource value: 0x7f0a002a
 			public const int selectSchedules = 2131361834;
+			
+			// aapt resource value: 0x7f0a003c
+			public const int select_period = 2131361852;
 			
 			// aapt resource value: 0x7f0a0030
 			public const int show = 2131361840;
