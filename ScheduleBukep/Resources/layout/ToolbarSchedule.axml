@@ -25,7 +25,7 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@id/toolbarTitle" />
         <TextView
-            android:id="@+id/toolbarData"
+            android:id="@+id/toolbarDate"
             android:text="Среда, 5 апреля"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,10 +40,10 @@
             android:text="ИС-42"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbarData"
+            android:layout_below="@id/toolbarDate"
             android:gravity="center_horizontal"
-            android:layout_alignRight="@id/toolbarData"
-            android:layout_alignLeft="@id/toolbarData"
+            android:layout_alignRight="@id/toolbarDate"
+            android:layout_alignLeft="@id/toolbarDate"
             android:textSize="15sp" />
         <TextView
             android:id="@+id/toolbarSchedulesPeriod"

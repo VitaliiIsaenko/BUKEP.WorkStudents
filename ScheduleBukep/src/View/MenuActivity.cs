@@ -14,7 +14,7 @@ namespace Bukep.Sheduler.View
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.MenuActivity);
+            SetContentView(Resource.Layout.MenuLayout);
 
             var scheduleGroup = FindViewById<Button>(Resource.Id.schedule_group);
             scheduleGroup.Click += ClickScheduleGroup;

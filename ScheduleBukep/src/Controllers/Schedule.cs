@@ -16,9 +16,10 @@ namespace Bukep.Sheduler.Controllers
         /// Используется для получения данных из Intent.
         /// </summary>
         public const string IntentKeyGroupsJson = "GroupJson";
-
         public const string IntentKeyDateLessonStart = "DateLessonStart";
         public const string IntentKeyDateLessonEnd = "DateLessonEnd";
+
+        private const string ToolbarDateFormat = "ddd, dd MMM";
 
         public Schedule(ScheduleActivity view)
         {
@@ -29,12 +30,15 @@ namespace Bukep.Sheduler.Controllers
         {
             try
             {
+                var group = GetGropeFromeIntent();
                 var lessons = RequestSchedules(
-                    GetGropeFromeIntent(),
+                    group,
                     GetJsonFromeIntent(IntentKeyDateLessonStart),
                     GetJsonFromeIntent(IntentKeyDateLessonEnd)
                 );
                 _view.ShowLessonOnDay(LessonOnDay.Parse(lessons));
+                _view.SetGroopName(group.NameGroup);
+                _view.SetToday(DateTime.Today.ToString(ToolbarDateFormat));
             }
             catch (Exception e)
             {

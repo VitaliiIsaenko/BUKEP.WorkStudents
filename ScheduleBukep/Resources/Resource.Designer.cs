@@ -2776,7 +2776,7 @@ namespace Bukep.Sheduler
 			public const int tool_bar = 2131165323;
 			
 			// aapt resource value: 0x7f0700ba
-			public const int toolbarData = 2131165370;
+			public const int toolbarDate = 2131165370;
 			
 			// aapt resource value: 0x7f0700bb
 			public const int toolbarGroop = 2131165371;
@@ -3021,7 +3021,7 @@ namespace Bukep.Sheduler
 			public const int LessonOnDayView = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int MenuActivity = 2130903085;
+			public const int MenuLayout = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
 			public const int notification_action = 2130903086;

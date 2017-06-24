@@ -16,6 +16,8 @@ namespace Bukep.Sheduler.View
     {
         private Schedule _schedule;
         private bool _isClickImageFavorites;
+        private TextView _toolbarGroop;
+        private TextView _toolbarDate;
         private const string LessonOnDayNameFormat = "dddd";
         private const string Tag = "ScheduleActivity";
 
@@ -31,8 +33,21 @@ namespace Bukep.Sheduler.View
             var period = FindViewById<TextView>(Resource.Id.toolbarSchedulesPeriod);
             period.Click += ClickSchedulesPeriod;
 
+            _toolbarDate = FindViewById<TextView>(Resource.Id.toolbarDate);
+            _toolbarGroop = FindViewById<TextView>(Resource.Id.toolbarGroop);
+
             _schedule = new Schedule(this);
             _schedule.Update();
+        }
+
+        public void SetToday(string today)
+        {
+            _toolbarDate.Text = today;
+        }
+
+        public void SetGroopName(string name)
+        {
+            _toolbarGroop.Text = name;
         }
 
         private void ClickSchedulesPeriod(object sender, EventArgs e)
@@ -40,8 +55,8 @@ namespace Bukep.Sheduler.View
             var builder = new AlertDialog.Builder(this);
             builder.SetTitle(GetString(Resource.String.select_period))
                 .SetItems(
-                Resources.GetStringArray(Resource.Array.schedules_period),
-                ClickListPeriod
+                    Resources.GetStringArray(Resource.Array.schedules_period),
+                    ClickListPeriod
                 )
                 .Create()
                 .Show();
@@ -50,20 +65,23 @@ namespace Bukep.Sheduler.View
         private void ClickListPeriod(object sender, DialogClickEventArgs e)
         {
             Log.Debug(Tag, $"ClickListPeriod() Which = {e.Which}");
-            switch(e.Which)
+            switch (e.Which)
             {
                 case 0:
-                    _schedule.ChoosePeriodOneDay(); break;
+                    _schedule.ChoosePeriodOneDay();
+                    break;
                 case 1:
-                    _schedule.ChoosePeriodThreeDay(); break;
+                    _schedule.ChoosePeriodThreeDay();
+                    break;
                 case 2:
-                    _schedule.ChoosePeriodWeek(); break; 
+                    _schedule.ChoosePeriodWeek();
+                    break;
             }
         }
 
         private void ClickImageFavorites(object sender, EventArgs e)
         {
-            var imageFavorites = (ImageView)sender;
+            var imageFavorites = (ImageView) sender;
             imageFavorites.SetImageResource(_isClickImageFavorites
                 ? Resource.Drawable.favorites_empty
                 : Resource.Drawable.favorites);
@@ -84,13 +102,14 @@ namespace Bukep.Sheduler.View
         //TODO: Вынести в отдельный класс
         private Android.Views.View CreateLinearLessonOnDays(LessonOnDay lessonOnDay)
         {
-            var linearLessonOnDays = (LinearLayout)LayoutInflater.Inflate(Resource.Layout.LessonOnDayView, null, false);
+            var linearLessonOnDays =
+                (LinearLayout) LayoutInflater.Inflate(Resource.Layout.LessonOnDayView, null, false);
             var lessonOnDayName = linearLessonOnDays.FindViewById<TextView>(Resource.Id.LessonOnDayName);
             lessonOnDayName.Text = lessonOnDay.DateLesson.ToString(LessonOnDayNameFormat);
 
             var lessonOnDaysView = linearLessonOnDays.FindViewById<LinearLayout>(Resource.Id.LessonOnDays);
             lessonOnDaysView.RemoveAllViews();
-            
+
             foreach (var lesson in lessonOnDay.Lessons)
             {
                 lessonOnDaysView.AddView(CreateCardLesson(lesson));
