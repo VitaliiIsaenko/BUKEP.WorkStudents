@@ -29,7 +29,7 @@
   <string name="current">текущ.</string>
   <string name="select_period">"Выбор периода</string>
 
-  <string-array name="schedules_period">
+  <string-array name="schedules_periods">
     <item>На день</item>
     <item>На три дня</item>
     <item>На неделю</item>

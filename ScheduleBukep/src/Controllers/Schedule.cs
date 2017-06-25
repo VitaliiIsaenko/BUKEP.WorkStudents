@@ -11,6 +11,7 @@ namespace Bukep.Sheduler.Controllers
     {
         private const string Tag = "Schedule";
         private readonly ScheduleActivity _view;
+        private string[] _periodNames;
 
         /// <summary>
         /// Используется для получения данных из Intent.
@@ -24,6 +25,7 @@ namespace Bukep.Sheduler.Controllers
         public Schedule(ScheduleActivity view)
         {
             _view = view;
+            _periodNames = _view.Resources.GetStringArray(Resource.Array.schedules_periods);
         }
 
         public override void Update()
@@ -36,7 +38,9 @@ namespace Bukep.Sheduler.Controllers
                     GetJsonFromeIntent(IntentKeyDateLessonStart),
                     GetJsonFromeIntent(IntentKeyDateLessonEnd)
                 );
-                _view.ShowLessonOnDay(LessonOnDay.Parse(lessons));
+                var lessonOnDays = LessonOnDay.Parse(lessons);
+                lessonOnDays.ForEach(x => x.CombineLesson());
+                _view.ShowLessonOnDay(lessonOnDays);
                 _view.SetGroopName(group.NameGroup);
                 _view.SetToday(DateTime.Today.ToString(ToolbarDateFormat));
             }
@@ -80,6 +84,8 @@ namespace Bukep.Sheduler.Controllers
             var today = DateTime.Today;
             PutExtraData(IntentKeyDateLessonStart, today);
             PutExtraData(IntentKeyDateLessonEnd, today);
+            var periodsName = _periodNames[0];
+            _view.SetPeriodName(periodsName);
             Update();
         }
 
@@ -91,11 +97,12 @@ namespace Bukep.Sheduler.Controllers
             var today = DateTime.Today;
             PutExtraData(IntentKeyDateLessonStart, today);
 
-            var threeDayFuture = today.AddDays(3);
+            var threeDayFuture = today.AddDays(2);
             PutExtraData(IntentKeyDateLessonEnd, threeDayFuture);
 
             Log.Debug(Tag, $"today = {today} threeDayFuture = {threeDayFuture}");
-
+            var periodsName = _periodNames[1];
+            _view.SetPeriodName(periodsName);
             Update();
         }
 
@@ -110,6 +117,8 @@ namespace Bukep.Sheduler.Controllers
 
             Log.Debug(Tag, $"monday = {monday} saturday = {saturday}");
 
+            var periodsName = _periodNames[2];
+            _view.SetPeriodName(periodsName);
             Update();
         }
 

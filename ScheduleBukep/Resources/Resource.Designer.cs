@@ -109,7 +109,7 @@ namespace Bukep.Sheduler
 		{
 			
 			// aapt resource value: 0x7f0d0000
-			public const int schedules_period = 2131558400;
+			public const int schedules_periods = 2131558400;
 			
 			static Array()
 			{

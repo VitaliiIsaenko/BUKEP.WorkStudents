@@ -18,6 +18,7 @@ namespace Bukep.Sheduler.View
         private bool _isClickImageFavorites;
         private TextView _toolbarGroop;
         private TextView _toolbarDate;
+        private TextView _toolbarPeriod;
         private const string LessonOnDayNameFormat = "dddd";
         private const string Tag = "ScheduleActivity";
 
@@ -30,14 +31,19 @@ namespace Bukep.Sheduler.View
             var imageFavorites = FindViewById<ImageView>(Resource.Id.toolbarImageFavorites);
             imageFavorites.Click += ClickImageFavorites;
 
-            var period = FindViewById<TextView>(Resource.Id.toolbarSchedulesPeriod);
-            period.Click += ClickSchedulesPeriod;
+            _toolbarPeriod = FindViewById<TextView>(Resource.Id.toolbarSchedulesPeriod);
+            _toolbarPeriod.Click += ClickSchedulesPeriod;
 
             _toolbarDate = FindViewById<TextView>(Resource.Id.toolbarDate);
             _toolbarGroop = FindViewById<TextView>(Resource.Id.toolbarGroop);
 
             _schedule = new Schedule(this);
             _schedule.Update();
+        }
+
+        public void SetPeriodName(string name)
+        {
+            _toolbarPeriod.Text = name;
         }
 
         public void SetToday(string today)
@@ -55,7 +61,7 @@ namespace Bukep.Sheduler.View
             var builder = new AlertDialog.Builder(this);
             builder.SetTitle(GetString(Resource.String.select_period))
                 .SetItems(
-                    Resources.GetStringArray(Resource.Array.schedules_period),
+                    Resources.GetStringArray(Resource.Array.schedules_periods),
                     ClickListPeriod
                 )
                 .Create()
