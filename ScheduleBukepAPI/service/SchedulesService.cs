@@ -6,7 +6,7 @@ namespace ScheduleBukepAPI.service
 {
     internal class SchedulesService : BaseService ,ISchedulesService
     {
-        public IList<Lesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        public IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
         {
             var parameters = new Dictionary<string, string>
             {
@@ -14,7 +14,7 @@ namespace ScheduleBukepAPI.service
                 { "dateTo", dateTo }
             };
             var json = ExecutePost("GetGroupLessons", parameters, idsSheduleGroup);
-            return ConvertToList<Lesson>(json);
+            return ConvertToList<GroupLesson>(json);
         }
     }
 }

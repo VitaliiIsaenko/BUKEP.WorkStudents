@@ -54,7 +54,7 @@ namespace ScheduleBukepAPI
             return _facultiesService.GetCourses(Year, IdFilial, idFaculty, idsSpecialty);
         }
 
-        public IList<Lesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        public IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
         {
             return _schedulesService.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
         }

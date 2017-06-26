@@ -6,9 +6,9 @@ namespace ScheduleBukepAPITest.fake
 {
     internal class SchedulesServiceFake : ISchedulesService
     {
-        public IList<Lesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        public IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
         {
-            var groupLessons = new List<Lesson>
+            var groupLessons = new List<GroupLesson>
             {
                 DtoFactoryFake.CreateGroupLesson("Lesson 1"),
                 DtoFactoryFake.CreateGroupLesson("Lesson 2"),

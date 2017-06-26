@@ -39,7 +39,7 @@ namespace Bukep.Sheduler.Controllers
                     GetJsonFromeIntent(IntentKeyDateLessonEnd)
                 );
                 var lessonOnDays = LessonOnDay.Parse(lessons);
-                lessonOnDays.ForEach(x => x.CombineLesson());
+
                 _view.ShowLessonOnDay(lessonOnDays);
                 _view.SetGroopName(group.NameGroup);
                 _view.SetToday(DateTime.Today.ToString(ToolbarDateFormat));
@@ -53,7 +53,7 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
-        private IList<Lesson> RequestSchedules(Group group, string dateLessonStart, string dateLessonEnd)
+        private IList<GroupLesson> RequestSchedules(Group group, string dateLessonStart, string dateLessonEnd)
         {
             var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
             var lessons = FacadeApi

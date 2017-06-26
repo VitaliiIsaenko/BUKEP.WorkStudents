@@ -124,30 +124,36 @@ namespace Bukep.Sheduler.View
         }
 
         //TODO: Вынести в отдельный класс
-        private Android.Views.View CreateCardLesson(Lesson lesson)
+        private Android.Views.View CreateCardLesson(GroupLesson groupLesson)
         {
             var card = (CardView) LayoutInflater.Inflate(Resource.Layout.CardViewLesson, null, false);
             var nameLesson = card.FindViewById<TextView>(Resource.Id.nameLesson);
-            nameLesson.Text = lesson.NameDiscipline;
+            nameLesson.Text = groupLesson.Discipline.Value;
 
             var timeStartLesson = card.FindViewById<TextView>(Resource.Id.timeStartLesson);
-            timeStartLesson.Text = lesson.TimeStartLesson;
+            timeStartLesson.Text = groupLesson.TimeLesson.StartLesson;
 
             var timeEndLesson = card.FindViewById<TextView>(Resource.Id.timeEndLesson);
-            timeEndLesson.Text = lesson.TimeEndLesson;
+            timeEndLesson.Text = groupLesson.TimeLesson.EndLesson;
 
             var number = card.FindViewById<TextView>(Resource.Id.number);
-            number.Text = lesson.NameLesson;
+            number.Text = groupLesson.Lesson.Value;
 
             var typeLesson = card.FindViewById<TextView>(Resource.Id.typeLesson);
-            typeLesson.Text = lesson.TypeLesson;
+            typeLesson.Text = groupLesson.TypeLesson.Value;
 
             var nameTeacher = card.FindViewById<TextView>(Resource.Id.nameTeacher);
-            nameTeacher.Text = lesson.FioTeacher;
+            foreach (var teacher in groupLesson.Teachers)
+            {
+                nameTeacher.Text += teacher.Value+" ";
+            }
 
             var nameAudience = card.FindViewById<TextView>(Resource.Id.nameAudience);
-            nameAudience.Text = lesson.NameAuditory;
-
+            foreach (var auditory in groupLesson.Auditory)
+            {
+                nameAudience.Text = auditory.Value+" ";
+            }
+            
             return card;
         }
     }
