@@ -49,7 +49,7 @@
     <Compile Include="domain\Group.cs" />
     <Compile Include="domain\Lesson.cs" />
     <Compile Include="domain\Specialty.cs" />
-    <Compile Include="FacadeAPI.cs" />
+    <Compile Include="FacadeApi.cs" />
     <Compile Include="helpers\HttpRequstHelper.cs" />
     <Compile Include="helpers\JsonConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

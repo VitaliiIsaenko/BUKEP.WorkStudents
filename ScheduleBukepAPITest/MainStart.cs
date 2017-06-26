@@ -17,16 +17,6 @@ namespace ScheduleBukepAPITest
             Start();
         }
 
-        private static void ExampleGetDTOFromConsole()
-        {
-            var jsonConvert = new JsonConvert();;
-            var json = Console.ReadLine();
-            var group = jsonConvert.ConvertTo<Group>(json);
-            Console.WriteLine(group.NameGroup);
-            var jsonOfDto = jsonConvert.ConvertToJson<Group>(group);
-            Console.WriteLine("jsonOfDTO = " + jsonOfDto);
-        }
-
         private static void Start()
         {
             var selectedFaculty = SelectFaculty();
