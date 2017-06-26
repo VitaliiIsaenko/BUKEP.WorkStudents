@@ -7,7 +7,7 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <include
-        android:id="@+id/tool_bar"
+        android:id="@+id/toolbar"
         layout="@layout/Toolbar" />
     <TableLayout
         android:layout_width="wrap_content"
@@ -17,7 +17,7 @@
         android:stretchColumns="1"
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/tool_bar"
+        android:layout_below="@id/toolbar"
         android:layout_above="@+id/buttoneShow">
         <TableRow>
             <TextView

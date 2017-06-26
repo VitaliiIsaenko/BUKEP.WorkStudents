@@ -2773,7 +2773,7 @@ namespace Bukep.Sheduler
 			public const int title_template = 2131165271;
 			
 			// aapt resource value: 0x7f07008b
-			public const int tool_bar = 2131165323;
+			public const int toolbar = 2131165323;
 			
 			// aapt resource value: 0x7f0700ba
 			public const int toolbarDate = 2131165370;

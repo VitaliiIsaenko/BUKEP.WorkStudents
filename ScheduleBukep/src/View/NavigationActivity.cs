@@ -49,7 +49,7 @@ namespace Bukep.Sheduler.View
 
         protected virtual void InitToolbar()
         {
-            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.tool_bar);
+            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             if (toolbar == null)
             {
                 throw new Exception("Failed execute InitToolbar(). Check Toolbar in Layout.");
