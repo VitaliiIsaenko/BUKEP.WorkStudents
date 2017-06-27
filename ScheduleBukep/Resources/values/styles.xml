@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
-  <style name="MyTheme" parent="android:Theme.Material">
+  <!--Стиль для текста в IdentifyScheduleLayout-->
+  <style name="IdentifySchedule" parent="android:Theme.Material">
     <item name="android:layout_marginTop">5.0dp</item>
-    <item name="android:textSize">15sp</item>
+    <item name="android:textSize">20sp</item>
   </style>
   <style name="MyThemeAppCompat" parent="Theme.AppCompat.NoActionBar">
     <item name="windowNoTitle">true</item>

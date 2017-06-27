@@ -3804,7 +3804,7 @@ namespace Bukep.Sheduler
 			public const int CardView_Light = 2131230723;
 			
 			// aapt resource value: 0x7f08017e
-			public const int MyTheme = 2131231102;
+			public const int IdentifySchedule = 2131231102;
 			
 			// aapt resource value: 0x7f08017f
 			public const int MyThemeAppCompat = 2131231103;

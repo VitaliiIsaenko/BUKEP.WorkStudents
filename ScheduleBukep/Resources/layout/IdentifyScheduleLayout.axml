@@ -9,57 +9,80 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/Toolbar" />
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:stretchColumns="1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:focusable="false"
         android:layout_below="@id/toolbar"
-        android:layout_above="@+id/buttoneShow">
-        <TableRow>
+        android:layout_above="@+id/buttoneShow"
+        android:padding="3dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/faculty"
                 android:text="@string/faculty"
-                android:theme="@style/MyTheme" />
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:theme="@style/IdentifySchedule"
+                android:gravity="center_horizontal" />
             <Spinner
                 android:id="@+id/spinnerFaculty"
-                android:layout_height="wrap_content"
-                android:layout_width="66.0dp" />
-        </TableRow>
-        <TableRow>
+                android:layout_height="40dp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:textSize="15sp"
+                android:layout_marginLeft="0.0dp" />
             <TextView
-                android:text="@string/specialty"
                 android:id="@+id/specialty"
-                android:theme="@style/MyTheme" />
+                android:text="@string/specialty"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:theme="@style/IdentifySchedule"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
             <Spinner
                 android:id="@+id/spinnerSpecialty"
-                android:layout_height="wrap_content"
-                android:layout_width="66.0dp" />
-        </TableRow>
-        <TableRow>
+                android:layout_height="40dp"
+                android:textSize="15sp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent" />
             <TextView
-                android:text="@string/course"
                 android:id="@+id/course"
-                android:theme="@style/MyTheme" />
+                android:text="@string/course"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:theme="@style/IdentifySchedule"
+                android:layout_width="match_parent" />
             <Spinner
                 android:id="@+id/spinnerCourse"
-                android:layout_height="wrap_content"
-                android:layout_width="66.0dp" />
-        </TableRow>
-        <TableRow>
+                android:layout_height="40dp"
+                android:textSize="15sp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent" />
             <TextView
-                android:text="@string/group"
                 android:id="@+id/group"
-                android:theme="@style/MyTheme" />
+                android:text="@string/group"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:theme="@style/IdentifySchedule"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
             <Spinner
                 android:id="@+id/spinnerGroup"
-                android:layout_height="wrap_content"
-                android:layout_width="66.0dp" />
-        </TableRow>
-    </TableLayout>
+                android:layout_height="40dp"
+                android:textSize="15sp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+    </ScrollView>
     <Button
         android:id="@+id/buttoneShow"
         android:layout_width="wrap_content"
