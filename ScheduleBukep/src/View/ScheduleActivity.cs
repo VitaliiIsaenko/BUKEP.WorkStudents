@@ -131,10 +131,12 @@ namespace Bukep.Sheduler.View
             nameLesson.Text = groupLesson.Discipline.Value;
 
             var timeStartLesson = card.FindViewById<TextView>(Resource.Id.timeStartLesson);
-            timeStartLesson.Text = groupLesson.TimeLesson.StartLesson;
+            var timeLessonStartLesson = groupLesson.TimeLesson.StartLesson;
+            timeStartLesson.Text = DateTime.Parse(timeLessonStartLesson).ToString("hh:mm");
 
             var timeEndLesson = card.FindViewById<TextView>(Resource.Id.timeEndLesson);
-            timeEndLesson.Text = groupLesson.TimeLesson.EndLesson;
+            var timeLessonEndLesson = groupLesson.TimeLesson.EndLesson;
+            timeEndLesson.Text = DateTime.Parse(timeLessonEndLesson).ToString("hh:mm");
 
             var number = card.FindViewById<TextView>(Resource.Id.number);
             number.Text = groupLesson.Lesson.Value;
@@ -143,15 +145,17 @@ namespace Bukep.Sheduler.View
             typeLesson.Text = groupLesson.TypeLesson.Value;
 
             var nameTeacher = card.FindViewById<TextView>(Resource.Id.nameTeacher);
+            nameTeacher.Text = "";
             foreach (var teacher in groupLesson.Teachers)
             {
                 nameTeacher.Text += teacher.Value+" ";
             }
 
             var nameAudience = card.FindViewById<TextView>(Resource.Id.nameAudience);
+            nameAudience.Text = "";
             foreach (var auditory in groupLesson.Auditory)
             {
-                nameAudience.Text = auditory.Value+" ";
+                nameAudience.Text += auditory.Value+" ";
             }
             
             return card;
