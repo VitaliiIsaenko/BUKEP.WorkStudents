@@ -207,7 +207,7 @@ namespace Bukep.Sheduler.Controllers
 
         public override string ConvertDtoInString(Group t)
         {
-            return t.NameGroup;
+            return $"{t.NameGroup} {t.NameTypeShedule}";
         }
     }
 
