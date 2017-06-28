@@ -11,7 +11,7 @@ namespace Bukep.Sheduler.Controllers
     {
         private const string Tag = "Schedule";
         private readonly ScheduleActivity _view;
-        private string[] _periodNames;
+        private readonly string[] _periodNames;
 
         /// <summary>
         /// Используется для получения данных из Intent.

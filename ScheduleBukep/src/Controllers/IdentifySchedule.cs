@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Android.App;
 using Android.Widget;
 using Android.Views;
 using Android.Content;
@@ -107,11 +108,11 @@ namespace Bukep.Sheduler.Controllers
     internal abstract class DtoAdapter<T> : BaseAdapter
     {
         private readonly IList<T> _objects;
-        private readonly Context _context;
+        private readonly Activity _activity;
 
-        protected DtoAdapter(IList<T> objects, Context context)
+        protected DtoAdapter(IList<T> objects, Activity activity)
         {
-            _context = context;
+            _activity = activity;
             _objects = objects;
         }
 
@@ -129,18 +130,17 @@ namespace Bukep.Sheduler.Controllers
 
         public override Android.Views.View GetView(int position, Android.Views.View convertView, ViewGroup parent)
         {
-            var view = new TextView(_context);
+            
+            var view = (TextView) _activity.LayoutInflater.Inflate(Resource.Layout.ItemForSpinner, null, false);
             if (position == 0)
             {
-                var textForView = _context.GetText(Resource.String.selectFromeList);
+                var textForView = _activity.GetText(Resource.String.selectFromeList);
                 view.Text = textForView;              
             }
             else
             {
                 view.Text = ConvertDtoInString(_objects[position]);
             }
-            //TODO: Вынести в стиль
-            view.TextSize = 17;
             return view;
         }
 
@@ -160,8 +160,8 @@ namespace Bukep.Sheduler.Controllers
         /// Так как заместо позиции 0 стоит элемент по умолчанию.
         /// </summary>
         /// <param name="objects"></param>
-        /// <param name="context"></param>
-        public FacultyAdapter(IList<Faculty> objects, Context context) : base(objects, context)
+        /// <param name="activity"></param>
+        public FacultyAdapter(IList<Faculty> objects, Activity activity) : base(objects, activity)
         {
             objects.Insert(0, new Faculty());
         }
@@ -174,7 +174,7 @@ namespace Bukep.Sheduler.Controllers
 
     internal class SpecialtyAdapter : DtoAdapter<Specialty>
     {
-        public SpecialtyAdapter(IList<Specialty> objects, Context context) : base(objects, context)
+        public SpecialtyAdapter(IList<Specialty> objects, Activity activity) : base(objects, activity)
         {
             objects.Insert(0, new Specialty());
         }
@@ -187,7 +187,7 @@ namespace Bukep.Sheduler.Controllers
 
     internal class CoursesAdapter : DtoAdapter<Courses>
     {
-        public CoursesAdapter(IList<Courses> objects, Context context) : base(objects, context)
+        public CoursesAdapter(IList<Courses> objects, Activity activity) : base(objects, activity)
         {
             objects.Insert(0, new Courses());
         }
@@ -200,7 +200,7 @@ namespace Bukep.Sheduler.Controllers
 
     internal class GroupAdapter : DtoAdapter<Group>
     {
-        public GroupAdapter(IList<Group> objects, Context context) : base(objects, context)
+        public GroupAdapter(IList<Group> objects, Activity activity) : base(objects, activity)
         {
             objects.Insert(0, new Group());
         }

@@ -29,7 +29,9 @@ namespace Bukep.Sheduler.View
         private DtoAdapter<Specialty> _specialtyAdapter;
 
         private Button _showSchedulesButtone;
+
         private IdentifySchedule _controller;
+
         private Spinner _specialtysSpinner;
         private Spinner _courseSpinner;
         private Spinner _groupSpinner;

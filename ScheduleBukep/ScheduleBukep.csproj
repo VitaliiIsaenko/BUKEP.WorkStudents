@@ -140,6 +140,9 @@
     <AndroidResource Include="Resources\layout\LessonOnDayView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\ItemForSpinner.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\IdentifyScheduleLayout.axml">
