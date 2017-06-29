@@ -4,7 +4,7 @@ using ScheduleBukepAPI.helpers;
 
 namespace ScheduleBukepAPI.service
 {
-    internal class SchedulesService : BaseService ,ISchedulesService
+    public class SchedulesService : BaseService ,ISchedulesService
     {
         public IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
         {

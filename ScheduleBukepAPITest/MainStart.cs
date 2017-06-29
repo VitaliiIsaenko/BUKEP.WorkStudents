@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using ScheduleBukepAPI;
+using ScheduleBukepAPI.decorators;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
+using ScheduleBukepAPI.service;
 
 namespace ScheduleBukepAPITest
 {
@@ -11,7 +13,10 @@ namespace ScheduleBukepAPITest
     /// </summary>
     internal class MainStart
     {
-        private static readonly FacadeApi Api = new FacadeApi();
+        private static readonly FacadeApi Api = new FacadeApi(
+            new FilterGroupDecorator(new FacultiesService()), 
+            new SchedulesService()
+            );
 
         private static void Main(string[] args)
         {
@@ -52,7 +57,7 @@ namespace ScheduleBukepAPITest
             for (var i = 0; i < groups.Count; i++)
             {
                 var group = groups[i];
-                Console.WriteLine("{0}. {1} = {2}", i, group.NameGroup,
+                Console.WriteLine("{0}. {1} {2} = {3} ", i, group.NameGroup, group.NameTypeShedule,
                     FacadeApi.ConvertIdsToString(group.IdsSchedulGroup));
             }
 
