@@ -24,6 +24,7 @@ namespace ScheduleBukepAPI.helpers
             request.Credentials = CredentialCache.DefaultCredentials;
             var response = request.GetResponse();
 
+            //TODO: повторения этого кода в ExecutePost()
             var dataStream = response.GetResponseStream();
             var reader = new StreamReader(dataStream);
             var json = reader.ReadToEnd();

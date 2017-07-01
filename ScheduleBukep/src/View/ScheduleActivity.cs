@@ -41,12 +41,12 @@ namespace Bukep.Sheduler.View
             _schedule.Update();
         }
 
-        public void SetPeriodName(string name)
+        public void SetPeriodForToolbar(string name)
         {
             _toolbarPeriod.Text = name;
         }
 
-        public void SetToday(string today)
+        public void SetTodayForToolbar(string today)
         {
             _toolbarDate.Text = today;
         }

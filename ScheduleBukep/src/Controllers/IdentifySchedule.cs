@@ -7,22 +7,19 @@ using Android.Content;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
     internal class IdentifySchedule : Controller
     {
         private readonly IdentifyScheduleActivity _view;
-        private readonly FacadeApi _facadeApi = new FacadeApi();
-        private readonly JsonConvert _jsonConvert = new JsonConvert();
 
         private Faculty _selectedFaculty;
         private Specialty _selectedSpecialty;
         private Courses _selectedCourse;
         private Group _selectedGroup;
 
-        public IdentifySchedule(IdentifyScheduleActivity view)
+        public IdentifySchedule(IdentifyScheduleActivity view) : base(view)
         {
             _view = view;
         }
@@ -36,14 +33,14 @@ namespace Bukep.Sheduler.Controllers
             _view.CourseSpinnerEnabled(false);
             _view.GroupSpinnerEnabled(false);
 
-            var faculties = _facadeApi.GetFaculties();
+            var faculties = GetFaculties();
             _view.ShowFaculty(faculties);
         }
 
         public void SelectFaculty(Faculty faculty)
         {
             _selectedFaculty = faculty;
-            var specialtys = _facadeApi.GetSpecialtys(faculty.IdFaculty);
+            var specialtys = GetSpecialtys(faculty.IdFaculty);
             _view.ShowSpecialtys(specialtys);
 
             _view.SpecialtysSpinnerEnabled(true);
@@ -54,7 +51,7 @@ namespace Bukep.Sheduler.Controllers
         public void SelectSpecialt(Specialty specialty)
         {
             _selectedSpecialty = specialty;
-            var courses = _facadeApi.GetCourses(
+            var courses = GetCourses(
                 _selectedFaculty.IdFaculty,
                 FacadeApi.ConvertIdsToString(specialty.IdsSpecialty)
                 );
@@ -68,7 +65,7 @@ namespace Bukep.Sheduler.Controllers
         public void SelectCourses(Courses cours)
         {
             _selectedCourse = cours;
-            var groups = _facadeApi.GetGroups(
+            var groups = GetGroups(
                 _selectedFaculty.IdFaculty,
                 _selectedCourse.IdCourse,
                 FacadeApi.ConvertIdsToString(_selectedSpecialty.IdsSpecialty)
@@ -89,7 +86,7 @@ namespace Bukep.Sheduler.Controllers
         internal void ClickeButtoneShow()
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
-            var jsonGroup = _jsonConvert.ConvertToJson(_selectedGroup);
+            var jsonGroup = ConvertToJson(_selectedGroup);
             intent.PutExtra(Schedule.IntentKeyGroupsJson, jsonGroup);
 
             var today = DateTime.Today.ToString(FacadeApi.DateTimeFormat);

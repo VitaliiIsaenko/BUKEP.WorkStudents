@@ -22,7 +22,7 @@ namespace Bukep.Sheduler.Controllers
 
         private const string ToolbarDateFormat = "ddd, dd MMM";
 
-        public Schedule(ScheduleActivity view)
+        public Schedule(ScheduleActivity view) : base(view)
         {
             _view = view;
             _periodNames = _view.Resources.GetStringArray(Resource.Array.schedules_periods);
@@ -42,7 +42,7 @@ namespace Bukep.Sheduler.Controllers
 
                 _view.ShowLessonOnDay(lessonOnDays);
                 _view.SetGroopName(group.NameGroup);
-                _view.SetToday(DateTime.Today.ToString(ToolbarDateFormat));
+                _view.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
             }
             catch (Exception e)
             {
@@ -53,11 +53,17 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
+        /// <summary>
+        /// Выполнить запрос на получения списка уроков в указанный интервал времени.
+        /// </summary>
+        /// <param name="group">Группа для которой нужно получить список уроков</param>
+        /// <param name="dateLessonStart">Начало интервала</param>
+        /// <param name="dateLessonEnd">Конец интервала</param>
+        /// <returns>Список уроков в указанный интервал времени</returns>
         private IList<GroupLesson> RequestSchedules(Group group, string dateLessonStart, string dateLessonEnd)
         {
             var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
-            var lessons = FacadeApi
-                .GetGroupLessons(ids, dateLessonStart, dateLessonEnd);
+            var lessons = GetGroupLessons(ids, dateLessonStart, dateLessonEnd);
             return lessons;
         }
 
@@ -65,7 +71,7 @@ namespace Bukep.Sheduler.Controllers
         {
             var jsonGroup = GetJsonFromeIntent(IntentKeyGroupsJson);
             Log.Info(Tag, "jsonGroup = " + jsonGroup);
-            var group = JsonConvert.ConvertTo<Group>(jsonGroup);
+            var group = ConvertTo<Group>(jsonGroup);
             return group;
         }
 
@@ -85,11 +91,9 @@ namespace Bukep.Sheduler.Controllers
             PutExtraData(IntentKeyDateLessonStart, today);
             PutExtraData(IntentKeyDateLessonEnd, today);
             var periodsName = _periodNames[0];
-            _view.SetPeriodName(periodsName);
+            _view.SetPeriodForToolbar(periodsName);
             Update();
         }
-
-
 
         public void ChoosePeriodThreeDay()
         {
@@ -102,7 +106,7 @@ namespace Bukep.Sheduler.Controllers
 
             Log.Debug(Tag, $"today = {today} threeDayFuture = {threeDayFuture}");
             var periodsName = _periodNames[1];
-            _view.SetPeriodName(periodsName);
+            _view.SetPeriodForToolbar(periodsName);
             Update();
         }
 
@@ -118,7 +122,7 @@ namespace Bukep.Sheduler.Controllers
             Log.Debug(Tag, $"monday = {monday} saturday = {saturday}");
 
             var periodsName = _periodNames[2];
-            _view.SetPeriodName(periodsName);
+            _view.SetPeriodForToolbar(periodsName);
             Update();
         }
 
