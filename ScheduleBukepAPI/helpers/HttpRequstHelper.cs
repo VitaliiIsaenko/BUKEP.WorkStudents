@@ -17,21 +17,10 @@ namespace ScheduleBukepAPI.helpers
         {
             Console.WriteLine("URL = " + url);
             var request = WebRequest.Create(url);
-
             request.Credentials = CredentialCache.DefaultCredentials;
-            var response = request.GetResponse();
 
-            //TODO: повторения этого кода в ExecutePost()
-            var dataStream = response.GetResponseStream();
-            var reader = new StreamReader(dataStream);
-            var json = reader.ReadToEnd();
-
-            //TODO: добавить close() в try/catch
-            reader.Close();
-            response.Close();
-            return json;
+            return ReadingJsonFromResponse(request.GetResponse());
         }
-
 
         public string ExecutePost(string url, string bodyForPost)
         {
@@ -50,17 +39,35 @@ namespace ScheduleBukepAPI.helpers
             stream.Close();
 
             request.Credentials = CredentialCache.DefaultCredentials;
-            var response = request.GetResponse();
+            return ReadingJsonFromResponse(request.GetResponse());
+        }
 
-            var dataStream = response.GetResponseStream();
-            var reader = new StreamReader(dataStream);
-            var json = reader.ReadToEnd();
 
-            //TODO: добавить close() в try/catch
-            reader.Close();
-            response.Close();
-            Console.Write("Json = " + json + "\n");
-            return json;
+        private static string ReadingJsonFromResponse(WebResponse response)
+        {
+            StreamReader reader = null;
+            try
+            {
+                var dataStream = response.GetResponseStream();
+                if (dataStream == null)
+                {
+                    throw new WebException("Failed get response stream.");
+                }
+                reader = new StreamReader(dataStream);
+                var json = reader.ReadToEnd();
+                return json;
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.ToString());
+                throw;
+            }
+            finally
+            {
+                reader?.Close();
+                response?.Close();
+            }
+
         }
 
 
