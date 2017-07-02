@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE6B3813-957A-4820-B808-CDC3D22D37FB}</ProjectGuid>
+    <ProjectGuid>{D52DD10B-89B1-4585-B755-71A2B7B406E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ScheduleBukepAPIUniteTests</RootNamespace>
-    <AssemblyName>ScheduleBukepAPIUniteTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>ScheduleBukepTests</RootNamespace>
+    <AssemblyName>ScheduleBukepTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -17,7 +17,6 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
-    <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -56,17 +55,20 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="decorators\FilterGroupDecoratorTests.cs" />
-    <Compile Include="FacadeApiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\LessonOnDayTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ScheduleBukepAPI\ScheduleBukepAPI.csproj">
-      <Project>{6C7E5E15-F4E0-40B7-9D2F-78D93B927CBE}</Project>
+      <Project>{6c7e5e15-f4e0-40b7-9d2f-78d93b927cbe}</Project>
       <Name>ScheduleBukepAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScheduleBukep\ScheduleBukep.csproj">
+      <Project>{9BFFB9F6-CFF9-4FC3-9591-C724B55CDD3C}</Project>
+      <Name>ScheduleBukep</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

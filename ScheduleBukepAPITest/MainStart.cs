@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using ScheduleBukepAPI;
+using ScheduleBukepAPI.decorators;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
+using ScheduleBukepAPI.service;
 
 namespace ScheduleBukepAPITest
 {
@@ -11,24 +13,15 @@ namespace ScheduleBukepAPITest
     /// </summary>
     internal class MainStart
     {
-        private static readonly FacadeApi Api = new FacadeApi();
+        private static readonly FacadeApi Api = new FacadeApi(
+            new FilterGroupDecorator(new FacultiesService()), 
+            new SchedulesService()
+            );
+
         private static void Main(string[] args)
         {
             Start();
 
-        }
-
-        /// <summary>
-        /// Получает Json из консоли и конвертирует в DTO
-        /// </summary>
-        private static void ConvertJsonInDto()
-        {
-            var jsonConvert = new JsonConvert();;
-            var json = Console.ReadLine();
-            var group = jsonConvert.ConvertTo<Group>(json);
-            Console.WriteLine(group.NameGroup);
-            var jsonOfDto = jsonConvert.ConvertToJson<Group>(group);
-            Console.WriteLine("jsonOfDTO = " + jsonOfDto);
         }
 
         private static void Start()
@@ -63,20 +56,7 @@ namespace ScheduleBukepAPITest
             foreach (var groupLesson in selectedGroupLessons)
             {
                 Console.WriteLine("===========================================");
-                Console.WriteLine(
-                    "NameTypeShedule - " + groupLesson.NameTypeShedule + "\n" +
-                    "NameTypeWeek - " + groupLesson.NameTypeWeek + "\n" +
-                    "NameDay - " + groupLesson.NameDay + "\n" +
-                    "NameLesson - " + groupLesson.NameLesson + "\n" +
-                    "TypeLesson - " + groupLesson.TypeLesson + "\n" +
-                    "DateLesson - " + groupLesson.DateLesson + "\n" +
-                    "TimeStartLesson - " + groupLesson.TimeStartLesson + "\n" +
-                    "TimeEndLesson - " + groupLesson.TimeEndLesson + "\n" +
-                    "NameAuditory - " + groupLesson.NameAuditory + "\n" +
-                    "IdTeacher - " + groupLesson.IdTeacher + "\n" +
-                    "FioTeacher - " + groupLesson.FioTeacher + "\n" +
-                    "NameDiscipline - " + groupLesson.NameDiscipline
-                );
+                //TODO: добавить вывод lesson в консоль
             }
         }
 
@@ -95,11 +75,12 @@ namespace ScheduleBukepAPITest
                 selectedFaculty.IdFaculty,
                 selectedCourse.IdCourse,
                 FacadeApi.ConvertIdsToString(selectedSpecialty.IdsSpecialty)
-                );
+            );
             for (var i = 0; i < groups.Count; i++)
             {
                 var group = groups[i];
-                Console.WriteLine("{0}. {1} = {2}", i, group.NameGroup, FacadeApi.ConvertIdsToString(group.IdsSchedulGroup));
+                Console.WriteLine("{0}. {1} {2} = {3} ", i, group.NameGroup, group.NameTypeShedule,
+                    FacadeApi.ConvertIdsToString(group.IdsSchedulGroup));
             }
 
             var numberGroup = AskNumber();
@@ -156,7 +137,7 @@ namespace ScheduleBukepAPITest
 
         private static int AskNumber()
         {
-            Console.WriteLine("Введите число:");
+            Console.Write("Введите число:");
             return System.Convert.ToInt32(Console.ReadLine());
         }
     }

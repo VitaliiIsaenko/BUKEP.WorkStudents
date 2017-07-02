@@ -1,16 +1,13 @@
 ﻿using System;
-using Android.App;
 using Android.Support.Design.Widget;
-using Android.Support.V7.App;
 using Android.Widget;
-using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-namespace Bukep.Sheduler
+namespace Bukep.Sheduler.View
 {
     /// <summary>
     /// Используется для работы с общей логикой навигации в Activity.
     /// </summary>
-    public class NavigationActivity : AppCompatActivity
+    public abstract class NavigationActivity : BaseActivity
     {
         /// <summary>
         /// Инициализация всех навигационных View. 
@@ -52,7 +49,7 @@ namespace Bukep.Sheduler
 
         protected virtual void InitToolbar()
         {
-            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.tool_bar);
+            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             if (toolbar == null)
             {
                 throw new Exception("Failed execute InitToolbar(). Check Toolbar in Layout.");

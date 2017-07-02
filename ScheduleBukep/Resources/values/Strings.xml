@@ -3,19 +3,36 @@
   <string name="ApplicationName">Расписание БУКЭП</string>
   <string name="selectSchedules">Выбор расписания</string>
 
+  <!--IdentifySchedule-->
+  <string name="in_app_happened_error">В приложении произошла ошибка!</string>
   <string name="faculty">Факультет</string>
   <string name="specialty">Cпециальности</string>
   <string name="course">Курс</string>
   <string name="group">Группа</string>
   <string name="show">Показать</string>
   <string name="selectFromeList">Выберите из списка</string>
-  <!--bottom_menu-->
+  
+  <!--Bottom_menu-->
   <string name="list_task">Список заданий</string>
   <string name="teachers">Преподаватели</string>
   <string name="favorites">Избранное</string>
   
-  <!--menu-->
+  <!--MenuActivity-->
   <string name="schedule_group">Расписание группы</string>
   <string name="schedule_teacher">Расписание преподавателя</string>
   <string name="schedule_bell">Расписание звонков</string>
+
+  <!--ToolbarSchedule-->
+  <string name="schedule">Расписание</string>
+  <string name="for_one_day">На день</string>
+  <string name="next">след.</string>
+  <string name="current">текущ.</string>
+  <string name="select_period">"Выбор периода</string>
+
+  <string-array name="schedules_periods">
+    <item>На день</item>
+    <item>На три дня</item>
+    <item>На неделю</item>
+  </string-array>
+  
 </resources>

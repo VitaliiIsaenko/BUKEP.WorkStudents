@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection.Emit;
 using Android.App;
 using Android.OS;
-using Android.Support.V7.App;
 using Android.Util;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
 using ScheduleBukepAPI.domain;
 
-namespace Bukep.Sheduler
+namespace Bukep.Sheduler.View
 {
     /// <summary>
     ///     Данное Activity используется как форма идентификации для студентов.
@@ -31,7 +29,9 @@ namespace Bukep.Sheduler
         private DtoAdapter<Specialty> _specialtyAdapter;
 
         private Button _showSchedulesButtone;
+
         private IdentifySchedule _controller;
+
         private Spinner _specialtysSpinner;
         private Spinner _courseSpinner;
         private Spinner _groupSpinner;

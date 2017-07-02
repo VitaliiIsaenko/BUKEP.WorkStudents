@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using Android.App;
 using Android.Widget;
 using Android.Views;
 using Android.Content;
+using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
     internal class IdentifySchedule : Controller
     {
         private readonly IdentifyScheduleActivity _view;
-        private readonly FacadeApi _facadeApi = new FacadeApi();
-        private readonly JsonConvert _jsonConvert = new JsonConvert();
 
         private Faculty _selectedFaculty;
         private Specialty _selectedSpecialty;
         private Courses _selectedCourse;
         private Group _selectedGroup;
 
-        public IdentifySchedule(IdentifyScheduleActivity view)
+        public IdentifySchedule(IdentifyScheduleActivity view) : base(view)
         {
             _view = view;
         }
@@ -34,14 +33,14 @@ namespace Bukep.Sheduler.Controllers
             _view.CourseSpinnerEnabled(false);
             _view.GroupSpinnerEnabled(false);
 
-            var faculties = _facadeApi.GetFaculties();
+            var faculties = GetFaculties();
             _view.ShowFaculty(faculties);
         }
 
         public void SelectFaculty(Faculty faculty)
         {
             _selectedFaculty = faculty;
-            var specialtys = _facadeApi.GetSpecialtys(faculty.IdFaculty);
+            var specialtys = GetSpecialtys(faculty.IdFaculty);
             _view.ShowSpecialtys(specialtys);
 
             _view.SpecialtysSpinnerEnabled(true);
@@ -52,7 +51,7 @@ namespace Bukep.Sheduler.Controllers
         public void SelectSpecialt(Specialty specialty)
         {
             _selectedSpecialty = specialty;
-            var courses = _facadeApi.GetCourses(
+            var courses = GetCourses(
                 _selectedFaculty.IdFaculty,
                 FacadeApi.ConvertIdsToString(specialty.IdsSpecialty)
                 );
@@ -66,7 +65,7 @@ namespace Bukep.Sheduler.Controllers
         public void SelectCourses(Courses cours)
         {
             _selectedCourse = cours;
-            var groups = _facadeApi.GetGroups(
+            var groups = GetGroups(
                 _selectedFaculty.IdFaculty,
                 _selectedCourse.IdCourse,
                 FacadeApi.ConvertIdsToString(_selectedSpecialty.IdsSpecialty)
@@ -87,8 +86,13 @@ namespace Bukep.Sheduler.Controllers
         internal void ClickeButtoneShow()
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
-            var jsonGroup = _jsonConvert.ConvertToJson(_selectedGroup);
-            intent.PutExtra(Schedule.DataKeyGroupsJson, jsonGroup);
+            var jsonGroup = ConvertToJson(_selectedGroup);
+            intent.PutExtra(Schedule.IntentKeyGroupsJson, jsonGroup);
+
+            var today = DateTime.Today.ToString(FacadeApi.DateTimeFormat);
+            intent.PutExtra(Schedule.IntentKeyDateLessonStart, today);
+            intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
+
             _view.StartActivity(intent);
         }
     }
@@ -101,11 +105,11 @@ namespace Bukep.Sheduler.Controllers
     internal abstract class DtoAdapter<T> : BaseAdapter
     {
         private readonly IList<T> _objects;
-        private readonly Context _context;
+        private readonly Activity _activity;
 
-        protected DtoAdapter(IList<T> objects, Context context)
+        protected DtoAdapter(IList<T> objects, Activity activity)
         {
-            _context = context;
+            _activity = activity;
             _objects = objects;
         }
 
@@ -121,20 +125,19 @@ namespace Bukep.Sheduler.Controllers
             return position;
         }
 
-        public override View GetView(int position, View convertView, ViewGroup parent)
+        public override Android.Views.View GetView(int position, Android.Views.View convertView, ViewGroup parent)
         {
-            var view = new TextView(_context);
+            
+            var view = (TextView) _activity.LayoutInflater.Inflate(Resource.Layout.ItemForSpinner, null, false);
             if (position == 0)
             {
-                var textForView = _context.GetText(Resource.String.selectFromeList);
+                var textForView = _activity.GetText(Resource.String.selectFromeList);
                 view.Text = textForView;              
             }
             else
             {
                 view.Text = ConvertDtoInString(_objects[position]);
             }
-            //TODO: Вынести в стиль
-            view.TextSize = 17;
             return view;
         }
 
@@ -154,8 +157,8 @@ namespace Bukep.Sheduler.Controllers
         /// Так как заместо позиции 0 стоит элемент по умолчанию.
         /// </summary>
         /// <param name="objects"></param>
-        /// <param name="context"></param>
-        public FacultyAdapter(IList<Faculty> objects, Context context) : base(objects, context)
+        /// <param name="activity"></param>
+        public FacultyAdapter(IList<Faculty> objects, Activity activity) : base(objects, activity)
         {
             objects.Insert(0, new Faculty());
         }
@@ -168,7 +171,7 @@ namespace Bukep.Sheduler.Controllers
 
     internal class SpecialtyAdapter : DtoAdapter<Specialty>
     {
-        public SpecialtyAdapter(IList<Specialty> objects, Context context) : base(objects, context)
+        public SpecialtyAdapter(IList<Specialty> objects, Activity activity) : base(objects, activity)
         {
             objects.Insert(0, new Specialty());
         }
@@ -181,7 +184,7 @@ namespace Bukep.Sheduler.Controllers
 
     internal class CoursesAdapter : DtoAdapter<Courses>
     {
-        public CoursesAdapter(IList<Courses> objects, Context context) : base(objects, context)
+        public CoursesAdapter(IList<Courses> objects, Activity activity) : base(objects, activity)
         {
             objects.Insert(0, new Courses());
         }
@@ -194,14 +197,14 @@ namespace Bukep.Sheduler.Controllers
 
     internal class GroupAdapter : DtoAdapter<Group>
     {
-        public GroupAdapter(IList<Group> objects, Context context) : base(objects, context)
+        public GroupAdapter(IList<Group> objects, Activity activity) : base(objects, activity)
         {
             objects.Insert(0, new Group());
         }
 
         public override string ConvertDtoInString(Group t)
         {
-            return t.NameGroup;
+            return $"{t.NameGroup} {t.NameTypeShedule}";
         }
     }
 

@@ -27,7 +27,7 @@ namespace ScheduleBukepAPITest.fake
         {
             return new GroupLesson()
             {
-                NameLesson = name
+                Lesson = new DataValue() { Value = name}
             };
         }
 

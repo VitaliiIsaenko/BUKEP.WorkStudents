@@ -10,10 +10,10 @@ namespace ScheduleBukepAPITest.fake
         {
             var groupLessons = new List<GroupLesson>
             {
-                DtoFactoryFake.CreateGroupLesson("GroupLesson 1"),
-                DtoFactoryFake.CreateGroupLesson("GroupLesson 2"),
-                DtoFactoryFake.CreateGroupLesson("GroupLesson 3"),
-                DtoFactoryFake.CreateGroupLesson("GroupLesson 4")
+                DtoFactoryFake.CreateGroupLesson("Lesson 1"),
+                DtoFactoryFake.CreateGroupLesson("Lesson 2"),
+                DtoFactoryFake.CreateGroupLesson("Lesson 3"),
+                DtoFactoryFake.CreateGroupLesson("Lesson 4")
             };
             return groupLessons;
         }

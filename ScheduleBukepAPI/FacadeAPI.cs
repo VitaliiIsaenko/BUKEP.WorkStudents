@@ -14,8 +14,14 @@ namespace ScheduleBukepAPI
         private static IFacultiesService _facultiesService;
         private static ISchedulesService _schedulesService;
 
-        //TODO: написать метод который бы получал нужный год.
+        /// <summary>
+        /// Формат даты для api.
+        /// </summary>
+        public const string DateTimeFormat = "yyyy-MM-dd";
+
+        //TODO: написать метод который бы получал учебный год.
         private const string Year = "2016";
+
         private const string IdFilial = "1000";
 
         public FacadeApi(IFacultiesService facultiesService, ISchedulesService schedulesService)
@@ -63,13 +69,13 @@ namespace ScheduleBukepAPI
         /// Нужен для конвертирования списка id в string.
         /// </summary>
         /// <param name="ids">Список id</param>
-        /// <returns>Список id в string разделенный запятыми. Пример: [34,345,60]</returns>
+        /// <returns>Список ids в формате string разделенный запятыми. Пример: [34,345,60]</returns>
         public static string ConvertIdsToString(IList<int> ids)
         {
-            if (ids == null) return "";
+            if (ids == null) throw new ArgumentException("Parameter ids cannot be null.");
+
             var result = string.Join(",", ids.ToArray());
-            result = "[" + result + "]";
-            return result;
+            return $"[{result}]";
         }
     }
 }

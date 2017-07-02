@@ -4,7 +4,6 @@ using ScheduleBukepAPI.helpers;
 
 namespace ScheduleBukepAPI.service
 {
-    //TODO: Заменить List на IEnumerable
     public class FacultiesService : BaseService, IFacultiesService
     {
         public List<Faculty> GetFaculties(string year, string idFilial)
