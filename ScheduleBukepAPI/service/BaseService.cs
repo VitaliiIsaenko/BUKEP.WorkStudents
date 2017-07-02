@@ -40,13 +40,15 @@ namespace ScheduleBukepAPI.service
 
         protected string ExecuteGet(string nameMethod, IDictionary<string, string> parameters)
         {
-            return _httpRequestHelper.ExecuteGet(nameMethod, parameters);
+            var url = CreatorUrl.CreateUrl(nameMethod, parameters);
+            return _httpRequestHelper.ExecuteGet(url);
         }
 
         protected string ExecutePost(string nameMethod, IDictionary<string, string> parameters,
             string bodyForPost)
         {
-            return _httpRequestHelper.ExecutePost(nameMethod, parameters, bodyForPost);
+            var url = CreatorUrl.CreateUrl(nameMethod, parameters);
+            return _httpRequestHelper.ExecutePost(url, bodyForPost);
         }
     }
 }

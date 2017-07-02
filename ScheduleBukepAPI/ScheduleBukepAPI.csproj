@@ -53,6 +53,7 @@
     <Compile Include="domain\GroupLesson.cs" />
     <Compile Include="domain\Specialty.cs" />
     <Compile Include="FacadeApi.cs" />
+    <Compile Include="helpers\CreatorUrl.cs" />
     <Compile Include="helpers\HttpRequstHelper.cs" />
     <Compile Include="helpers\JsonConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

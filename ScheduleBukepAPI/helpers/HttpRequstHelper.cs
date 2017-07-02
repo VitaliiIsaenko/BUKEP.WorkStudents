@@ -12,12 +12,9 @@ namespace ScheduleBukepAPI.helpers
     /// </summary>
     public class HttpRequstHelper
     {
-        private const string UrlApi = "https://my.bukep.ru:447/api/Schedule";
 
-        
-        public string ExecuteGet(string nameMethod, IDictionary<string, string> parameters)
+        public string ExecuteGet(string url)
         {
-            var url = CreateUrl(nameMethod, parameters);
             Console.WriteLine("URL = " + url);
             var request = WebRequest.Create(url);
 
@@ -36,10 +33,8 @@ namespace ScheduleBukepAPI.helpers
         }
 
 
-        public string ExecutePost(string nameMethod, IDictionary<string, string> parameters,
-            string bodyForPost)
+        public string ExecutePost(string url, string bodyForPost)
         {
-            var url = CreateUrl(nameMethod, parameters);
             Console.WriteLine("URL = " + url);
             var request = WebRequest.Create(url);
 
@@ -68,22 +63,6 @@ namespace ScheduleBukepAPI.helpers
             return json;
         }
 
-        private string CreateUrl(string nameMethod, IDictionary<string, string> parameter)
-        {
-            var urlParameter = CreateUrlParameter(parameter);
-            var url = $"{UrlApi}/{nameMethod}?{urlParameter}";
-            return url;
-        }
 
-        private string CreateUrlParameter(IDictionary<string, string> parameters)
-        {
-            var urlParameter = new StringBuilder();
-            foreach (var name in parameters.Keys)
-            {
-                var value = parameters[name];
-                urlParameter.AppendFormat("{0}={1}&", name, value);
-            }
-            return urlParameter.ToString();
-        }
     }
 }
