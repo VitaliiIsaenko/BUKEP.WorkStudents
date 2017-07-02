@@ -16,7 +16,7 @@ namespace ScheduleBukepAPI.service
             return ConvertToList<GroupLesson>(json);
         }
 
-        public List<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        public IList<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
         {
             var parameters = new Dictionary<string, string>
             {

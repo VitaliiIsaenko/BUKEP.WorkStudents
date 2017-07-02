@@ -17,9 +17,9 @@ namespace ScheduleBukepAPITest.fake
             };
             return groupLessons;
         }
-        public List<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        public IList<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
         {
-            List<GroupLesson> groupLessons = new List<GroupLesson>
+            IList<GroupLesson> groupLessons = new List<GroupLesson>
             {
                 DtoFactoryFake.CreateGroupLesson("GroupLesson 1"),
                 DtoFactoryFake.CreateGroupLesson("GroupLesson 2"),

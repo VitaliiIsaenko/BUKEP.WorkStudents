@@ -70,7 +70,7 @@ namespace ScheduleBukepAPI
             return _schedulesService.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
         }
 
-        public static List<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        public static IList<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
         {
             return _schedulesService.GetTeacherLessons(idTeacher, dateFrom, dateTo);
         }
