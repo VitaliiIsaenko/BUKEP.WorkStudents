@@ -6,6 +6,7 @@ using ScheduleBukepAPI.service;
 
 namespace ScheduleBukepAPI
 {
+    //TODO: raname in AdapterApi
     /// <summary>
     /// Нужен для упрощения работы с IFacultiesService и ISchedulesService.
     /// </summary>
@@ -32,6 +33,16 @@ namespace ScheduleBukepAPI
 
         public FacadeApi() : this(new FacultiesService(), new SchedulesService())
         {
+        }
+
+        public List<Pulpit> GetPulpits()
+        {
+            return _facultiesService.GetPulpits(Year, IdFilial);
+        }
+
+        public List<Teacher> GetTeacher(string idPulpit)
+        {
+            return _facultiesService.GetTeacher(Year, idPulpit);
         }
 
         public IList<Faculty> GetFaculties()

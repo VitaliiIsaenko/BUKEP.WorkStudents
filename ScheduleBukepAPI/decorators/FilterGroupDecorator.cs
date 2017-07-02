@@ -65,5 +65,15 @@ namespace ScheduleBukepAPI.decorators
         {
             return _service.GetSpecialtys(year, idFilial, idFaculty);
         }
+
+        public List<Pulpit> GetPulpits(string year, string idFilial)
+        {
+            return _service.GetPulpits(year, idFilial);
+        }
+
+        public List<Teacher> GetTeacher(string year, string idPulpit)
+        {
+            return _service.GetTeacher(year, idPulpit);
+        }
     }
 }

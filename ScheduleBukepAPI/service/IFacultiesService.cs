@@ -9,5 +9,7 @@ namespace ScheduleBukepAPI.service
         List<Faculty> GetFaculties(string year, string idFilial);
         List<Group> GetGroups(string year, string idFilial, string idFaculty, string idCourse, string idsSpecialty);
         List<Specialty> GetSpecialtys(string year, string idFilial, string idFaculty);
+        List<Pulpit> GetPulpits(string year, string idFilial);
+        List<Teacher> GetTeacher(string year, string idPulpit);
     }
 }

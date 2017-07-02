@@ -61,7 +61,9 @@
     <Compile Include="service\IFacultiesService.cs" />
     <Compile Include="service\ISchedulesService.cs" />
     <Compile Include="service\FacultiesService.cs" />
+    <Compile Include="domain\Pulpit.cs" />
     <Compile Include="service\SchedulesService.cs" />
+    <Compile Include="domain\Teacher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

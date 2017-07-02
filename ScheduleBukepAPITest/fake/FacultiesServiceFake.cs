@@ -30,6 +30,16 @@ namespace ScheduleBukepAPITest.fake
             return specialtys;
         }
 
+        public List<Pulpit> GetPulpits(string year, string idFilial)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Teacher> GetTeacher(string year, string idPulpit)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<Courses> GetCourses(string year, string idFilial, string idFaculty, string idsSpecialty)
         {
             List<Courses> courses = new List<Courses>
