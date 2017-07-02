@@ -8,7 +8,7 @@ namespace ScheduleBukepAPI.helpers
     /// </summary>
     public static class CreatorUrl
     {
-        private const string UrlApi = "https://my.bukep.ru:447/api/Schedule";
+        public const string UrlApi = "https://my.bukep.ru:447/api/Schedule";
 
         /// <summary>
         /// Создать Url для Api с параметрами.

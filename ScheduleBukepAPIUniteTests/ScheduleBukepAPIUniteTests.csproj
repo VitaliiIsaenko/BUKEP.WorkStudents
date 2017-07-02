@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="decorators\FilterGroupDecoratorTests.cs" />
     <Compile Include="FacadeApiTests.cs" />
+    <Compile Include="helpers\CreatorUrlTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
