@@ -13,8 +13,7 @@ namespace ScheduleBukepAPI.service
                 {"year", year},
                 {"idFilial", idFilial}
             };
-            //TODO: вывести названия сетов в Enum
-            var json = ExecuteGet("GetFaculties", parameters);
+            var json = ExecuteGet(MethodApi.GetFaculties, parameters);
             return ConvertToList<Faculty>(json);
         }
 
@@ -26,7 +25,7 @@ namespace ScheduleBukepAPI.service
                 {"idFilial", idFilial},
                 {"idFaculty", idFaculty}
             };
-            var json = ExecuteGet("GetSpecialtys", parameters);
+            var json = ExecuteGet(MethodApi.GetSpecialtys, parameters);
             return ConvertToList<Specialty>(json);
         }
 
@@ -38,7 +37,7 @@ namespace ScheduleBukepAPI.service
                 {"idFilial", idFilial},
                 {"idFaculty", idFaculty}
             };
-            var json = ExecutePost("GetCourses", parameters, idsSpecialty);
+            var json = ExecutePost(MethodApi.GetCourses, parameters, idsSpecialty);
             return ConvertToList<Courses>(json);
         }
 
@@ -52,7 +51,7 @@ namespace ScheduleBukepAPI.service
                 {"idFaculty", idFaculty},
                 {"idCourse", idCourse}
             };
-            var json = ExecutePost("GetGroups", parameters, idsSpecialty);
+            var json = ExecutePost(MethodApi.GetGroups, parameters, idsSpecialty);
             return ConvertToList<Group>(json);
         }
 
@@ -63,7 +62,7 @@ namespace ScheduleBukepAPI.service
                 {"year", year},
                 {"idFilial", idFilial}
             };
-            var json = ExecuteGet("GetPulpit", parameters);
+            var json = ExecuteGet(MethodApi.GetPulpit, parameters);
             return ConvertToList<Pulpit>(json);
         }
 
@@ -74,7 +73,7 @@ namespace ScheduleBukepAPI.service
                 {"year", year},
                 {"idPulpit", idPulpit}
             };
-            var json = ExecuteGet("GetTeacher", parameters);
+            var json = ExecuteGet(MethodApi.GetTeacher, parameters);
             return ConvertToList<Teacher>(json);
         }
     }

@@ -38,16 +38,16 @@ namespace ScheduleBukepAPI.service
             return _jsonConvert.ConvertToJson(dto);
         }
 
-        protected string ExecuteGet(string nameMethod, IDictionary<string, string> parameters)
+        protected string ExecuteGet(MethodApi nameMethod, IDictionary<string, string> parameters)
         {
-            var url = CreatorUrl.CreateUrl(nameMethod, parameters);
+            var url = CreatorUrl.CreateUrl(nameMethod.ToString(), parameters);
             return _httpRequestHelper.ExecuteGet(url);
         }
 
-        protected string ExecutePost(string nameMethod, IDictionary<string, string> parameters,
+        protected string ExecutePost(MethodApi nameMethod, IDictionary<string, string> parameters,
             string bodyForPost)
         {
-            var url = CreatorUrl.CreateUrl(nameMethod, parameters);
+            var url = CreatorUrl.CreateUrl(nameMethod.ToString(), parameters);
             return _httpRequestHelper.ExecutePost(url, bodyForPost);
         }
     }

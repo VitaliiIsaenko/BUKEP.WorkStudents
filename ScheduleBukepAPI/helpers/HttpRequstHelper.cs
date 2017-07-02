@@ -42,7 +42,6 @@ namespace ScheduleBukepAPI.helpers
             return ReadingJsonFromResponse(request.GetResponse());
         }
 
-
         private static string ReadingJsonFromResponse(WebResponse response)
         {
             StreamReader reader = null;
