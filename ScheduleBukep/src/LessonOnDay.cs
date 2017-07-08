@@ -23,6 +23,11 @@ namespace Bukep.Sheduler
         public DateTime DateLesson { get; set; }
         public IList<GroupLesson> Lessons { get; }
 
+        /// <summary>
+        /// Сортирует Lessons по дате и помещает в GroupLesson.
+        /// </summary>
+        /// <param name="lessons">Уроки которые нужно спарсить в GroupLesson</param>
+        /// <returns>Список LessonOnDay с отсортированными в них Lessons</returns>
         public static List<LessonOnDay> Parse(IList<GroupLesson> lessons)
         {
             var lessonOnDays = new List<LessonOnDay>();

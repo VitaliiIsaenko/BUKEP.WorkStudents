@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Android.App;
 using Android.Widget;
 using Android.Views;
 using Android.Content;
 using Bukep.Sheduler.View;
+using Java.Interop;
+using Java.Lang;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
 
@@ -25,7 +28,7 @@ namespace Bukep.Sheduler.Controllers
         }
 
         public override void Update()
-        {        
+        {
             _view.SetButtoneShowClickable(false);
 
 
@@ -54,7 +57,7 @@ namespace Bukep.Sheduler.Controllers
             var courses = GetCourses(
                 _selectedFaculty.IdFaculty,
                 FacadeApi.ConvertIdsToString(specialty.IdsSpecialty)
-                );
+            );
             _view.ShowCourses(courses);
 
             _view.SpecialtysSpinnerEnabled(true);
@@ -69,7 +72,7 @@ namespace Bukep.Sheduler.Controllers
                 _selectedFaculty.IdFaculty,
                 _selectedCourse.IdCourse,
                 FacadeApi.ConvertIdsToString(_selectedSpecialty.IdsSpecialty)
-                );
+            );
             _view.ShowGroup(groups);
 
             _view.SpecialtysSpinnerEnabled(true);
@@ -102,18 +105,31 @@ namespace Bukep.Sheduler.Controllers
     /// Приэтом иметь возможность получить DTO.
     /// </summary>
     /// <typeparam name="T">DTO для DTOAdapter</typeparam>
-    internal abstract class DtoAdapter<T> : BaseAdapter
+    internal class DtoAdapter<T> : BaseAdapter
     {
         private readonly IList<T> _objects;
         private readonly Activity _activity;
 
-        protected DtoAdapter(IList<T> objects, Activity activity)
+        internal delegate string ConvertDtoInString(T t);
+
+        private readonly ConvertDtoInString _convertDtoInString;
+
+        public DtoAdapter(IList<T> objects, Activity activity, ConvertDtoInString convertDtoInString)
         {
             _activity = activity;
+            this._convertDtoInString = convertDtoInString;
             _objects = objects;
+            //Так как за место 0 DtoAdapter в методе GetView будет возвращать свой элемент.
+            if (_objects.Any())
+                _objects.Insert(0, _objects[0]);
         }
 
         public override int Count => _objects.Count;
+
+        public T GetObject(int position)
+        {
+            return _objects[position];
+        }
 
         public override Java.Lang.Object GetItem(int position)
         {
@@ -127,85 +143,23 @@ namespace Bukep.Sheduler.Controllers
 
         public override Android.Views.View GetView(int position, Android.Views.View convertView, ViewGroup parent)
         {
-            
-            var view = (TextView) _activity.LayoutInflater.Inflate(Resource.Layout.ItemForSpinner, null, false);
+            var view = (TextView) _activity.LayoutInflater.Inflate(
+                Resource.Layout.ItemForSpinner,
+                null, false
+            );
             if (position == 0)
             {
                 var textForView = _activity.GetText(Resource.String.selectFromeList);
-                view.Text = textForView;              
+                view.Text = textForView;
             }
             else
             {
-                view.Text = ConvertDtoInString(_objects[position]);
+                if (_convertDtoInString == null)
+                    throw new ArgumentException(
+                        "Parameter convertDtoInString cannot be null.");
+                view.Text = _convertDtoInString(_objects[position]);
             }
             return view;
         }
-
-        public T GetObject(int position)
-        {
-            return _objects[position];
-        }
-
-        public abstract string ConvertDtoInString(T t);
-
     }
-
-    internal class FacultyAdapter : DtoAdapter<Faculty>
-    {
-        /// <summary>
-        /// Добавляет пустой DTO в objects в позицию 0.
-        /// Так как заместо позиции 0 стоит элемент по умолчанию.
-        /// </summary>
-        /// <param name="objects"></param>
-        /// <param name="activity"></param>
-        public FacultyAdapter(IList<Faculty> objects, Activity activity) : base(objects, activity)
-        {
-            objects.Insert(0, new Faculty());
-        }
-
-        public override string ConvertDtoInString(Faculty t)
-        {
-            return t.Name;
-        }
-    }
-
-    internal class SpecialtyAdapter : DtoAdapter<Specialty>
-    {
-        public SpecialtyAdapter(IList<Specialty> objects, Activity activity) : base(objects, activity)
-        {
-            objects.Insert(0, new Specialty());
-        }
-
-        public override string ConvertDtoInString(Specialty t)
-        {
-            return t.NameSpeciality;
-        }
-    }
-
-    internal class CoursesAdapter : DtoAdapter<Courses>
-    {
-        public CoursesAdapter(IList<Courses> objects, Activity activity) : base(objects, activity)
-        {
-            objects.Insert(0, new Courses());
-        }
-
-        public override string ConvertDtoInString(Courses t)
-        {
-            return t.NameCourse;
-        }
-    }
-
-    internal class GroupAdapter : DtoAdapter<Group>
-    {
-        public GroupAdapter(IList<Group> objects, Activity activity) : base(objects, activity)
-        {
-            objects.Insert(0, new Group());
-        }
-
-        public override string ConvertDtoInString(Group t)
-        {
-            return $"{t.NameGroup} {t.NameTypeShedule}";
-        }
-    }
-
 }

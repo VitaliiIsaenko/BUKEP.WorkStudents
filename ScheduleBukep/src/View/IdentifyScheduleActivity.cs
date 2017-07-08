@@ -80,7 +80,7 @@ namespace Bukep.Sheduler.View
 
         public void ShowGroup(IList<Group> groups)
         {
-            _groupAdapter = new GroupAdapter(groups, this);
+            _groupAdapter = new DtoAdapter<Group>(groups, this,x => x.NameGroup );
 
             _groupSpinner.Adapter = _groupAdapter;
             _groupSpinner.ItemSelected += SelectGroupSpinner;
@@ -97,7 +97,10 @@ namespace Bukep.Sheduler.View
 
         public void ShowCourses(IList<Courses> courses)
         {
-            _coursesAdapter = new CoursesAdapter(courses, this);
+            _coursesAdapter = new DtoAdapter<Courses>(
+                courses,
+                this,
+                x => x.NameCourse);
 
             
             _courseSpinner.Adapter = _coursesAdapter;
@@ -115,7 +118,8 @@ namespace Bukep.Sheduler.View
 
         public void ShowSpecialtys(IList<Specialty> specialtys)
         {
-            _specialtyAdapter = new SpecialtyAdapter(specialtys, this);
+            _specialtyAdapter = new DtoAdapter<Specialty>(specialtys, this,
+                x => x.NameSpeciality);
 
             _specialtysSpinner.Adapter = _specialtyAdapter;
             _specialtysSpinner.ItemSelected += SelectSpecialtysSpinner;
@@ -132,8 +136,10 @@ namespace Bukep.Sheduler.View
 
         public void ShowFaculty(IList<Faculty> faculties)
         {
-            _facultyAdapter = new FacultyAdapter(faculties, this);
-
+            _facultyAdapter = new DtoAdapter<Faculty>(
+                faculties,
+                this,
+                x => x.Name);
             _facultySpinner.Adapter = _facultyAdapter;
             _facultySpinner.ItemSelected += SelectFacultySpinner;
         }
