@@ -108,6 +108,7 @@
     <Compile Include="src\View\BaseActivity.cs" />
     <Compile Include="src\LessonOnDay.cs" />
     <Compile Include="src\Controllers\Menu.cs" />
+    <Compile Include="src\View\factory\MainFactory.cs" />
     <Compile Include="src\View\NavigationActivity.cs" />
     <Compile Include="src\Controllers\Controller.cs" />
     <Compile Include="src\Controllers\IdentifySchedule.cs" />

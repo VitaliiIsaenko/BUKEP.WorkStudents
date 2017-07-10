@@ -7,7 +7,7 @@ using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
-using ScheduleBukepAPI.domain;
+using Bukep.Sheduler.View.factory;
 
 namespace Bukep.Sheduler.View
 {
@@ -19,7 +19,6 @@ namespace Bukep.Sheduler.View
         private TextView _toolbarGroop;
         private TextView _toolbarDate;
         private TextView _toolbarPeriod;
-        private const string LessonOnDayNameFormat = "dddd";
         private const string Tag = "ScheduleActivity";
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -99,66 +98,14 @@ namespace Bukep.Sheduler.View
             var linearLayout = FindViewById<LinearLayout>(Resource.Id.liner_layout);
             linearLayout.RemoveAllViews();
 
+            var mainFactory = new MainFactory(this);
+
             foreach (var item in lessonOnDay)
             {
-                linearLayout.AddView(CreateLinearLessonOnDays(item));
+                linearLayout.AddView(mainFactory.CreateLinearLessonOnDays(item));
             }
         }
 
-        //TODO: Вынести в отдельный класс
-        private Android.Views.View CreateLinearLessonOnDays(LessonOnDay lessonOnDay)
-        {
-            var linearLessonOnDays =
-                (LinearLayout) LayoutInflater.Inflate(Resource.Layout.LessonOnDayView, null, false);
-            var lessonOnDayName = linearLessonOnDays.FindViewById<TextView>(Resource.Id.LessonOnDayName);
-            lessonOnDayName.Text = lessonOnDay.DateLesson.ToString(LessonOnDayNameFormat);
 
-            var lessonOnDaysView = linearLessonOnDays.FindViewById<LinearLayout>(Resource.Id.LessonOnDays);
-            lessonOnDaysView.RemoveAllViews();
-
-            foreach (var lesson in lessonOnDay.Lessons)
-            {
-                lessonOnDaysView.AddView(CreateCardLesson(lesson));
-            }
-            return linearLessonOnDays;
-        }
-
-        //TODO: Вынести в отдельный класс
-        private Android.Views.View CreateCardLesson(GroupLesson groupLesson)
-        {
-            var card = (CardView) LayoutInflater.Inflate(Resource.Layout.CardViewLesson, null, false);
-            var nameLesson = card.FindViewById<TextView>(Resource.Id.nameLesson);
-            nameLesson.Text = groupLesson.Discipline.Value;
-
-            var timeStartLesson = card.FindViewById<TextView>(Resource.Id.timeStartLesson);
-            var timeLessonStartLesson = groupLesson.TimeLesson.StartLesson;
-            timeStartLesson.Text = DateTime.Parse(timeLessonStartLesson).ToString("hh:mm");
-
-            var timeEndLesson = card.FindViewById<TextView>(Resource.Id.timeEndLesson);
-            var timeLessonEndLesson = groupLesson.TimeLesson.EndLesson;
-            timeEndLesson.Text = DateTime.Parse(timeLessonEndLesson).ToString("hh:mm");
-
-            var number = card.FindViewById<TextView>(Resource.Id.number);
-            number.Text = groupLesson.Lesson.Value;
-
-            var typeLesson = card.FindViewById<TextView>(Resource.Id.typeLesson);
-            typeLesson.Text = groupLesson.TypeLesson.Value;
-
-            var nameTeacher = card.FindViewById<TextView>(Resource.Id.nameTeacher);
-            nameTeacher.Text = "";
-            foreach (var teacher in groupLesson.Teachers)
-            {
-                nameTeacher.Text += teacher.Value+" ";
-            }
-
-            var nameAudience = card.FindViewById<TextView>(Resource.Id.nameAudience);
-            nameAudience.Text = "";
-            foreach (var auditory in groupLesson.Auditory)
-            {
-                nameAudience.Text += auditory.Value+" ";
-            }
-            
-            return card;
-        }
     }
 }
