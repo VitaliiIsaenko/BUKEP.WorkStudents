@@ -1,72 +1,100 @@
 ﻿[
   {
-    "idFaculty": 10004,
-    "name": "Второго высшего образования и магистерской подготовки",
+    "faculty": {
+      "key": 10004,
+      "value": "Второго высшего образования и магистерской подготовки"
+    },
     "isActiveSchedule": true
   },
   {
-    "idFaculty": 9,
-    "name": "Заочного обучения",
+    "faculty": {
+      "key": 9,
+      "value": "Заочного обучения"
+    },
     "isActiveSchedule": true
   },
   {
-    "idFaculty": 10,
-    "name": "Общественного питания и товароведения",
+    "faculty": {
+      "key": 10,
+      "value": "Общественного питания и товароведения"
+    },
     "isActiveSchedule": true
   },
   {
-    "idFaculty": 12,
-    "name": "Отдел аспирантуры",
+    "faculty": {
+      "key": 12,
+      "value": "Отдел аспирантуры"
+    },
     "isActiveSchedule": false
   },
   {
-    "idFaculty": 14,
-    "name": "Подготовительный факультет",
+    "faculty": {
+      "key": 14,
+      "value": "Подготовительный факультет"
+    },
     "isActiveSchedule": false
   },
   {
-    "idFaculty": 10045,
-    "name": "СПО - заочная форма",
+    "faculty": {
+      "key": 10045,
+      "value": "СПО - заочная форма"
+    },
     "isActiveSchedule": false
   },
   {
-    "idFaculty": 1,
-    "name": "Среднего профессионального образования",
+    "faculty": {
+      "key": 1,
+      "value": "Среднего профессионального образования"
+    },
     "isActiveSchedule": false
   },
   {
-    "idFaculty": 10083,
-    "name": "Среднего профессионального образования №1",
+    "faculty": {
+      "key": 10083,
+      "value": "Среднего профессионального образования №1"
+    },
     "isActiveSchedule": true
   },
   {
-    "idFaculty": 10084,
-    "name": "Среднего профессионального образования №2",
+    "faculty": {
+      "key": 10084,
+      "value": "Среднего профессионального образования №2"
+    },
     "isActiveSchedule": true
   },
   {
-    "idFaculty": 7,
-    "name": "Таможенного дела и информационных технологий",
+    "faculty": {
+      "key": 7,
+      "value": "Таможенного дела и информационных технологий"
+    },
     "isActiveSchedule": true
   },
   {
-    "idFaculty": 10046,
-    "name": "Учебно-методический центр",
+    "faculty": {
+      "key": 10046,
+      "value": "Учебно-методический центр"
+    },
     "isActiveSchedule": false
   },
   {
-    "idFaculty": 15,
-    "name": "Учебно-методический центр повышения квалификации и переподготовки кадров",
+    "faculty": {
+      "key": 15,
+      "value": "Учебно-методический центр повышения квалификации и переподготовки кадров"
+    },
     "isActiveSchedule": false
   },
   {
-    "idFaculty": 11,
-    "name": "Экономики и менеджмента",
+    "faculty": {
+      "key": 11,
+      "value": "Экономики и менеджмента"
+    },
     "isActiveSchedule": true
   },
   {
-    "idFaculty": 8,
-    "name": "Юридический",
+    "faculty": {
+      "key": 8,
+      "value": "Юридический"
+    },
     "isActiveSchedule": true
   }
 ]

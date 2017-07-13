@@ -1,0 +1,407 @@
+﻿[
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 1,
+      "value": "понедельник"
+    },
+    "lesson": {
+      "key": 22,
+      "value": "5 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-05-01T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "5 пара",
+      "startLesson": "15:45:00",
+      "endLesson": "17:20:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 235,
+        "value": "41"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6213,
+        "value": "ст. преп. Кутищева Е.В."
+      }
+    ],
+    "discipline": {
+      "key": 5346,
+      "value": "Основы управленческого и налогового учета"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 2,
+      "value": "вторник"
+    },
+    "lesson": {
+      "key": 14,
+      "value": "1 пара"
+    },
+    "typeLesson": {
+      "key": 1,
+      "value": "Лекционное занятие"
+    },
+    "dateLesson": "2017-05-02T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "1 пара",
+      "startLesson": "08:00:00",
+      "endLesson": "09:35:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 235,
+        "value": "41"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6213,
+        "value": "ст. преп. Кутищева Е.В."
+      }
+    ],
+    "discipline": {
+      "key": 5346,
+      "value": "Основы управленческого и налогового учета"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 2,
+      "value": "вторник"
+    },
+    "lesson": {
+      "key": 16,
+      "value": "2 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-05-02T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "2 пара",
+      "startLesson": "09:45:00",
+      "endLesson": "11:30:00",
+      "durability": "01:45"
+    },
+    "auditory": [
+      {
+        "key": 244,
+        "value": "37"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6213,
+        "value": "ст. преп. Кутищева Е.В."
+      }
+    ],
+    "discipline": {
+      "key": 253,
+      "value": "Финансы, денежное обращение и кредит"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 2,
+      "value": "вторник"
+    },
+    "lesson": {
+      "key": 18,
+      "value": "3 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-05-02T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "3 пара",
+      "startLesson": "11:50:00",
+      "endLesson": "13:25:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 237,
+        "value": "44"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6213,
+        "value": "ст. преп. Кутищева Е.В."
+      }
+    ],
+    "discipline": {
+      "key": 253,
+      "value": "Финансы, денежное обращение и кредит"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 2,
+      "value": "вторник"
+    },
+    "lesson": {
+      "key": 20,
+      "value": "4 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-05-02T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "4 пара",
+      "startLesson": "14:00:00",
+      "endLesson": "15:35:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 237,
+        "value": "44"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6213,
+        "value": "ст. преп. Кутищева Е.В."
+      }
+    ],
+    "discipline": {
+      "key": 5346,
+      "value": "Основы управленческого и налогового учета"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 2,
+      "value": "вторник"
+    },
+    "lesson": {
+      "key": 22,
+      "value": "5 пара"
+    },
+    "typeLesson": {
+      "key": 1,
+      "value": "Лекционное занятие"
+    },
+    "dateLesson": "2017-05-02T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "5 пара",
+      "startLesson": "15:45:00",
+      "endLesson": "17:20:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 237,
+        "value": "44"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6213,
+        "value": "ст. преп. Кутищева Е.В."
+      }
+    ],
+    "discipline": {
+      "key": 979,
+      "value": "Налоговое планирование"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 3,
+      "value": "среда"
+    },
+    "lesson": {
+      "key": 14,
+      "value": "1 пара"
+    },
+    "typeLesson": {
+      "key": 1,
+      "value": "Лекционное занятие"
+    },
+    "dateLesson": "2017-05-03T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "1 пара",
+      "startLesson": "08:00:00",
+      "endLesson": "09:35:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 236,
+        "value": "42"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6213,
+        "value": "ст. преп. Кутищева Е.В."
+      }
+    ],
+    "discipline": {
+      "key": 5346,
+      "value": "Основы управленческого и налогового учета"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 5,
+      "value": "пятница"
+    },
+    "lesson": {
+      "key": 20,
+      "value": "4 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-05-05T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "4 пара",
+      "startLesson": "14:00:00",
+      "endLesson": "15:35:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 236,
+        "value": "42"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6213,
+        "value": "ст. преп. Кутищева Е.В."
+      }
+    ],
+    "discipline": {
+      "key": 979,
+      "value": "Налоговое планирование"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 5,
+      "value": "пятница"
+    },
+    "lesson": {
+      "key": 22,
+      "value": "5 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-05-05T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "5 пара",
+      "startLesson": "15:45:00",
+      "endLesson": "17:20:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 235,
+        "value": "41"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6213,
+        "value": "ст. преп. Кутищева Е.В."
+      }
+    ],
+    "discipline": {
+      "key": 5346,
+      "value": "Основы управленческого и налогового учета"
+    }
+  }
+]

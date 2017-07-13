@@ -47,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="resources\jsonExample\GetLessonTime.json" />
+    <None Include="resources\jsonExample\GetTeacher.json" />
+    <None Include="resources\jsonExample\GetPulpit.json" />
+    <None Include="resources\jsonExample\GetTeacherLessons.json" />
+    <None Include="resources\jsonExample\GetCourses.json" />
     <None Include="resources\jsonExample\GetFaculties.json" />
     <None Include="resources\jsonExample\GetGroups.json" />
     <None Include="resources\jsonExample\GetGroupLessons.json" />

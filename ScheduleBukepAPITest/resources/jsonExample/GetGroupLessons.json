@@ -1,44 +1,137 @@
 ﻿[
-   {
-      "nameTypeShedule":"Теоретическое обучение",
-      "nameTypeWeek":"Знам.",
-      "nameDay":"понедельник",
-      "nameLesson":"3 пара",
-      "typeLesson":"Лекционное занятие",
-      "dateLesson":"15.05.2017",
-      "timeStartLesson":"12:25",
-      "timeEndLesson":"14:00",
-      "nameAuditory":"415н",
-      "idTeacher":366,
-      "fioTeacher":"доц. Москаленко Н.И.",
-      "nameDiscipline":"Теория вероятностей и математическая статистика"
-   },
-   {
-      "nameTypeShedule":"Теоретическое обучение",
-      "nameTypeWeek":"Знам.",
-      "nameDay":"понедельник",
-      "nameLesson":"4пара",
-      "typeLesson":"Лекционное занятие",
-      "dateLesson":"15.05.2017",
-      "timeStartLesson":"14:35",
-      "timeEndLesson":"16:10",
-      "nameAuditory":"115",
-      "idTeacher":2169,
-      "fioTeacher":"доц. Гатилова И.Н.",
-      "nameDiscipline":"Обработка отраслевой информации"
-   },
-   {
-      "nameTypeShedule":"Теоретическое обучение",
-      "nameTypeWeek":"Знам.",
-      "nameDay":"понедельник",
-      "nameLesson":"5 пара",
-      "typeLesson":"Лекционное занятие",
-      "dateLesson":"15.05.2017",
-      "timeStartLesson":"16:20",
-      "timeEndLesson":"17:55",
-      "nameAuditory":"504н",
-      "idTeacher":2219,
-      "fioTeacher":"асс. Шевченко Е.И.",
-      "nameDiscipline":"Дискретная математика"
-   }
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 1,
+      "value": "Числ."
+    },
+    "day": {
+      "key": 1,
+      "value": "понедельник"
+    },
+    "lesson": {
+      "key": 5,
+      "value": "3 пара"
+    },
+    "typeLesson": {
+      "key": 1,
+      "value": "Лекционное занятие"
+    },
+    "dateLesson": "2017-06-19T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "3 пара",
+      "startLesson": "12:25:00",
+      "endLesson": "14:00:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 123,
+        "value": "316"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 2182,
+        "value": "асс. Зайцева Н.В."
+      }
+    ],
+    "discipline": {
+      "key": 406,
+      "value": "Документационное обеспечение управления"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 1,
+      "value": "Числ."
+    },
+    "day": {
+      "key": 1,
+      "value": "понедельник"
+    },
+    "lesson": {
+      "key": 7,
+      "value": "4 пара"
+    },
+    "typeLesson": {
+      "key": 1,
+      "value": "Лекционное занятие"
+    },
+    "dateLesson": "2017-06-19T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "4 пара",
+      "startLesson": "14:35:00",
+      "endLesson": "16:10:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 26,
+        "value": "115"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 2169,
+        "value": "доц. Гатилова И.Н."
+      }
+    ],
+    "discipline": {
+      "key": 4340,
+      "value": "Обработка отраслевой информации"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 1,
+      "value": "Числ."
+    },
+    "day": {
+      "key": 1,
+      "value": "понедельник"
+    },
+    "lesson": {
+      "key": 9,
+      "value": "5 пара"
+    },
+    "typeLesson": {
+      "key": 1,
+      "value": "Лекционное занятие"
+    },
+    "dateLesson": "2017-06-19T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "5 пара",
+      "startLesson": "16:20:00",
+      "endLesson": "17:55:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 101,
+        "value": "504н"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 2219,
+        "value": "асс. Шевченко Е.И."
+      }
+    ],
+    "discipline": {
+      "key": 1246,
+      "value": "Дискретная математика"
+    }
+  }
 ]

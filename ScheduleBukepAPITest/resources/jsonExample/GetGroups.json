@@ -1,110 +1,62 @@
 ﻿[
   {
     "idsSchedulGroup": [
-      5312
+      5538
     ],
-    "nameGroup": "И-51",
+    "nameGroup": "И-61",
     "affixusNameGroup": "(9)",
     "nameGroupOld": null,
     "idSemestr": 1,
     "nameTypeShedule": "(расписание на семестр)",
-    "scheduleDateFrom": "05.09.2016",
-    "scheduleDateTo": "25.12.2016"
+    "scheduleDateFrom": null,
+    "scheduleDateTo": null
   },
   {
     "idsSchedulGroup": [
-      6213
+      6257
     ],
-    "nameGroup": "И-51",
+    "nameGroup": "И-61",
     "affixusNameGroup": "(9)",
     "nameGroupOld": null,
     "idSemestr": 2,
     "nameTypeShedule": "(расписание на семестр)",
-    "scheduleDateFrom": "16.01.2017",
-    "scheduleDateTo": "25.06.2017"
+    "scheduleDateFrom": null,
+    "scheduleDateTo": null
   },
   {
     "idsSchedulGroup": [
-      7259
+      7258
     ],
-    "nameGroup": "И-51",
+    "nameGroup": "И-61",
     "affixusNameGroup": "(9)",
     "nameGroupOld": null,
     "idSemestr": 2,
     "nameTypeShedule": "(сессия)",
-    "scheduleDateFrom": "26.06.2017",
-    "scheduleDateTo": "02.07.2017"
+    "scheduleDateFrom": null,
+    "scheduleDateTo": null
   },
   {
     "idsSchedulGroup": [
-      6130
+      5452
     ],
-    "nameGroup": "И-51",
-    "affixusNameGroup": "(9)",
-    "nameGroupOld": null,
-    "idSemestr": 1,
-    "nameTypeShedule": "(сессия)",
-    "scheduleDateFrom": "26.12.2016",
-    "scheduleDateTo": "01.01.2017"
-  },
-  {
-    "idsSchedulGroup": [
-      7032
-    ],
-    "nameGroup": "И-52с",
-    "affixusNameGroup": "(9)",
-    "nameGroupOld": null,
-    "idSemestr": 2,
-    "nameTypeShedule": "(сессия)",
-    "scheduleDateFrom": "05.06.2017",
-    "scheduleDateTo": "11.06.2017"
-  },
-  {
-    "idsSchedulGroup": [
-      5317
-    ],
-    "nameGroup": "И-52с",
-    "affixusNameGroup": "(9)",
+    "nameGroup": "И-62с",
+    "affixusNameGroup": "(11)",
     "nameGroupOld": null,
     "idSemestr": 1,
     "nameTypeShedule": "(расписание на семестр)",
-    "scheduleDateFrom": "05.09.2016",
-    "scheduleDateTo": "25.12.2016"
+    "scheduleDateFrom": null,
+    "scheduleDateTo": null
   },
   {
     "idsSchedulGroup": [
-      7011
+      6326
     ],
-    "nameGroup": "И-52с",
-    "affixusNameGroup": "(9)",
-    "nameGroupOld": null,
-    "idSemestr": 2,
-    "nameTypeShedule": "(практика)",
-    "scheduleDateFrom": "12.06.2017",
-    "scheduleDateTo": "09.07.2017"
-  },
-  {
-    "idsSchedulGroup": [
-      6309
-    ],
-    "nameGroup": "И-52с",
-    "affixusNameGroup": "(9)",
+    "nameGroup": "И-62с",
+    "affixusNameGroup": "(11)",
     "nameGroupOld": null,
     "idSemestr": 2,
     "nameTypeShedule": "(расписание на семестр)",
-    "scheduleDateFrom": "16.01.2017",
-    "scheduleDateTo": "04.06.2017"
-  },
-  {
-    "idsSchedulGroup": [
-      6132
-    ],
-    "nameGroup": "И-52с",
-    "affixusNameGroup": "(9)",
-    "nameGroupOld": null,
-    "idSemestr": 1,
-    "nameTypeShedule": "(сессия)",
-    "scheduleDateFrom": "26.12.2016",
-    "scheduleDateTo": "01.01.2017"
+    "scheduleDateFrom": null,
+    "scheduleDateTo": null
   }
 ]

@@ -1,0 +1,472 @@
+﻿[
+  {
+    "fillial": {
+      "key": 1000,
+      "value": "Головной ВУЗ"
+    },
+    "lessonsTime": [
+      {
+        "weekDay": {
+          "key": 0,
+          "value": "Будни"
+        },
+        "lessonsTime": [
+          {
+            "idLesson": 1,
+            "nameLesson": "1 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "08:30:00",
+              "endLesson": "09:15:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "09:15:00",
+              "endLesson": "09:20:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "09:20:00",
+              "endLesson": "10:05:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "08:30 - 10:05"
+          },
+          {
+            "idLesson": 3,
+            "nameLesson": "2 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "10:15:00",
+              "endLesson": "11:00:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "11:00:00",
+              "endLesson": "11:05:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "11:05:00",
+              "endLesson": "11:50:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "10:15 - 11:50"
+          },
+          {
+            "idLesson": 4,
+            "nameLesson": "перерыв для питания",
+            "typeLessonTime": {
+              "key": 1,
+              "value": "Перерыв"
+            },
+            "firstPeriod": null,
+            "breakTime": {
+              "nameLessonTime": "перерыв дл питания",
+              "startLesson": "11:50:00",
+              "endLesson": "12:25:00",
+              "durability": "00:35"
+            },
+            "secondPeriond": null,
+            "timeLesson": "11:50 - 12:25"
+          },
+          {
+            "idLesson": 5,
+            "nameLesson": "3 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "12:25:00",
+              "endLesson": "13:10:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "13:10:00",
+              "endLesson": "13:15:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "13:15:00",
+              "endLesson": "14:00:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "12:25 - 14:00"
+          },
+          {
+            "idLesson": 6,
+            "nameLesson": "перерыв для питания",
+            "typeLessonTime": {
+              "key": 1,
+              "value": "Перерыв"
+            },
+            "firstPeriod": null,
+            "breakTime": {
+              "nameLessonTime": "перерыв дл питания",
+              "startLesson": "14:00:00",
+              "endLesson": "14:35:00",
+              "durability": "00:35"
+            },
+            "secondPeriond": null,
+            "timeLesson": "14:00 - 14:35"
+          },
+          {
+            "idLesson": 7,
+            "nameLesson": "4 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "14:35:00",
+              "endLesson": "15:20:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "15:20:00",
+              "endLesson": "15:25:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "15:25:00",
+              "endLesson": "16:10:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "14:35 - 16:10"
+          },
+          {
+            "idLesson": 9,
+            "nameLesson": "5 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "16:20:00",
+              "endLesson": "17:05:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "17:05:00",
+              "endLesson": "17:10:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "17:10:00",
+              "endLesson": "17:55:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "16:20 - 17:55"
+          },
+          {
+            "idLesson": 11,
+            "nameLesson": "6 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "18:05:00",
+              "endLesson": "18:50:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "18:50:00",
+              "endLesson": "18:55:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "18:55:00",
+              "endLesson": "19:40:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "18:05 - 19:40"
+          },
+          {
+            "idLesson": 13,
+            "nameLesson": "7 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "19:50:00",
+              "endLesson": "20:35:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "20:35:00",
+              "endLesson": "20:40:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "20:40:00",
+              "endLesson": "21:25:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "19:50 - 21:25"
+          }
+        ]
+      },
+      {
+        "weekDay": {
+          "key": 6,
+          "value": "Суббота"
+        },
+        "lessonsTime": [
+          {
+            "idLesson": 1,
+            "nameLesson": "1 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "08:30:00",
+              "endLesson": "09:15:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "09:15:00",
+              "endLesson": "09:20:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "09:20:00",
+              "endLesson": "10:05:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "08:30 - 10:05"
+          },
+          {
+            "idLesson": 3,
+            "nameLesson": "2 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "10:15:00",
+              "endLesson": "11:00:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "11:00:00",
+              "endLesson": "11:05:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "11:05:00",
+              "endLesson": "11:50:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "10:15 - 11:50"
+          },
+          {
+            "idLesson": 4,
+            "nameLesson": "перерыв для питания",
+            "typeLessonTime": {
+              "key": 1,
+              "value": "Перерыв"
+            },
+            "firstPeriod": null,
+            "breakTime": {
+              "nameLessonTime": "перерыв дл питания",
+              "startLesson": "11:50:00",
+              "endLesson": "12:00:00",
+              "durability": "00:10"
+            },
+            "secondPeriond": null,
+            "timeLesson": "11:50 - 12:00"
+          },
+          {
+            "idLesson": 5,
+            "nameLesson": "3 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "12:00:00",
+              "endLesson": "12:45:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "12:45:00",
+              "endLesson": "12:50:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "12:50:00",
+              "endLesson": "13:35:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "12:00 - 13:35"
+          },
+          {
+            "idLesson": 6,
+            "nameLesson": "перерыв для питания",
+            "typeLessonTime": {
+              "key": 1,
+              "value": "Перерыв"
+            },
+            "firstPeriod": null,
+            "breakTime": {
+              "nameLessonTime": "перерыв дл питания",
+              "startLesson": "13:35:00",
+              "endLesson": "14:10:00",
+              "durability": "00:35"
+            },
+            "secondPeriond": null,
+            "timeLesson": "13:35 - 14:10"
+          },
+          {
+            "idLesson": 7,
+            "nameLesson": "4 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "14:10:00",
+              "endLesson": "14:55:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "14:55:00",
+              "endLesson": "15:00:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "15:00:00",
+              "endLesson": "15:45:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "14:10 - 15:45"
+          },
+          {
+            "idLesson": 9,
+            "nameLesson": "5 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "15:55:00",
+              "endLesson": "16:40:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "16:40:00",
+              "endLesson": "16:45:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "16:45:00",
+              "endLesson": "17:30:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "15:55 - 17:30"
+          },
+          {
+            "idLesson": 11,
+            "nameLesson": "6 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "17:40:00",
+              "endLesson": "18:25:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "18:25:00",
+              "endLesson": "18:30:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "18:30:00",
+              "endLesson": "19:15:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "17:40 - 19:15"
+          },
+          {
+            "idLesson": 13,
+            "nameLesson": "7 пара",
+            "typeLessonTime": {
+              "key": 0,
+              "value": "Пара"
+            },
+            "firstPeriod": {
+              "nameLessonTime": "1 полупара",
+              "startLesson": "19:25:00",
+              "endLesson": "20:10:00",
+              "durability": "00:45"
+            },
+            "breakTime": {
+              "nameLessonTime": "перерыв",
+              "startLesson": "20:10:00",
+              "endLesson": "20:15:00",
+              "durability": "00:05"
+            },
+            "secondPeriond": {
+              "nameLessonTime": "2 полупара",
+              "startLesson": "20:15:00",
+              "endLesson": "21:00:00",
+              "durability": "00:45"
+            },
+            "timeLesson": "19:25 - 21:00"
+          }
+        ]
+      }
+    ]
+  }
+]

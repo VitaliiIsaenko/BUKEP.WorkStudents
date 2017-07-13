@@ -1,0 +1,254 @@
+﻿[
+  {
+    "idsTeacher": [
+      166
+    ],
+    "fio": "Банчук Галина Геннадьевна",
+    "isActiveSchedule": false,
+    "post": "Старший преподаватель",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      7391
+    ],
+    "fio": "Вакансия Королев",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      7438
+    ],
+    "fio": "Вакансия Костяник",
+    "isActiveSchedule": false,
+    "post": "Старший преподаватель",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      7390
+    ],
+    "fio": "Вакансия Огнев О.",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      7392
+    ],
+    "fio": "Вакансия Осыков",
+    "isActiveSchedule": false,
+    "post": "Старший преподаватель",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      7389
+    ],
+    "fio": "Вакансия Петренко М.С.",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      7398
+    ],
+    "fio": "Вакансия Петросов",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.т.н."
+  },
+  {
+    "idsTeacher": [
+      184
+    ],
+    "fio": "Ведрицкий Виталий Владимирович",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.т.н."
+  },
+  {
+    "idsTeacher": [
+      190
+    ],
+    "fio": "Винтаев Виктор Николаевич",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.т.н."
+  },
+  {
+    "idsTeacher": [
+      200
+    ],
+    "fio": "Воронин Ярослав Михайлович",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.э.н."
+  },
+  {
+    "idsTeacher": [
+      2169
+    ],
+    "fio": "Гатилова Ирина Николаевна",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.э.н."
+  },
+  {
+    "idsTeacher": [
+      208
+    ],
+    "fio": "Гладков Иван Александрович",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.т.н."
+  },
+  {
+    "idsTeacher": [
+      215
+    ],
+    "fio": "Головкова Альфия Салимовна",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.э.н."
+  },
+  {
+    "idsTeacher": [
+      263
+    ],
+    "fio": "Заболотная Наталья Владимировна",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.э.н."
+  },
+  {
+    "idsTeacher": [
+      270
+    ],
+    "fio": "Захарченко Николай Григорьевич",
+    "isActiveSchedule": true,
+    "post": "Доцент",
+    "degree": "к.э.н."
+  },
+  {
+    "idsTeacher": [
+      306
+    ],
+    "fio": "Колос Наталья Викторовна",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.э.н."
+  },
+  {
+    "idsTeacher": [
+      311
+    ],
+    "fio": "Коптелова Лилия Валерьевна",
+    "isActiveSchedule": false,
+    "post": "Старший преподаватель",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      2198
+    ],
+    "fio": "Кузьминова Юлия Викторовна",
+    "isActiveSchedule": false,
+    "post": "Старший преподаватель",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      333
+    ],
+    "fio": "Куртов Николай Николаевич",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.т.н."
+  },
+  {
+    "idsTeacher": [
+      359
+    ],
+    "fio": "Маторин Сергей Игоревич",
+    "isActiveSchedule": false,
+    "post": "Профессор",
+    "degree": "д.т.н."
+  },
+  {
+    "idsTeacher": [
+      2216
+    ],
+    "fio": "Нехотина Виктория Сергеевна",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.э.н."
+  },
+  {
+    "idsTeacher": [
+      381
+    ],
+    "fio": "Нешвеев Виталий Владимирович",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.т.н."
+  },
+  {
+    "idsTeacher": [
+      386
+    ],
+    "fio": "Ожог Светлана Викторовна",
+    "isActiveSchedule": false,
+    "post": "Старший преподаватель",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      6562
+    ],
+    "fio": "Петренко Марина Сергеевна",
+    "isActiveSchedule": false,
+    "post": "Старший преподаватель",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      467
+    ],
+    "fio": "Тарасов Алексей Александрович",
+    "isActiveSchedule": false,
+    "post": "Старший преподаватель",
+    "degree": ""
+  },
+  {
+    "idsTeacher": [
+      493
+    ],
+    "fio": "Ушакова Наталья Николаевна",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.т.н."
+  },
+  {
+    "idsTeacher": [
+      507
+    ],
+    "fio": "Чеглаков Анатолий Леонидович",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.э.н."
+  },
+  {
+    "idsTeacher": [
+      537
+    ],
+    "fio": "Шушляпина Галина Геннадьевна",
+    "isActiveSchedule": false,
+    "post": "Доцент",
+    "degree": "к.э.н."
+  }
+]

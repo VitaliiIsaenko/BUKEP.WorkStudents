@@ -1,110 +1,224 @@
 ﻿[
   {
-    "idsSpecialty":[ 1406 ],
-    "nameSpeciality": "Бизнес-информатика",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1406
+      ],
+      "value": "Бизнес-информатика"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 1390 ],
-    "nameSpeciality": "Гостиничное дело",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1390
+      ],
+      "value": "Гостиничное дело"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 1391 ],
-    "nameSpeciality": "Государственное и муниципальное управление",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1391
+      ],
+      "value": "Государственное и муниципальное управление"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 1373 ],
-    "nameSpeciality": "Менеджмент",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1373
+      ],
+      "value": "Менеджмент"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 1427 ],
-    "nameSpeciality": "Педагогическое образование",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1427
+      ],
+      "value": "Педагогическое образование"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 1365 ],
-    "nameSpeciality": "Прикладная информатика",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1365
+      ],
+      "value": "Прикладная информатика"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 1392 ],
-    "nameSpeciality": "Психология",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1392
+      ],
+      "value": "Психология"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 1380 ],
-    "nameSpeciality": "Реклама и связи с общественностью",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1380
+      ],
+      "value": "Реклама и связи с общественностью"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 1376 ],
-    "nameSpeciality": "Сервис",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1376
+      ],
+      "value": "Сервис"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 1388 ],
-    "nameSpeciality": "Социальная работа",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1388
+      ],
+      "value": "Социальная работа"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 387, 1387 ],
-    "nameSpeciality": "Таможенное дело",
-    "idLevelQualification": 1,
-    "nameLevelQualification": ""
+    "speciality": {
+      "key": [
+        387,
+        1387
+      ],
+      "value": "Таможенное дело"
+    },
+    "levelQualification": {
+      "key": 1,
+      "value": ""
+    }
   },
   {
-    "idsSpecialty": [ 1426 ],
-    "nameSpeciality": "Технология продукции и организация общественного питания",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1426
+      ],
+      "value": "Технология продукции и организация общественного питания"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 407, 1407 ],
-    "nameSpeciality": "Товароведение",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        407,
+        1407
+      ],
+      "value": "Товароведение"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 1430 ],
-    "nameSpeciality": "Торговое дело",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        1430
+      ],
+      "value": "Торговое дело"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 397, 1397 ],
-    "nameSpeciality": "Управление персоналом",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        397,
+        1397
+      ],
+      "value": "Управление персоналом"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 389, 1389 ],
-    "nameSpeciality": "Экономика",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        389,
+        1389
+      ],
+      "value": "Экономика"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   },
   {
-    "idsSpecialty": [ 415, 1415 ],
-    "nameSpeciality": "Экономическая безопасность",
-    "idLevelQualification": 1,
-    "nameLevelQualification": ""
+    "speciality": {
+      "key": [
+        415,
+        1415
+      ],
+      "value": "Экономическая безопасность"
+    },
+    "levelQualification": {
+      "key": 1,
+      "value": ""
+    }
   },
   {
-    "idsSpecialty": [ 438, 1438 ],
-    "nameSpeciality": "Юриспруденция",
-    "idLevelQualification": 2,
-    "nameLevelQualification": "(бакалавриат)"
+    "speciality": {
+      "key": [
+        438,
+        1438
+      ],
+      "value": "Юриспруденция"
+    },
+    "levelQualification": {
+      "key": 2,
+      "value": "(бакалавриат)"
+    }
   }
 ]
