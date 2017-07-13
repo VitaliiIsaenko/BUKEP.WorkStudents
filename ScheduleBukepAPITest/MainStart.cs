@@ -19,14 +19,19 @@ namespace ScheduleBukepAPITest
 
         private static void Main(string[] args)
         {
-            //SelectSchedules();
+            SelectSchedules();
+            //SelectTeacher();
+        }
+
+        private static void SelectTeacher()
+        {
             var selectPulpit = SelectPulpit();
             var selectTeacher = SelectTeacher(selectPulpit.IdPulpit);
 
             var dateTime = DateTime.Today.AddDays(1).ToString(FacadeApi.DateTimeFormat);
 
             var idsString = FacadeApi.ConvertIdsToString(selectTeacher.IdsTeacher);
-            var idTeacher = idsString.Substring(1,idsString.Length-2); //TODO: это костыль обрезание []
+            var idTeacher = idsString.Substring(1, idsString.Length - 2); //TODO: это костыль обрезание []
             SelectTeacherLessons(idTeacher, dateTime, dateTime);
         }
 
@@ -98,7 +103,7 @@ namespace ScheduleBukepAPITest
         private static Group SelectedGroup(Faculty selectedFaculty, Specialty selectedSpecialty, Courses selectedCourse)
         {
             var groups = Api.GetGroups(
-                selectedFaculty.IdFaculty,
+                selectedFaculty.faculty.Key,
                 selectedCourse.IdCourse,
                 FacadeApi.ConvertIdsToString(selectedSpecialty.IdsSpecialty)
             );
@@ -120,7 +125,7 @@ namespace ScheduleBukepAPITest
             var idsSpecialty = FacadeApi.ConvertIdsToString(selectedSpecialty.IdsSpecialty);
             Console.WriteLine("IdsSpecialty = " + idsSpecialty);
 
-            var courses = Api.GetCourses(selectedFaculty.IdFaculty, idsSpecialty);
+            var courses = Api.GetCourses(selectedFaculty.faculty.Key, idsSpecialty);
             for (var i = 0; i < courses.Count; i++)
             {
                 var course = courses[i];
@@ -134,7 +139,7 @@ namespace ScheduleBukepAPITest
 
         private static Specialty SelectedSpecialty(Faculty selectedFaculty)
         {
-            var specialtys = Api.GetSpecialtys(selectedFaculty.IdFaculty);
+            var specialtys = Api.GetSpecialtys(selectedFaculty.faculty.Key);
 
             for (var i = 0; i < specialtys.Count; i++)
             {
@@ -152,7 +157,7 @@ namespace ScheduleBukepAPITest
             var faculties = Api.GetFaculties();
             for (var i = 0; i < faculties.Count; i++)
             {
-                Console.WriteLine("{0}. {1}", i, faculties[i].Name);
+                Console.WriteLine("{0}. {1}", i, faculties[i].faculty.Value);
             }
 
             var numberFaculty = AskNumber();

@@ -5,8 +5,8 @@
     /// </summary>
     public class Faculty
     {
-        public string IdFaculty { get; set; }
-        public string Name { get; set; }
+        //TODO: Конфликт имени класса и метода
+        public KeyValue faculty { get; set; }
         public bool IsActiveSchedule { get; set; }
     }
 }

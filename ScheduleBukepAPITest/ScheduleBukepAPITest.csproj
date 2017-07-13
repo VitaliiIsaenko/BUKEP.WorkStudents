@@ -42,9 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fake\DtoFactoryFake.cs" />
-    <Compile Include="fake\FacultiesServiceFake.cs" />
-    <Compile Include="fake\SchedulesServiceFake.cs" />
     <Compile Include="MainStart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
