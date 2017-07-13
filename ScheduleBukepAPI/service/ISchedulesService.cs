@@ -5,7 +5,7 @@ namespace ScheduleBukepAPI.service
 {
     public interface ISchedulesService
     {
-        IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo);    
-        IList<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo);
+        IList<Lesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo);    
+        IList<Lesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo);
     }
 }

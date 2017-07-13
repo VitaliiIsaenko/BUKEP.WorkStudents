@@ -50,8 +50,7 @@
     <Compile Include="domain\Courses.cs" />
     <Compile Include="domain\Faculty.cs" />
     <Compile Include="domain\Group.cs" />
-    <Compile Include="domain\GroupLesson.cs" />
-    <Compile Include="domain\KeyValue.cs" />
+    <Compile Include="domain\Lesson.cs" />
     <Compile Include="domain\Specialty.cs" />
     <Compile Include="FacadeApi.cs" />
     <Compile Include="helpers\CreatorUrl.cs" />

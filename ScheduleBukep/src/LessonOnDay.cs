@@ -17,18 +17,18 @@ namespace Bukep.Sheduler
     {
         public LessonOnDay()
         {
-            Lessons = new List<GroupLesson>();
+            Lessons = new List<Lesson>();
         }
 
         public DateTime DateLesson { get; set; }
-        public IList<GroupLesson> Lessons { get; }
+        public IList<Lesson> Lessons { get; }
 
         /// <summary>
         /// Сортирует Lessons по дате и помещает в GroupLesson.
         /// </summary>
         /// <param name="lessons">Уроки которые нужно спарсить в GroupLesson</param>
         /// <returns>Список LessonOnDay с отсортированными в них Lessons</returns>
-        public static List<LessonOnDay> Parse(IList<GroupLesson> lessons)
+        public static List<LessonOnDay> Parse(IList<Lesson> lessons)
         {
             var lessonOnDays = new List<LessonOnDay>();
             foreach (var lesson in lessons)

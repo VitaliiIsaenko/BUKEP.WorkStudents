@@ -60,7 +60,7 @@ namespace Bukep.Sheduler.Controllers
         /// <param name="dateLessonStart">Начало интервала</param>
         /// <param name="dateLessonEnd">Конец интервала</param>
         /// <returns>Список уроков в указанный интервал времени</returns>
-        private IList<GroupLesson> RequestSchedules(Group group, string dateLessonStart, string dateLessonEnd)
+        private IList<Lesson> RequestSchedules(Group group, string dateLessonStart, string dateLessonEnd)
         {
             var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
             var lessons = GetGroupLessons(ids, dateLessonStart, dateLessonEnd);

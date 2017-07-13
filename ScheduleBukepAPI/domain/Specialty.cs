@@ -4,10 +4,12 @@ namespace ScheduleBukepAPI.domain
 {
     public class Specialty
     {
-        //TODO: Конфликт имени класса и метода
-        public IList<KeyValue> speciality { get; set; }
-        public string NameSpeciality { get; set; }
-        public string IdLevelQualification { get; set; }
-        public string NameLevelQualification { get; set; }
+        /// <summary>
+        /// Key - List key
+        /// Value - name 
+        /// </summary>
+        public KeyValuePair<IList<int>, string> SpecialityInfo { get; set; }
+
+        public KeyValuePair<int, string> LevelQualification { get; set; }
     }
 }

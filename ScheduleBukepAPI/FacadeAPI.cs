@@ -65,17 +65,17 @@ namespace ScheduleBukepAPI
             return _facultiesService.GetCourses(Year, IdFilial, idFaculty, idsSpecialty);
         }
 
-        public IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        public IList<Lesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
         {
             return _schedulesService.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
         }
 
-        public static IList<GroupLesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        public static IList<Lesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
         {
             return _schedulesService.GetTeacherLessons(idTeacher, dateFrom, dateTo);
         }
 
-        //TODO: Вынести в ConvertId
+        //TODO: Delete
         /// <summary>
         /// Нужен для конвертирования списка id в string.
         /// </summary>

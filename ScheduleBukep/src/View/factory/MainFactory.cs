@@ -40,36 +40,36 @@ namespace Bukep.Sheduler.View.factory
         }
 
 
-        private Android.Views.View CreateCardLesson(GroupLesson groupLesson)
+        private Android.Views.View CreateCardLesson(Lesson lesson)
         {
             var card = Inflate<CardView>(Resource.Layout.CardViewLesson);
             var nameLesson = card.FindViewById<TextView>(Resource.Id.nameLesson);
-            nameLesson.Text = groupLesson.Discipline.Value;
+            nameLesson.Text = lesson.Discipline.Value;
 
             var timeStartLesson = card.FindViewById<TextView>(Resource.Id.timeStartLesson);
-            var timeLessonStartLesson = groupLesson.TimeLesson.StartLesson;
+            var timeLessonStartLesson = lesson.TimeLesson.StartLesson;
             timeStartLesson.Text = DateTime.Parse(timeLessonStartLesson).ToString("hh:mm");
 
             var timeEndLesson = card.FindViewById<TextView>(Resource.Id.timeEndLesson);
-            var timeLessonEndLesson = groupLesson.TimeLesson.EndLesson;
+            var timeLessonEndLesson = lesson.TimeLesson.EndLesson;
             timeEndLesson.Text = DateTime.Parse(timeLessonEndLesson).ToString("hh:mm");
 
             var number = card.FindViewById<TextView>(Resource.Id.number);
-            number.Text = groupLesson.Lesson.Value;
+            number.Text = lesson.LessonInfo.Value;
 
             var typeLesson = card.FindViewById<TextView>(Resource.Id.typeLesson);
-            typeLesson.Text = groupLesson.TypeLesson.Value;
+            typeLesson.Text = lesson.TypeLesson.Value;
 
             var nameTeacher = card.FindViewById<TextView>(Resource.Id.nameTeacher);
             nameTeacher.Text = "";
-            foreach (var teacher in groupLesson.Teachers)
+            foreach (var teacher in lesson.Teachers)
             {
                 nameTeacher.Text += teacher.Value + " ";
             }
 
             var nameAudience = card.FindViewById<TextView>(Resource.Id.nameAudience);
             nameAudience.Text = "";
-            foreach (var auditory in groupLesson.Auditory)
+            foreach (var auditory in lesson.Auditory)
             {
                 nameAudience.Text += auditory.Value + " ";
             }

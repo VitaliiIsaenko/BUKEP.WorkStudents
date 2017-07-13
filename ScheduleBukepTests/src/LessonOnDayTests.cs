@@ -11,18 +11,18 @@ namespace ScheduleBukepTests
         [TestMethod()]
         public void ParseTest()
         {
-            var lessons = new List<GroupLesson>
+            var lessons = new List<Lesson>
             {
-                new GroupLesson {DateLesson = "01.01.2017"},
-                new GroupLesson {DateLesson = "01.01.2017"},
-                new GroupLesson {DateLesson = "01.01.2017"},
+                new Lesson {DateLesson = "01.01.2017"},
+                new Lesson {DateLesson = "01.01.2017"},
+                new Lesson {DateLesson = "01.01.2017"},
 
-                new GroupLesson {DateLesson = "02.01.2017"},
-                new GroupLesson {DateLesson = "02.01.2017"},
+                new Lesson {DateLesson = "02.01.2017"},
+                new Lesson {DateLesson = "02.01.2017"},
 
-                new GroupLesson {DateLesson = "03.02.2017"},
-                new GroupLesson {DateLesson = "03.02.2017"},
-                new GroupLesson {DateLesson = "03.02.2017"}
+                new Lesson {DateLesson = "03.02.2017"},
+                new Lesson {DateLesson = "03.02.2017"},
+                new Lesson {DateLesson = "03.02.2017"}
             };
 
             var lessonOnDays = LessonOnDay.Parse(lessons);

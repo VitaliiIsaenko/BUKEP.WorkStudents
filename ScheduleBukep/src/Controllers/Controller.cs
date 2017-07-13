@@ -130,7 +130,7 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
-        public IList<GroupLesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        public IList<Lesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
         {
             if (!CheckInternetConnect())
             {
@@ -145,7 +145,7 @@ namespace Bukep.Sheduler.Controllers
             {
                 Log.Error(Tag, e.ToString());
                 FailedInternetConnect();
-                return new List<GroupLesson>();
+                return new List<Lesson>();
             }
         }
 
