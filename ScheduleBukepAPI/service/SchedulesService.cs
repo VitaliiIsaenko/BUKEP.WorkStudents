@@ -1,31 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.service.paremeters;
 
 namespace ScheduleBukepAPI.service
 {
     public class SchedulesService : BaseService, ISchedulesService
     {
-        public IList<Lesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        private readonly ParameterBuilder _parameterBuilder = new ParameterBuilder();
+
+        public IList<Lesson> GetGroupLessons(int idsSheduleGroup, DateTime dateFrom, DateTime dateTo)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                {"dateFrom", dateFrom},
-                {"dateTo", dateTo}
-            };
-            var json = ExecutePost(MethodApi.GetGroupLessons, parameters, idsSheduleGroup);
+            IDictionary<string, string> parameters = _parameterBuilder
+                .SetParameter(ParameterNameForApi.DateFrom, dateFrom)
+                .SetParameter(ParameterNameForApi.DateTo, dateTo)
+                .Build();
+            string json = ExecutePost(MethodApi.GetGroupLessons, parameters, idsSheduleGroup.ToString());
             return ConvertToList<Lesson>(json);
         }
 
-        public IList<Lesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        public IList<Lesson> GetTeacherLessons(int idTeacher, DateTime dateFrom, DateTime dateTo)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                {"idTeacher", idTeacher},
-                {"dateFrom", dateFrom},
-                {"dateTo", dateTo}
-            };
+            IDictionary<string, string> parameters = _parameterBuilder
+                .SetParameter(ParameterNameForApi.IdTeacher, idTeacher)
+                .SetParameter(ParameterNameForApi.DateFrom, dateFrom)
+                .SetParameter(ParameterNameForApi.DateTo, dateTo)
+                .Build();
 
-            var json = ExecuteGet(MethodApi.GetTeacherLessons, parameters);
+            string json = ExecuteGet(MethodApi.GetTeacherLessons, parameters);
             return ConvertToList<Lesson>(json);
         }
     }

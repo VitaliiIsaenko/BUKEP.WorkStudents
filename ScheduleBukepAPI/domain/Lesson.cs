@@ -17,8 +17,10 @@ namespace ScheduleBukepAPI.domain
         public KeyValuePair<int, string> Discipline { get; set; }
     }
 
+
     public class TimeLesson
     {
+        //TODO: type change on DateTime
         public string NameLessonTime { get; set; }
         public string StartLesson { get; set; }
         public string EndLesson { get; set; }

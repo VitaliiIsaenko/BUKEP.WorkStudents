@@ -1,78 +1,81 @@
 ﻿using System.Collections.Generic;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
+using ScheduleBukepAPI.service.paremeters;
 
 namespace ScheduleBukepAPI.service
 {
     public class FacultiesService : BaseService, IFacultiesService
     {
-        public List<Faculty> GetFaculties(string year, string idFilial)
+        private readonly ParameterBuilder _parameterBuilder = new ParameterBuilder();
+
+        public List<Faculty> GetFaculties(int year, int idFilial)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                {"year", year},
-                {"idFilial", idFilial}
-            };
-            var json = ExecuteGet(MethodApi.GetFaculties, parameters);
+            IDictionary<string, string> parameters = _parameterBuilder
+                .SetParameter(ParameterNameForApi.Year, year)
+                .SetParameter(ParameterNameForApi.IdFilial, idFilial)
+                .Build();
+            string json = ExecuteGet(MethodApi.GetFaculties, parameters);
             return ConvertToList<Faculty>(json);
         }
 
-        public List<Specialty> GetSpecialtys(string year, string idFilial, string idFaculty)
+        public List<Specialty> GetSpecialtys(int year, int idFilial, int idFaculty)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                {"year", year},
-                {"idFilial", idFilial},
-                {"idFaculty", idFaculty}
-            };
-            var json = ExecuteGet(MethodApi.GetSpecialtys, parameters);
+            IDictionary<string, string> parameters = _parameterBuilder
+                .SetParameter(ParameterNameForApi.Year, year)
+                .SetParameter(ParameterNameForApi.IdFilial, idFilial)
+                .SetParameter(ParameterNameForApi.IdFaculty, idFaculty)
+                .Build();
+            string json = ExecuteGet(MethodApi.GetSpecialtys, parameters);
             return ConvertToList<Specialty>(json);
         }
 
-        public List<Courses> GetCourses(string year, string idFilial, string idFaculty, string idsSpecialty)
+        public List<Courses> GetCourses(int year, int idFilial, int idFaculty, IList<int> idsSpecialty)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                {"year", year},
-                {"idFilial", idFilial},
-                {"idFaculty", idFaculty}
-            };
-            var json = ExecutePost(MethodApi.GetCourses, parameters, idsSpecialty);
+            IDictionary<string, string> parameters = _parameterBuilder
+                .SetParameter(ParameterNameForApi.Year, year)
+                .SetParameter(ParameterNameForApi.IdFilial, idFilial)
+                .SetParameter(ParameterNameForApi.IdFaculty, idFaculty)
+                .SetParameter(ParameterNameForApi.IdsSpecialty, idsSpecialty)
+                .Build();
+            string json = ExecutePost(MethodApi.GetCourses,
+                parameters,
+                idsSpecialty.ToString()
+            );
             return ConvertToList<Courses>(json);
         }
 
-        public List<Group> GetGroups(string year, string idFilial, string idFaculty, string idCourse,
-            string idsSpecialty)
+        //TODO: idCourse поменять местами с idsSpecialty
+        public List<Group> GetGroups(int year, int idFilial, int idFaculty, int idCourse,
+            IList<int> idsSpecialty)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                {"year", year},
-                {"idFilial", idFilial},
-                {"idFaculty", idFaculty},
-                {"idCourse", idCourse}
-            };
-            var json = ExecutePost(MethodApi.GetGroups, parameters, idsSpecialty);
+            IDictionary<string, string> parameters = _parameterBuilder
+                .SetParameter(ParameterNameForApi.Year, year)
+                .SetParameter(ParameterNameForApi.IdFilial, idFilial)
+                .SetParameter(ParameterNameForApi.IdFaculty, idFaculty)
+                .SetParameter(ParameterNameForApi.IdsSpecialty, idsSpecialty)
+                .SetParameter(ParameterNameForApi.IdCourse, idCourse)
+                .Build();
+            string json = ExecutePost(MethodApi.GetGroups, parameters, idsSpecialty.ToString());
             return ConvertToList<Group>(json);
         }
 
-        public List<Pulpit> GetPulpits(string year, string idFilial)
+        public List<Pulpit> GetPulpits(int year, int idFilial)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                {"year", year},
-                {"idFilial", idFilial}
-            };
+            IDictionary<string, string> parameters = _parameterBuilder
+                .SetParameter(ParameterNameForApi.Year, year)
+                .SetParameter(ParameterNameForApi.IdFilial, idFilial)
+                .Build();
             var json = ExecuteGet(MethodApi.GetPulpit, parameters);
             return ConvertToList<Pulpit>(json);
         }
 
-        public List<Teacher> GetTeacher(string year, string idPulpit)
+        public List<Teacher> GetTeacher(int year, int idPulpit)
         {
-            var parameters = new Dictionary<string, string>
-            {
-                {"year", year},
-                {"idPulpit", idPulpit}
-            };
+            IDictionary<string, string> parameters = _parameterBuilder
+                .SetParameter(ParameterNameForApi.Year, year)
+                .SetParameter(ParameterNameForApi.IdPulpit, idPulpit)
+                .Build();
             var json = ExecuteGet(MethodApi.GetTeacher, parameters);
             return ConvertToList<Teacher>(json);
         }

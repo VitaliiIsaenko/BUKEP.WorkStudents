@@ -1,15 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using ScheduleBukepAPI.domain;
 
 namespace ScheduleBukepAPI.service
 {
+    /// <summary>
+    /// Сервиc для получения Model.
+    /// Данные в данном сервисе редко обновляются.
+    /// </summary>
     public interface IFacultiesService
     {
-        List<Courses> GetCourses(string year, string idFilial, string idFaculty, string idsSpecialty);
-        List<Faculty> GetFaculties(string year, string idFilial);
-        List<Group> GetGroups(string year, string idFilial, string idFaculty, string idCourse, string idsSpecialty);
-        List<Specialty> GetSpecialtys(string year, string idFilial, string idFaculty);
-        List<Pulpit> GetPulpits(string year, string idFilial);
-        List<Teacher> GetTeacher(string year, string idPulpit);
+
+        List<Faculty> GetFaculties(int year, int idFilial);
+
+        List<Specialty> GetSpecialtys(int year, int idFilial, int idFaculty);
+
+        List<Courses> GetCourses(int year, int idFilial, int idFaculty, IList<int> idsSpecialty);
+
+        List<Group> GetGroups(int year, int idFilial, int idFaculty, int idCourse, IList<int> idsSpecialty);
+
+        List<Pulpit> GetPulpits(int year, int idFilial);
+
+        List<Teacher> GetTeacher(int year, int idPulpit);
+
+        //TODO: add LessonTime
+        //List<LessonTime> GetLessonTime(int idFilial);
     }
 }

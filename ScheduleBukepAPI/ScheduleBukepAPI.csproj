@@ -64,6 +64,8 @@
     <Compile Include="service\ISchedulesService.cs" />
     <Compile Include="service\FacultiesService.cs" />
     <Compile Include="domain\Pulpit.cs" />
+    <Compile Include="service\paremeters\ParameterBuilder.cs" />
+    <Compile Include="service\paremeters\ParameterNameForApi.cs" />
     <Compile Include="service\SchedulesService.cs" />
     <Compile Include="domain\Teacher.cs" />
   </ItemGroup>
