@@ -19,7 +19,7 @@ namespace Bukep.Sheduler.Controllers
 
         private Faculty _selectedFaculty;
         private Specialty _selectedSpecialty;
-        private Courses _selectedCourse;
+        private Course _selectedCourse;
         private Group _selectedGroup;
 
         public IdentifySchedule(IdentifyScheduleActivity view) : base(view)
@@ -65,7 +65,7 @@ namespace Bukep.Sheduler.Controllers
             _view.GroupSpinnerEnabled(false);
         }
 
-        public void SelectCourses(Courses cours)
+        public void SelectCourses(Course cours)
         {
             _selectedCourse = cours;
             var groups = GetGroups(

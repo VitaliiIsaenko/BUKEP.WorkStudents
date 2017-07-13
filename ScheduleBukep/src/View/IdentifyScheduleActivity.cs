@@ -23,7 +23,7 @@ namespace Bukep.Sheduler.View
     public class IdentifyScheduleActivity : NavigationActivity
     {
         private const string Tag = "IdentifyScheduleActivity";
-        private DtoAdapter<Courses> _coursesAdapter;
+        private DtoAdapter<Course> _coursesAdapter;
         private DtoAdapter<Faculty> _facultyAdapter;
         private DtoAdapter<Group> _groupAdapter;
         private DtoAdapter<Specialty> _specialtyAdapter;
@@ -95,9 +95,9 @@ namespace Bukep.Sheduler.View
             _controller.SelectGroup(group);
         }
 
-        public void ShowCourses(IList<Courses> courses)
+        public void ShowCourses(IList<Course> courses)
         {
-            _coursesAdapter = new DtoAdapter<Courses>(
+            _coursesAdapter = new DtoAdapter<Course>(
                 courses,
                 this,
                 x => x.NameCourse);

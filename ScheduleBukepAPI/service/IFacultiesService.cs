@@ -15,7 +15,7 @@ namespace ScheduleBukepAPI.service
 
         List<Specialty> GetSpecialtys(int year, int idFilial, int idFaculty);
 
-        List<Courses> GetCourses(int year, int idFilial, int idFaculty, IList<int> idsSpecialty);
+        List<Course> GetCourses(int year, int idFilial, int idFaculty, IList<int> idsSpecialty);
 
         List<Group> GetGroups(int year, int idFilial, int idFaculty, int idCourse, IList<int> idsSpecialty);
 

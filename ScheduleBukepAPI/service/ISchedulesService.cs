@@ -10,7 +10,7 @@ namespace ScheduleBukepAPI.service
     /// </summary>
     public interface ISchedulesService
     {
-        IList<Lesson> GetGroupLessons(int idsSheduleGroup, DateTime dateFrom, DateTime dateTo);
-        IList<Lesson> GetTeacherLessons(int idTeacher, DateTime dateFrom, DateTime dateTo);
+        IList<Lesson> GetGroupLessons(IList<int> idsSheduleGroup, DateTime dateFrom, DateTime dateTo);
+        IList<Lesson> GetTeacherLessons(IList<int> idsTeacher, DateTime dateFrom, DateTime dateTo);
     }
 }

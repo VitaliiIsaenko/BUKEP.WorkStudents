@@ -30,7 +30,7 @@ namespace ScheduleBukepAPI.service
             return ConvertToList<Specialty>(json);
         }
 
-        public List<Courses> GetCourses(int year, int idFilial, int idFaculty, IList<int> idsSpecialty)
+        public List<Course> GetCourses(int year, int idFilial, int idFaculty, IList<int> idsSpecialty)
         {
             IDictionary<string, string> parameters = _parameterBuilder
                 .SetParameter(ParameterNameForApi.Year, year)
@@ -42,7 +42,7 @@ namespace ScheduleBukepAPI.service
                 parameters,
                 idsSpecialty.ToString()
             );
-            return ConvertToList<Courses>(json);
+            return ConvertToList<Course>(json);
         }
 
         //TODO: idCourse поменять местами с idsSpecialty

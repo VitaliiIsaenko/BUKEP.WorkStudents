@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ScheduleBukepAPI;
-using ScheduleBukepAPI.decorators;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.service;
 
@@ -13,7 +12,7 @@ namespace ScheduleBukepAPITest
     internal class MainStart
     {
         private static readonly FacadeApi Api = new FacadeApi(
-            new FilterGroupDecorator(new FacultiesService()),
+            new FacultiesService(),
             new SchedulesService()
         );
 
@@ -25,23 +24,21 @@ namespace ScheduleBukepAPITest
 
         private static void SelectTeacher()
         {
-            var selectPulpit = SelectPulpit();
+            Pulpit selectPulpit = SelectPulpit();
             var selectTeacher = SelectTeacher(selectPulpit.IdPulpit);
 
-            var dateTime = DateTime.Today.AddDays(1).ToString(FacadeApi.DateTimeFormat);
-
-            var idsString = FacadeApi.ConvertIdsToString(selectTeacher.IdsTeacher);
-            var idTeacher = idsString.Substring(1, idsString.Length - 2); //TODO: это костыль обрезание []
+            DateTime dateTime = DateTime.Today.AddDays(1);
+            IList<int> idTeacher = selectTeacher.IdsTeacher;
             SelectTeacherLessons(idTeacher, dateTime, dateTime);
         }
 
-        private static Teacher SelectTeacher(string idPulpit)
+        private static Teacher SelectTeacher(int idPulpit)
         {
             var teachers = Api.GetTeacher(idPulpit);
             for (var i = 0; i < teachers.Count; i++)
             {
                 var teacher = teachers[i];
-                Console.WriteLine("{0}. {1} = {2} ", i, teacher.Fio, 
+                Console.WriteLine("{0}. {1} = {2} ", i, teacher.Fio,
                     FacadeApi.ConvertIdsToString(teacher.IdsTeacher));
             }
             var selectedNumber = AskNumber();
@@ -72,7 +69,7 @@ namespace ScheduleBukepAPITest
             ShowGroupLessons(selectedGroupLessons);
         }
 
-        private static void SelectTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        private static void SelectTeacherLessons(IList<int> idTeacher, DateTime dateFrom, DateTime dateTo)
         {
             var lessons = FacadeApi.GetTeacherLessons(idTeacher, dateFrom, dateTo);
             foreach (var item in lessons)
@@ -94,17 +91,17 @@ namespace ScheduleBukepAPITest
         private static IEnumerable<Lesson> SelectedLessonsGroup(Group selectedGroup)
         {
             return Api.GetGroupLessons(
-                FacadeApi.ConvertIdsToString(selectedGroup.IdsSchedulGroup),
-                "2017-05-15",
-                "2017-05-15"
+                selectedGroup.IdsSchedulGroup,
+                DateTime.Parse("2017-05-15"),
+                DateTime.Parse("2017-05-15")
             );
         }
 
-        private static Group SelectedGroup(Faculty selectedFaculty, Specialty selectedSpecialty, Courses selectedCourse)
+        private static Group SelectedGroup(Faculty selectedFaculty, Specialty selectedSpecialty, Course selectedCourse)
         {
             var groups = Api.GetGroups(
                 selectedFaculty.FacultyInfo.Key,
-                selectedCourse.IdCourse,
+                selectedCourse.CourseInfo.Key,
                 selectedSpecialty.SpecialityInfo.Key
             );
             for (var i = 0; i < groups.Count; i++)
@@ -120,16 +117,16 @@ namespace ScheduleBukepAPITest
             return selectedGroup;
         }
 
-        private static Courses SelectedCourse(Faculty selectedFaculty, Specialty selectedSpecialty)
+        private static Course SelectedCourse(Faculty selectedFaculty, Specialty selectedSpecialty)
         {
-            var idsSpecialty = FacadeApi.ConvertIdsToString(selectedSpecialty.IdsSpecialty);
+            IList<int> idsSpecialty = selectedSpecialty.SpecialityInfo.Key;
             Console.WriteLine("IdsSpecialty = " + idsSpecialty);
 
             var courses = Api.GetCourses(selectedFaculty.FacultyInfo.Key, idsSpecialty);
             for (var i = 0; i < courses.Count; i++)
             {
                 var course = courses[i];
-                Console.WriteLine("{0}. {1} = {2}", i, course.NameCourse, course.IdCourse);
+                Console.WriteLine("{0}. {1} = {2}", i, course.CourseInfo.Value, course.CourseInfo.Key);
             }
             var numberCourses = AskNumber();
 
@@ -144,8 +141,8 @@ namespace ScheduleBukepAPITest
             for (var i = 0; i < specialtys.Count; i++)
             {
                 var specialty = specialtys[i];
-                var ids = FacadeApi.ConvertIdsToString(specialty.IdsSpecialty);
-                Console.WriteLine("{0}. {1} id = {2}", i, specialty.NameSpeciality, ids);
+                var ids = FacadeApi.ConvertIdsToString(specialty.SpecialityInfo.Key);
+                Console.WriteLine("{0}. {1} id = {2}", i, specialty.SpecialityInfo.Value, ids);
             }
             var number = AskNumber();
             var selectedSpecialty = specialtys[number];

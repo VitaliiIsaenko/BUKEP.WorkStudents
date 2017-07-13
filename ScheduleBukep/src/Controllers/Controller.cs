@@ -111,7 +111,7 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
-        public IList<Courses> GetCourses(string idFaculty, string idsSpecialty)
+        public IList<Course> GetCourses(string idFaculty, string idsSpecialty)
         {
             if (!CheckInternetConnect())
             {
@@ -126,7 +126,7 @@ namespace Bukep.Sheduler.Controllers
             {
                 Log.Error(Tag, e.ToString());
                 FailedInternetConnect();
-                return new List<Courses>();
+                return new List<Course>();
             }
         }
 

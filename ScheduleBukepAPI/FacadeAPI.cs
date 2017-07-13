@@ -21,9 +21,9 @@ namespace ScheduleBukepAPI
         public const string DateTimeFormat = "yyyy-MM-dd";
 
         //TODO: написать метод который бы получал учебный год.
-        private const string Year = "2016";
+        private const int Year = 2016;
 
-        private const string IdFilial = "1000";
+        private const int IdFilial = 1000;
 
         public FacadeApi(IFacultiesService facultiesService, ISchedulesService schedulesService)
         {
@@ -40,7 +40,7 @@ namespace ScheduleBukepAPI
             return _facultiesService.GetPulpits(Year, IdFilial);
         }
 
-        public List<Teacher> GetTeacher(string idPulpit)
+        public List<Teacher> GetTeacher(int idPulpit)
         {
             return _facultiesService.GetTeacher(Year, idPulpit);
         }
@@ -50,29 +50,29 @@ namespace ScheduleBukepAPI
             return _facultiesService.GetFaculties(Year, IdFilial);
         }
 
-        public IList<Specialty> GetSpecialtys(string idFaculty)
+        public IList<Specialty> GetSpecialtys(int idFaculty)
         {
             return _facultiesService.GetSpecialtys(Year, IdFilial, idFaculty);
         }
 
-        public IList<Group> GetGroups(string idFaculty, string idCourse, string idsSpecialty)
+        public IList<Group> GetGroups(int idFaculty, int idCourse, IList<int> idsSpecialty)
         {
             return _facultiesService.GetGroups(Year, IdFilial, idFaculty, idCourse, idsSpecialty);
         }
 
-        public IList<Courses> GetCourses(string idFaculty, string idsSpecialty)
+        public IList<Course> GetCourses(int idFaculty, IList<int> idsSpecialty)
         {
             return _facultiesService.GetCourses(Year, IdFilial, idFaculty, idsSpecialty);
         }
 
-        public IList<Lesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        public IList<Lesson> GetGroupLessons(IList<int> idsSheduleGroup, DateTime dateFrom, DateTime dateTo)
         {
             return _schedulesService.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
         }
 
-        public static IList<Lesson> GetTeacherLessons(string idTeacher, string dateFrom, string dateTo)
+        public static IList<Lesson> GetTeacherLessons(IList<int> idsTeacher, DateTime dateFrom, DateTime dateTo)
         {
-            return _schedulesService.GetTeacherLessons(idTeacher, dateFrom, dateTo);
+            return _schedulesService.GetTeacherLessons(idsTeacher, dateFrom, dateTo);
         }
 
         //TODO: Delete

@@ -9,17 +9,18 @@ namespace ScheduleBukepAPI.service
     {
         private readonly ParameterBuilder _parameterBuilder = new ParameterBuilder();
 
-        public IList<Lesson> GetGroupLessons(int idsSheduleGroup, DateTime dateFrom, DateTime dateTo)
+        public IList<Lesson> GetGroupLessons(IList<int> idsSheduleGroup, DateTime dateFrom, DateTime dateTo)
         {
             IDictionary<string, string> parameters = _parameterBuilder
                 .SetParameter(ParameterNameForApi.DateFrom, dateFrom)
                 .SetParameter(ParameterNameForApi.DateTo, dateTo)
                 .Build();
-            string json = ExecutePost(MethodApi.GetGroupLessons, parameters, idsSheduleGroup.ToString());
+            string json = ExecutePost(MethodApi.GetGroupLessons, parameters,
+                FacadeApi.ConvertIdsToString(idsSheduleGroup));
             return ConvertToList<Lesson>(json);
         }
 
-        public IList<Lesson> GetTeacherLessons(int idTeacher, DateTime dateFrom, DateTime dateTo)
+        public IList<Lesson> GetTeacherLessons(IList<int> idTeacher, DateTime dateFrom, DateTime dateTo)
         {
             IDictionary<string, string> parameters = _parameterBuilder
                 .SetParameter(ParameterNameForApi.IdTeacher, idTeacher)

@@ -11,8 +11,9 @@
         IdsSpecialty,
         IdCourse,
         IdPulpit,
+        IdTeacher,
+        IdsSheduleGroup,
         DateFrom,
         DateTo,
-        IdTeacher
     }
 }
