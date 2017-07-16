@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace ScheduleBukepAPI.domain
 {
-    //TODO: Конфликт имени класса и метода
     public class Lesson
     {
         public KeyValuePair<int, string> TypeShedule { get; set; }
         public KeyValuePair<int, string> TypeWeek { get; set; }
         public KeyValuePair<int, string> Day { get; set; }
+        [JsonProperty("lesson")]
         public KeyValuePair<int, string> LessonInfo { get; set; }
         public KeyValuePair<int, string> TypeLesson { get; set; }
         public string DateLesson { get; set; }

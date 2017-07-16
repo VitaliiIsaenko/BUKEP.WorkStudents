@@ -7,7 +7,6 @@ using Android.Net;
 using Android.Util;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
-using ScheduleBukepAPI.decorators;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service;

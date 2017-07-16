@@ -25,21 +25,22 @@ namespace ScheduleBukepAPI.helpers
         public string ExecutePost(string url, string bodyForPost)
         {
             Console.WriteLine("URL = " + url);
-            var request = WebRequest.Create(url);
+            WebRequest request = WebRequest.Create(url);
 
 
-            var dataForPost = Encoding.ASCII.GetBytes(bodyForPost);
+            byte[] dataForPost = Encoding.ASCII.GetBytes(bodyForPost);
 
             request.Method = "POST";
             request.ContentType = "application/json";
             request.ContentLength = dataForPost.Length;
 
-            var stream = request.GetRequestStream();
+            Stream stream = request.GetRequestStream();
             stream.Write(dataForPost, 0, dataForPost.Length);
             stream.Close();
 
             request.Credentials = CredentialCache.DefaultCredentials;
-            return ReadingJsonFromResponse(request.GetResponse());
+            WebResponse webResponse = request.GetResponse();
+            return ReadingJsonFromResponse(webResponse);
         }
 
         private static string ReadingJsonFromResponse(WebResponse response)
@@ -66,9 +67,6 @@ namespace ScheduleBukepAPI.helpers
                 reader?.Close();
                 response?.Close();
             }
-
         }
-
-
     }
 }

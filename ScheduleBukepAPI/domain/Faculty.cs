@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace ScheduleBukepAPI.domain
 {
@@ -11,6 +12,7 @@ namespace ScheduleBukepAPI.domain
         /// Key - id
         /// Value - name 
         /// </summary>
+        [JsonProperty("faculty")]
         public KeyValuePair<int, string> FacultyInfo { get; set; }
 
         public bool IsActiveSchedule { get; set; }
