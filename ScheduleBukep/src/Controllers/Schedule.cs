@@ -17,6 +17,7 @@ namespace Bukep.Sheduler.Controllers
         /// Используется для получения данных из Intent.
         /// </summary>
         public const string IntentKeyGroupsJson = "GroupJson";
+
         public const string IntentKeyDateLessonStart = "DateLessonStart";
         public const string IntentKeyDateLessonEnd = "DateLessonEnd";
 
@@ -32,11 +33,12 @@ namespace Bukep.Sheduler.Controllers
         {
             try
             {
-                var group = GetGropeFromeIntent();
+                Group group = GetGropeFromeIntent();
+
                 var lessons = RequestSchedules(
                     group,
-                    GetJsonFromeIntent(IntentKeyDateLessonStart),
-                    GetJsonFromeIntent(IntentKeyDateLessonEnd)
+                    GetDateTimeFromeIntent(IntentKeyDateLessonStart),
+                    GetDateTimeFromeIntent(IntentKeyDateLessonEnd)
                 );
                 var lessonOnDays = LessonOnDay.Parse(lessons);
 
@@ -47,8 +49,6 @@ namespace Bukep.Sheduler.Controllers
             catch (Exception e)
             {
                 Log.Error(Tag, e.Message, e);
-                //TODO: delete this
-                _view.CloseIfHappenedExeption = false;
                 _view.ShowError(e.Message);
             }
         }
@@ -60,10 +60,9 @@ namespace Bukep.Sheduler.Controllers
         /// <param name="dateLessonStart">Начало интервала</param>
         /// <param name="dateLessonEnd">Конец интервала</param>
         /// <returns>Список уроков в указанный интервал времени</returns>
-        private IList<Lesson> RequestSchedules(Group group, string dateLessonStart, string dateLessonEnd)
+        private IList<Lesson> RequestSchedules(Group group, DateTime dateLessonStart, DateTime dateLessonEnd)
         {
-            var ids = FacadeApi.ConvertIdsToString(group.IdsSchedulGroup);
-            var lessons = GetGroupLessons(ids, dateLessonStart, dateLessonEnd);
+            var lessons = GetGroupLessons(group.IdsSchedulGroup, dateLessonStart, dateLessonEnd);
             return lessons;
         }
 
@@ -73,6 +72,11 @@ namespace Bukep.Sheduler.Controllers
             Log.Info(Tag, "jsonGroup = " + jsonGroup);
             var group = ConvertTo<Group>(jsonGroup);
             return group;
+        }
+
+        private DateTime GetDateTimeFromeIntent(string key)
+        {
+            return DateTime.Parse(GetJsonFromeIntent(key));
         }
 
         private string GetJsonFromeIntent(string key)

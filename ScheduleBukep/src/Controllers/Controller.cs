@@ -19,7 +19,7 @@ namespace Bukep.Sheduler.Controllers
 
         //TODO: добавить FacadeApiFactory
         private readonly FacadeApi _facadeApi = new FacadeApi(
-            new FilterGroupDecorator(new FacultiesService()),
+            new FacultiesService(),
             new SchedulesService()
         );
 
@@ -73,7 +73,7 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
-        public IList<Specialty> GetSpecialtys(string idFaculty)
+        public IList<Specialty> GetSpecialtys(int idFaculty)
         {
             if (!CheckInternetConnect())
             {
@@ -91,7 +91,7 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
-        public IList<Group> GetGroups(string idFaculty, string idCourse, string idsSpecialty)
+        public IList<Group> GetGroups(int idFaculty, int idCourse, IList<int> idsSpecialty)
         {
             if (!CheckInternetConnect())
             {
@@ -110,7 +110,7 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
-        public IList<Course> GetCourses(string idFaculty, string idsSpecialty)
+        public IList<Course> GetCourses(int idFaculty, IList<int> idsSpecialty)
         {
             if (!CheckInternetConnect())
             {
@@ -129,7 +129,8 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
-        public IList<Lesson> GetGroupLessons(string idsSheduleGroup, string dateFrom, string dateTo)
+        public IList<Lesson> GetGroupLessons(IList<int> idsSheduleGroup, 
+            DateTime dateFrom, DateTime dateTo)
         {
             if (!CheckInternetConnect())
             {

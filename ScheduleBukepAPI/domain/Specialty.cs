@@ -10,7 +10,7 @@ namespace ScheduleBukepAPI.domain
         /// Value - name 
         /// </summary>
         [JsonProperty("speciality")]
-        public KeyValuePair<IList<int>, string> SpecialityInfo { get; set; }
+        public KeyValuePair<IList<int>, string> Info { get; set; }
 
         public KeyValuePair<int, string> LevelQualification { get; set; }
     }

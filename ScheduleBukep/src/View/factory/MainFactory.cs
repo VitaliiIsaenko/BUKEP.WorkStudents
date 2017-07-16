@@ -48,11 +48,11 @@ namespace Bukep.Sheduler.View.factory
 
             var timeStartLesson = card.FindViewById<TextView>(Resource.Id.timeStartLesson);
             var timeLessonStartLesson = lesson.TimeLesson.StartLesson;
-            timeStartLesson.Text = DateTime.Parse(timeLessonStartLesson).ToString("hh:mm");
+            timeStartLesson.Text = timeLessonStartLesson.ToString("hh:mm");
 
             var timeEndLesson = card.FindViewById<TextView>(Resource.Id.timeEndLesson);
             var timeLessonEndLesson = lesson.TimeLesson.EndLesson;
-            timeEndLesson.Text = DateTime.Parse(timeLessonEndLesson).ToString("hh:mm");
+            timeEndLesson.Text = timeLessonEndLesson.ToString("hh:mm");
 
             var number = card.FindViewById<TextView>(Resource.Id.number);
             number.Text = lesson.LessonInfo.Value;

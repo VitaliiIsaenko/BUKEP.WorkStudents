@@ -6,6 +6,6 @@ namespace ScheduleBukepAPI.domain
     public class Course
     {
         [JsonProperty("course")]
-        public KeyValuePair<int, string> CourseInfo { get; set; }
+        public KeyValuePair<int, string> Info { get; set; }
     }
 }

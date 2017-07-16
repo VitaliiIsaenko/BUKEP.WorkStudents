@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace ScheduleBukepAPI.domain
@@ -11,7 +12,7 @@ namespace ScheduleBukepAPI.domain
         [JsonProperty("lesson")]
         public KeyValuePair<int, string> LessonInfo { get; set; }
         public KeyValuePair<int, string> TypeLesson { get; set; }
-        public string DateLesson { get; set; }
+        public DateTime DateLesson { get; set; }
         public TimeLesson TimeLesson { get; set; }
         public List<KeyValuePair<int, string>> Auditory { get; set; }
         public List<KeyValuePair<int, string>> Teachers { get; set; }
@@ -22,9 +23,9 @@ namespace ScheduleBukepAPI.domain
     public class TimeLesson
     {
         //TODO: type change on DateTime
-        public string NameLessonTime { get; set; }
-        public string StartLesson { get; set; }
-        public string EndLesson { get; set; }
-        public string Durability { get; set; }
+        public DateTime NameLessonTime { get; set; }
+        public DateTime StartLesson { get; set; }
+        public DateTime EndLesson { get; set; }
+        public DateTime Durability { get; set; }
     }
 }

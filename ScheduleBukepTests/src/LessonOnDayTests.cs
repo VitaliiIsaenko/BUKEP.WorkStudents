@@ -1,35 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Bukep.Sheduler;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ScheduleBukepAPI.domain;
+using NUnit.Framework;
 
 namespace ScheduleBukepTests
 {
-    [TestClass()]
+    [TestFixture()]
     public class LessonOnDayTests
     {
-        [TestMethod()]
+        [Test()]
         public void ParseTest()
         {
             var lessons = new List<Lesson>
             {
-                new Lesson {DateLesson = "01.01.2017"},
-                new Lesson {DateLesson = "01.01.2017"},
-                new Lesson {DateLesson = "01.01.2017"},
+                new Lesson {DateLesson = DateTime.Today},
+                new Lesson {DateLesson = DateTime.Today},
+                new Lesson {DateLesson = DateTime.Today},
 
-                new Lesson {DateLesson = "02.01.2017"},
-                new Lesson {DateLesson = "02.01.2017"},
+                new Lesson {DateLesson = DateTime.Today.AddDays(1)},
+                new Lesson {DateLesson = DateTime.Today.AddDays(1)},
 
-                new Lesson {DateLesson = "03.02.2017"},
-                new Lesson {DateLesson = "03.02.2017"},
-                new Lesson {DateLesson = "03.02.2017"}
+                new Lesson {DateLesson = DateTime.Today.AddDays(4)},
+                new Lesson {DateLesson = DateTime.Today.AddDays(4)},
+                new Lesson {DateLesson = DateTime.Today.AddDays(4)}
             };
 
             var lessonOnDays = LessonOnDay.Parse(lessons);
-            Assert.AreEqual(3, lessonOnDays.Count);
-            Assert.AreEqual(3, lessonOnDays[0].Lessons.Count);
-            Assert.AreEqual(2, lessonOnDays[1].Lessons.Count);
-            Assert.AreEqual(3, lessonOnDays[2].Lessons.Count);
+            Assert.That(lessonOnDays, Has.Count.EqualTo(3));
+            Assert.That(lessonOnDays[0].Lessons, Has.Count.EqualTo(3));
+            Assert.That(lessonOnDays[1].Lessons, Has.Count.EqualTo(2));
+            Assert.That(lessonOnDays[2].Lessons, Has.Count.EqualTo(3));
         }
     }
 }

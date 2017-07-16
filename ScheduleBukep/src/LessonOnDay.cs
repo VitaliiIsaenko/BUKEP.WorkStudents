@@ -34,7 +34,7 @@ namespace Bukep.Sheduler
             foreach (var lesson in lessons)
             {
                 Console.WriteLine("Start iteration. DateLesson = " + lesson.DateLesson);
-                var dateTimeLesson = ParseDateTime(lesson.DateLesson);
+                var dateTimeLesson = lesson.DateLesson;
 
                 var foundLessonOnDay = lessonOnDays.Find(
                     x => x.DateLesson.Equals(dateTimeLesson)
@@ -53,15 +53,6 @@ namespace Bukep.Sheduler
                 Console.WriteLine("End iteration.\n");
             }
             return lessonOnDays;
-        }
-
-        private static DateTime ParseDateTime(string dateLesson)
-        {
-            if (!DateTime.TryParse(dateLesson, out DateTime dateTimeLesson))
-            {
-                throw new Exception($"Failed parse DateTime. dateLesson = {dateLesson}");
-            }
-            return dateTimeLesson;
         }
     }
 }

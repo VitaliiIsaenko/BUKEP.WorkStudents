@@ -13,7 +13,7 @@ namespace ScheduleBukepAPI.domain
         /// Value - name 
         /// </summary>
         [JsonProperty("faculty")]
-        public KeyValuePair<int, string> FacultyInfo { get; set; }
+        public KeyValuePair<int, string> Info { get; set; }
 
         public bool IsActiveSchedule { get; set; }
     }

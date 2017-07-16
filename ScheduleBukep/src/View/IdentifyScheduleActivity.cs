@@ -100,7 +100,7 @@ namespace Bukep.Sheduler.View
             _coursesAdapter = new DtoAdapter<Course>(
                 courses,
                 this,
-                x => x.NameCourse);
+                x => x.Info.Value);
 
             
             _courseSpinner.Adapter = _coursesAdapter;
@@ -112,14 +112,14 @@ namespace Bukep.Sheduler.View
             var posotion = e.Position;
             if (posotion == 0) return;
             var cours = _coursesAdapter.GetObject(posotion);
-            Log.Info(Tag, "Courses = " + cours.NameCourse);
+            Log.Info(Tag, "Courses = " + cours.Info.Value);
             _controller.SelectCourses(cours);
         }
 
         public void ShowSpecialtys(IList<Specialty> specialtys)
         {
             _specialtyAdapter = new DtoAdapter<Specialty>(specialtys, this,
-                x => x.NameSpeciality);
+                x => x.Info.Value);
 
             _specialtysSpinner.Adapter = _specialtyAdapter;
             _specialtysSpinner.ItemSelected += SelectSpecialtysSpinner;
@@ -130,7 +130,7 @@ namespace Bukep.Sheduler.View
             var posotion = e.Position;
             if (posotion == 0) return;
             var specialty = _specialtyAdapter.GetObject(posotion);
-            Log.Info(Tag, "Specialtys = " + specialty.NameSpeciality);
+            Log.Info(Tag, "Specialtys = " + specialty.Info.Value);
             _controller.SelectSpecialt(specialty);
         }
 
@@ -139,7 +139,7 @@ namespace Bukep.Sheduler.View
             _facultyAdapter = new DtoAdapter<Faculty>(
                 faculties,
                 this,
-                x => x.Name);
+                x => x.Info.Value);
             _facultySpinner.Adapter = _facultyAdapter;
             _facultySpinner.ItemSelected += SelectFacultySpinner;
         }
@@ -149,7 +149,7 @@ namespace Bukep.Sheduler.View
             var posotion = e.Position;
             if (posotion == 0) return;
             var faculty = _facultyAdapter.GetObject(posotion);
-            Log.Info(Tag, "Faculty = " + faculty.Name);
+            Log.Info(Tag, "Faculty = " + faculty.Info.Value);
             _controller.SelectFaculty(faculty);
         }
 

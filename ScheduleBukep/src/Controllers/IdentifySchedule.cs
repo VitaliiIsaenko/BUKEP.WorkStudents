@@ -43,7 +43,7 @@ namespace Bukep.Sheduler.Controllers
         public void SelectFaculty(Faculty faculty)
         {
             _selectedFaculty = faculty;
-            var specialtys = GetSpecialtys(faculty.IdFaculty);
+            var specialtys = GetSpecialtys(faculty.Info.Key);
             _view.ShowSpecialtys(specialtys);
 
             _view.SpecialtysSpinnerEnabled(true);
@@ -55,8 +55,8 @@ namespace Bukep.Sheduler.Controllers
         {
             _selectedSpecialty = specialty;
             var courses = GetCourses(
-                _selectedFaculty.IdFaculty,
-                FacadeApi.ConvertIdsToString(specialty.IdsSpecialty)
+                _selectedFaculty.Info.Key,
+                specialty.Info.Key
             );
             _view.ShowCourses(courses);
 
@@ -69,9 +69,9 @@ namespace Bukep.Sheduler.Controllers
         {
             _selectedCourse = cours;
             var groups = GetGroups(
-                _selectedFaculty.IdFaculty,
-                _selectedCourse.IdCourse,
-                FacadeApi.ConvertIdsToString(_selectedSpecialty.IdsSpecialty)
+                _selectedFaculty.Info.Key,
+                _selectedCourse.Info.Key,
+                _selectedSpecialty.Info.Key
             );
             _view.ShowGroup(groups);
 

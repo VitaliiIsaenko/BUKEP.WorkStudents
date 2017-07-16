@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ScheduleBukepAPI.domain
 {
@@ -10,7 +11,7 @@ namespace ScheduleBukepAPI.domain
         public string NameGroupOld { get; set; }
         public string IdSemestr { get; set; }
         public string NameTypeShedule { get; set; }
-        public string ScheduleDateFrom { get; set; }
-        public string ScheduleDateTo { get; set; }
+        public DateTime ScheduleDateFrom { get; set; }
+        public DateTime ScheduleDateTo { get; set; }
     }
 }
