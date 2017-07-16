@@ -75,7 +75,7 @@ namespace ScheduleBukepAPI
             return _schedulesService.GetTeacherLessons(idsTeacher, dateFrom, dateTo);
         }
 
-        //TODO: Delete
+        //TODO: Move
         /// <summary>
         /// Нужен для конвертирования списка id в string.
         /// </summary>

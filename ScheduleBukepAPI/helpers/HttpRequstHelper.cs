@@ -22,13 +22,13 @@ namespace ScheduleBukepAPI.helpers
             return ReadingJsonFromResponse(request.GetResponse());
         }
 
-        public string ExecutePost(string url, string bodyForPost)
+        public string ExecutePost(string url, IList<int> bodyForPost)
         {
             Console.WriteLine("URL = " + url);
             WebRequest request = WebRequest.Create(url);
 
 
-            byte[] dataForPost = Encoding.ASCII.GetBytes(bodyForPost);
+            byte[] dataForPost = Encoding.ASCII.GetBytes(FacadeApi.ConvertIdsToString(bodyForPost));
 
             request.Method = "POST";
             request.ContentType = "application/json";

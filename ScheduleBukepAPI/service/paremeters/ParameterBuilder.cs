@@ -13,12 +13,6 @@ namespace ScheduleBukepAPI.service.paremeters
             return this;
         }
 
-        public ParameterBuilder SetParameter(ParameterNameForApi parameterName, IList<int> values)
-        {
-            _dictionary[parameterName.ToString()] = FacadeApi.ConvertIdsToString(values);
-            return this;
-        }
-
         public ParameterBuilder SetParameter(ParameterNameForApi parameterName, DateTime value)
         {
             _dictionary[parameterName.ToString()] = value.ToString(FacadeApi.DateTimeFormat);

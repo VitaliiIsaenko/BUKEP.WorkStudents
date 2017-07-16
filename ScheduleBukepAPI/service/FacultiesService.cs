@@ -36,12 +36,8 @@ namespace ScheduleBukepAPI.service
                 .SetParameter(ParameterNameForApi.Year, year)
                 .SetParameter(ParameterNameForApi.IdFilial, idFilial)
                 .SetParameter(ParameterNameForApi.IdFaculty, idFaculty)
-                .SetParameter(ParameterNameForApi.IdsSpecialty, idsSpecialty)
                 .Build();
-            string json = ExecutePost(MethodApi.GetCourses,
-                parameters,
-                idsSpecialty.ToString()
-            );
+            string json = ExecutePost(MethodApi.GetCourses, parameters, idsSpecialty);
             return ConvertToList<Course>(json);
         }
 
@@ -53,10 +49,9 @@ namespace ScheduleBukepAPI.service
                 .SetParameter(ParameterNameForApi.Year, year)
                 .SetParameter(ParameterNameForApi.IdFilial, idFilial)
                 .SetParameter(ParameterNameForApi.IdFaculty, idFaculty)
-                .SetParameter(ParameterNameForApi.IdsSpecialty, idsSpecialty)
                 .SetParameter(ParameterNameForApi.IdCourse, idCourse)
                 .Build();
-            string json = ExecutePost(MethodApi.GetGroups, parameters, idsSpecialty.ToString());
+            string json = ExecutePost(MethodApi.GetGroups, parameters, idsSpecialty);
             return ConvertToList<Group>(json);
         }
 

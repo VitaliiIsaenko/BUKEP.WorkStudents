@@ -41,7 +41,7 @@ namespace ScheduleBukepAPI.service
         }
 
         protected string ExecutePost(MethodApi nameMethod, IDictionary<string, string> parameters,
-            string bodyForPost)
+            IList<int> bodyForPost)
         {
             var url = CreatorUrl.CreateUrl(nameMethod.ToString(), parameters);
             return _httpRequestHelper.ExecutePost(url, bodyForPost);
