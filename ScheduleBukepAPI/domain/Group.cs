@@ -11,7 +11,7 @@ namespace ScheduleBukepAPI.domain
         public string NameGroupOld { get; set; }
         public string IdSemestr { get; set; }
         public string NameTypeShedule { get; set; }
-        public DateTime ScheduleDateFrom { get; set; }
-        public DateTime ScheduleDateTo { get; set; }
+        public DateTime? ScheduleDateFrom { get; set; }
+        public DateTime? ScheduleDateTo { get; set; }
     }
 }

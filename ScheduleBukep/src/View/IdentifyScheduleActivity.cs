@@ -80,7 +80,7 @@ namespace Bukep.Sheduler.View
 
         public void ShowGroup(IList<Group> groups)
         {
-            _groupAdapter = new DtoAdapter<Group>(groups, this,x => x.NameGroup );
+            _groupAdapter = new DtoAdapter<Group>(groups, this,x => x.NameGroup + x.NameTypeShedule );
 
             _groupSpinner.Adapter = _groupAdapter;
             _groupSpinner.ItemSelected += SelectGroupSpinner;
