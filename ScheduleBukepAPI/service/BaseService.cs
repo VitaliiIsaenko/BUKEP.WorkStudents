@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ScheduleBukepAPI.helpers;
+using ScheduleBukepAPI.service.paremeters;
 
 namespace ScheduleBukepAPI.service
 {
