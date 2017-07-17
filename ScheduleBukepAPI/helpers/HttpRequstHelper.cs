@@ -28,7 +28,7 @@ namespace ScheduleBukepAPI.helpers
             WebRequest request = WebRequest.Create(url);
 
 
-            byte[] dataForPost = Encoding.ASCII.GetBytes(FacadeApi.ConvertIdsToString(bodyForPost));
+            byte[] dataForPost = Encoding.ASCII.GetBytes(Api.ConvertIdsToString(bodyForPost));
 
             request.Method = "POST";
             request.ContentType = "application/json";

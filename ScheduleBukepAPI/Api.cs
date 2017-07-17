@@ -6,11 +6,10 @@ using ScheduleBukepAPI.service;
 
 namespace ScheduleBukepAPI
 {
-    //TODO: raname in AdapterApi
     /// <summary>
     /// Нужен для упрощения работы с IFacultiesService и ISchedulesService.
     /// </summary>
-    public class FacadeApi
+    public class Api
     {
         private static IFacultiesService _facultiesService;
         private static ISchedulesService _schedulesService;
@@ -25,13 +24,13 @@ namespace ScheduleBukepAPI
 
         private const int IdFilial = 1000;
 
-        public FacadeApi(IFacultiesService facultiesService, ISchedulesService schedulesService)
+        public Api(IFacultiesService facultiesService, ISchedulesService schedulesService)
         {
             _facultiesService = facultiesService;
             _schedulesService = schedulesService;
         }
 
-        public FacadeApi() : this(new FacultiesService(), new SchedulesService())
+        public Api() : this(new FacultiesService(), new SchedulesService())
         {
         }
 

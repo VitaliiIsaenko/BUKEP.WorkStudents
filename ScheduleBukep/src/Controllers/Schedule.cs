@@ -148,7 +148,7 @@ namespace Bukep.Sheduler.Controllers
         {
             _view.Intent.PutExtra(
                 key,
-                dateTime.ToString(FacadeApi.DateTimeFormat)
+                dateTime.ToString(Api.DateTimeFormat)
             );
         }
     }

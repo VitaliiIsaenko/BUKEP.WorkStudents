@@ -18,7 +18,7 @@ namespace Bukep.Sheduler.Controllers
         private const string Tag = "Controller";
 
         //TODO: добавить FacadeApiFactory
-        private readonly FacadeApi _facadeApi = new FacadeApi(
+        private readonly Api _api = new Api(
             new FacultiesService(),
             new SchedulesService()
         );
@@ -63,7 +63,7 @@ namespace Bukep.Sheduler.Controllers
             }
             try
             {
-                return _facadeApi.GetFaculties();
+                return _api.GetFaculties();
             }
             catch (WebException e)
             {
@@ -81,7 +81,7 @@ namespace Bukep.Sheduler.Controllers
             }
             try
             {
-                return _facadeApi.GetSpecialtys(idFaculty);
+                return _api.GetSpecialtys(idFaculty);
             }
             catch (WebException e)
             {
@@ -100,7 +100,7 @@ namespace Bukep.Sheduler.Controllers
 
             try
             {
-                return _facadeApi.GetGroups(idFaculty, idCourse, idsSpecialty);
+                return _api.GetGroups(idFaculty, idCourse, idsSpecialty);
             }
             catch (WebException e)
             {
@@ -119,7 +119,7 @@ namespace Bukep.Sheduler.Controllers
 
             try
             {
-                return _facadeApi.GetCourses(idFaculty, idsSpecialty);
+                return _api.GetCourses(idFaculty, idsSpecialty);
             }
             catch (WebException e)
             {
@@ -139,7 +139,7 @@ namespace Bukep.Sheduler.Controllers
 
             try
             {
-                return _facadeApi.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
+                return _api.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo);
             }
             catch (WebException e)
             {

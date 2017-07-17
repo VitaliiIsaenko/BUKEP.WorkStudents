@@ -52,7 +52,7 @@
     <Compile Include="domain\Group.cs" />
     <Compile Include="domain\Lesson.cs" />
     <Compile Include="domain\Specialty.cs" />
-    <Compile Include="FacadeApi.cs" />
+    <Compile Include="Api.cs" />
     <Compile Include="helpers\CreatorUrl.cs" />
     <Compile Include="helpers\HttpRequstHelper.cs" />
     <Compile Include="helpers\JsonConvert.cs" />
@@ -63,8 +63,8 @@
     <Compile Include="service\ISchedulesService.cs" />
     <Compile Include="service\FacultiesService.cs" />
     <Compile Include="domain\Pulpit.cs" />
-    <Compile Include="service\paremeters\ParameterBuilder.cs" />
-    <Compile Include="service\paremeters\ParameterNameForApi.cs" />
+    <Compile Include="service\paremeters\ParameterConstructor.cs" />
+    <Compile Include="service\paremeters\NameParameterForApi.cs" />
     <Compile Include="service\SchedulesService.cs" />
     <Compile Include="domain\Teacher.cs" />
   </ItemGroup>

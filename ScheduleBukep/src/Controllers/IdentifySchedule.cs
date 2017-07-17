@@ -92,7 +92,7 @@ namespace Bukep.Sheduler.Controllers
             var jsonGroup = ConvertToJson(_selectedGroup);
             intent.PutExtra(Schedule.IntentKeyGroupsJson, jsonGroup);
 
-            var today = DateTime.Today.ToString(FacadeApi.DateTimeFormat);
+            var today = DateTime.Today.ToString(Api.DateTimeFormat);
             intent.PutExtra(Schedule.IntentKeyDateLessonStart, today);
             intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
 

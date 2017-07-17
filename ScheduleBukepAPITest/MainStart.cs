@@ -11,10 +11,7 @@ namespace ScheduleBukepAPITest
     /// </summary>
     internal class MainStart
     {
-        private static readonly FacadeApi Api = new FacadeApi(
-            new FacultiesService(),
-            new SchedulesService()
-        );
+        private static readonly Api Api = new Api();
 
         private static void Main(string[] args)
         {
@@ -39,7 +36,7 @@ namespace ScheduleBukepAPITest
             {
                 var teacher = teachers[i];
                 Console.WriteLine("{0}. {1} = {2} ", i, teacher.Fio,
-                    FacadeApi.ConvertIdsToString(teacher.IdsTeacher));
+                    Api.ConvertIdsToString(teacher.IdsTeacher));
             }
             var selectedNumber = AskNumber();
 
@@ -71,7 +68,7 @@ namespace ScheduleBukepAPITest
 
         private static void SelectTeacherLessons(IList<int> idTeacher, DateTime dateFrom, DateTime dateTo)
         {
-            var lessons = FacadeApi.GetTeacherLessons(idTeacher, dateFrom, dateTo);
+            var lessons = Api.GetTeacherLessons(idTeacher, dateFrom, dateTo);
             foreach (var item in lessons)
             {
                 Console.WriteLine(item.Discipline.Value);
@@ -108,7 +105,7 @@ namespace ScheduleBukepAPITest
             {
                 var group = groups[i];
                 Console.WriteLine("{0}. {1} {2} = {3} ", i, group.NameGroup, group.NameTypeShedule,
-                    FacadeApi.ConvertIdsToString(group.IdsSchedulGroup));
+                    Api.ConvertIdsToString(group.IdsSchedulGroup));
             }
 
             var numberGroup = AskNumber();
@@ -141,7 +138,7 @@ namespace ScheduleBukepAPITest
             for (var i = 0; i < specialtys.Count; i++)
             {
                 var specialty = specialtys[i];
-                var ids = FacadeApi.ConvertIdsToString(specialty.Info.Key);
+                var ids = Api.ConvertIdsToString(specialty.Info.Key);
                 Console.WriteLine("{0}. {1} id = {2}", i, specialty.Info.Value, ids);
             }
             var number = AskNumber();

@@ -14,7 +14,7 @@ namespace ScheduleBukepAPIUniteTests
     {
         private static readonly Mock<IFacultiesService> MockFaculties = new Mock<IFacultiesService>();
         private static readonly Mock<ISchedulesService> MockSchedules = new Mock<ISchedulesService>();
-        private static readonly FacadeApi FacadeApi = new FacadeApi(MockFaculties.Object, MockSchedules.Object);
+        private static readonly Api Api = new Api(MockFaculties.Object, MockSchedules.Object);
 
         [Test()]
         public void GetFacultiesTest()
@@ -27,7 +27,7 @@ namespace ScheduleBukepAPIUniteTests
 
             MockFaculties.Setup(m => m.GetFaculties(2016, 1000)).Returns(value);
 
-            var faculties = FacadeApi.GetFaculties();
+            var faculties = Api.GetFaculties();
 
             MockFaculties.Verify(m => m.GetFaculties(2016, 1000), Times.Once());
             Assert.That(faculties.Count, Is.EqualTo(2));

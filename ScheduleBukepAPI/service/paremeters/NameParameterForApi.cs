@@ -3,7 +3,7 @@
     /// <summary>
     /// Имя параметра для передачи в GET запросе для API.
     /// </summary>
-    public enum ParameterNameForApi
+    public enum NameParameterForApi
     {
         Year,
         IdFilial,
