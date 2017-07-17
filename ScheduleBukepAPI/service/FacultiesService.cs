@@ -9,7 +9,7 @@ namespace ScheduleBukepAPI.service
     {
         private readonly ParameterConstructor _parameterConstructor = new ParameterConstructor();
 
-        public List<Faculty> GetFaculties(int year, int idFilial)
+        public virtual List<Faculty> GetFaculties(int year, int idFilial)
         {
             IDictionary<string, string> parameters = _parameterConstructor
                 .SetParameter(NameParameterForApi.Year, year)

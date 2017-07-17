@@ -11,7 +11,7 @@ namespace ScheduleBukepAPITest
     /// </summary>
     internal class MainStart
     {
-        private static readonly Api Api = new Api();
+        private static readonly Api Api = new Api( new OverrideGetFaculty(), new SchedulesService ());
 
         private static void Main(string[] args)
         {
