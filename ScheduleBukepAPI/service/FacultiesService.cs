@@ -49,8 +49,8 @@ namespace ScheduleBukepAPI.service
             return ConvertToList<Course>(json);
         }
 
-        //TODO: idCourse поменять местами с idsSpecialty
-        public List<Group> GetGroups(int year, int idFilial, int idFaculty, int idCourse,
+
+        public virtual List<Group> GetGroups(int year, int idFilial, int idFaculty, int idCourse,
             IList<int> idsSpecialty)
         {
             IDictionary<string, string> parameters = _parameterConstructor

@@ -10,7 +10,7 @@ namespace ScheduleBukepAPI.service
     /// </summary>
     public interface IFacultiesService
     {
-
+        
         List<Faculty> GetFaculties(int year, int idFilial);
 
         List<Specialty> GetSpecialtys(int year, int idFilial, int idFaculty);
