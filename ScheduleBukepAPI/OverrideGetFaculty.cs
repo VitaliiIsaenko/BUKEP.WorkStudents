@@ -31,7 +31,7 @@ namespace ScheduleBukepAPI
         }
 
         /// <summary>
-        /// Добавлеят дополнительную сортировку по 
+        /// Добавляет дополнительную сортировку по актуальности расписания группы.
         /// </summary>
         /// <param name="year"></param>
         /// <param name="idFilial"></param>
