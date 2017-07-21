@@ -5,11 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ScheduleBukepAPI.helpers;
 
 namespace ScheduleBukepAPI
 {
     public class OverrideGetFaculty : FacultiesService
     {
+        public OverrideGetFaculty(HttpRequstHelper httpRequestHelper, JsonConvert jsonConvert) : base(httpRequestHelper, jsonConvert)
+        {
+        }
+
+        public OverrideGetFaculty()
+        {
+        }
+
         public override List<Faculty> GetFaculties(int year, int idFilial)
         {
             var Faculties = base.GetFaculties(year, idFilial);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service;
 
 namespace ScheduleBukepAPITest
@@ -11,7 +12,7 @@ namespace ScheduleBukepAPITest
     /// </summary>
     internal class MainStart
     {
-        private static readonly Api Api = new Api( new OverrideGetFaculty(), new SchedulesService ());
+        private static readonly Api Api = ApiFactory.CreateApiFake();
 
         private static void Main(string[] args)
         {

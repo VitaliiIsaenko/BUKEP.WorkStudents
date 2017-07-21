@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service.paremeters;
 
 namespace ScheduleBukepAPI.service
@@ -8,6 +9,14 @@ namespace ScheduleBukepAPI.service
     public class SchedulesService : BaseService, ISchedulesService
     {
         private readonly ParameterConstructor _parameterConstructor = new ParameterConstructor();
+
+        public SchedulesService(HttpRequstHelper httpRequestHelper, JsonConvert jsonConvert) : base(httpRequestHelper, jsonConvert)
+        {
+        }
+
+        public SchedulesService()
+        {
+        }
 
         public IList<Lesson> GetGroupLessons(IList<int> idsSheduleGroup,
             DateTime dateFrom, DateTime dateTo)

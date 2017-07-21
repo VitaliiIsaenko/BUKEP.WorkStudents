@@ -13,7 +13,7 @@ namespace ScheduleBukepAPI.helpers
     public class HttpRequstHelper
     {
 
-        public string ExecuteGet(string url)
+        public virtual string ExecuteGet(string url)
         {
             Console.WriteLine("URL = " + url);
             var request = WebRequest.Create(url);
@@ -22,7 +22,7 @@ namespace ScheduleBukepAPI.helpers
             return ReadingJsonFromResponse(request.GetResponse());
         }
 
-        public string ExecutePost(string url, IList<int> bodyForPost)
+        public virtual string ExecutePost(string url, IList<int> bodyForPost)
         {
             Console.WriteLine("URL = " + url);
             WebRequest request = WebRequest.Create(url);

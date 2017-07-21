@@ -9,6 +9,14 @@ namespace ScheduleBukepAPI.service
     {
         private readonly ParameterConstructor _parameterConstructor = new ParameterConstructor();
 
+        public FacultiesService(HttpRequstHelper httpRequestHelper, JsonConvert jsonConvert) : base(httpRequestHelper, jsonConvert)
+        {
+        }
+
+        public FacultiesService()
+        {
+        }
+
         public virtual List<Faculty> GetFaculties(int year, int idFilial)
         {
             IDictionary<string, string> parameters = _parameterConstructor
