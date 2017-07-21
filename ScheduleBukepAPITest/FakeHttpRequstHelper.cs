@@ -6,22 +6,33 @@ using ScheduleBukepAPI.service.paremeters;
 
 namespace ScheduleBukepAPITest
 {
+    /// <summary>
+    /// Используется как замена стандартному HttpRequstHelper.
+    /// FakeHttpRequstHelper не использует Api для получения данных,
+    /// а берёт их из файлов.
+    /// </summary>
     public class FakeHttpRequstHelper : HttpRequstHelper
     {
         private readonly List<MethodApi> _methodsApi = Enum.GetValues(typeof(MethodApi)).Cast<MethodApi>().ToList();
 
         public override string ExecuteGet(string url)
         {
-            return DetermineMethodApi(url);
+            return GetDataForMethodApi(url);
         }
 
 
         public override string ExecutePost(string url, IList<int> bodyForPost)
         {
-            return DetermineMethodApi(url);
+            return GetDataForMethodApi(url);
         }
 
-        private string DetermineMethodApi(string url)
+        /// <summary>
+        /// Определяет какой MethodApi содержится в url 
+        /// и возвращает соответствующий ему Json
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns>В зависимости от MethodApi возвращает соответствующий ему Json</returns>
+        private string GetDataForMethodApi(string url)
         {
             MethodApi methodApi = _methodsApi.FirstOrDefault(method => url.Contains(method.ToString()));
             byte[] bytesRes;
