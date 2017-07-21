@@ -59,5 +59,95 @@ namespace ScheduleBukepAPITest.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] GetCourses {
+            get {
+                object obj = ResourceManager.GetObject("GetCourses", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] GetFaculties {
+            get {
+                object obj = ResourceManager.GetObject("GetFaculties", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] GetGroupLessons {
+            get {
+                object obj = ResourceManager.GetObject("GetGroupLessons", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] GetGroups {
+            get {
+                object obj = ResourceManager.GetObject("GetGroups", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] GetLessonTime {
+            get {
+                object obj = ResourceManager.GetObject("GetLessonTime", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] GetPulpit {
+            get {
+                object obj = ResourceManager.GetObject("GetPulpit", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] GetSpecialtys {
+            get {
+                object obj = ResourceManager.GetObject("GetSpecialtys", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] GetTeacher {
+            get {
+                object obj = ResourceManager.GetObject("GetTeacher", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] GetTeacherLessons {
+            get {
+                object obj = ResourceManager.GetObject("GetTeacherLessons", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
