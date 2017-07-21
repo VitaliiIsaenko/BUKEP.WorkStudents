@@ -12,12 +12,18 @@ namespace ScheduleBukepAPITest
     /// </summary>
     internal class MainStart
     {
-        private static readonly Api Api = ApiFactory.CreateApiFake();
+        private static readonly Api Api = new Api(
+            new OverrideGetFaculty(
+                new FakeHttpRequstHelper(), new JsonConvert()),
+            new SchedulesService(
+                new FakeHttpRequstHelper(), new JsonConvert())
+        );
 
         private static void Main(string[] args)
         {
             SelectSchedules();
             //SelectTeacher();
+            Console.Read();
         }
 
         private static void SelectTeacher()
