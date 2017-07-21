@@ -54,9 +54,15 @@
     <Compile Include="domain\Specialty.cs" />
     <Compile Include="Api.cs" />
     <Compile Include="helpers\CreatorUrl.cs" />
+    <Compile Include="helpers\FakeHttpRequstHelper.cs" />
     <Compile Include="helpers\HttpRequstHelper.cs" />
     <Compile Include="helpers\JsonConvert.cs" />
     <Compile Include="OverrideGetFaculty.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="service\paremeters\MethodApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="service\BaseService.cs" />
@@ -71,6 +77,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="resources\jsonExample\GetCourses.json" />
+    <None Include="resources\jsonExample\GetFaculties.json" />
+    <None Include="resources\jsonExample\GetGroupLessons.json" />
+    <None Include="resources\jsonExample\GetGroups.json" />
+    <None Include="resources\jsonExample\GetLessonTime.json" />
+    <None Include="resources\jsonExample\GetPulpit.json" />
+    <None Include="resources\jsonExample\GetSpecialtys.json" />
+    <None Include="resources\jsonExample\GetTeacher.json" />
+    <None Include="resources\jsonExample\GetTeacherLessons.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

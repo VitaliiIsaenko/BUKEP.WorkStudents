@@ -6,6 +6,7 @@ using ScheduleBukepAPI.helpers;
 
 namespace ScheduleBukepAPI
 {
+    //TODO: Добавить UnitTest
     public class OverrideGetFaculty : FacultiesService
     {
         public OverrideGetFaculty(HttpRequstHelper httpRequestHelper, JsonConvert jsonConvert) : base(httpRequestHelper, jsonConvert)
@@ -58,7 +59,7 @@ namespace ScheduleBukepAPI
             DateTime? startDate = group.ScheduleDateFrom;
             DateTime? endDate = group.ScheduleDateTo;
 
-            return TodayIsInRange(startDate, endDate);
+            return !TodayIsInRange(startDate, endDate);
         }
 
         /// <summary>

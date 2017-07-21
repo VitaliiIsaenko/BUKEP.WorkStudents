@@ -117,32 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="GetCourses" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jsonexample\getcourses.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GetFaculties" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jsonexample\getfaculties.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GetGroupLessons" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jsonexample\getgrouplessons.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GetGroups" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jsonexample\getgroups.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GetLessonTime" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jsonexample\getlessontime.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GetPulpit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jsonexample\getpulpit.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GetSpecialtys" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jsonexample\getspecialtys.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GetTeacher" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jsonexample\getteacher.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="GetTeacherLessons" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\jsonexample\getteacherlessons.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>

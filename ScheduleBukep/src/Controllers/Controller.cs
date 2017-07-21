@@ -19,7 +19,7 @@ namespace Bukep.Sheduler.Controllers
 
         //TODO: добавить FacadeApiFactory
         private readonly Api _api = new Api(
-            new FacultiesService(),
+            new OverrideGetFaculty(), 
             new SchedulesService()
         );
 
