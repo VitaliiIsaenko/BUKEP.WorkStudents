@@ -22,8 +22,7 @@ namespace ScheduleBukepAPI.domain
 
     public class TimeLesson
     {
-        //TODO: type change on DateTime
-        public DateTime NameLessonTime { get; set; }
+        public string NameLessonTime { get; set; }
         public DateTime StartLesson { get; set; }
         public DateTime EndLesson { get; set; }
         public DateTime Durability { get; set; }
