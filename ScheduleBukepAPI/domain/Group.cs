@@ -9,7 +9,7 @@ namespace ScheduleBukepAPI.domain
         public string NameGroup { get; set; }
         public string AffixusNameGroup { get; set; }
         public string NameGroupOld { get; set; }
-        public string IdSemestr { get; set; }
+        public int IdSemestr { get; set; }
         public string NameTypeShedule { get; set; }
         public DateTime? ScheduleDateFrom { get; set; }
         public DateTime? ScheduleDateTo { get; set; }

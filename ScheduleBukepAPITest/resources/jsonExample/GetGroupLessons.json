@@ -5,8 +5,8 @@
       "value": "Теоретическое обучение"
     },
     "typeWeek": {
-      "key": 1,
-      "value": "Числ."
+      "key": 2,
+      "value": "Знам."
     },
     "day": {
       "key": 1,
@@ -17,10 +17,10 @@
       "value": "3 пара"
     },
     "typeLesson": {
-      "key": 1,
-      "value": "Лекционное занятие"
+      "key": 999,
+      "value": "Физическая культура"
     },
-    "dateLesson": "2017-06-19T00:00:00",
+    "dateLesson": "2017-03-06T00:00:00",
     "timeLesson": {
       "nameLessonTime": "3 пара",
       "startLesson": "12:25:00",
@@ -29,32 +29,29 @@
     },
     "auditory": [
       {
-        "key": 123,
-        "value": "316"
+        "key": 263,
+        "value": "Спортивный комплекс"
       }
     ],
     "teachers": [
       {
-        "key": 2182,
-        "value": "асс. Зайцева Н.В."
+        "key": 2157,
+        "value": "доц. Богоева М.Д."
       }
     ],
     "discipline": {
-      "key": 406,
-      "value": "Документационное обеспечение управления"
+      "key": 59,
+      "value": "Физическая культура"
     }
   },
-
-  /*-------------------------------------------------*/
-
   {
     "typeShedule": {
       "key": 1,
       "value": "Теоретическое обучение"
     },
     "typeWeek": {
-      "key": 1,
-      "value": "Числ."
+      "key": 2,
+      "value": "Знам."
     },
     "day": {
       "key": 1,
@@ -65,10 +62,10 @@
       "value": "4 пара"
     },
     "typeLesson": {
-      "key": 1,
-      "value": "Лекционное занятие"
+      "key": 2,
+      "value": "Практическое занятие"
     },
-    "dateLesson": "2017-06-19T00:00:00",
+    "dateLesson": "2017-03-06T00:00:00",
     "timeLesson": {
       "nameLessonTime": "4 пара",
       "startLesson": "14:35:00",
@@ -77,19 +74,19 @@
     },
     "auditory": [
       {
-        "key": 26,
-        "value": "115"
+        "key": 67,
+        "value": "211"
       }
     ],
     "teachers": [
       {
-        "key": 2169,
-        "value": "доц. Гатилова И.Н."
+        "key": 2219,
+        "value": "асс. Шевченко Е.И."
       }
     ],
     "discipline": {
-      "key": 4340,
-      "value": "Обработка отраслевой информации"
+      "key": 3756,
+      "value": "Математика: алгебра, начала математического анализа, геометрия"
     }
   },
   {
@@ -98,8 +95,8 @@
       "value": "Теоретическое обучение"
     },
     "typeWeek": {
-      "key": 1,
-      "value": "Числ."
+      "key": 2,
+      "value": "Знам."
     },
     "day": {
       "key": 1,
@@ -110,14 +107,374 @@
       "value": "5 пара"
     },
     "typeLesson": {
-      "key": 1,
-      "value": "Лекционное занятие"
+      "key": 2,
+      "value": "Практическое занятие"
     },
-    "dateLesson": "2017-06-19T00:00:00",
+    "dateLesson": "2017-03-06T00:00:00",
     "timeLesson": {
       "nameLessonTime": "5 пара",
       "startLesson": "16:20:00",
       "endLesson": "17:55:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 104,
+        "value": "506н"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 7264,
+        "value": "доц. Фурманова Т.Н."
+      }
+    ],
+    "discipline": {
+      "key": 1587,
+      "value": "География"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 2,
+      "value": "вторник"
+    },
+    "lesson": {
+      "key": 5,
+      "value": "3 пара"
+    },
+    "typeLesson": {
+      "key": 1,
+      "value": "Лекционное занятие"
+    },
+    "dateLesson": "2017-03-07T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "3 пара",
+      "startLesson": "12:25:00",
+      "endLesson": "14:00:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 106,
+        "value": "305"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 7264,
+        "value": "доц. Фурманова Т.Н."
+      }
+    ],
+    "discipline": {
+      "key": 1587,
+      "value": "География"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 2,
+      "value": "вторник"
+    },
+    "lesson": {
+      "key": 7,
+      "value": "4 пара"
+    },
+    "typeLesson": {
+      "key": 3,
+      "value": "Лабораторное занятие"
+    },
+    "dateLesson": "2017-03-07T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "4 пара",
+      "startLesson": "14:35:00",
+      "endLesson": "16:10:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 129,
+        "value": "312"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 243,
+        "value": "доц. Дикунова Л.М."
+      }
+    ],
+    "discipline": {
+      "key": 35,
+      "value": "Физика"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 2,
+      "value": "вторник"
+    },
+    "lesson": {
+      "key": 9,
+      "value": "5 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-03-07T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "5 пара",
+      "startLesson": "16:20:00",
+      "endLesson": "17:55:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 33,
+        "value": "505"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 2219,
+        "value": "асс. Шевченко Е.И."
+      }
+    ],
+    "discipline": {
+      "key": 3756,
+      "value": "Математика: алгебра, начала математического анализа, геометрия"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 3,
+      "value": "среда"
+    },
+    "lesson": {
+      "key": 3,
+      "value": "2 пара"
+    },
+    "typeLesson": {
+      "key": 3,
+      "value": "Лабораторное занятие"
+    },
+    "dateLesson": "2017-03-08T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "2 пара",
+      "startLesson": "10:15:00",
+      "endLesson": "11:50:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 44,
+        "value": "203н"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 2174,
+        "value": "ст. преп. Гостищева Т.В."
+      }
+    ],
+    "discipline": {
+      "key": 70,
+      "value": "Информатика"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 3,
+      "value": "среда"
+    },
+    "lesson": {
+      "key": 5,
+      "value": "3 пара"
+    },
+    "typeLesson": {
+      "key": 1,
+      "value": "Лекционное занятие"
+    },
+    "dateLesson": "2017-03-08T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "3 пара",
+      "startLesson": "12:25:00",
+      "endLesson": "14:00:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 95,
+        "value": "312н"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 266,
+        "value": "доц. Зайцева Т.Г."
+      }
+    ],
+    "discipline": {
+      "key": 5746,
+      "value": "Обществознание (вкл. экономику и право)"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 3,
+      "value": "среда"
+    },
+    "lesson": {
+      "key": 7,
+      "value": "4 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-03-08T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "4 пара",
+      "startLesson": "14:35:00",
+      "endLesson": "16:10:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 97,
+        "value": "303н"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6557,
+        "value": "доц. Шоков Н.Н."
+      }
+    ],
+    "discipline": {
+      "key": 5742,
+      "value": "Русский язык и литература"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 4,
+      "value": "четверг"
+    },
+    "lesson": {
+      "key": 5,
+      "value": "3 пара"
+    },
+    "typeLesson": {
+      "key": 1,
+      "value": "Лекционное занятие"
+    },
+    "dateLesson": "2017-03-09T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "3 пара",
+      "startLesson": "12:25:00",
+      "endLesson": "14:00:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 17,
+        "value": "220"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 518,
+        "value": "доц. Чуйкова В.М."
+      }
+    ],
+    "discipline": {
+      "key": 5872,
+      "value": "Кооперативы в экономике и социальной жизни общества"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 4,
+      "value": "четверг"
+    },
+    "lesson": {
+      "key": 7,
+      "value": "4 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-03-09T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "4 пара",
+      "startLesson": "14:35:00",
+      "endLesson": "16:10:00",
       "durability": "01:35"
     },
     "auditory": [
@@ -128,13 +485,328 @@
     ],
     "teachers": [
       {
+        "key": 402,
+        "value": "доц. Полищук О.Н."
+      }
+    ],
+    "discipline": {
+      "key": 71,
+      "value": "Экология"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 4,
+      "value": "четверг"
+    },
+    "lesson": {
+      "key": 9,
+      "value": "5 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-03-09T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "5 пара",
+      "startLesson": "16:20:00",
+      "endLesson": "17:55:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 130,
+        "value": "415н"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 6557,
+        "value": "доц. Шоков Н.Н."
+      }
+    ],
+    "discipline": {
+      "key": 5742,
+      "value": "Русский язык и литература"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 5,
+      "value": "пятница"
+    },
+    "lesson": {
+      "key": 3,
+      "value": "2 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-03-10T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "2 пара",
+      "startLesson": "10:15:00",
+      "endLesson": "11:50:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 19,
+        "value": "012"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 197,
+        "value": "доц. Волошкина И.А."
+      }
+    ],
+    "discipline": {
+      "key": 1599,
+      "value": "Иностранный язык"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 5,
+      "value": "пятница"
+    },
+    "lesson": {
+      "key": 5,
+      "value": "3 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-03-10T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "3 пара",
+      "startLesson": "12:25:00",
+      "endLesson": "14:00:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 81,
+        "value": "230"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 518,
+        "value": "доц. Чуйкова В.М."
+      }
+    ],
+    "discipline": {
+      "key": 5872,
+      "value": "Кооперативы в экономике и социальной жизни общества"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 5,
+      "value": "пятница"
+    },
+    "lesson": {
+      "key": 7,
+      "value": "4 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-03-10T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "4 пара",
+      "startLesson": "14:35:00",
+      "endLesson": "16:10:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 104,
+        "value": "506н"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 446,
+        "value": "асс. Скоков А.Л."
+      }
+    ],
+    "discipline": {
+      "key": 5746,
+      "value": "Обществознание (вкл. экономику и право)"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 6,
+      "value": "суббота"
+    },
+    "lesson": {
+      "key": 1,
+      "value": "1 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-03-11T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "1 пара",
+      "startLesson": "08:30:00",
+      "endLesson": "10:05:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 66,
+        "value": "205"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 446,
+        "value": "асс. Скоков А.Л."
+      }
+    ],
+    "discipline": {
+      "key": 5746,
+      "value": "Обществознание (вкл. экономику и право)"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 6,
+      "value": "суббота"
+    },
+    "lesson": {
+      "key": 3,
+      "value": "2 пара"
+    },
+    "typeLesson": {
+      "key": 2,
+      "value": "Практическое занятие"
+    },
+    "dateLesson": "2017-03-11T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "2 пара",
+      "startLesson": "10:15:00",
+      "endLesson": "11:50:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 61,
+        "value": "413а"
+      }
+    ],
+    "teachers": [
+      {
         "key": 2219,
         "value": "асс. Шевченко Е.И."
       }
     ],
     "discipline": {
-      "key": 1246,
-      "value": "Дискретная математика"
+      "key": 3756,
+      "value": "Математика: алгебра, начала математического анализа, геометрия"
+    }
+  },
+  {
+    "typeShedule": {
+      "key": 1,
+      "value": "Теоретическое обучение"
+    },
+    "typeWeek": {
+      "key": 2,
+      "value": "Знам."
+    },
+    "day": {
+      "key": 6,
+      "value": "суббота"
+    },
+    "lesson": {
+      "key": 5,
+      "value": "3 пара"
+    },
+    "typeLesson": {
+      "key": 999,
+      "value": "Физическая культура"
+    },
+    "dateLesson": "2017-03-11T00:00:00",
+    "timeLesson": {
+      "nameLessonTime": "3 пара",
+      "startLesson": "12:00:00",
+      "endLesson": "13:35:00",
+      "durability": "01:35"
+    },
+    "auditory": [
+      {
+        "key": 263,
+        "value": "Спортивный комплекс"
+      }
+    ],
+    "teachers": [
+      {
+        "key": 2283,
+        "value": "ст. преп. Гончаров В.М."
+      }
+    ],
+    "discipline": {
+      "key": 59,
+      "value": "Физическая культура"
     }
   }
 ]

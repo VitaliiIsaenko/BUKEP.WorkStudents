@@ -177,7 +177,7 @@
     <AndroidResource Include="Resources\drawable\gps.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ScheduleBukepAPITest\ScheduleBukepAPITestLib.csproj">
+    <ProjectReference Include="..\ScheduleBukepAPITest\ScheduleBukepAPITest.csproj">
       <Project>{67639a80-8308-4198-9329-510166ad0e83}</Project>
       <Name>ScheduleBukepAPITest</Name>
     </ProjectReference>

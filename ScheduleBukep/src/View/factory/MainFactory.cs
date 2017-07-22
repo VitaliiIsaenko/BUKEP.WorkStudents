@@ -13,6 +13,7 @@ namespace Bukep.Sheduler.View.factory
     public class MainFactory
     {
         private readonly Activity _activity;
+        private const string LessonStartAndEndFormat = "HH:mm";
         private const string LessonOnDayNameFormat = "dddd";
 
         public MainFactory(Activity activity)
@@ -48,11 +49,11 @@ namespace Bukep.Sheduler.View.factory
 
             var timeStartLesson = card.FindViewById<TextView>(Resource.Id.timeStartLesson);
             var timeLessonStartLesson = lesson.TimeLesson.StartLesson;
-            timeStartLesson.Text = timeLessonStartLesson.ToString("hh:mm");
+            timeStartLesson.Text = timeLessonStartLesson.ToString(LessonStartAndEndFormat);
 
             var timeEndLesson = card.FindViewById<TextView>(Resource.Id.timeEndLesson);
             var timeLessonEndLesson = lesson.TimeLesson.EndLesson;
-            timeEndLesson.Text = timeLessonEndLesson.ToString("hh:mm");
+            timeEndLesson.Text = timeLessonEndLesson.ToString(LessonStartAndEndFormat);
 
             var number = card.FindViewById<TextView>(Resource.Id.number);
             number.Text = lesson.LessonInfo.Value;
