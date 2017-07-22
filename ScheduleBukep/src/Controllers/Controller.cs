@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using Android.Content;
 using Android.Net;
@@ -10,6 +9,7 @@ using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service;
+using ScheduleBukepAPITest;
 
 namespace Bukep.Sheduler.Controllers
 {
@@ -19,8 +19,8 @@ namespace Bukep.Sheduler.Controllers
 
         //TODO: добавить FacadeApiFactory
         private readonly Api _api = new Api(
-            new OverrideGetFaculty(), 
-            new SchedulesService()
+            new OverrideGetFaculty(new FakeHttpRequstHelper(), new JsonConvert()), 
+            new SchedulesService(new FakeHttpRequstHelper(), new JsonConvert())
         );
 
         private readonly JsonConvert _jsonConvert = new JsonConvert();
