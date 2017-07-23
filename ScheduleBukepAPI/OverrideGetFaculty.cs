@@ -49,11 +49,11 @@ namespace ScheduleBukepAPI
         }
 
         /// <summary>
-        /// Входит ли сегодня в интервал расписания.
+        /// Выходит ли сегодня за интервал расписания группы.
         /// Нужно для фильтрации не начавшегося или прошедшего расписания.
         /// </summary>
         /// <param name="group">Группа для проверки</param>
-        /// <returns>true если расписание группы актуально на сегодня</returns>
+        /// <returns>false если расписание группы актуально на сегодня</returns>
         private static bool IsGroupOutInterval(Group group)
         {
             DateTime? startDate = group.ScheduleDateFrom;
@@ -72,7 +72,7 @@ namespace ScheduleBukepAPI
         {
             if (startDate == null || endDate == null) return false;
             var today = DateTime.Today;
-            var result = !(today >= startDate && today < endDate);
+            var result = (today >= startDate && today < endDate);
             Console.WriteLine(
                 $"TodayIsInRange() Range {startDate} - {endDate} result = {result}"
             );
