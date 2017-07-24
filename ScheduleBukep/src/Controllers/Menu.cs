@@ -25,5 +25,16 @@ namespace Bukep.Sheduler.Controllers
             var intent = new Intent(_view, typeof(IdentifyScheduleActivity));
             _view.StartActivity(intent);
         }
+
+        public void ClickScheduleTeacher(object sender, EventArgs e)
+        {
+            var intent = new Intent(_view, typeof(IdentifyScheduleActivity));
+            _view.StartActivity(intent);
+        }
+
+        public void ClickScheduleBell(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -30,22 +30,12 @@ namespace Bukep.Sheduler.View
             scheduleGroup.Click += _menu.ClickScheduleGroup;
 
             var scheduleTeacher = FindViewById<Button>(Resource.Id.schedule_teacher);
-            scheduleTeacher.Click += ClickScheduleTeacher;
+            scheduleTeacher.Click += _menu.ClickScheduleTeacher;
 
             var scheduleBell = FindViewById<Button>(Resource.Id.schedule_bell);
-            scheduleBell.Click += ClickScheduleBell;
+            scheduleBell.Click += _menu.ClickScheduleBell;
 
             InitNavigationView();
-        }
-
-        public void ClickScheduleTeacher(object sender, EventArgs ea)
-        {
-            Toast.MakeText(this, "ClickScheduleTeacher", ToastLength.Short).Show();
-        }
-
-        public void ClickScheduleBell(object sender, EventArgs ea)
-        {
-            Toast.MakeText(this, "ClickScheduleBell", ToastLength.Short).Show();
         }
     }
 }
