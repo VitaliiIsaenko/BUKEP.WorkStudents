@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/choiceItems"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+  <TextView
+    android:id="@+id/choiceItemsName"
+    android:text="@string/faculty"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_marginTop="5dp"
+    android:theme="@style/IdentifySchedule"
+    android:gravity="center_horizontal" />
+  <Spinner
+    android:id="@+id/choiceItemsSpinner"
+    android:layout_height="40dp"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:textSize="15sp" />
+</LinearLayout>

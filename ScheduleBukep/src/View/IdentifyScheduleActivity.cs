@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Widget;
@@ -8,21 +7,14 @@ using Bukep.Sheduler.Controllers;
 namespace Bukep.Sheduler.View
 {
     /// <summary>
-    ///     Данное Activity используется как форма идентификации для студентов.
-    ///     Предоставляет пошаговый доступ к расписанию, состоящий из шагов:
-    ///     -   выбор факультета
-    ///     -	выбор специальности
-    ///     -	выбор курса
-    ///     -	выбор группы
-    ///     После выполнение всех шагов появляется кнопка «показать».
-    ///     Нажатие на эту кнопку открывает расписание по заданным параметрам.
+    ///  Данное Activity используется как форма выбора элементов из выпадающих списков.
     /// </summary>
     [Activity(Icon = "@drawable/icon")]
-    public class IdentifyScheduleActivity : NavigationActivity
+    public partial class IdentifyScheduleActivity : NavigationActivity
     {
         private const string Tag = "IdentifyScheduleActivity";
 
-        private Button _showSchedulesButtone;
+        public Button ShowSchedulesButtone { get; set; }
 
         private readonly List<Spinner> _spinners = new List<Spinner>();
 
@@ -33,27 +25,34 @@ namespace Bukep.Sheduler.View
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
 
-            InitShowButtone();
+            ShowSchedulesButtone = FindViewById<Button>(Resource.Id.buttoneShow);
+
             InitController();
             InitNavigationView();
         }
 
-        //TODO: ItemAdapter<TItem>.ConvertItemInString заменить на Func<string, Titem>
-        public void Show<TItem>(IList<TItem> items, ItemAdapter<TItem>.ConvertItemInString convertItemInString,
-            Action<TItem> selectedItem)
+        //TODO: add doc
+        public void ShowItems<TItem>(ChoiceItem<TItem> choiceItem)
         {
-            Spinner spinner = FindViewById<Spinner>(Resource.Id.spinnerFaculty);
-            ItemAdapter<TItem> itemAdapter = new ItemAdapter<TItem>(items, this, convertItemInString);
-            InitItemSpinner(spinner, itemAdapter, selectedItem);
-
+            Spinner spinner = choiceItem.Spinner;
+            LinearLayout layout = FindViewById<LinearLayout>(Resource.Id.linear_layout_choose_item);
+            layout.AddView(choiceItem.View);
+            spinner.ItemSelected += (sender, args) => UpdateEnabledSpinners((Spinner) sender);
             _spinners.Add(spinner);
         }
 
-        private void InitItemSpinner<TItem>(Spinner spinner, ItemAdapter<TItem> itemAdapter, Action<TItem> selectedItem)
+        /// <summary>
+        /// Включает следующий выпадающий список от выбранного, и выключает все последующие
+        /// </summary>
+        /// <param name="selectedSpinner">Выбранный выпадающий список</param>
+        private void UpdateEnabledSpinners(Spinner selectedSpinner)
         {
-            spinner.Adapter = itemAdapter;
-            ItemSelector<TItem> itemSelector = new ItemSelector<TItem>(itemAdapter, selectedItem, _spinners);
-            spinner.ItemSelected += itemSelector.SelectedItemInSpinner;
+            var index = _spinners.FindIndex(spinner => spinner.Equals(selectedSpinner));
+            _spinners[index++].Enabled = true;
+            for (var i = index + 2; i < _spinners.Count; i++)
+            {
+                _spinners[i].Enabled = false;
+            }
         }
 
         private void InitController()
@@ -62,15 +61,9 @@ namespace Bukep.Sheduler.View
             _controller.Update();
         }
 
-        private void InitShowButtone()
-        {
-            _showSchedulesButtone = FindViewById<Button>(Resource.Id.buttoneShow);
-            _showSchedulesButtone.Click += _controller.ClickeButtoneShow;
-        }
-
         public void SetButtoneShowClickable(bool clickable)
         {
-            _showSchedulesButtone.Clickable = clickable;
+            ShowSchedulesButtone.Clickable = clickable;
         }
     }
 }

@@ -19,67 +19,13 @@
         android:padding="3dp"
         android:orientation="vertical">
         <LinearLayout
+            android:id="@+id/linear_layout_choose_item"
             android:orientation="vertical"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/faculty"
-                android:text="@string/faculty"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginTop="5dp"
-                android:theme="@style/IdentifySchedule"
-                android:gravity="center_horizontal" />
-            <Spinner
-                android:id="@+id/spinnerFaculty"
-                android:layout_height="40dp"
-                android:gravity="center_horizontal"
-                android:layout_width="match_parent"
-                android:textSize="15sp" />
-            <TextView
-                android:id="@+id/specialty"
-                android:text="@string/specialty"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="5dp"
-                android:theme="@style/IdentifySchedule"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" />
-            <Spinner
-                android:id="@+id/spinnerSpecialty"
-                android:layout_height="40dp"
-                android:textSize="15sp"
-                android:gravity="center_horizontal"
-                android:layout_width="match_parent" />
-            <TextView
-                android:id="@+id/course"
-                android:text="@string/course"
-                android:gravity="center_horizontal"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:theme="@style/IdentifySchedule"
-                android:layout_width="match_parent" />
-            <Spinner
-                android:id="@+id/spinnerCourse"
-                android:layout_height="40dp"
-                android:textSize="15sp"
-                android:gravity="center_horizontal"
-                android:layout_width="match_parent" />
-            <TextView
-                android:id="@+id/group"
-                android:text="@string/group"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="5dp"
-                android:theme="@style/IdentifySchedule"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" />
-            <Spinner
-                android:id="@+id/spinnerGroup"
-                android:layout_height="40dp"
-                android:textSize="15sp"
-                android:gravity="center_horizontal"
-                android:layout_width="match_parent" />
+            
         </LinearLayout>
     </ScrollView>
     <Button

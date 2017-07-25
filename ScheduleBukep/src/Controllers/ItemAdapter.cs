@@ -14,28 +14,42 @@ namespace Bukep.Sheduler.Controllers
     /// <typeparam name="TItem">Отображается в Spinner</typeparam>
     public class ItemAdapter<TItem> : BaseAdapter
     {
-        private readonly IList<TItem> _objects;
+        private IList<TItem> _items = new List<TItem>();
+        public IList<TItem> Items {
+            get => _items;
+            set
+            {
+                _items = value ?? throw new ArgumentNullException(nameof(value));
+                SetItemInFirstList();
+            }
+        }
+
         private readonly Activity _activity;
 
         public delegate string ConvertItemInString(TItem t);
 
-        private readonly ConvertItemInString _convertItemInString;
+        private readonly Func<TItem, string> _convertItemInString;
 
-        public ItemAdapter(IList<TItem> objects, Activity activity, ConvertItemInString convertItemInString)
+        public ItemAdapter(Activity activity, Func<TItem, string> convertItemInString)
         {
             _activity = activity;
-            this._convertItemInString = convertItemInString;
-            _objects = objects;
-            //Так как за место 0 ItemAdapter в методе GetView будет возвращать свой элемент.
-            if (_objects.Any())
-                _objects.Insert(0, _objects[0]);
+            _convertItemInString = convertItemInString;
         }
 
-        public override int Count => _objects.Count;
+        /// <summary>
+        /// Так как за место 0 элемента, ItemAdapter в методе GetView() будет возвращать свой элемент.
+        /// </summary>
+        private void SetItemInFirstList()
+        {
+            if (Items.Any())
+                Items.Insert(0, Items[0]);
+        }
+
+        public override int Count => Items.Count;
 
         public TItem GetObject(int position)
         {
-            return _objects[position];
+            return Items[position];
         }
 
         public override Java.Lang.Object GetItem(int position)
@@ -61,10 +75,7 @@ namespace Bukep.Sheduler.Controllers
             }
             else
             {
-                if (_convertItemInString == null)
-                    throw new ArgumentException(
-                        "Parameter convertDtoInString cannot be null.");
-                view.Text = _convertItemInString(_objects[position]);
+                view.Text = _convertItemInString(Items[position]);
             }
             return view;
         }

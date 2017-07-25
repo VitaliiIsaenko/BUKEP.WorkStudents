@@ -21,6 +21,7 @@ namespace Bukep.Sheduler.Controllers
         public IdentifySchedule(IdentifyScheduleActivity view) : base(view)
         {
             _view = view;
+            _view.ShowSchedulesButtone.Click += ClickeButtoneShow;
         }
 
         public override void Update()
@@ -28,7 +29,13 @@ namespace Bukep.Sheduler.Controllers
             _view.SetButtoneShowClickable(false);
             IList<Faculty> faculties = GetFaculties();
 
-            _view.Show(faculties, faculty => faculty.Info.Value, SelectFaculty);
+            ItemAdapter<Faculty> adapter = new ItemAdapter<Faculty>(_view,
+                faculty => faculty.Info.Value
+            );
+
+            ChoiceItem<Faculty> choiceItem = new ChoiceItem<Faculty>(
+                adapter, SelectFaculty, _view);
+            _view.ShowItems(choiceItem);
         }
 
         public void SelectFaculty(Faculty faculty)
@@ -36,7 +43,13 @@ namespace Bukep.Sheduler.Controllers
             _selectedFaculty = faculty;
             IList<Specialty> specialties = GetSpecialtys(faculty.Info.Key);
 
-            _view.Show(specialties, specialty => specialty.Info.Value, SelectSpecialt);
+            ItemAdapter<Specialty> adapter = new ItemAdapter<Specialty>(_view,
+                specialty => specialty.Info.Value
+            );
+
+            ChoiceItem<Specialty> choiceItem = new ChoiceItem<Specialty>(
+                adapter, SelectSpecialt, _view);
+            _view.ShowItems(choiceItem);
         }
 
         public void SelectSpecialt(Specialty specialty)
@@ -47,7 +60,13 @@ namespace Bukep.Sheduler.Controllers
                 specialty.Info.Key
             );
 
-            _view.Show(courses, course => course.Info.Value, SelectCourses);
+            ItemAdapter<Course> adapter = new ItemAdapter<Course>(_view,
+                course => course.Info.Value
+            );
+
+            ChoiceItem<Course> choiceItem = new ChoiceItem<Course>(
+                adapter, SelectCourses, _view);
+            _view.ShowItems(choiceItem);
         }
 
         public void SelectCourses(Course cours)
@@ -59,7 +78,13 @@ namespace Bukep.Sheduler.Controllers
                 _selectedSpecialty.Info.Key
             );
 
-            _view.Show(groups, group => $"{group.NameGroup} {group.NameTypeShedule}" , SelectGroup);
+            ItemAdapter<Group> adapter = new ItemAdapter<Group>(_view,
+                group => $"{@group.NameGroup} {@group.NameTypeShedule}"
+            );
+
+            ChoiceItem<Group> choiceItem = new ChoiceItem<Group>( 
+                adapter, SelectGroup, _view);
+            _view.ShowItems(choiceItem);
         }
 
         public void SelectGroup(Group group)
