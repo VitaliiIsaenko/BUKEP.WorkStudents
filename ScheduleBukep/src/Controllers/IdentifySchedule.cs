@@ -17,6 +17,10 @@ namespace Bukep.Sheduler.Controllers
         private Specialty _selectedSpecialty;
         private Course _selectedCourse;
         private Group _selectedGroup;
+        private ItemAdapter<Group> _itemAdapterGroup;
+        private ItemAdapter<Course> _itemAdapterCourse;
+        private ItemAdapter<Specialty> _itemAdapterSpecialty;
+        private ItemAdapter<Faculty> _itemAdapterFaculty;
 
         public IdentifySchedule(IdentifyScheduleActivity view) : base(view)
         {
@@ -29,13 +33,12 @@ namespace Bukep.Sheduler.Controllers
             _view.SetButtoneShowClickable(false);
             IList<Faculty> faculties = GetFaculties();
 
-            ItemAdapter<Faculty> adapter = new ItemAdapter<Faculty>(_view,
-                faculty => faculty.Info.Value
-            );
+            ItemChoiceFaculty();
+            _itemAdapterFaculty.Items = faculties;
 
-            ChoiceItem<Faculty> choiceItem = new ChoiceItem<Faculty>(
-                adapter, SelectFaculty, _view);
-            _view.ShowItems(choiceItem);
+            InitChoiceSpecialty();
+            InitChoiceCourse();
+            InitChoiceGroup();
         }
 
         public void SelectFaculty(Faculty faculty)
@@ -43,13 +46,7 @@ namespace Bukep.Sheduler.Controllers
             _selectedFaculty = faculty;
             IList<Specialty> specialties = GetSpecialtys(faculty.Info.Key);
 
-            ItemAdapter<Specialty> adapter = new ItemAdapter<Specialty>(_view,
-                specialty => specialty.Info.Value
-            );
-
-            ChoiceItem<Specialty> choiceItem = new ChoiceItem<Specialty>(
-                adapter, SelectSpecialt, _view);
-            _view.ShowItems(choiceItem);
+            _itemAdapterSpecialty.Items = specialties;
         }
 
         public void SelectSpecialt(Specialty specialty)
@@ -60,13 +57,7 @@ namespace Bukep.Sheduler.Controllers
                 specialty.Info.Key
             );
 
-            ItemAdapter<Course> adapter = new ItemAdapter<Course>(_view,
-                course => course.Info.Value
-            );
-
-            ChoiceItem<Course> choiceItem = new ChoiceItem<Course>(
-                adapter, SelectCourses, _view);
-            _view.ShowItems(choiceItem);
+            _itemAdapterCourse.Items = courses;
         }
 
         public void SelectCourses(Course cours)
@@ -78,13 +69,7 @@ namespace Bukep.Sheduler.Controllers
                 _selectedSpecialty.Info.Key
             );
 
-            ItemAdapter<Group> adapter = new ItemAdapter<Group>(_view,
-                group => $"{@group.NameGroup} {@group.NameTypeShedule}"
-            );
-
-            ChoiceItem<Group> choiceItem = new ChoiceItem<Group>( 
-                adapter, SelectGroup, _view);
-            _view.ShowItems(choiceItem);
+            _itemAdapterGroup.Items = groups;
         }
 
         public void SelectGroup(Group group)
@@ -104,6 +89,50 @@ namespace Bukep.Sheduler.Controllers
             intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
 
             _view.StartActivity(intent);
+        }
+
+        private void ItemChoiceFaculty()
+        {
+            _itemAdapterFaculty = new ItemAdapter<Faculty>(_view,
+                faculty => faculty.Info.Value
+            );
+
+            ChoiceItem<Faculty> choiceItem = new ChoiceItem<Faculty>(
+                _itemAdapterFaculty, SelectFaculty, _view);
+            _view.ShowItems(choiceItem);
+        }
+
+        private void InitChoiceSpecialty()
+        {
+            _itemAdapterSpecialty = new ItemAdapter<Specialty>(_view,
+                specialty => specialty.Info.Value
+            );
+
+            ChoiceItem<Specialty> choiceItem = new ChoiceItem<Specialty>(
+                _itemAdapterSpecialty, SelectSpecialt, _view);
+            _view.ShowItems(choiceItem);
+        }
+
+        private void InitChoiceCourse()
+        {
+            _itemAdapterCourse = new ItemAdapter<Course>(_view,
+                course => course.Info.Value
+            );
+
+            ChoiceItem<Course> choiceItem = new ChoiceItem<Course>(
+                _itemAdapterCourse, SelectCourses, _view);
+            _view.ShowItems(choiceItem);
+        }
+
+        private void InitChoiceGroup()
+        {
+            _itemAdapterGroup = new ItemAdapter<Group>(_view,
+                group => $"{@group.NameGroup} {@group.NameTypeShedule}"
+            );
+
+            ChoiceItem<Group> choiceItem = new ChoiceItem<Group>(
+                _itemAdapterGroup, SelectGroup, _view);
+            _view.ShowItems(choiceItem);
         }
     }
 }

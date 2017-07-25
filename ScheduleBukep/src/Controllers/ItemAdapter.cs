@@ -21,6 +21,7 @@ namespace Bukep.Sheduler.Controllers
             {
                 _items = value ?? throw new ArgumentNullException(nameof(value));
                 SetItemInFirstList();
+                NotifyDataSetChanged();
             }
         }
 
