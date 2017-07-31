@@ -56,7 +56,7 @@
     <Compile Include="helpers\CreatorUrl.cs" />
     <Compile Include="helpers\HttpRequstHelper.cs" />
     <Compile Include="helpers\JsonConvert.cs" />
-    <Compile Include="OverrideGetFaculty.cs" />
+    <Compile Include="service\FilteringFacultiesService.cs" />
     <Compile Include="service\paremeters\MethodApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="service\BaseService.cs" />

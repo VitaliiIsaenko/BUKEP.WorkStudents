@@ -7,13 +7,13 @@ using ScheduleBukepAPI.helpers;
 namespace ScheduleBukepAPI
 {
     //TODO: Добавить UnitTest
-    public class OverrideGetFaculty : FacultiesService
+    public class FilteringFacultiesService : FacultiesService
     {
-        public OverrideGetFaculty(HttpRequstHelper httpRequestHelper, JsonConvert jsonConvert) : base(httpRequestHelper, jsonConvert)
+        public FilteringFacultiesService(HttpRequstHelper httpRequestHelper, JsonConvert jsonConvert) : base(httpRequestHelper, jsonConvert)
         {
         }
 
-        public OverrideGetFaculty()
+        public FilteringFacultiesService()
         {
         }
 
