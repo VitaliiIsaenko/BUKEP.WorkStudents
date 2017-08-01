@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Widget;
@@ -38,7 +39,21 @@ namespace Bukep.Sheduler.View
 
         private void InitController()
         {
-            _controller = new IdentifySchedule(this);
+            int schedulesTypeInt = Intent.GetIntExtra(IdentifySchedule.IntentKeyDateSchedulesType, 1);
+            SchedulesType schedulesType = (SchedulesType)schedulesTypeInt;
+            switch (schedulesType)
+            {
+                case SchedulesType.ForStudent:
+                    _controller = new IdentifyScheduleStudent(this);
+                    break;
+                case SchedulesType.ForTeacher:
+                    _controller = new IdentifyScheduleTeacher(this);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(
+                        "Не удалось выбрать тип расписания. SchedulesType = "+schedulesTypeInt);
+            }
+
             _controller.Update();
         }
 

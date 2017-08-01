@@ -27,10 +27,10 @@ namespace Bukep.Sheduler.View
             SetContentView(Resource.Layout.MenuLayout);
 
             var scheduleGroup = FindViewById<Button>(Resource.Id.schedule_group);
-            scheduleGroup.Click += _menu.ClickScheduleGroup;
+            scheduleGroup.Click += _menu.ClickScheduleForStudent;
 
             var scheduleTeacher = FindViewById<Button>(Resource.Id.schedule_teacher);
-            scheduleTeacher.Click += _menu.ClickScheduleTeacher;
+            scheduleTeacher.Click += _menu.ClickScheduleForTeacher;
 
             var scheduleBell = FindViewById<Button>(Resource.Id.schedule_bell);
             scheduleBell.Click += _menu.ClickScheduleBell;

@@ -18,7 +18,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -106,16 +106,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Controllers\IdentifyScheduleTeacher.cs" />
     <Compile Include="src\Controllers\ItemAdapter.cs" />
+    <Compile Include="src\SchedulesType .cs" />
     <Compile Include="src\View\BaseActivity.cs" />
     <Compile Include="src\LessonOnDay.cs" />
     <Compile Include="src\Controllers\Menu.cs" />
     <Compile Include="src\View\ChoiceItem.cs" />
     <Compile Include="src\View\factory\MainFactory.cs" />
     <Compile Include="src\View\ChooseItemView.cs" />
+    <Compile Include="src\Controllers\IdentifySchedule.cs" />
     <Compile Include="src\View\NavigationActivity.cs" />
     <Compile Include="src\Controllers\Controller.cs" />
-    <Compile Include="src\Controllers\IdentifySchedule.cs" />
+    <Compile Include="src\Controllers\IdentifyScheduleStudent.cs" />
     <Compile Include="src\Controllers\Schedule.cs" />
     <Compile Include="src\View\IdentifyScheduleActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

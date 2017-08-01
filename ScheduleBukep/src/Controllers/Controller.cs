@@ -17,42 +17,33 @@ namespace Bukep.Sheduler.Controllers
     {
         private const string Tag = "Controller";
 
-        //TODO: добавить FacadeApiFactory
+        protected readonly DateShedules _dateShedules;
+        
+        protected Controller(BaseActivity activity)
+        {
+            _dateShedules = new DateShedules(activity);
+        }
+
+        public abstract void Update();
+    }
+
+    public class DateShedules
+    {
+        private readonly BaseActivity _activity;
+        private readonly JsonConvert _jsonConvert = new JsonConvert();
+        private const string Tag = "DateShedules";
+
+        //TODO: добавить ApiFactory
         private readonly Api _api = new Api(
-            new OverrideGetFaculty(new FakeHttpRequstHelper(), new JsonConvert()), 
+            new FilteringFacultiesService(new FakeHttpRequstHelper(), new JsonConvert()),
             new SchedulesService(new FakeHttpRequstHelper(), new JsonConvert())
         );
 
-        private readonly JsonConvert _jsonConvert = new JsonConvert();
-        private readonly BaseActivity _activity;
         private ConnectivityManager _connectivityManager;
 
-        protected Controller(BaseActivity activity)
+        public DateShedules(BaseActivity activity)
         {
             _activity = activity;
-        }
-
-
-        public abstract void Update();
-
-        private bool CheckInternetConnect()
-        {
-            if (_connectivityManager == null)
-            {
-                _connectivityManager = (ConnectivityManager) _activity.GetSystemService(Context.ConnectivityService);
-            }
-            return _connectivityManager.ActiveNetworkInfo.IsConnected;
-        }
-
-        public void FailedInternetConnect()
-        {
-            //TODO: move in res
-            _activity.ShowError("Отсутствует подключение к интернету.");
-        }
-
-        protected T ConvertTo<T>(string jsonGroup)
-        {
-            return _jsonConvert.ConvertTo<T>(jsonGroup);
         }
 
         public IList<Faculty> GetFaculties()
@@ -129,7 +120,45 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
-        public IList<Lesson> GetGroupLessons(IList<int> idsSheduleGroup, 
+        public IList<Pulpit> GetPulpit()
+        {
+            if (!CheckInternetConnect())
+            {
+                FailedInternetConnect();
+            }
+
+            try
+            {
+                return _api.GetPulpits();
+            }
+            catch (WebException e)
+            {
+                Log.Error(Tag, e.ToString());
+                FailedInternetConnect();
+                return new List<Pulpit>();
+            }
+        }
+
+        public IList<Teacher> GetTeacher(int idPulpit)
+        {
+            if (!CheckInternetConnect())
+            {
+                FailedInternetConnect();
+            }
+
+            try
+            {
+                return _api.GetTeacher(idPulpit);
+            }
+            catch (WebException e)
+            {
+                Log.Error(Tag, e.ToString());
+                FailedInternetConnect();
+                return new List<Teacher>();
+            }
+        }
+
+        public IList<Lesson> GetGroupLessons(IList<int> idsSheduleGroup,
             DateTime dateFrom, DateTime dateTo)
         {
             if (!CheckInternetConnect())
@@ -149,9 +178,29 @@ namespace Bukep.Sheduler.Controllers
             }
         }
 
-        protected string ConvertToJson(Group selectedGroup)
+        public T ConvertTo<T>(string jsonGroup)
+        {
+            return _jsonConvert.ConvertTo<T>(jsonGroup);
+        }
+
+        public string ConvertToJson(Group selectedGroup)
         {
             return _jsonConvert.ConvertToJson(selectedGroup);
+        }
+
+        private bool CheckInternetConnect()
+        {
+            if (_connectivityManager == null)
+            {
+                _connectivityManager = (ConnectivityManager)_activity.GetSystemService(Context.ConnectivityService);
+            }
+            return _connectivityManager.ActiveNetworkInfo.IsConnected;
+        }
+
+        public void FailedInternetConnect()
+        {
+            //TODO: move in res
+            _activity.ShowError("Отсутствует подключение к интернету.");
         }
     }
 }

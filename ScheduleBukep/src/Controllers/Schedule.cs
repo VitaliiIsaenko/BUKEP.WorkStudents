@@ -62,7 +62,7 @@ namespace Bukep.Sheduler.Controllers
         /// <returns>Список уроков в указанный интервал времени</returns>
         private IList<Lesson> RequestSchedules(Group group, DateTime dateLessonStart, DateTime dateLessonEnd)
         {
-            var lessons = GetGroupLessons(group.IdsSchedulGroup, dateLessonStart, dateLessonEnd);
+            var lessons = _dateShedules.GetGroupLessons(group.IdsSchedulGroup, dateLessonStart, dateLessonEnd);
             return lessons;
         }
 
@@ -70,7 +70,7 @@ namespace Bukep.Sheduler.Controllers
         {
             var jsonGroup = GetJsonFromeIntent(IntentKeyGroupsJson);
             Log.Info(Tag, "jsonGroup = " + jsonGroup);
-            var group = ConvertTo<Group>(jsonGroup);
+            var group = _dateShedules.ConvertTo<Group>(jsonGroup);
             return group;
         }
 
