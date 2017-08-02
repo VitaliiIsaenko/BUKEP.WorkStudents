@@ -7,31 +7,29 @@ namespace ScheduleBukepAPI.service
     public class BaseService
     {
         private readonly HttpRequstHelper _httpRequestHelper;
-        private readonly JsonConvert _jsonConvert;
 
-        public BaseService(HttpRequstHelper httpRequestHelper, JsonConvert jsonConvert)
+        public BaseService(HttpRequstHelper httpRequestHelper)
         {
             _httpRequestHelper = httpRequestHelper;
-            _jsonConvert = jsonConvert;
         }
 
-        public BaseService() : this(new HttpRequstHelper(), new JsonConvert())
+        public BaseService() : this(new HttpRequstHelper())
         {
         }
 
         protected List<T> ConvertToList<T>(string json)
         {
-            return _jsonConvert.ConvertToList<T>(json);
+            return JsonConvert.ConvertToList<T>(json);
         }
 
         protected T ConvertTo<T>(string json)
         {
-            return _jsonConvert.ConvertTo<T>(json);
+            return JsonConvert.ConvertTo<T>(json);
         }
 
         protected string ConvertToJson<T>(T dto)
         {
-            return _jsonConvert.ConvertToJson(dto);
+            return JsonConvert.ConvertToJson(dto);
         }
 
         protected string ExecuteGet(MethodApi nameMethod, IDictionary<string, string> parameters)

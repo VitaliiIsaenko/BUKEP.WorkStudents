@@ -13,10 +13,8 @@ namespace ScheduleBukepAPITest
     internal class MainStart
     {
         private static readonly Api Api = new Api(
-            new FilteringFacultiesService(
-                new FakeHttpRequstHelper(), new JsonConvert()),
-            new SchedulesService(
-                new FakeHttpRequstHelper(), new JsonConvert())
+            new FilteringFacultiesService(new FakeHttpRequstHelper()),
+            new SchedulesService(new FakeHttpRequstHelper())
         );
 
         private static void Main(string[] args)

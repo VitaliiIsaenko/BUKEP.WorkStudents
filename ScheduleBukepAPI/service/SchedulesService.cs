@@ -10,7 +10,7 @@ namespace ScheduleBukepAPI.service
     {
         private readonly ParameterConstructor _parameterConstructor = new ParameterConstructor();
 
-        public SchedulesService(HttpRequstHelper httpRequestHelper, JsonConvert jsonConvert) : base(httpRequestHelper, jsonConvert)
+        public SchedulesService(HttpRequstHelper httpRequestHelper) : base(httpRequestHelper)
         {
         }
 

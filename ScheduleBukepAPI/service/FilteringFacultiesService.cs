@@ -1,15 +1,14 @@
-﻿using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.service;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
 
-namespace ScheduleBukepAPI
+namespace ScheduleBukepAPI.service
 {
     //TODO: Добавить UnitTest
     public class FilteringFacultiesService : FacultiesService
     {
-        public FilteringFacultiesService(HttpRequstHelper httpRequestHelper, JsonConvert jsonConvert) : base(httpRequestHelper, jsonConvert)
+        public FilteringFacultiesService(HttpRequstHelper httpRequestHelper) : base(httpRequestHelper)
         {
         }
 

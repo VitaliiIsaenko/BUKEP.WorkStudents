@@ -2,19 +2,19 @@
 
 namespace ScheduleBukepAPI.helpers
 {
-    public class JsonConvert
+    public static class JsonConvert
     {
-        public List<T> ConvertToList<T>(string json)
+        public static List<T> ConvertToList<T>(string json)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<List<T>>(json);
         }
 
-        public T ConvertTo<T>(string json)
+        public static T ConvertTo<T>(string json)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(json);
         }
 
-        public string ConvertToJson<T>(T dto)
+        public static string ConvertToJson<T>(T dto)
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(dto);
         }

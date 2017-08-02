@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI.domain;
 
@@ -22,7 +23,7 @@ namespace Bukep.Sheduler.Controllers
             base.Update();
 
             InitChoicePulpit();
-            _itemAdapterPulpit.Items = _dateShedules.GetPulpit();
+            _itemAdapterPulpit.Items = DataProvider.GetPulpits();
 
             InitChoiceTeacher();
         }
@@ -33,9 +34,9 @@ namespace Bukep.Sheduler.Controllers
                 pulpit => pulpit.NamePulpit
             );
 
-            ChoiceItem<Pulpit> choiceItem = new ChoiceItem<Pulpit>(
+            ItemChoice<Pulpit> itemChoice = new ItemChoice<Pulpit>(
                 _itemAdapterPulpit, SelectPulpit, _view);
-            _view.ShowItems(choiceItem);
+            _view.ShowItems(itemChoice);
         }
 
         private void InitChoiceTeacher()
@@ -44,15 +45,15 @@ namespace Bukep.Sheduler.Controllers
                 teacher => teacher.Fio
             );
 
-            ChoiceItem<Teacher> choiceItem = new ChoiceItem<Teacher>(
+            ItemChoice<Teacher> itemChoice = new ItemChoice<Teacher>(
                 _itemAdapterTeacher, SelectTeacher, _view);
-            _view.ShowItems(choiceItem);
+            _view.ShowItems(itemChoice);
         }
 
         private void SelectPulpit(Pulpit pulpit)
         {
             _selectedPulpit = pulpit;
-            _itemAdapterTeacher.Items = _dateShedules.GetTeacher(pulpit.IdPulpit);
+            _itemAdapterTeacher.Items = DataProvider.GetTeacher(pulpit.IdPulpit);
         }
 
         private void SelectTeacher(Teacher teacher)

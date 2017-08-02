@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Android.Content;
+using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
@@ -26,7 +28,7 @@ namespace Bukep.Sheduler.Controllers
         public override void Update()
         {
             base.Update();
-            IList<Faculty> faculties = _dateShedules.GetFaculties();
+            IList<Faculty> faculties = DataProvider.GetFaculties();
 
             ItemChoiceFaculty();
             _itemAdapterFaculty.Items = faculties;
@@ -39,7 +41,7 @@ namespace Bukep.Sheduler.Controllers
         public void SelectFaculty(Faculty faculty)
         {
             _selectedFaculty = faculty;
-            IList<Specialty> specialties = _dateShedules.GetSpecialtys(faculty.Info.Key);
+            IList<Specialty> specialties = DataProvider.GetSpecialtys(faculty.Info.Key);
 
             _itemAdapterSpecialty.Items = specialties;
         }
@@ -47,7 +49,7 @@ namespace Bukep.Sheduler.Controllers
         public void SelectSpecialt(Specialty specialty)
         {
             _selectedSpecialty = specialty;
-            IList<Course> courses = _dateShedules.GetCourses(
+            IList<Course> courses = DataProvider.GetCourses(
                 _selectedFaculty.Info.Key,
                 specialty.Info.Key
             );
@@ -58,7 +60,7 @@ namespace Bukep.Sheduler.Controllers
         public void SelectCourses(Course cours)
         {
             _selectedCourse = cours;
-            IList<Group> groups = _dateShedules.GetGroups(
+            IList<Group> groups = DataProvider.GetGroups(
                 _selectedFaculty.Info.Key,
                 _selectedCourse.Info.Key,
                 _selectedSpecialty.Info.Key
@@ -76,7 +78,7 @@ namespace Bukep.Sheduler.Controllers
         protected override void ClickeButtoneShow(object sender, EventArgs e)
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
-            var jsonGroup = _dateShedules.ConvertToJson(_selectedGroup);
+            var jsonGroup = JsonConvert.ConvertToJson(_selectedGroup);
             intent.PutExtra(Schedule.IntentKeyGroupsJson, jsonGroup);
 
             var today = DateTime.Today.ToString(Api.DateTimeFormat);
@@ -92,9 +94,9 @@ namespace Bukep.Sheduler.Controllers
                 faculty => faculty.Info.Value
             );
 
-            ChoiceItem<Faculty> choiceItem = new ChoiceItem<Faculty>(
+            ItemChoice<Faculty> itemChoice = new ItemChoice<Faculty>(
                 _itemAdapterFaculty, SelectFaculty, _view);
-            _view.ShowItems(choiceItem);
+            _view.ShowItems(itemChoice);
         }
 
         private void InitChoiceSpecialty()
@@ -103,9 +105,9 @@ namespace Bukep.Sheduler.Controllers
                 specialty => specialty.Info.Value
             );
 
-            ChoiceItem<Specialty> choiceItem = new ChoiceItem<Specialty>(
+            ItemChoice<Specialty> itemChoice = new ItemChoice<Specialty>(
                 _itemAdapterSpecialty, SelectSpecialt, _view);
-            _view.ShowItems(choiceItem);
+            _view.ShowItems(itemChoice);
         }
 
         private void InitChoiceCourse()
@@ -114,9 +116,9 @@ namespace Bukep.Sheduler.Controllers
                 course => course.Info.Value
             );
 
-            ChoiceItem<Course> choiceItem = new ChoiceItem<Course>(
+            ItemChoice<Course> itemChoice = new ItemChoice<Course>(
                 _itemAdapterCourse, SelectCourses, _view);
-            _view.ShowItems(choiceItem);
+            _view.ShowItems(itemChoice);
         }
 
         private void InitChoiceGroup()
@@ -125,9 +127,9 @@ namespace Bukep.Sheduler.Controllers
                 group => $"{@group.NameGroup} {@group.NameTypeShedule}"
             );
 
-            ChoiceItem<Group> choiceItem = new ChoiceItem<Group>(
+            ItemChoice<Group> itemChoice = new ItemChoice<Group>(
                 _itemAdapterGroup, SelectGroup, _view);
-            _view.ShowItems(choiceItem);
+            _view.ShowItems(itemChoice);
         }
     }
 }

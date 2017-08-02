@@ -4,6 +4,7 @@ using Android.Util;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
@@ -62,7 +63,7 @@ namespace Bukep.Sheduler.Controllers
         /// <returns>Список уроков в указанный интервал времени</returns>
         private IList<Lesson> RequestSchedules(Group group, DateTime dateLessonStart, DateTime dateLessonEnd)
         {
-            var lessons = _dateShedules.GetGroupLessons(group.IdsSchedulGroup, dateLessonStart, dateLessonEnd);
+            var lessons = DataProvider.GetGroupLessons(group.IdsSchedulGroup, dateLessonStart, dateLessonEnd);
             return lessons;
         }
 
@@ -70,7 +71,7 @@ namespace Bukep.Sheduler.Controllers
         {
             var jsonGroup = GetJsonFromeIntent(IntentKeyGroupsJson);
             Log.Info(Tag, "jsonGroup = " + jsonGroup);
-            var group = _dateShedules.ConvertTo<Group>(jsonGroup);
+            var group = JsonConvert.ConvertTo<Group>(jsonGroup);
             return group;
         }
 
