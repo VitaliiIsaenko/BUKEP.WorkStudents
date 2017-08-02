@@ -26,9 +26,9 @@ namespace Bukep.Sheduler.View
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
 
             ShowSchedulesButtone = FindViewById<Button>(Resource.Id.buttoneShow);
+            InitNavigationView();
 
             InitController();
-            InitNavigationView();
         }
 
         //TODO: add doc

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
@@ -26,16 +25,34 @@ namespace Bukep.Sheduler.View
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ScheduleLayout);
 
-            InitNavigationView();
-            var imageFavorites = FindViewById<ImageView>(Resource.Id.toolbarImageFavorites);
-            imageFavorites.Click += ClickImageFavorites;
+            InitView();
+            InitController();
+        }
 
-            _toolbarPeriod = FindViewById<TextView>(Resource.Id.toolbarSchedulesPeriod);
-            _toolbarPeriod.Click += ClickSchedulesPeriod;
+        private void InitView()
+        {
+            InitNavigationView();
+            InitImageFavorites();
+            InitToolbarPeriod();
 
             _toolbarDate = FindViewById<TextView>(Resource.Id.toolbarDate);
             _toolbarGroop = FindViewById<TextView>(Resource.Id.toolbarGroop);
+        }
 
+        private void InitToolbarPeriod()
+        {
+            _toolbarPeriod = FindViewById<TextView>(Resource.Id.toolbarSchedulesPeriod);
+            _toolbarPeriod.Click += ClickSchedulesPeriod;
+        }
+
+        private void InitImageFavorites()
+        {
+            var imageFavorites = FindViewById<ImageView>(Resource.Id.toolbarImageFavorites);
+            imageFavorites.Click += ClickImageFavorites;
+        }
+
+        private void InitController()
+        {
             _schedule = new Schedule(this);
             _schedule.Update();
         }
