@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Bukep.Sheduler.Controllers;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
@@ -7,7 +8,7 @@ using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service;
 using ScheduleBukepAPITest;
 
-namespace Bukep.Sheduler.Controllers
+namespace Bukep.Sheduler.logic
 {
     /// <summary>
     /// ѕредоставл€ет данные дл€ приложени€.
@@ -18,8 +19,8 @@ namespace Bukep.Sheduler.Controllers
 
         //TODO: добавить ApiFactory
         private readonly Api _api = new Api(
-            new FilteringFacultiesService(new FakeHttpRequstHelper()),
-            new SchedulesService(new FakeHttpRequstHelper())
+            new FilteringFacultiesService(new HttpRequstHelper()),
+            new SchedulesService(new HttpRequstHelper())
         );
 
         private readonly InternetChecker _internetChecker;

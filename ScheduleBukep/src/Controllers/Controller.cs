@@ -1,4 +1,5 @@
-﻿using Bukep.Sheduler.View;
+﻿using Bukep.Sheduler.logic;
+using Bukep.Sheduler.View;
 
 namespace Bukep.Sheduler.Controllers
 {

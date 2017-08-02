@@ -54,7 +54,9 @@ namespace Bukep.Sheduler.Controllers
             {
                 _connectivityManager = (ConnectivityManager) _activity.GetSystemService(Context.ConnectivityService);
             }
-            return _connectivityManager.ActiveNetworkInfo.IsConnected;
+
+            NetworkInfo info = _connectivityManager.ActiveNetworkInfo;
+            return info != null && info.IsConnected;
         }
 
         public void FailedInternetConnect()
