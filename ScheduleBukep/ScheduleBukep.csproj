@@ -110,9 +110,9 @@
     <Compile Include="src\controllers\IdentifyScheduleTeacher.cs" />
     <Compile Include="src\logic\InternetChecker.cs" />
     <Compile Include="src\logic\ItemAdapter.cs" />
-    <Compile Include="src\SchedulesType .cs" />
+    <Compile Include="src\logic\SchedulesType .cs" />
     <Compile Include="src\view\BaseActivity.cs" />
-    <Compile Include="src\LessonOnDay.cs" />
+    <Compile Include="src\logic\LessonOnDay.cs" />
     <Compile Include="src\controllers\Menu.cs" />
     <Compile Include="src\logic\ItemChoice.cs" />
     <Compile Include="src\view\factory\MainFactory.cs" />

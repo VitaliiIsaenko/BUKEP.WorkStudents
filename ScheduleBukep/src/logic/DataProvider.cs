@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Bukep.Sheduler.Controllers;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service;
-using ScheduleBukepAPITest;
 
 namespace Bukep.Sheduler.logic
 {
