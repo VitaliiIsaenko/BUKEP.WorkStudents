@@ -5,7 +5,7 @@ using Android.Net;
 using Android.Util;
 using Bukep.Sheduler.View;
 
-namespace Bukep.Sheduler.Controllers
+namespace Bukep.Sheduler.logic
 {
     /// <summary>
     /// Нужен для проверки интернета перед выполнением каких либо действий.
