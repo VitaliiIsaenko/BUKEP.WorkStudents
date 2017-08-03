@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ScheduleBukepAPI.domain;
 
-namespace Bukep.Sheduler
+namespace Bukep.Sheduler.logic
 {
     /// <summary>
     /// Используется для группировки Lesson по дате.

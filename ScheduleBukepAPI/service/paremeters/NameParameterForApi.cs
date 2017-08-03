@@ -12,7 +12,7 @@
         IdCourse,
         IdPulpit,
         IdTeacher,
-        IdsSheduleGroup,
+        IdsScheduleGroup,
         DateFrom,
         DateTo,
     }

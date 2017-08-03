@@ -106,6 +106,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\controllers\Schedule.cs" />
+    <Compile Include="src\controllers\ScheduleForTeacher.cs" />
+    <Compile Include="src\controllers\SchedulesManager.cs" />
     <Compile Include="src\logic\DataProvider.cs" />
     <Compile Include="src\controllers\IdentifyScheduleTeacher.cs" />
     <Compile Include="src\logic\InternetChecker.cs" />
@@ -120,7 +123,7 @@
     <Compile Include="src\view\NavigationActivity.cs" />
     <Compile Include="src\controllers\Controller.cs" />
     <Compile Include="src\controllers\IdentifyScheduleStudent.cs" />
-    <Compile Include="src\controllers\Schedule.cs" />
+    <Compile Include="src\controllers\ScheduleForStudent.cs" />
     <Compile Include="src\view\IdentifyScheduleActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

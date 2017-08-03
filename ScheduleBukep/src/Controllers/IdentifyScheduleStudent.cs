@@ -79,11 +79,12 @@ namespace Bukep.Sheduler.Controllers
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
             var jsonGroup = JsonConvert.ConvertToJson(_selectedGroup);
-            intent.PutExtra(Schedule.IntentKeyGroupsJson, jsonGroup);
+            intent.PutExtra(ScheduleForStudent.IntentKeyGroupsJson, jsonGroup);
 
             var today = DateTime.Today.ToString(Api.DateTimeFormat);
             intent.PutExtra(Schedule.IntentKeyDateLessonStart, today);
             intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
+            intent.PutExtra(IntentKeyDateSchedulesType, (int) SchedulesType.ForStudent);
 
             _view.StartActivity(intent);
         }
@@ -124,7 +125,7 @@ namespace Bukep.Sheduler.Controllers
         private void InitChoiceGroup()
         {
             _itemAdapterGroup = new ItemAdapter<Group>(_view,
-                group => $"{@group.NameGroup} {@group.NameTypeShedule}"
+                group => $"{@group.NameGroup} {@group.NameTypeSchedule}"
             );
 
             ItemChoice<Group> itemChoice = new ItemChoice<Group>(

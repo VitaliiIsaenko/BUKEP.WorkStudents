@@ -5,7 +5,9 @@ using Android.Content;
 using Android.OS;
 using Android.Util;
 using Android.Widget;
+using Bukep.Sheduler.controllers;
 using Bukep.Sheduler.Controllers;
+using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View.factory;
 
 namespace Bukep.Sheduler.View
@@ -13,7 +15,7 @@ namespace Bukep.Sheduler.View
     [Activity()]
     public class ScheduleActivity : NavigationActivity
     {
-        private Schedule _schedule;
+        private Schedule _controller;
         private bool _isClickImageFavorites;
         private TextView _toolbarGroop;
         private TextView _toolbarDate;
@@ -53,8 +55,21 @@ namespace Bukep.Sheduler.View
 
         private void InitController()
         {
-            _schedule = new Schedule(this);
-            _schedule.Update();
+            int schedulesTypeInt = Intent.GetIntExtra(IdentifySchedule.IntentKeyDateSchedulesType, 1);
+            SchedulesType schedulesType = (SchedulesType)schedulesTypeInt;
+            switch (schedulesType)
+            {
+                case SchedulesType.ForStudent:
+                    _controller = new ScheduleForStudent(this);
+                    break;
+                case SchedulesType.ForTeacher:
+                    _controller = new ScheduleForTeacher(this);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(
+                        "Не удалось выбрать тип расписания. SchedulesType = " + schedulesTypeInt);
+            }
+            _controller.Update();
         }
 
         public void SetPeriodForToolbar(string name)
@@ -90,13 +105,13 @@ namespace Bukep.Sheduler.View
             switch (e.Which)
             {
                 case 0:
-                    _schedule.ChoosePeriodOneDay();
+                    _controller.SchedulesManager.ChoosePeriodOneDay();
                     break;
                 case 1:
-                    _schedule.ChoosePeriodThreeDay();
+                    _controller.SchedulesManager.ChoosePeriodThreeDay();
                     break;
                 case 2:
-                    _schedule.ChoosePeriodWeek();
+                    _controller.SchedulesManager.ChoosePeriodWeek();
                     break;
             }
         }
