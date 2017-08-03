@@ -109,7 +109,7 @@ namespace ScheduleBukepAPITest
             for (var i = 0; i < groups.Count; i++)
             {
                 var group = groups[i];
-                Console.WriteLine("{0}. {1} {2} = {3} ", i, group.NameGroup, group.NameTypeShedule,
+                Console.WriteLine("{0}. {1} {2} = {3} ", i, group.NameGroup, group.NameTypeSchedule,
                     Api.ConvertIdsToString(group.IdsSchedulGroup));
             }
 

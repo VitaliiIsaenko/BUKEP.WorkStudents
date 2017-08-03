@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Bukep.Sheduler;
+using Bukep.Sheduler.logic;
 using ScheduleBukepAPI.domain;
 using NUnit.Framework;
 

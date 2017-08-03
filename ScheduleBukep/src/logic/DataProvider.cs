@@ -84,5 +84,13 @@ namespace Bukep.Sheduler.logic
                 new List<Lesson>()
             );
         }
+
+        public IList<Lesson> GetTeacherLessons(IList<int> idsTeacher, DateTime dateFrom, DateTime dateTo)
+        {
+            return _internetChecker.ExecuteOperation(
+                () => _api.GetTeacherLessons(idsTeacher, dateFrom, dateTo),
+                new List<Lesson>()
+            );
+        }
     }
 }

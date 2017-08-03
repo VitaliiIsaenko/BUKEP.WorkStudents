@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using Android.Content;
+using Bukep.Sheduler.controllers;
 using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
+using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
     internal class IdentifyScheduleTeacher : IdentifySchedule
     {
-
-        private Pulpit _selectedPulpit;
         private Teacher _selectedTeacher;
         private ItemAdapter<Pulpit> _itemAdapterPulpit;
         private ItemAdapter<Teacher> _itemAdapterTeacher;
@@ -52,7 +54,6 @@ namespace Bukep.Sheduler.Controllers
 
         private void SelectPulpit(Pulpit pulpit)
         {
-            _selectedPulpit = pulpit;
             _itemAdapterTeacher.Items = DataProvider.GetTeacher(pulpit.IdPulpit);
         }
 
@@ -64,7 +65,16 @@ namespace Bukep.Sheduler.Controllers
 
         protected override void ClickeButtoneShow(object sender, EventArgs e)
         {
-            
+            var intent = new Intent(_view, typeof(ScheduleActivity));
+            var jsonTeacher = JsonConvert.ConvertToJson(_selectedTeacher);
+            intent.PutExtra(ScheduleForTeacher.IntentKeyTeacherJson, jsonTeacher);
+
+            var today = DateTime.Today.ToString(Api.DateTimeFormat);
+            intent.PutExtra(Schedule.IntentKeyDateLessonStart, today);
+            intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
+            intent.PutExtra(IntentKeyDateSchedulesType, (int)SchedulesType.ForTeacher);
+
+            _view.StartActivity(intent);
         }
     }
 }
