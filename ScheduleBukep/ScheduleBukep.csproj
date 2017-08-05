@@ -117,7 +117,6 @@
     <Compile Include="src\view\BaseActivity.cs" />
     <Compile Include="src\logic\LessonOnDay.cs" />
     <Compile Include="src\controllers\Menu.cs" />
-    <Compile Include="src\logic\ItemChoice.cs" />
     <Compile Include="src\view\factory\MainFactory.cs" />
     <Compile Include="src\controllers\IdentifySchedule.cs" />
     <Compile Include="src\view\NavigationActivity.cs" />
@@ -154,9 +153,6 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ItemForSpinner.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\ChoiceItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

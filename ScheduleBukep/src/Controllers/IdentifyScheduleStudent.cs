@@ -11,15 +11,9 @@ namespace Bukep.Sheduler.Controllers
 {
     internal class IdentifyScheduleStudent : IdentifySchedule
     {
-
         private Faculty _selectedFaculty;
         private Specialty _selectedSpecialty;
         private Course _selectedCourse;
-        private Group _selectedGroup;
-        private ItemAdapter<Group> _itemAdapterGroup;
-        private ItemAdapter<Course> _itemAdapterCourse;
-        private ItemAdapter<Specialty> _itemAdapterSpecialty;
-        private ItemAdapter<Faculty> _itemAdapterFaculty;
 
         public IdentifyScheduleStudent(IdentifyScheduleActivity view) : base(view)
         {
@@ -27,26 +21,30 @@ namespace Bukep.Sheduler.Controllers
 
         public override void Update()
         {
-            base.Update();
-            IList<Faculty> faculties = DataProvider.GetFaculties();
-
             ItemChoiceFaculty();
-            _itemAdapterFaculty.Items = faculties;
-
-            InitChoiceSpecialty();
-            InitChoiceCourse();
-            InitChoiceGroup();
         }
 
-        public void SelectFaculty(Faculty faculty)
+        private void ItemChoiceFaculty()
+        {
+            ItemAdapter<Faculty> adapterFaculty = new ItemAdapter<Faculty>(
+                DataProvider.GetFaculties(),
+                faculty => faculty.Info.Value
+            );
+            _view.ChoiceItem(adapterFaculty, InitChoiceSpecialty);
+        }
+
+        private void InitChoiceSpecialty(Faculty faculty)
         {
             _selectedFaculty = faculty;
-            IList<Specialty> specialties = DataProvider.GetSpecialtys(faculty.Info.Key);
 
-            _itemAdapterSpecialty.Items = specialties;
+            ItemAdapter<Specialty> adapterSpecialty = new ItemAdapter<Specialty>(
+                DataProvider.GetSpecialtys(faculty.Info.Key),
+                specialty => specialty.Info.Value
+            );
+            _view.ChoiceItem(adapterSpecialty, InitChoiceCourse);
         }
 
-        public void SelectSpecialt(Specialty specialty)
+        private void InitChoiceCourse(Specialty specialty)
         {
             _selectedSpecialty = specialty;
             IList<Course> courses = DataProvider.GetCourses(
@@ -54,83 +52,43 @@ namespace Bukep.Sheduler.Controllers
                 specialty.Info.Key
             );
 
-            _itemAdapterCourse.Items = courses;
+            ItemAdapter<Course> adapterCourse = new ItemAdapter<Course>(
+                courses,
+                course => course.Info.Value
+            );
+
+            _view.ChoiceItem(adapterCourse, InitChoiceGroup);
         }
 
-        public void SelectCourses(Course cours)
+        private void InitChoiceGroup(Course course)
         {
-            _selectedCourse = cours;
+            _selectedCourse = course;
             IList<Group> groups = DataProvider.GetGroups(
                 _selectedFaculty.Info.Key,
                 _selectedCourse.Info.Key,
                 _selectedSpecialty.Info.Key
             );
 
-            _itemAdapterGroup.Items = groups;
+            ItemAdapter<Group> adapterGroup = new ItemAdapter<Group>(
+                groups,
+                group => $"{group.NameGroup} {group.NameTypeSchedule}"
+            );
+
+            _view.ChoiceItem(adapterGroup, ClickeButtoneShow);
         }
 
-        public void SelectGroup(Group group)
-        {
-            _selectedGroup = group;
-            _view.SetButtoneShowClickable(true);
-        }
-
-        protected override void ClickeButtoneShow(object sender, EventArgs e)
+        protected void ClickeButtoneShow(Group group)
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
-            var jsonGroup = JsonConvert.ConvertToJson(_selectedGroup);
+            var jsonGroup = JsonConvert.ConvertToJson(group);
             intent.PutExtra(ScheduleForStudent.IntentKeyGroupsJson, jsonGroup);
 
             var today = DateTime.Today.ToString(Api.DateTimeFormat);
             intent.PutExtra(Schedule.IntentKeyDateLessonStart, today);
             intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
-            intent.PutExtra(IntentKeyDateSchedulesType, (int) SchedulesType.ForStudent);
+            intent.PutExtra(IntentKeyDateSchedulesType, (int)SchedulesType.ForStudent);
 
             _view.StartActivity(intent);
-        }
-
-        private void ItemChoiceFaculty()
-        {
-            _itemAdapterFaculty = new ItemAdapter<Faculty>(_view,
-                faculty => faculty.Info.Value
-            );
-
-            ItemChoice<Faculty> itemChoice = new ItemChoice<Faculty>(
-                _itemAdapterFaculty, SelectFaculty, _view);
-            _view.ShowItems(itemChoice);
-        }
-
-        private void InitChoiceSpecialty()
-        {
-            _itemAdapterSpecialty = new ItemAdapter<Specialty>(_view,
-                specialty => specialty.Info.Value
-            );
-
-            ItemChoice<Specialty> itemChoice = new ItemChoice<Specialty>(
-                _itemAdapterSpecialty, SelectSpecialt, _view);
-            _view.ShowItems(itemChoice);
-        }
-
-        private void InitChoiceCourse()
-        {
-            _itemAdapterCourse = new ItemAdapter<Course>(_view,
-                course => course.Info.Value
-            );
-
-            ItemChoice<Course> itemChoice = new ItemChoice<Course>(
-                _itemAdapterCourse, SelectCourses, _view);
-            _view.ShowItems(itemChoice);
-        }
-
-        private void InitChoiceGroup()
-        {
-            _itemAdapterGroup = new ItemAdapter<Group>(_view,
-                group => $"{@group.NameGroup} {@group.NameTypeSchedule}"
-            );
-
-            ItemChoice<Group> itemChoice = new ItemChoice<Group>(
-                _itemAdapterGroup, SelectGroup, _view);
-            _view.ShowItems(itemChoice);
         }
     }
 }

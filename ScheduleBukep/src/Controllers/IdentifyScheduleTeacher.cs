@@ -11,9 +11,6 @@ namespace Bukep.Sheduler.Controllers
 {
     internal class IdentifyScheduleTeacher : IdentifySchedule
     {
-        private Teacher _selectedTeacher;
-        private ItemAdapter<Pulpit> _itemAdapterPulpit;
-        private ItemAdapter<Teacher> _itemAdapterTeacher;
 
         public IdentifyScheduleTeacher(IdentifyScheduleActivity view) : base(view)
         {
@@ -21,51 +18,33 @@ namespace Bukep.Sheduler.Controllers
 
         public override void Update()
         {
-            base.Update();
-
             InitChoicePulpit();
-            _itemAdapterPulpit.Items = DataProvider.GetPulpits();
-
-            InitChoiceTeacher();
         }
 
         private void InitChoicePulpit()
         {
-            _itemAdapterPulpit = new ItemAdapter<Pulpit>(_view,
+            ItemAdapter<Pulpit> adapterPulpit = new ItemAdapter<Pulpit>(
+                DataProvider.GetPulpits(),
                 pulpit => pulpit.NamePulpit
             );
 
-            ItemChoice<Pulpit> itemChoice = new ItemChoice<Pulpit>(
-                _itemAdapterPulpit, SelectPulpit, _view);
-            _view.ShowItems(itemChoice);
+            _view.ChoiceItem(adapterPulpit, InitChoiceTeacher);
         }
 
-        private void InitChoiceTeacher()
+        private void InitChoiceTeacher(Pulpit pulpit)
         {
-            _itemAdapterTeacher = new ItemAdapter<Teacher>(_view,
+            ItemAdapter<Teacher> itemAdapterTeacher = new ItemAdapter<Teacher>(
+                DataProvider.GetTeacher(pulpit.IdPulpit),
                 teacher => teacher.Fio
             );
 
-            ItemChoice<Teacher> itemChoice = new ItemChoice<Teacher>(
-                _itemAdapterTeacher, SelectTeacher, _view);
-            _view.ShowItems(itemChoice);
+            _view.ChoiceItem(itemAdapterTeacher, StartScheduleActivity);
         }
 
-        private void SelectPulpit(Pulpit pulpit)
-        {
-            _itemAdapterTeacher.Items = DataProvider.GetTeacher(pulpit.IdPulpit);
-        }
-
-        private void SelectTeacher(Teacher teacher)
-        {
-            _selectedTeacher = teacher;
-            _view.SetButtoneShowClickable(true);
-        }
-
-        protected override void ClickeButtoneShow(object sender, EventArgs e)
+        protected void StartScheduleActivity(Teacher teacher)
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
-            var jsonTeacher = JsonConvert.ConvertToJson(_selectedTeacher);
+            var jsonTeacher = JsonConvert.ConvertToJson(teacher);
             intent.PutExtra(ScheduleForTeacher.IntentKeyTeacherJson, jsonTeacher);
 
             var today = DateTime.Today.ToString(Api.DateTimeFormat);

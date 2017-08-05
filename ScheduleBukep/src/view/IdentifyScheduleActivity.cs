@@ -15,8 +15,6 @@ namespace Bukep.Sheduler.View
     {
         private const string Tag = "IdentifyScheduleActivity";
 
-        public Button ShowSchedulesButtone { get; set; }
-
         private IdentifySchedule _controller;
 
         protected override void OnCreate(Bundle bundle)
@@ -24,17 +22,22 @@ namespace Bukep.Sheduler.View
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
 
-            ShowSchedulesButtone = FindViewById<Button>(Resource.Id.buttoneShow);
             InitNavigationView();
-
             InitController();
         }
 
         //TODO: add doc
-        public void ShowItems<TItem>(ItemChoice<TItem> itemChoice)
+        public void ChoiceItem<TItem>(ItemAdapter<TItem> adapter, Action<TItem> selectItem)
         {
-            LinearLayout layout = FindViewById<LinearLayout>(Resource.Id.linear_layout_choose_item);
-            layout.AddView(itemChoice.View);
+            ListView listView = FindViewById<ListView>(Resource.Id.ListItemChoices);
+
+            listView.Adapter = adapter;
+            listView.ItemClick += (sender, args) =>
+            {
+                var posotion = args.Position;
+                TItem item = adapter.GetObject(posotion);
+                selectItem.Invoke(item);
+            };
         }
 
         private void InitController()
@@ -55,11 +58,6 @@ namespace Bukep.Sheduler.View
             }
 
             _controller.Update();
-        }
-
-        public void SetButtoneShowClickable(bool clickable)
-        {
-            ShowSchedulesButtone.Clickable = clickable;
         }
     }
 }
