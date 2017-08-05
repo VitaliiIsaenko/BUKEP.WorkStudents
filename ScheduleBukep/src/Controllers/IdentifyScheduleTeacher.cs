@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Android.Content;
 using Bukep.Sheduler.controllers;
 using Bukep.Sheduler.logic;
