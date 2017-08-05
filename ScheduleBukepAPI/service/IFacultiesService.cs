@@ -24,6 +24,6 @@ namespace ScheduleBukepAPI.service
         List<Teacher> GetTeacher(int year, int idPulpit);
 
         //TODO: add LessonTime
-        //List<LessonTime> GetLessonTime(int idFilial);
+        List<TimeLesson> GetLessonTime(int idFilial);
     }
 }

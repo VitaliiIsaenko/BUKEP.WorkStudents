@@ -82,5 +82,14 @@ namespace ScheduleBukepAPI.service
             var json = ExecuteGet(MethodApi.GetTeacher, parameters);
             return ConvertToList<Teacher>(json);
         }
+
+        public List<TimeLesson> GetLessonTime(int idFilial)
+        {
+            IDictionary<string, string> parameters = _parameterConstructor
+                .SetParameter(NameParameterForApi.IdFilial, idFilial)
+                .GetResults();
+            var json = ExecuteGet(MethodApi.GetLessonTime, parameters);
+            return ConvertToList<TimeLesson>(json);
+        }
     }
 }
