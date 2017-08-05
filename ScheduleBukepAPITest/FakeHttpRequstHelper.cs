@@ -35,7 +35,7 @@ namespace ScheduleBukepAPITest
         private string GetDataForMethodApi(string url)
         {
             MethodApi methodApi = _methodsApi.FirstOrDefault(method => url.Contains(method.ToString()));
-            byte[] bytesRes = null;
+            byte[] bytesRes;
             switch (methodApi)
             {
                 case MethodApi.GetFaculties:
