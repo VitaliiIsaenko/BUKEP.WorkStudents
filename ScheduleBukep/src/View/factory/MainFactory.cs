@@ -83,14 +83,5 @@ namespace Bukep.Sheduler.View.factory
         {
             return (T) _activity.LayoutInflater.Inflate(res, null, false);
         }
-
-        public Tuple<LinearLayout, Spinner> CreateSpinner(string choiceItemsName)
-        {
-            LinearLayout choiceItem = Inflate<LinearLayout>(Resource.Layout.ChoiceItem);
-            TextView nameView = choiceItem.FindViewById<TextView>(Resource.Id.choiceItemsName);
-            nameView.Text = choiceItemsName;
-            Spinner spinner = choiceItem.FindViewById<Spinner>(Resource.Id.choiceItemsSpinner);
-            return new Tuple<LinearLayout, Spinner>(choiceItem, spinner);
-        }
     }
 }
