@@ -30,7 +30,7 @@ namespace Bukep.Sheduler.Controllers
                 DataProvider.GetFaculties(),
                 faculty => faculty.Info.Value
             );
-            _view.ChoiceItem(adapterFaculty, InitChoiceSpecialty);
+            _view.ShowChoiceItem(adapterFaculty, InitChoiceSpecialty);
         }
 
         private void InitChoiceSpecialty(Faculty faculty)
@@ -41,7 +41,7 @@ namespace Bukep.Sheduler.Controllers
                 DataProvider.GetSpecialtys(faculty.Info.Key),
                 specialty => specialty.Info.Value
             );
-            _view.ChoiceItem(adapterSpecialty, InitChoiceCourse);
+            _view.ShowChoiceItem(adapterSpecialty, InitChoiceCourse);
         }
 
         private void InitChoiceCourse(Specialty specialty)
@@ -57,7 +57,7 @@ namespace Bukep.Sheduler.Controllers
                 course => course.Info.Value
             );
 
-            _view.ChoiceItem(adapterCourse, InitChoiceGroup);
+            _view.ShowChoiceItem(adapterCourse, InitChoiceGroup);
         }
 
         private void InitChoiceGroup(Course course)
@@ -74,7 +74,7 @@ namespace Bukep.Sheduler.Controllers
                 group => $"{group.NameGroup} {group.NameTypeSchedule}"
             );
 
-            _view.ChoiceItem(adapterGroup, ClickeButtoneShow);
+            _view.ShowChoiceItem(adapterGroup, ClickeButtoneShow);
         }
 
         protected void ClickeButtoneShow(Group group)

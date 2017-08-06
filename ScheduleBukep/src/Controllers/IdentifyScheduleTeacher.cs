@@ -28,7 +28,7 @@ namespace Bukep.Sheduler.Controllers
                 pulpit => pulpit.NamePulpit
             );
 
-            _view.ChoiceItem(adapterPulpit, InitChoiceTeacher);
+            _view.ShowChoiceItem(adapterPulpit, InitChoiceTeacher);
         }
 
         private void InitChoiceTeacher(Pulpit pulpit)
@@ -38,7 +38,7 @@ namespace Bukep.Sheduler.Controllers
                 teacher => teacher.Fio
             );
 
-            _view.ChoiceItem(itemAdapterTeacher, StartScheduleActivity);
+            _view.ShowChoiceItem(itemAdapterTeacher, StartScheduleActivity);
         }
 
         protected void StartScheduleActivity(Teacher teacher)
