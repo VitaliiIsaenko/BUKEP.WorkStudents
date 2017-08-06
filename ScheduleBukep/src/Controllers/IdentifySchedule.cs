@@ -26,7 +26,7 @@ namespace Bukep.Sheduler.Controllers
             string[] namePulpits = items.ConvertAll(convertInString.Invoke).ToArray();
 
             ArrayAdapter<string> arrayAdapter = new ArrayAdapter<string>(
-                _view, Resource.Layout.ItemForSpinner, namePulpits);
+                _view, Resource.Layout.ChooseItem, namePulpits);
 
             _view.ShowChoiceItem(arrayAdapter, selectIndex => selectItem(items[selectIndex]));
         }
