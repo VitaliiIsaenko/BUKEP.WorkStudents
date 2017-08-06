@@ -1,7 +1,5 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Support.V7.Widget;
-using Android.Views;
 using Android.Widget;
 using Bukep.Sheduler.logic;
 using ScheduleBukepAPI.domain;

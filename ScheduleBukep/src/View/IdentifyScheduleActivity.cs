@@ -32,7 +32,7 @@ namespace Bukep.Sheduler.View
         /// <typeparam name="TItem">Тип элементов.</typeparam>
         /// <param name="adapter">Адаптер с элементами которые нужно отобразить.</param>
         /// <param name="selectItem">Действие которое вызовется при выборе элемента.</param>
-        public void ShowChoiceItem<TItem>(ItemAdapter<TItem> adapter, Action<TItem> selectItem)
+        public void ShowChoiceItem(ArrayAdapter adapter, Action<int> selectItem)
         {
             LinearLayout contenerListView = FindViewById<LinearLayout>(Resource.Id.ContenerForListItemChoices);
 
@@ -45,8 +45,7 @@ namespace Bukep.Sheduler.View
             listView.ItemClick += (sender, args) =>
             {
                 var posotion = args.Position;
-                TItem item = adapter.GetObject(posotion);
-                selectItem.Invoke(item);
+                selectItem.Invoke(posotion);
             };
         }
 

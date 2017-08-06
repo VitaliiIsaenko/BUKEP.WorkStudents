@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Android.Content;
-using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
@@ -26,22 +25,19 @@ namespace Bukep.Sheduler.Controllers
 
         private void ItemChoiceFaculty()
         {
-            ItemAdapter<Faculty> adapterFaculty = new ItemAdapter<Faculty>(
+            InitChoice(
                 DataProvider.GetFaculties(),
-                faculty => faculty.Info.Value
-            );
-            _view.ShowChoiceItem(adapterFaculty, InitChoiceSpecialty);
+                InitChoiceSpecialty,
+                faculty => faculty.Info.Value);
         }
 
         private void InitChoiceSpecialty(Faculty faculty)
         {
             _selectedFaculty = faculty;
-
-            ItemAdapter<Specialty> adapterSpecialty = new ItemAdapter<Specialty>(
+            InitChoice(
                 DataProvider.GetSpecialtys(faculty.Info.Key),
-                specialty => specialty.Info.Value
-            );
-            _view.ShowChoiceItem(adapterSpecialty, InitChoiceCourse);
+                InitChoiceCourse,
+                specialty => specialty.Info.Value);
         }
 
         private void InitChoiceCourse(Specialty specialty)
@@ -52,12 +48,10 @@ namespace Bukep.Sheduler.Controllers
                 specialty.Info.Key
             );
 
-            ItemAdapter<Course> adapterCourse = new ItemAdapter<Course>(
+            InitChoice(
                 courses,
-                course => course.Info.Value
-            );
-
-            _view.ShowChoiceItem(adapterCourse, InitChoiceGroup);
+                InitChoiceGroup,
+                course => course.Info.Value);
         }
 
         private void InitChoiceGroup(Course course)
@@ -69,12 +63,10 @@ namespace Bukep.Sheduler.Controllers
                 _selectedSpecialty.Info.Key
             );
 
-            ItemAdapter<Group> adapterGroup = new ItemAdapter<Group>(
+            InitChoice(
                 groups,
-                group => $"{group.NameGroup} {group.NameTypeSchedule}"
-            );
-
-            _view.ShowChoiceItem(adapterGroup, ClickeButtoneShow);
+                ClickeButtoneShow,
+                group => $"{group.NameGroup} {group.NameTypeSchedule}");
         }
 
         protected void ClickeButtoneShow(Group group)
