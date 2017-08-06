@@ -26,11 +26,21 @@ namespace Bukep.Sheduler.View
             InitController();
         }
 
-        //TODO: add doc
-        public void ChoiceItem<TItem>(ItemAdapter<TItem> adapter, Action<TItem> selectItem)
+        /// <summary>
+        /// Отобразить выбор элемента на Activity.
+        /// </summary>
+        /// <typeparam name="TItem">Тип элементов.</typeparam>
+        /// <param name="adapter">Адаптер с элементами которые нужно отобразить.</param>
+        /// <param name="selectItem">Действие которое вызовется при выборе элемента.</param>
+        public void ShowChoiceItem<TItem>(ItemAdapter<TItem> adapter, Action<TItem> selectItem)
         {
-            ListView listView = FindViewById<ListView>(Resource.Id.ListItemChoices);
+            LinearLayout contenerListView = FindViewById<LinearLayout>(Resource.Id.ContenerForListItemChoices);
 
+            ListView listView = new ListView(this);
+            contenerListView.RemoveAllViews();
+            contenerListView.AddView(listView);
+
+            listView.ItemClick += null;
             listView.Adapter = adapter;
             listView.ItemClick += (sender, args) =>
             {
@@ -43,7 +53,7 @@ namespace Bukep.Sheduler.View
         private void InitController()
         {
             int schedulesTypeInt = Intent.GetIntExtra(IdentifySchedule.IntentKeyDateSchedulesType, 1);
-            SchedulesType schedulesType = (SchedulesType)schedulesTypeInt;
+            SchedulesType schedulesType = (SchedulesType) schedulesTypeInt;
             switch (schedulesType)
             {
                 case SchedulesType.ForStudent:
@@ -54,7 +64,7 @@ namespace Bukep.Sheduler.View
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(
-                        "Не удалось выбрать тип расписания. SchedulesType = "+schedulesTypeInt);
+                        "Не удалось выбрать тип расписания. SchedulesType = " + schedulesTypeInt);
             }
 
             _controller.Update();
