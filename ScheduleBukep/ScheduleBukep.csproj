@@ -18,7 +18,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -106,22 +106,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\Controllers\ItemAdapter.cs" />
-    <Compile Include="src\View\BaseActivity.cs" />
+    <Compile Include="src\logic\DataProvider.cs" />
+    <Compile Include="src\controllers\IdentifyScheduleTeacher.cs" />
+    <Compile Include="src\logic\InternetChecker.cs" />
+    <Compile Include="src\logic\ItemAdapter.cs" />
+    <Compile Include="src\SchedulesType .cs" />
+    <Compile Include="src\view\BaseActivity.cs" />
     <Compile Include="src\LessonOnDay.cs" />
-    <Compile Include="src\Controllers\Menu.cs" />
-    <Compile Include="src\View\ChoiceItem.cs" />
-    <Compile Include="src\View\factory\MainFactory.cs" />
-    <Compile Include="src\View\ChooseItemView.cs" />
-    <Compile Include="src\View\NavigationActivity.cs" />
-    <Compile Include="src\Controllers\Controller.cs" />
-    <Compile Include="src\Controllers\IdentifySchedule.cs" />
-    <Compile Include="src\Controllers\Schedule.cs" />
-    <Compile Include="src\View\IdentifyScheduleActivity.cs" />
+    <Compile Include="src\controllers\Menu.cs" />
+    <Compile Include="src\logic\ItemChoice.cs" />
+    <Compile Include="src\view\factory\MainFactory.cs" />
+    <Compile Include="src\controllers\IdentifySchedule.cs" />
+    <Compile Include="src\view\NavigationActivity.cs" />
+    <Compile Include="src\controllers\Controller.cs" />
+    <Compile Include="src\controllers\IdentifyScheduleStudent.cs" />
+    <Compile Include="src\controllers\Schedule.cs" />
+    <Compile Include="src\view\IdentifyScheduleActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\View\MenuActivity.cs" />
-    <Compile Include="src\View\ScheduleActivity.cs" />
+    <Compile Include="src\view\MenuActivity.cs" />
+    <Compile Include="src\view\ScheduleActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -216,6 +220,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\favorites_empty.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Annotations.25.3.1\build\MonoAndroid70\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.25.3.1\build\MonoAndroid70\Xamarin.Android.Support.Annotations.targets')" />
   <Import Project="..\packages\Xamarin.Android.Support.v7.CardView.25.3.1\build\MonoAndroid70\Xamarin.Android.Support.v7.CardView.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.CardView.25.3.1\build\MonoAndroid70\Xamarin.Android.Support.v7.CardView.targets')" />

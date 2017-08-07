@@ -20,21 +20,26 @@ namespace Bukep.Sheduler.Controllers
         {
         }
 
-        public void ClickScheduleGroup(object sender, EventArgs ea)
+        public void ClickScheduleForStudent(object sender, EventArgs ea)
         {
-            var intent = new Intent(_view, typeof(IdentifyScheduleActivity));
-            _view.StartActivity(intent);
+            StartActivitySchedule(SchedulesType.ForStudent);
         }
 
-        public void ClickScheduleTeacher(object sender, EventArgs e)
+        public void ClickScheduleForTeacher(object sender, EventArgs e)
+        {
+            StartActivitySchedule(SchedulesType.ForTeacher);
+        }
+
+        private void StartActivitySchedule(SchedulesType schedulesType)
         {
             var intent = new Intent(_view, typeof(IdentifyScheduleActivity));
+            intent.PutExtra(IdentifySchedule.IntentKeyDateSchedulesType, (int) schedulesType);
             _view.StartActivity(intent);
         }
 
         public void ClickScheduleBell(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

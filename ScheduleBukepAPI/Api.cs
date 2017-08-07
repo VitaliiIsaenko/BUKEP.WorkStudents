@@ -87,5 +87,10 @@ namespace ScheduleBukepAPI
             var result = string.Join(",", ids.ToArray());
             return $"[{result}]";
         }
+
+        public IList<Teacher> GetTeacher()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

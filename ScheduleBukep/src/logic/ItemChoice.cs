@@ -4,9 +4,15 @@ using Android.Widget;
 using Bukep.Sheduler.Controllers;
 using Bukep.Sheduler.View.factory;
 
-namespace Bukep.Sheduler.View
+namespace Bukep.Sheduler.logic
 {
-    public class ChoiceItem<TItem>
+    /// <summary>
+    /// Агрегирует список элементов для их дальнейшего выбора пользователем.
+    /// Предоставляет View для отображения списка элементов.
+    /// Позволяет добавить в конструктор метод для обработки выбранного элемента.
+    /// </summary>
+    /// <typeparam name="TItem">Тип элемента</typeparam>
+    public class ItemChoice<TItem>
     {
         private readonly Action<TItem> _selectItem;
         private readonly ItemAdapter<TItem> _adapter;
@@ -14,7 +20,8 @@ namespace Bukep.Sheduler.View
         public Android.Views.View View { get; set; }
         public Spinner Spinner { get; set; }
 
-        public ChoiceItem(ItemAdapter<TItem> adapter, Action<TItem> selectItem, Activity activity)
+        //TODO: заменить Action<TItem> selectItem на событие(Event)
+        public ItemChoice(ItemAdapter<TItem> adapter, Action<TItem> selectItem, Activity activity)
         {
             _selectItem = selectItem;
             _adapter = adapter;
@@ -30,10 +37,11 @@ namespace Bukep.Sheduler.View
             Spinner.ItemSelected += SelectedItemInSpinner;
         }
 
-        public void SelectedItemInSpinner(object sender, AdapterView.ItemSelectedEventArgs e)
+        private void SelectedItemInSpinner(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             var posotion = e.Position;
             if (posotion == 0) return;
+            //TODO: возможно я могу взять item из _selectItem, а не использовать _adapter
             TItem item = _adapter.GetObject(posotion);
             _selectItem.Invoke(item);
         }
