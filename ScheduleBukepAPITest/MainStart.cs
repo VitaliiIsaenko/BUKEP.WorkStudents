@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service;
 
 namespace ScheduleBukepAPITest
