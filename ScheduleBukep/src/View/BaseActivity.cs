@@ -5,6 +5,9 @@ namespace Bukep.Sheduler.View
 {
     public abstract class BaseActivity : AppCompatActivity
     {
+        /// <summary>
+        /// Если true то приложение закроется при вызове ShowError
+        /// </summary>
         public bool CloseIfHappenedExeption { get; set; }
         private const string Tag = "BaseActivity";
 
@@ -13,6 +16,10 @@ namespace Bukep.Sheduler.View
             CloseIfHappenedExeption = true;
         }
 
+        /// <summary>
+        /// Показать ошибку
+        /// </summary>
+        /// <param name="mesages">Сообщение ошибки</param>
         public void ShowError(string mesages)
         {
             Log.Error(Tag, "ShowError() mesages = " + mesages);

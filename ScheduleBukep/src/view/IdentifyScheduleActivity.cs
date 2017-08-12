@@ -3,7 +3,6 @@ using Android.App;
 using Android.OS;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
-using Bukep.Sheduler.logic;
 
 namespace Bukep.Sheduler.View
 {
@@ -29,7 +28,6 @@ namespace Bukep.Sheduler.View
         /// <summary>
         /// Отобразить выбор элемента на Activity.
         /// </summary>
-        /// <typeparam name="TItem">Тип элементов.</typeparam>
         /// <param name="adapter">Адаптер с элементами которые нужно отобразить.</param>
         /// <param name="selectItem">Действие которое вызовется при выборе элемента.</param>
         public void ShowChoiceItem(ArrayAdapter adapter, Action<int> selectItem)
