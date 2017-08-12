@@ -38,7 +38,12 @@ namespace Bukep.Sheduler.logic
 
             try
             {
-                return func.Invoke();
+                TResult result = func.Invoke();
+                if (result == null)
+                {
+                    return defaultValue;
+                }
+                return result;
             }
             catch (WebException e)
             {

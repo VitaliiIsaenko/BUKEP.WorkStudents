@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Android.Widget;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service;
-using ScheduleBukepAPITest;
 
 namespace Bukep.Sheduler.logic
 {
@@ -17,8 +18,8 @@ namespace Bukep.Sheduler.logic
 
         //TODO: добавить ApiFactory
         private readonly Api _api = new Api(
-            new FilteringFacultiesService(new FakeHttpRequstHelper()),
-            new SchedulesService(new FakeHttpRequstHelper())
+            new FilteringFacultiesService(new HttpRequstHelper()),
+            new SchedulesService(new HttpRequstHelper())
         );
 
         private readonly InternetChecker _internetChecker;
@@ -30,7 +31,7 @@ namespace Bukep.Sheduler.logic
 
         public IList<Faculty> GetFaculties()
         {
-                return _internetChecker.ExecuteOperation(
+            return _internetChecker.ExecuteOperation(
                     () => _api.GetFaculties(),
                     new List<Faculty>()
                     );
