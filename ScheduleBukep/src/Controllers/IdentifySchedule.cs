@@ -25,7 +25,7 @@ namespace Bukep.Sheduler.Controllers
         protected void InitChoice<TItems>(IEnumerable<TItems> items, Action<TItems> selectItem,
             Func<TItems, string> convertInString)
         {
-            InitChoice(new List<TItems>(items), selectItem, convertInString);
+            InitChoice(new List<TItems>(items ?? new List<TItems>()), selectItem, convertInString);
         }
 
         /// <summary>

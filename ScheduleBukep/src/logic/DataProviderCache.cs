@@ -15,7 +15,7 @@ namespace Bukep.Sheduler.logic
         public DataProviderCache(BaseActivity activity) : base(activity)
         {
             BlobCache.ApplicationName = "ScheduleBukep";
-            _cacheHelper = new CacheHelper(_internetChecker);
+            _cacheHelper = new CacheHelper(ExecutorInternetOperations);
         }
 
         public override IList<Faculty> GetFaculties()

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Reactive.Linq;
 using Akavache;
 using Android.Util;
-using ScheduleBukepAPI.domain;
 
 namespace Bukep.Sheduler.logic
 {
@@ -11,17 +10,17 @@ namespace Bukep.Sheduler.logic
     {
         private const string Tag = "CacheHelper";
         private static readonly IBlobCache Cache = BlobCache.LocalMachine;
-        private readonly InternetChecker _internetChecker;
+        private readonly ExecutorInternetOperations ExecutorInternetOperations;
 
-        public CacheHelper(InternetChecker internetChecker)
+        public CacheHelper(ExecutorInternetOperations executorInternetOperations)
         {
-            _internetChecker = internetChecker;
+            ExecutorInternetOperations = executorInternetOperations;
         }
 
 
         public T GetCachedData<T>(string key, Func<T> fetchFunc)
         {
-            return CacheIsExists(key) ? CacheExists(key, fetchFunc) : Overwrite(key, fetchFunc);
+            return CacheIsExists<T>(key) ? CacheExists(key, fetchFunc) : Overwrite(key, fetchFunc);
         }
 
         /// <summary>
@@ -29,11 +28,12 @@ namespace Bukep.Sheduler.logic
         /// </summary>
         /// <param name="key">True если существует.</param>
         /// <returns></returns>
-        private static bool CacheIsExists(string key)
+        private static bool CacheIsExists<T>(string key)
         {
             try
             {
-                return Cache.Get(key).Wait() != null;
+                T result = Cache.GetObject<T>(key).Wait();
+                return result != null;
             }
             catch (KeyNotFoundException)
             {
@@ -43,7 +43,7 @@ namespace Bukep.Sheduler.logic
 
         private T CacheExists<T>(string key, Func<T> fetchFunc)
         {
-            return _internetChecker.CheckInternetConnect() ? 
+            return ExecutorInternetOperations.CheckInternetConnect() ? 
                 GetDataIfHasCacheAndConnectionInternet(key, fetchFunc) :
                 GetFromCache<T>(key);
         }

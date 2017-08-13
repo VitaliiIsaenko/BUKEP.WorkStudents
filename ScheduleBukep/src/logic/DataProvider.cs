@@ -22,75 +22,75 @@ namespace Bukep.Sheduler.logic
             new SchedulesService(new HttpRequstHelper())
         );
 
-        protected readonly InternetChecker _internetChecker;
+        protected readonly ExecutorInternetOperations ExecutorInternetOperations;
 
         public DataProvider(BaseActivity activity)
         {
-            _internetChecker = new InternetChecker(activity);
+            ExecutorInternetOperations = new ExecutorInternetOperations(activity);
         }
 
         public virtual IList<Faculty> GetFaculties()
         {
-            return _internetChecker.ExecuteOperation(
-                    () => _api.GetFaculties(),
-                    new List<Faculty>()
-                    );
+            return ExecutorInternetOperations.ExecuteOperation(
+                () => _api.GetFaculties(),
+                null
+            );
         }
 
         public virtual IList<Specialty> GetSpecialtys(int idFaculty)
         {
-            return _internetChecker.ExecuteOperation(
+            return ExecutorInternetOperations.ExecuteOperation(
                 () => _api.GetSpecialtys(idFaculty),
-                new List<Specialty>()
+                null
             );
         }
 
         public virtual IList<Group> GetGroups(int idFaculty, int idCourse, IList<int> idsSpecialty)
         {
-            return _internetChecker.ExecuteOperation(
+            return ExecutorInternetOperations.ExecuteOperation(
                 () => _api.GetGroups(idFaculty, idCourse, idsSpecialty),
-                new List<Group>()
+                null
             );
         }
 
         public virtual IList<Course> GetCourses(int idFaculty, IList<int> idsSpecialty)
         {
-            return _internetChecker.ExecuteOperation(
+            return ExecutorInternetOperations.ExecuteOperation(
                 () => _api.GetCourses(idFaculty, idsSpecialty),
-                new List<Course>()
+                null
             );
         }
 
         public virtual IList<Pulpit> GetPulpits()
         {
-            return _internetChecker.ExecuteOperation(
+            return ExecutorInternetOperations.ExecuteOperation(
                 () => _api.GetPulpits(),
-                new List<Pulpit>()
+                null
             );
         }
 
         public virtual IList<Teacher> GetTeacher(int idPulpit)
         {
-            return _internetChecker.ExecuteOperation(
+            return ExecutorInternetOperations.ExecuteOperation(
                 () => _api.GetTeacher(idPulpit),
-                new List<Teacher>()
+                null
             );
         }
 
         public virtual IList<Lesson> GetGroupLessons(IList<int> idsSheduleGroup,
             DateTime dateFrom, DateTime dateTo)
         {
-            return _internetChecker.ExecuteOperation(
+            return ExecutorInternetOperations.ExecuteOperation(
                 () => _api.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo),
-                new List<Lesson>()
+                null
             );
         }
 
         public virtual IList<Lesson> GetTeacherLessons(IList<int> idsTeacher, DateTime dateFrom, DateTime dateTo)
         {
-            return _internetChecker.ExecuteOperation(
+            return ExecutorInternetOperations.ExecuteOperation(
                 () => _api.GetTeacherLessons(idsTeacher, dateFrom, dateTo),
-                new List<Lesson>()
+                null
             );
         }
     }

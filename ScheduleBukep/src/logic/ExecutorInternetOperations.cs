@@ -10,13 +10,13 @@ namespace Bukep.Sheduler.logic
     /// <summary>
     /// Ќужен дл€ проверки интернета перед выполнением каких либо действий.
     /// </summary>
-    public class InternetChecker
+    public class ExecutorInternetOperations
     {
-        private const string Tag = "InternetChecker";
+        private const string Tag = "ExecutorInternetOperations";
         private ConnectivityManager _connectivityManager;
         private readonly BaseActivity _activity;
 
-        public InternetChecker(BaseActivity activity)
+        public ExecutorInternetOperations(BaseActivity activity)
         {
             _activity = activity;
         }
@@ -35,6 +35,7 @@ namespace Bukep.Sheduler.logic
             {
                 //TODO: move in res
                 _activity.ShowError("ќтсутствует подключение к интернету.");
+                return defaultValue;
             }
 
             try
