@@ -26,6 +26,7 @@ namespace Bukep.Sheduler
 		
 		public static void UpdateIdValues()
 		{
+			global::Splat.Resource.String.library_name = global::Bukep.Sheduler.Resource.String.library_name;
 		}
 		
 		public partial class Animation
@@ -3097,8 +3098,8 @@ namespace Bukep.Sheduler
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f0a0029
-			public const int ApplicationName = 2131361833;
+			// aapt resource value: 0x7f0a002a
+			public const int ApplicationName = 2131361834;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int abc_action_bar_home_description = 2131361792;
@@ -3202,32 +3203,35 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f0a0023
 			public const int character_counter_pattern = 2131361827;
 			
-			// aapt resource value: 0x7f0a002e
-			public const int course = 2131361838;
-			
-			// aapt resource value: 0x7f0a003b
-			public const int current = 2131361851;
-			
-			// aapt resource value: 0x7f0a002c
-			public const int faculty = 2131361836;
-			
-			// aapt resource value: 0x7f0a0034
-			public const int favorites = 2131361844;
-			
-			// aapt resource value: 0x7f0a0039
-			public const int for_one_day = 2131361849;
-			
 			// aapt resource value: 0x7f0a002f
-			public const int group = 2131361839;
+			public const int course = 2131361839;
 			
-			// aapt resource value: 0x7f0a002b
-			public const int in_app_happened_error = 2131361835;
+			// aapt resource value: 0x7f0a003c
+			public const int current = 2131361852;
 			
-			// aapt resource value: 0x7f0a0032
-			public const int list_task = 2131361842;
+			// aapt resource value: 0x7f0a002d
+			public const int faculty = 2131361837;
+			
+			// aapt resource value: 0x7f0a0035
+			public const int favorites = 2131361845;
 			
 			// aapt resource value: 0x7f0a003a
-			public const int next = 2131361850;
+			public const int for_one_day = 2131361850;
+			
+			// aapt resource value: 0x7f0a0030
+			public const int group = 2131361840;
+			
+			// aapt resource value: 0x7f0a002c
+			public const int in_app_happened_error = 2131361836;
+			
+			// aapt resource value: 0x7f0a0029
+			public const int library_name = 2131361833;
+			
+			// aapt resource value: 0x7f0a0033
+			public const int list_task = 2131361843;
+			
+			// aapt resource value: 0x7f0a003b
+			public const int next = 2131361851;
 			
 			// aapt resource value: 0x7f0a0024
 			public const int password_toggle_content_description = 2131361828;
@@ -3244,41 +3248,41 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f0a0028
 			public const int path_password_strike_through = 2131361832;
 			
+			// aapt resource value: 0x7f0a0039
+			public const int schedule = 2131361849;
+			
 			// aapt resource value: 0x7f0a0038
-			public const int schedule = 2131361848;
-			
-			// aapt resource value: 0x7f0a0037
-			public const int schedule_bell = 2131361847;
-			
-			// aapt resource value: 0x7f0a0035
-			public const int schedule_group = 2131361845;
+			public const int schedule_bell = 2131361848;
 			
 			// aapt resource value: 0x7f0a0036
-			public const int schedule_teacher = 2131361846;
+			public const int schedule_group = 2131361846;
+			
+			// aapt resource value: 0x7f0a0037
+			public const int schedule_teacher = 2131361847;
 			
 			// aapt resource value: 0x7f0a0013
 			public const int search_menu_title = 2131361811;
 			
+			// aapt resource value: 0x7f0a0032
+			public const int selectFromeList = 2131361842;
+			
+			// aapt resource value: 0x7f0a002b
+			public const int selectSchedules = 2131361835;
+			
+			// aapt resource value: 0x7f0a003d
+			public const int select_period = 2131361853;
+			
 			// aapt resource value: 0x7f0a0031
-			public const int selectFromeList = 2131361841;
+			public const int show = 2131361841;
 			
-			// aapt resource value: 0x7f0a002a
-			public const int selectSchedules = 2131361834;
-			
-			// aapt resource value: 0x7f0a003c
-			public const int select_period = 2131361852;
-			
-			// aapt resource value: 0x7f0a0030
-			public const int show = 2131361840;
-			
-			// aapt resource value: 0x7f0a002d
-			public const int specialty = 2131361837;
+			// aapt resource value: 0x7f0a002e
+			public const int specialty = 2131361838;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int status_bar_notification_info_overflow = 2131361812;
 			
-			// aapt resource value: 0x7f0a0033
-			public const int teachers = 2131361843;
+			// aapt resource value: 0x7f0a0034
+			public const int teachers = 2131361844;
 			
 			static String()
 			{

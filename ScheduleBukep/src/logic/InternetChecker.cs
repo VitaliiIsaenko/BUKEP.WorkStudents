@@ -33,7 +33,8 @@ namespace Bukep.Sheduler.logic
         {
             if (!CheckInternetConnect())
             {
-                FailedInternetConnect();
+                //TODO: move in res
+                _activity.ShowError("Отсутствует подключение к интернету.");
             }
 
             try
@@ -48,12 +49,13 @@ namespace Bukep.Sheduler.logic
             catch (WebException e)
             {
                 Log.Error(Tag, e.ToString());
-                FailedInternetConnect();
+                //TODO: move in res
+                _activity.ShowError(e.ToString());
                 return defaultValue;
             }
         }
 
-        private bool CheckInternetConnect()
+        public bool CheckInternetConnect()
         {
             if (_connectivityManager == null)
             {
@@ -62,12 +64,6 @@ namespace Bukep.Sheduler.logic
 
             NetworkInfo info = _connectivityManager.ActiveNetworkInfo;
             return info != null && info.IsConnected;
-        }
-
-        public void FailedInternetConnect()
-        {
-            //TODO: move in res
-            _activity.ShowError("Отсутствует подключение к интернету.");
         }
     }
 }

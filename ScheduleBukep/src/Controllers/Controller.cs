@@ -11,7 +11,7 @@ namespace Bukep.Sheduler.Controllers
         
         protected Controller(BaseActivity activity)
         {
-            DataProvider = new DataProvider(activity);
+            DataProvider = new DataProviderCache(activity);
         }
 
         public abstract void Update();
