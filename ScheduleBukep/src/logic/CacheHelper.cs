@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Reactive.Linq;
 using Akavache;
-using Android.Util;
 
 namespace Bukep.Sheduler.logic
 {
@@ -10,80 +9,43 @@ namespace Bukep.Sheduler.logic
     {
         private const string Tag = "CacheHelper";
         private static readonly IBlobCache Cache = BlobCache.LocalMachine;
-        private readonly ExecutorInternetOperations ExecutorInternetOperations;
-
-        public CacheHelper(ExecutorInternetOperations executorInternetOperations)
-        {
-            ExecutorInternetOperations = executorInternetOperations;
-        }
-
-
-        public T GetCachedData<T>(string key, Func<T> fetchFunc)
-        {
-            return CacheIsExists<T>(key) ? CacheExists(key, fetchFunc) : Overwrite(key, fetchFunc);
-        }
 
         /// <summary>
-        /// Проверка существует ли кэш по ключу.
+        /// Получаем кэш по ключу, 
+        /// если кэша нет взять данные из переданной функции и записать в кэш.
         /// </summary>
-        /// <param name="key">True если существует.</param>
-        /// <returns></returns>
-        private static bool CacheIsExists<T>(string key)
+        /// <typeparam name="T">Тип данных получаемых из кеша.</typeparam>
+        /// <param name="key">Ключ кеша.</param>
+        /// <param name="fetchFunc">Функция получения данных.Вывозится в случаи если данных нет в кеше.</param>
+        /// <returns>Данные из кеша</returns>
+        public static T GetAndPutInCached<T>(string key, Func<T> fetchFunc)
         {
             try
             {
                 T result = Cache.GetObject<T>(key).Wait();
-                return result != null;
+                if (result == null)
+                {
+                    return PutInCache(key, fetchFunc.Invoke());
+                }
+                return result;
             }
             catch (KeyNotFoundException)
             {
-                return false;
+                return PutInCache(key, fetchFunc.Invoke());
             }
-        }
-
-        private T CacheExists<T>(string key, Func<T> fetchFunc)
-        {
-            return ExecutorInternetOperations.CheckInternetConnect() ? 
-                GetDataIfHasCacheAndConnectionInternet(key, fetchFunc) :
-                GetFromCache<T>(key);
-        }
-
-        private T GetDataIfHasCacheAndConnectionInternet<T>(string key, Func<T> fetchFunc)
-        {
-            Log.Info(Tag, "InternetConnect = true");
-            DateTimeOffset? dateTimeOffset = Cache.GetObjectCreatedAt<T>(key).Wait();
-            if (dateTimeOffset != null && CheckCacheOutdated(dateTimeOffset.Value))
-            {
-                Log.Info(Tag, "Cache Outdated");
-                return Overwrite(key, fetchFunc);
-            }
-            return GetFromCache<T>(key);
         }
 
         /// <summary>
-        /// Проверка устарел ли кэш
+        /// Записываем данные в кэш и возвращаем их.
         /// </summary>
-        /// <param name="dateTimeOffset">True если устарел</param>
-        /// <returns></returns>
-        private static bool CheckCacheOutdated(DateTimeOffset dateTimeOffset)
+        /// <typeparam name="T">Тип добавляемых данных в кеша.</typeparam>
+        /// <param name="key">Ключ кеша.</param>
+        /// <param name="value">Данные которые нужно добавить.</param>
+        /// <returns>value</returns>
+        private static T PutInCache<T>(string key, T value)
         {
-            var now = DateTime.Now;
-            TimeSpan span = now - dateTimeOffset;
-            return span.Minutes >= 1;
-        }
-
-        private static T GetFromCache<T>(string key)
-        {
-            Log.Info(Tag, "Return cache object");
-            return Cache.GetObject<T>(key).Wait(); ;
-        }
-
-        private static T Overwrite<T>(string key, Func<T> fetchFunc)
-        {
-            Log.Info(Tag, "Invoke Overwrite()");
-            T data = fetchFunc.Invoke();
-            Cache.InsertObject(key, data);
-            return data;
+            Cache.InsertObject(key, value);
+            return value;
         }
     }
 }
