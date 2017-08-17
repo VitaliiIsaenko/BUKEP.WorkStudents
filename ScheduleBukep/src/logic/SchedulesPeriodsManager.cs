@@ -1,8 +1,9 @@
 using System;
 using Android.Util;
+using Bukep.Sheduler.Controllers;
 using ScheduleBukepAPI;
 
-namespace Bukep.Sheduler.Controllers
+namespace Bukep.Sheduler.logic
 {
     /// <summary>
     /// Содержит логику работы с периодами расписание (На день, Три дня, Неделю)

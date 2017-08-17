@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using Android.Content;
 using Android.Util;
+using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
 
 namespace Bukep.Sheduler.Controllers
@@ -22,18 +23,18 @@ namespace Bukep.Sheduler.Controllers
 
         public void ClickScheduleForStudent(object sender, EventArgs ea)
         {
-            StartActivitySchedule(SchedulesType.ForStudent);
+            StartActivitySchedule(SelectItemType.SelectScheduleStudent);
         }
 
         public void ClickScheduleForTeacher(object sender, EventArgs e)
         {
-            StartActivitySchedule(SchedulesType.ForTeacher);
+            StartActivitySchedule(SelectItemType.SelectScheduleTeacher);
         }
 
-        private void StartActivitySchedule(SchedulesType schedulesType)
+        private void StartActivitySchedule(SelectItemType selectItemType)
         {
-            var intent = new Intent(_view, typeof(IdentifyScheduleActivity));
-            intent.PutExtra(IdentifySchedule.IntentKeyDateSchedulesType, (int) schedulesType);
+            var intent = new Intent(_view, typeof(SelectItemActivity));
+            intent.PutExtra(SelectItem.IntentKeyDateSelectItemType, (int) selectItemType);
             _view.StartActivity(intent);
         }
 

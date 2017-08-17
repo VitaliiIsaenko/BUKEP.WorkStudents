@@ -1,8 +1,9 @@
-﻿namespace Bukep.Sheduler
+﻿namespace Bukep.Sheduler.logic
 {
-    public enum SchedulesType
+    public enum SelectItemType
     {
-        ForTeacher = 1,
-        ForStudent = 2
+        SelectScheduleTeacher = 1,
+        SelectScheduleStudent = 2,
+        SelectFavoritesGroup = 3
     }
 }

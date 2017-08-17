@@ -8,16 +8,16 @@ namespace Bukep.Sheduler.Controllers
     /// <summary>
     /// Общий контроллер для выбора расписания
     /// </summary>
-    internal abstract class IdentifySchedule : Controller
+    public abstract class SelectItem : Controller
     {
-        protected readonly IdentifyScheduleActivity _view;
-        public const string IntentKeyDateSchedulesType = "SchedulesType";
+        protected readonly SelectItemActivity _view;
+        public const string IntentKeyDateSelectItemType = "SchedulesType";
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="activity">Activity которое будет отображать рассписание</param>
-        protected IdentifySchedule(IdentifyScheduleActivity activity) : base(activity)
+        protected SelectItem(SelectItemActivity activity) : base(activity)
         {
             _view = activity;
         }

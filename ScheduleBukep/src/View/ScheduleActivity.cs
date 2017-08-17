@@ -55,14 +55,14 @@ namespace Bukep.Sheduler.View
 
         private void InitController()
         {
-            int schedulesTypeInt = Intent.GetIntExtra(IdentifySchedule.IntentKeyDateSchedulesType, 1);
-            SchedulesType schedulesType = (SchedulesType)schedulesTypeInt;
-            switch (schedulesType)
+            int schedulesTypeInt = Intent.GetIntExtra(SelectItem.IntentKeyDateSelectItemType, 1);
+            SelectItemType selectItemType = (SelectItemType)schedulesTypeInt;
+            switch (selectItemType)
             {
-                case SchedulesType.ForStudent:
+                case SelectItemType.SelectScheduleStudent:
                     _controller = new ScheduleForStudent(this);
                     break;
-                case SchedulesType.ForTeacher:
+                case SelectItemType.SelectScheduleTeacher:
                     _controller = new ScheduleForTeacher(this);
                     break;
                 default:

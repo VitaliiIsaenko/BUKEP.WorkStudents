@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.Content;
 using Bukep.Sheduler.controllers;
+using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
@@ -8,10 +9,10 @@ using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
-    internal class IdentifyScheduleTeacher : IdentifySchedule
+    internal class SelectScheduleTeacher : SelectItem
     {
 
-        public IdentifyScheduleTeacher(IdentifyScheduleActivity view) : base(view)
+        public SelectScheduleTeacher(SelectItemActivity view) : base(view)
         {
         }
 
@@ -45,7 +46,7 @@ namespace Bukep.Sheduler.Controllers
             var today = DateTime.Today.ToString(Api.DateTimeFormat);
             intent.PutExtra(Schedule.IntentKeyDateLessonStart, today);
             intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
-            intent.PutExtra(IntentKeyDateSchedulesType, (int)SchedulesType.ForTeacher);
+            intent.PutExtra(IntentKeyDateSelectItemType, (int)SelectItemType.SelectScheduleTeacher);
 
             _view.StartActivity(intent);
         }

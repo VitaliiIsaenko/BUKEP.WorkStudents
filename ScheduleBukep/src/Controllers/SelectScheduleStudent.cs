@@ -8,13 +8,13 @@ using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
-    internal class IdentifyScheduleStudent : IdentifySchedule
+    internal class SelectScheduleStudent : SelectItem
     {
         private Faculty _selectedFaculty;
         private Specialty _selectedSpecialty;
         private Course _selectedCourse;
 
-        public IdentifyScheduleStudent(IdentifyScheduleActivity view) : base(view)
+        public SelectScheduleStudent(SelectItemActivity view) : base(view)
         {
         }
 
@@ -78,7 +78,7 @@ namespace Bukep.Sheduler.Controllers
             var today = DateTime.Today.ToString(Api.DateTimeFormat);
             intent.PutExtra(Schedule.IntentKeyDateLessonStart, today);
             intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
-            intent.PutExtra(IntentKeyDateSchedulesType, (int)SchedulesType.ForStudent);
+            intent.PutExtra(IntentKeyDateSelectItemType, (int)SchedulesType.ForStudent);
 
             _view.StartActivity(intent);
         }

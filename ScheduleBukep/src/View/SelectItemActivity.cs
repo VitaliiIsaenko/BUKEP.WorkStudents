@@ -2,19 +2,20 @@
 using Android.App;
 using Android.OS;
 using Android.Widget;
+using Bukep.Sheduler.controllers.factory;
 using Bukep.Sheduler.Controllers;
+using Bukep.Sheduler.logic;
 
 namespace Bukep.Sheduler.View
 {
     /// <summary>
-    ///  Данное Activity используется как форма выбора элементов из выпадающих списков.
+    ///  Используется для выбора элемента из списка.
     /// </summary>
     [Activity(Icon = "@drawable/icon")]
-    public class IdentifyScheduleActivity : NavigationActivity
+    public class SelectItemActivity : NavigationActivity
     {
         private const string Tag = "IdentifyScheduleActivity";
-
-        private IdentifySchedule _controller;
+        private SelectItem _controller;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -49,21 +50,9 @@ namespace Bukep.Sheduler.View
 
         private void InitController()
         {
-            int schedulesTypeInt = Intent.GetIntExtra(IdentifySchedule.IntentKeyDateSchedulesType, 1);
-            SchedulesType schedulesType = (SchedulesType) schedulesTypeInt;
-            switch (schedulesType)
-            {
-                case SchedulesType.ForStudent:
-                    _controller = new IdentifyScheduleStudent(this);
-                    break;
-                case SchedulesType.ForTeacher:
-                    _controller = new IdentifyScheduleTeacher(this);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(
-                        "Не удалось выбрать тип расписания. SchedulesType = " + schedulesTypeInt);
-            }
-
+            int schedulesTypeInt = Intent.GetIntExtra(SelectItem.IntentKeyDateSelectItemType, 1);
+            SelectItemType selectItemType = (SelectItemType) schedulesTypeInt;
+            _controller = SelectItemFactory.CreateSelectItem(this, selectItemType);
             _controller.Update();
         }
     }
