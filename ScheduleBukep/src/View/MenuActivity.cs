@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net;
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.OS;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;

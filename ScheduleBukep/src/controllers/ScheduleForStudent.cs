@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Android.Util;
 using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
-using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
@@ -18,45 +15,41 @@ namespace Bukep.Sheduler.Controllers
         /// </summary>
         public const string IntentKeyGroupsJson = "GroupJson";
 
+        public const string UserDataGroupsJson = "UserDataGroupJson";
+
+        private Group _group;
+
+        private Group Group => _group ?? (_group = GetObjectFromeIntent<Group>(IntentKeyGroupsJson));
+
         public ScheduleForStudent(ScheduleActivity view) : base(view)
         {
         }
 
         public override void Update()
         {
-            Group group = GetGropeFromeIntent();
+            base.Update();
+            view.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
+        }
 
-            var lessons = RequestSchedules(
-                group,
-                GetDateTimeFromeIntent(IntentKeyDateLessonStart),
-                GetDateTimeFromeIntent(IntentKeyDateLessonEnd)
+        protected override IList<Lesson> GetLessons()
+        {
+            view.SetGroopName(Group.NameGroup);
+            var lessons = DataProvider.GetGroupLessons(
+                Group.IdsSchedulGroup,
+                GetDateTimeFromeIntent(IntentKey.DateLessonStart),
+                GetDateTimeFromeIntent(IntentKey.DateLessonEnd)
             );
-            var lessonOnDays = LessonOnDay.Parse(lessons);
-
-            View.ShowLessonOnDay(lessonOnDays);
-            View.SetGroopName(group.NameGroup);
-            View.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
-        }
-
-        private Group GetGropeFromeIntent()
-        {
-            var jsonGroup = GetJsonFromeIntent(IntentKeyGroupsJson);
-            Log.Info(Tag, "jsonGroup = " + jsonGroup);
-            var group = JsonConvert.ConvertTo<Group>(jsonGroup);
-            return group;
-        }
-
-        /// <summary>
-        /// Выполнить запрос на получения списка уроков в указанный интервал времени.
-        /// </summary>
-        /// <param name="group">Группа для которой нужно получить список уроков</param>
-        /// <param name="dateLessonStart">Начало интервала</param>
-        /// <param name="dateLessonEnd">Конец интервала</param>
-        /// <returns>Список уроков в указанный интервал времени</returns>
-        private IList<Lesson> RequestSchedules(Group group, DateTime dateLessonStart, DateTime dateLessonEnd)
-        {
-            var lessons = DataProvider.GetGroupLessons(group.IdsSchedulGroup, dateLessonStart, dateLessonEnd);
             return lessons;
+        }
+
+        protected override void SaveScheduleInFavorites()
+        {
+            CacheHelper.PutUserData(UserDataGroupsJson, Group);
+        }
+
+        protected override void DeleteScheduleInFavorites()
+        {
+            CacheHelper.DeleteUserData(UserDataGroupsJson);
         }
     }
 }

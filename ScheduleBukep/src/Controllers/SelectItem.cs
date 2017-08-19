@@ -38,10 +38,10 @@ namespace Bukep.Sheduler.Controllers
         protected void InitChoice<TItems>(List<TItems> items, Action<TItems> selectItem,
             Func<TItems, string> convertInString)
         {
-            string[] namePulpits = items.ConvertAll(convertInString.Invoke).ToArray();
+            string[] namesItem = items.ConvertAll(convertInString.Invoke).ToArray();
 
             ArrayAdapter<string> arrayAdapter = new ArrayAdapter<string>(
-                _view, Resource.Layout.ChooseItem, namePulpits);
+                _view, Resource.Layout.ChooseItem, namesItem);
 
             _view.ShowChoiceItem(arrayAdapter, selectIndex => selectItem(items[selectIndex]));
         }

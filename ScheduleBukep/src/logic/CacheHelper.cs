@@ -9,6 +9,7 @@ namespace Bukep.Sheduler.logic
     {
         private const string Tag = "CacheHelper";
         private static readonly IBlobCache Cache = BlobCache.LocalMachine;
+        private static readonly IBlobCache UserData = BlobCache.UserAccount;
 
         /// <summary>
         /// Получаем кэш по ключу, 
@@ -46,6 +47,21 @@ namespace Bukep.Sheduler.logic
         {
             Cache.InsertObject(key, value);
             return value;
+        }
+
+        public static void PutUserData<T>(string key, T value)
+        {
+            UserData.InsertObject(key, value);
+        }
+
+        public static T GetUserData<T>(string key)
+        {
+            return UserData.GetObject<T>(key).Wait();
+        }
+
+        public static void DeleteUserData(string key)
+        {
+            UserData.Invalidate(key);
         }
     }
 }

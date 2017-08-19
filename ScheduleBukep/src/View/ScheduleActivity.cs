@@ -16,7 +16,6 @@ namespace Bukep.Sheduler.View
     public class ScheduleActivity : NavigationActivity
     {
         private Schedule _controller;
-        private bool _isClickImageFavorites;
         private TextView _toolbarGroop;
         private TextView _toolbarDate;
         private TextView _toolbarPeriod;
@@ -50,13 +49,14 @@ namespace Bukep.Sheduler.View
         private void InitImageFavorites()
         {
             var imageFavorites = FindViewById<ImageView>(Resource.Id.toolbarImageFavorites);
-            imageFavorites.Click += ClickImageFavorites;
+            imageFavorites.Click += _controller.ClickImageFavorites;
         }
 
         private void InitController()
         {
             int schedulesTypeInt = Intent.GetIntExtra(SelectItem.IntentKeyDateSelectItemType, 1);
-            SelectItemType selectItemType = (SelectItemType)schedulesTypeInt;
+            SelectItemType selectItemType = (SelectItemType) schedulesTypeInt;
+            //TODO: вынести в фабрику
             switch (selectItemType)
             {
                 case SelectItemType.SelectScheduleStudent:
@@ -93,8 +93,7 @@ namespace Bukep.Sheduler.View
             builder.SetTitle(GetString(Resource.String.select_period))
                 .SetItems(
                     Resources.GetStringArray(Resource.Array.schedules_periods),
-                    ClickListPeriod
-                )
+                    ClickListPeriod)
                 .Create()
                 .Show();
         }
@@ -102,29 +101,25 @@ namespace Bukep.Sheduler.View
         private void ClickListPeriod(object sender, DialogClickEventArgs e)
         {
             Log.Debug(Tag, $"ClickListPeriod() Which = {e.Which}");
+            //TODO: не очень хороший подход, магические числа в switch
             switch (e.Which)
             {
                 case 0:
-                    _controller.SchedulesManager.ChoosePeriodOneDay();
+                    _controller.Periods.SelectPeriodOneDay();
                     break;
                 case 1:
-                    _controller.SchedulesManager.ChoosePeriodThreeDay();
+                    _controller.Periods.SelectPeriodThreeDay();
                     break;
                 case 2:
-                    _controller.SchedulesManager.ChoosePeriodWeek();
+                    _controller.Periods.SelectPeriodWeek();
                     break;
             }
         }
 
-        private void ClickImageFavorites(object sender, EventArgs e)
-        {
-            var imageFavorites = (ImageView) sender;
-            imageFavorites.SetImageResource(_isClickImageFavorites
-                ? Resource.Drawable.favorites_empty
-                : Resource.Drawable.favorites);
-            _isClickImageFavorites = !_isClickImageFavorites;
-        }
-
+        /// <summary>
+        /// Используется для отображения уроков.
+        /// </summary>
+        /// <param name="lessonOnDay"></param>
         internal void ShowLessonOnDay(List<LessonOnDay> lessonOnDay)
         {
             var linearLayout = FindViewById<LinearLayout>(Resource.Id.liner_layout);
@@ -137,7 +132,5 @@ namespace Bukep.Sheduler.View
                 linearLayout.AddView(mainFactory.CreateLinearLessonOnDays(item));
             }
         }
-
-
     }
 }

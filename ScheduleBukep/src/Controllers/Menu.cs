@@ -1,7 +1,5 @@
 using System;
-using System.Net;
 using Android.Content;
-using Android.Util;
 using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
 

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Android.Widget;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using ScheduleBukepAPI.service.paremeters;
 using Assert = NUnit.Framework.Assert;

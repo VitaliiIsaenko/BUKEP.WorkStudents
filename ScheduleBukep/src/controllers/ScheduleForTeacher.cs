@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Android.Util;
 using Bukep.Sheduler.Controllers;
 using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.controllers
 {
@@ -16,41 +14,35 @@ namespace Bukep.Sheduler.controllers
         /// Используется для получения данных из Intent.
         /// </summary>
         public const string IntentKeyTeacherJson = "TeacherJson";
+        public const string UserDataTeacherJson = "UserDataTeacherJson";
+
+        private Teacher _teacher;
+
+        private Teacher Teacher => _teacher ?? 
+            (_teacher = GetObjectFromeIntent<Teacher>(IntentKeyTeacherJson));
 
         public ScheduleForTeacher(ScheduleActivity view) : base(view)
         {
         }
 
-        public override void Update()
+        protected override IList<Lesson> GetLessons()
         {
-            Teacher teacher = GetTeacherFromeIntent();
-
-            var lessons = RequestSchedules(
-                teacher,
-                GetDateTimeFromeIntent(IntentKeyDateLessonStart),
-                GetDateTimeFromeIntent(IntentKeyDateLessonEnd)
+            var lessons = DataProvider.GetTeacherLessons(
+                Teacher.IdsTeacher,
+                GetDateTimeFromeIntent(IntentKey.DateLessonStart),
+                GetDateTimeFromeIntent(IntentKey.DateLessonEnd)
             );
-
-            var lessonOnDays = LessonOnDay.Parse(lessons);
-
-            View.ShowLessonOnDay(lessonOnDays);
-            //View.SetGroopName(group.NameGroup);
-            View.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
-        }
-
-        private Teacher GetTeacherFromeIntent()
-        {
-            var jsonTeacher = GetJsonFromeIntent(IntentKeyTeacherJson);
-            Log.Info(Tag, "jsonTeacher = " + jsonTeacher);
-            var teacher = JsonConvert.ConvertTo<Teacher>(jsonTeacher);
-            return teacher;
-        }
-
-        //TODO: такой есть в ScheduleForStudent
-        private IList<Lesson> RequestSchedules(Teacher teacher, DateTime dateLessonStart, DateTime dateLessonEnd)
-        {
-            var lessons = DataProvider.GetTeacherLessons(teacher.IdsTeacher, dateLessonStart, dateLessonEnd);
             return lessons;
+        }
+
+        protected override void SaveScheduleInFavorites()
+        {
+            CacheHelper.PutUserData(UserDataTeacherJson, Teacher);
+        }
+
+        protected override void DeleteScheduleInFavorites()
+        {
+            CacheHelper.DeleteUserData(UserDataTeacherJson);
         }
     }
 }
