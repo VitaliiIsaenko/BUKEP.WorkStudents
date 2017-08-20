@@ -11,7 +11,7 @@ namespace Bukep.Sheduler.Controllers
     public abstract class SelectItem : Controller
     {
         protected readonly SelectItemActivity _view;
-        public const string IntentKeyDateSelectItemType = "SchedulesType";
+        
 
         /// <summary>
         /// 

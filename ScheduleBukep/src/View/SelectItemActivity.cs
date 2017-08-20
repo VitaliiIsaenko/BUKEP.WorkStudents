@@ -1,11 +1,13 @@
 ﻿using System;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 using Bukep.Sheduler.controllers.factory;
 using Bukep.Sheduler.Controllers;
 using Bukep.Sheduler.logic;
 using Bukep.Sheduler.logic.extension;
+using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.View
 {
@@ -16,6 +18,7 @@ namespace Bukep.Sheduler.View
     public class SelectItemActivity : NavigationActivity
     {
         private const string Tag = "IdentifyScheduleActivity";
+        public const string IntentKeyDateSelectItemType = "SchedulesType";
         private SelectItem _controller;
 
         protected override void OnCreate(Bundle bundle)
@@ -52,9 +55,18 @@ namespace Bukep.Sheduler.View
         private void InitController()
         {
             SelectItemType selectItemType = Intent.GetObject<SelectItemType>(
-                SelectItem.IntentKeyDateSelectItemType);
+            IntentKeyDateSelectItemType);
             _controller = SelectItemFactory.CreateSelectItem(this, selectItemType);
             _controller.Update();
+        }
+
+        public static void StartSelectItemActivity(Activity view, SelectItemType selectItemType)
+        {
+            var intent = new Intent(view, typeof(SelectItemActivity));
+            intent.PutObject(
+                IntentKeyDateSelectItemType,
+                JsonConvert.ConvertToJson(selectItemType));
+            view.StartActivity(intent);
         }
     }
 }

@@ -38,13 +38,7 @@ namespace Bukep.Sheduler.Controllers
 
         protected void StartScheduleActivity(Teacher teacher)
         {
-            var intent = new Intent(_view, typeof(ScheduleActivity));
-            intent.PutObject(ScheduleForTeacher.IntentKeyTeacherJson, teacher);
-            intent.PutDateTime(Schedule.IntentKey.DateLessonStart.ToString(), DateTime.Today);
-            intent.PutDateTime(Schedule.IntentKey.DateLessonEnd.ToString(), DateTime.Today);
-            intent.PutExtra(IntentKeyDateSelectItemType, (int)SelectItemType.SelectScheduleTeacher);
-
-            _view.StartActivity(intent);
+            ScheduleActivity.StartScheduleActivity(_view, teacher);
         }
     }
 }

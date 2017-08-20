@@ -8,7 +8,9 @@ using Android.Widget;
 using Bukep.Sheduler.controllers;
 using Bukep.Sheduler.Controllers;
 using Bukep.Sheduler.logic;
+using Bukep.Sheduler.logic.extension;
 using Bukep.Sheduler.View.factory;
+using ScheduleBukepAPI.domain;
 
 namespace Bukep.Sheduler.View
 {
@@ -54,7 +56,7 @@ namespace Bukep.Sheduler.View
 
         private void InitController()
         {
-            int schedulesTypeInt = Intent.GetIntExtra(SelectItem.IntentKeyDateSelectItemType, 1);
+            int schedulesTypeInt = Intent.GetIntExtra(SelectItemActivity.IntentKeyDateSelectItemType, 1);
             SelectItemType selectItemType = (SelectItemType) schedulesTypeInt;
             //TODO: вынести в фабрику
             switch (selectItemType)
@@ -131,6 +133,30 @@ namespace Bukep.Sheduler.View
             {
                 linearLayout.AddView(mainFactory.CreateLinearLessonOnDays(item));
             }
+        }
+
+        internal static void StartScheduleActivity(SelectItemActivity view, Teacher teacher)
+        {
+            var intent = new Intent(view, typeof(ScheduleActivity));
+
+            intent.PutObject(SelectItemActivity.IntentKeyDateSelectItemType, SelectItemType.SelectScheduleTeacher);
+            intent.PutObject(ScheduleForTeacher.IntentKeyTeacherJson, teacher);
+            intent.PutDateTime(Schedule.IntentKey.DateLessonStart.ToString(), DateTime.Today);
+            intent.PutDateTime(Schedule.IntentKey.DateLessonEnd.ToString(), DateTime.Today);
+
+            view.StartActivity(intent);
+        }
+
+        internal static void StartScheduleActivity(SelectItemActivity view, Group group)
+        {
+            var intent = new Intent(view, typeof(ScheduleActivity));
+
+            intent.PutObject(SelectItemActivity.IntentKeyDateSelectItemType, SelectItemType.SelectFavoritesGroup);
+            intent.PutObject(ScheduleForStudent.IntentKeyGroupsJson, group);
+            intent.PutDateTime(Schedule.IntentKey.DateLessonStart.ToString(), DateTime.Today);
+            intent.PutDateTime(Schedule.IntentKey.DateLessonEnd.ToString(), DateTime.Today);
+
+            view.StartActivity(intent);
         }
     }
 }

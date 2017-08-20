@@ -9,6 +9,7 @@ namespace Bukep.Sheduler.View
         /// Если true то приложение закроется при вызове ShowError
         /// </summary>
         public bool CloseIfHappenedExeption { get; set; }
+
         private const string Tag = "BaseActivity";
 
         protected BaseActivity()
@@ -27,7 +28,8 @@ namespace Bukep.Sheduler.View
             builder
                 .SetTitle(GetString(Resource.String.in_app_happened_error))
                 .SetMessage(mesages)
-                .SetNegativeButton("Ок", delegate
+                .SetNegativeButton("Ок", 
+                (sender, args) =>
                 {
                     if (CloseIfHappenedExeption)
                     {

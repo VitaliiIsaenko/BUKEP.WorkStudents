@@ -23,14 +23,14 @@ namespace Bukep.Sheduler.controllers
         {
             Teacher userData = CacheHelper.GetUserData<Teacher>(
                 UserDataKey.FavoritesTeacher.ToString());
-            var groups = new List<Teacher> { userData };
+            var groups = new List<Teacher> {userData};
 
             InitChoice(groups, ShowScheduleFavoritesGroup, teacher => teacher.Fio);
         }
 
         private void ShowScheduleFavoritesGroup(Teacher teacher)
         {
-            Toast.MakeText(_view,$"Show Teacher Fio = {teacher.Fio}", ToastLength.Long).Show();
+            ScheduleActivity.StartScheduleActivity(_view, teacher);
         }
     }
 }

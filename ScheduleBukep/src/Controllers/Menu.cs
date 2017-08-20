@@ -41,11 +41,7 @@ namespace Bukep.Sheduler.Controllers
 
         private void StartActivitySchedule(SelectItemType selectItemType)
         {
-            var intent = new Intent(_view, typeof(SelectItemActivity));
-            intent.PutExtra(
-                SelectItem.IntentKeyDateSelectItemType,
-                JsonConvert.ConvertToJson(selectItemType));
-            _view.StartActivity(intent);
+            SelectItemActivity.StartSelectItemActivity(_view,selectItemType);
         }
     }
 }

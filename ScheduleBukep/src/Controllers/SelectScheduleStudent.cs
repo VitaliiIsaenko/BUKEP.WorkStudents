@@ -71,17 +71,9 @@ namespace Bukep.Sheduler.Controllers
                 group => $"{group.NameGroup} {group.NameTypeSchedule}");
         }
 
-        //TODO: такой же метод в SelectScheduleTeacher
         protected void StartScheduleActivity(Group group)
         {
-            var intent = new Intent(_view, typeof(ScheduleActivity));
-
-            intent.PutObject(ScheduleForStudent.IntentKeyGroupsJson, group);
-            intent.PutDateTime(Schedule.IntentKey.DateLessonStart.ToString(), DateTime.Today);
-            intent.PutDateTime(Schedule.IntentKey.DateLessonEnd.ToString(), DateTime.Today);
-            intent.PutObject(IntentKeyDateSelectItemType, SelectItemType.SelectScheduleStudent);
-
-            _view.StartActivity(intent);
+            ScheduleActivity.StartScheduleActivity(_view, group);
         }
     }
 }
