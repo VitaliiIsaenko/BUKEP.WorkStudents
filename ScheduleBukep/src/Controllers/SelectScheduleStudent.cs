@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Android.Content;
+using Bukep.Sheduler.logic;
+using Bukep.Sheduler.logic.extension;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
@@ -65,20 +67,19 @@ namespace Bukep.Sheduler.Controllers
 
             InitChoice(
                 groups,
-                ClickeButtoneShow,
+                StartScheduleActivity,
                 group => $"{group.NameGroup} {group.NameTypeSchedule}");
         }
 
-        protected void ClickeButtoneShow(Group group)
+        //TODO: такой же метод в SelectScheduleTeacher
+        protected void StartScheduleActivity(Group group)
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
-            var jsonGroup = JsonConvert.ConvertToJson(group);
-            intent.PutExtra(ScheduleForStudent.IntentKeyGroupsJson, jsonGroup);
 
-            var today = DateTime.Today.ToString(Api.DateTimeFormat);
-            intent.PutExtra(Schedule.IntentKeyDateLessonStart, today);
-            intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
-            intent.PutExtra(IntentKeyDateSelectItemType, (int)SchedulesType.ForStudent);
+            intent.PutObject(ScheduleForStudent.IntentKeyGroupsJson, group);
+            intent.PutDateTime(Schedule.IntentKey.DateLessonStart.ToString(), DateTime.Today);
+            intent.PutDateTime(Schedule.IntentKey.DateLessonEnd.ToString(), DateTime.Today);
+            intent.PutObject(IntentKeyDateSelectItemType, SelectItemType.SelectScheduleStudent);
 
             _view.StartActivity(intent);
         }

@@ -15,7 +15,7 @@ namespace Bukep.Sheduler.View
         protected void InitNavigationView()
         {
             InitToolbar();
-            InitBottomNavigationView();
+            //InitBottomNavigationView();
         }
 
         protected virtual void InitBottomNavigationView()
@@ -44,7 +44,7 @@ namespace Bukep.Sheduler.View
                     itemName = "menu_favorites";
                     break;
             }
-            Toast.MakeText(this, "Click "+ itemName, ToastLength.Long).Show();
+            Toast.MakeText(this, "Click " + itemName, ToastLength.Long).Show();
         }
 
         protected virtual void InitToolbar()

@@ -9,7 +9,11 @@ namespace Bukep.Sheduler.controllers
 {
     internal class SelectFavoritesGroup : SelectItem
     {
-        public const string CacheKeyFavoritesGroup = "FavoritesGroup";
+        public enum UserDataKey
+        {
+            FavoritesGroup,
+            FavoritesTeacher
+        }
 
         public SelectFavoritesGroup(SelectItemActivity activity) : base(activity)
         {
@@ -17,15 +21,16 @@ namespace Bukep.Sheduler.controllers
 
         public override void Update()
         {
-            List<Group> favoritesGroup = CacheHelper.GetAndPutInCached<List<Group>>(
-                CacheKeyFavoritesGroup, () => null);
+            Teacher userData = CacheHelper.GetUserData<Teacher>(
+                UserDataKey.FavoritesTeacher.ToString());
+            var groups = new List<Teacher> { userData };
 
-            InitChoice(favoritesGroup, ShowScheduleFavoritesGroup, group => group.NameGroup);
+            InitChoice(groups, ShowScheduleFavoritesGroup, teacher => teacher.Fio);
         }
 
-        private void ShowScheduleFavoritesGroup(Group group)
+        private void ShowScheduleFavoritesGroup(Teacher teacher)
         {
-            Toast.MakeText(_view,"SelectFavoritesGroup", ToastLength.Long).Show();
+            Toast.MakeText(_view,$"Show Teacher Fio = {teacher.Fio}", ToastLength.Long).Show();
         }
     }
 }

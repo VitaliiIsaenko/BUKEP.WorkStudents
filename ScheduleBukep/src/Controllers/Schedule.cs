@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Android.Util;
+using Android.Content;
 using Android.Widget;
 using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
@@ -29,6 +28,7 @@ namespace Bukep.Sheduler.Controllers
         private bool _isClickImageFavorites;
 
         protected readonly ScheduleActivity view;
+        protected readonly Intent intent;
 
         /// <summary>
         /// Используется для настройки периода отображения расписания.
@@ -38,7 +38,10 @@ namespace Bukep.Sheduler.Controllers
         protected Schedule(ScheduleActivity view) : base(view)
         {
             this.view = view;
+            intent = view.Intent;
             Periods = new Periods(this.view, this);
+
+            view.AddListenerForImageFavorites(ClickImageFavorites);
         }
 
         public override void Update()
@@ -50,32 +53,12 @@ namespace Bukep.Sheduler.Controllers
 
         protected abstract IList<Lesson> GetLessons();
 
-        protected DateTime GetDateTimeFromeIntent(IntentKey intentKey)
-        {
-            return DateTime.Parse(GetJsonFromeIntent(intentKey.ToString()));
-        }
-
-        protected T GetObjectFromeIntent<T>(string key)
-        {
-            string json = GetJsonFromeIntent(key);
-            return JsonConvert.ConvertTo<T>(json);
-        }
-
-        protected string GetJsonFromeIntent(string key)
-        {
-            var json = view.Intent.GetStringExtra(key);
-            if (string.IsNullOrEmpty(json))
-                throw new Exception("Failed get json " + key + " from Intent");
-            Log.Debug(Tag, "GetJsonFromeIntent() json = " + json);
-            return json;
-        }
-
         /// <summary>
         /// Сохраняет расписание или удаляет его из избранного.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void ClickImageFavorites(object sender, EventArgs e)
+        private void ClickImageFavorites(object sender, EventArgs e)
         {
             var imageFavorites = (ImageView) sender;
             ChangeImageForFavorites(imageFavorites);

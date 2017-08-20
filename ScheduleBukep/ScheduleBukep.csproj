@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="src\logic\extension\IntentExtension.cs" />
     <Compile Include="src\controllers\SelectFavoritesGroup.cs" />
     <Compile Include="src\controllers\factory\SelectItemFactory.cs" />
     <Compile Include="src\controllers\Schedule.cs" />

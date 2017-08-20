@@ -5,6 +5,7 @@ using Android.Widget;
 using Bukep.Sheduler.controllers.factory;
 using Bukep.Sheduler.Controllers;
 using Bukep.Sheduler.logic;
+using Bukep.Sheduler.logic.extension;
 
 namespace Bukep.Sheduler.View
 {
@@ -50,8 +51,8 @@ namespace Bukep.Sheduler.View
 
         private void InitController()
         {
-            int schedulesTypeInt = Intent.GetIntExtra(SelectItem.IntentKeyDateSelectItemType, 1);
-            SelectItemType selectItemType = (SelectItemType) schedulesTypeInt;
+            SelectItemType selectItemType = Intent.GetObject<SelectItemType>(
+                SelectItem.IntentKeyDateSelectItemType);
             _controller = SelectItemFactory.CreateSelectItem(this, selectItemType);
             _controller.Update();
         }

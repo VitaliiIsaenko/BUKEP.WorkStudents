@@ -2,10 +2,9 @@
 using Android.Content;
 using Bukep.Sheduler.controllers;
 using Bukep.Sheduler.logic;
+using Bukep.Sheduler.logic.extension;
 using Bukep.Sheduler.View;
-using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
@@ -40,12 +39,9 @@ namespace Bukep.Sheduler.Controllers
         protected void StartScheduleActivity(Teacher teacher)
         {
             var intent = new Intent(_view, typeof(ScheduleActivity));
-            var jsonTeacher = JsonConvert.ConvertToJson(teacher);
-            intent.PutExtra(ScheduleForTeacher.IntentKeyTeacherJson, jsonTeacher);
-
-            var today = DateTime.Today.ToString(Api.DateTimeFormat);
-            intent.PutExtra(Schedule.IntentKeyDateLessonStart, today);
-            intent.PutExtra(Schedule.IntentKeyDateLessonEnd, today);
+            intent.PutObject(ScheduleForTeacher.IntentKeyTeacherJson, teacher);
+            intent.PutDateTime(Schedule.IntentKey.DateLessonStart.ToString(), DateTime.Today);
+            intent.PutDateTime(Schedule.IntentKey.DateLessonEnd.ToString(), DateTime.Today);
             intent.PutExtra(IntentKeyDateSelectItemType, (int)SelectItemType.SelectScheduleTeacher);
 
             _view.StartActivity(intent);

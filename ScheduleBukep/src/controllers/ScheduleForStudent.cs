@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Bukep.Sheduler.logic;
+using Bukep.Sheduler.logic.extension;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI.domain;
 
@@ -19,7 +20,8 @@ namespace Bukep.Sheduler.Controllers
 
         private Group _group;
 
-        private Group Group => _group ?? (_group = GetObjectFromeIntent<Group>(IntentKeyGroupsJson));
+        private Group Group => _group 
+            ?? (_group = intent.GetObject<Group>(IntentKeyGroupsJson));
 
         public ScheduleForStudent(ScheduleActivity view) : base(view)
         {
@@ -36,8 +38,8 @@ namespace Bukep.Sheduler.Controllers
             view.SetGroopName(Group.NameGroup);
             var lessons = DataProvider.GetGroupLessons(
                 Group.IdsSchedulGroup,
-                GetDateTimeFromeIntent(IntentKey.DateLessonStart),
-                GetDateTimeFromeIntent(IntentKey.DateLessonEnd)
+                intent.GetDateTime(IntentKey.DateLessonStart.ToString()),
+                intent.GetDateTime(IntentKey.DateLessonEnd.ToString())
             );
             return lessons;
         }

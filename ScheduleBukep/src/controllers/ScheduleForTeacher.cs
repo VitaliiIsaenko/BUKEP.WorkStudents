@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Bukep.Sheduler.Controllers;
 using Bukep.Sheduler.logic;
+using Bukep.Sheduler.logic.extension;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI.domain;
 
@@ -19,7 +19,7 @@ namespace Bukep.Sheduler.controllers
         private Teacher _teacher;
 
         private Teacher Teacher => _teacher ?? 
-            (_teacher = GetObjectFromeIntent<Teacher>(IntentKeyTeacherJson));
+            (_teacher = intent.GetObject<Teacher>(IntentKeyTeacherJson));
 
         public ScheduleForTeacher(ScheduleActivity view) : base(view)
         {
@@ -29,20 +29,22 @@ namespace Bukep.Sheduler.controllers
         {
             var lessons = DataProvider.GetTeacherLessons(
                 Teacher.IdsTeacher,
-                GetDateTimeFromeIntent(IntentKey.DateLessonStart),
-                GetDateTimeFromeIntent(IntentKey.DateLessonEnd)
+                intent.GetDateTime(IntentKey.DateLessonStart.ToString()),
+                intent.GetDateTime(IntentKey.DateLessonEnd.ToString())
             );
             return lessons;
         }
 
         protected override void SaveScheduleInFavorites()
         {
-            CacheHelper.PutUserData(UserDataTeacherJson, Teacher);
+            string key = SelectFavoritesGroup.UserDataKey.FavoritesTeacher.ToString();
+            CacheHelper.PutUserData(key, Teacher);
         }
 
         protected override void DeleteScheduleInFavorites()
         {
-            CacheHelper.DeleteUserData(UserDataTeacherJson);
+            string key = SelectFavoritesGroup.UserDataKey.FavoritesTeacher.ToString();
+            CacheHelper.DeleteUserData(key);
         }
     }
 }

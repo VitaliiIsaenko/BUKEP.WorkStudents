@@ -16,8 +16,6 @@ namespace Bukep.Sheduler.View
             _menu = new Menu(this);
         }
 
-        
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -31,6 +29,9 @@ namespace Bukep.Sheduler.View
 
             var scheduleBell = FindViewById<Button>(Resource.Id.schedule_bell);
             scheduleBell.Click += _menu.ClickScheduleBell;
+
+            var scheduleFavorite = FindViewById<Button>(Resource.Id.schedule_favorite);
+            scheduleFavorite.Click += _menu.ClickScheduleFavorite;
 
             InitNavigationView();
         }

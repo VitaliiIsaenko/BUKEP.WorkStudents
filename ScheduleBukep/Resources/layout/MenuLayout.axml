@@ -10,18 +10,16 @@
         android:text="@string/schedule_teacher"
         android:layout_width="wrap_content"
         android:layout_height="60.0dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
     <Button
         android:id="@+id/schedule_group"
         android:text="@string/schedule_group"
         android:layout_width="wrap_content"
         android:layout_height="60.0dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="0.0dp"
-        android:layout_above="@id/schedule_teacher"
         android:layout_alignRight="@id/schedule_teacher"
-        android:layout_alignLeft="@id/schedule_teacher" />
+        android:layout_alignLeft="@id/schedule_teacher"
+        android:layout_above="@id/schedule_teacher" />
     <Button
         android:id="@+id/schedule_bell"
         android:text="@string/schedule_bell"
@@ -30,7 +28,15 @@
         android:layout_below="@id/schedule_teacher"
         android:layout_centerHorizontal="true"
         android:layout_alignRight="@id/schedule_teacher"
-        android:layout_alignLeft="@id/schedule_teacher"/>
+        android:layout_alignLeft="@id/schedule_teacher" />
+    <Button
+        android:id="@+id/schedule_favorite"
+        android:text="@string/favorites"
+        android:layout_width="wrap_content"
+        android:layout_height="60.0dp"
+        android:layout_below="@id/schedule_bell"
+        android:layout_alignRight="@id/schedule_bell"
+        android:layout_alignLeft="@id/schedule_bell" />
     <include
         android:id="@+id/bottom_navigation"
         layout="@layout/BottomNavigationView" />
