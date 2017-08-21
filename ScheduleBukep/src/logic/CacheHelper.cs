@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 using Akavache;
 
 namespace Bukep.Sheduler.logic
@@ -19,20 +20,38 @@ namespace Bukep.Sheduler.logic
         /// <param name="key">Ключ кеша.</param>
         /// <param name="fetchFunc">Функция получения данных.Вывозится в случаи если данных нет в кеше.</param>
         /// <returns>Данные из кеша</returns>
-        public static T GetAndPutInCached<T>(string key, Func<T> fetchFunc)
+        public static T GetOrPutCached<T>(string key, Func<T> fetchFunc)
         {
             try
             {
                 T result = Cache.GetObject<T>(key).Wait();
                 if (result == null)
                 {
-                    return PutInCache(key, fetchFunc.Invoke());
+                    return PutCache(key, fetchFunc.Invoke());
                 }
                 return result;
             }
             catch (KeyNotFoundException)
             {
-                return PutInCache(key, fetchFunc.Invoke());
+                return PutCache(key, fetchFunc.Invoke());
+            }
+        }
+
+        //TODO: такой же как и GetOrPutInCached
+        public static T GetOrPutUserData<T>(string key, Func<T> fetchFunc)
+        {
+            try
+            {
+                T result = UserData.GetObject<T>(key).Wait();
+                if (result == null)
+                {
+                    return PutUserData(key, fetchFunc.Invoke());
+                }
+                return result;
+            }
+            catch (KeyNotFoundException)
+            {
+                return PutUserData(key, fetchFunc.Invoke());
             }
         }
 
@@ -43,15 +62,16 @@ namespace Bukep.Sheduler.logic
         /// <param name="key">Ключ кеша.</param>
         /// <param name="value">Данные которые нужно добавить.</param>
         /// <returns>value</returns>
-        private static T PutInCache<T>(string key, T value)
+        private static T PutCache<T>(string key, T value)
         {
             Cache.InsertObject(key, value);
             return value;
         }
 
-        public static void PutUserData<T>(string key, T value)
+        public static T PutUserData<T>(string key, T value)
         {
             UserData.InsertObject(key, value);
+            return value;
         }
 
         public static T GetUserData<T>(string key)

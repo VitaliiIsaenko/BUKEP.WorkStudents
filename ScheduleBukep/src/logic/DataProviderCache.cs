@@ -21,49 +21,49 @@ namespace Bukep.Sheduler.logic
         public override IList<Faculty> GetFaculties()
         {
             const string key = "faculty";
-            return CacheHelper.GetAndPutInCached(key, () => base.GetFaculties());
+            return CacheHelper.GetOrPutCached(key, () => base.GetFaculties());
         }
 
         public override IList<Specialty> GetSpecialtys(int idFaculty)
         {
             string key = "specialtys_"+ idFaculty;
-            return CacheHelper.GetAndPutInCached(key, () => base.GetSpecialtys(idFaculty));
+            return CacheHelper.GetOrPutCached(key, () => base.GetSpecialtys(idFaculty));
         }
 
         public override IList<Group> GetGroups(int idFaculty, int idCourse, IList<int> idsSpecialty)
         {
             string key = $"groups_{idFaculty}_{idCourse}_{Api.ConvertIdsToString(idsSpecialty)}";
-            return CacheHelper.GetAndPutInCached(key, () => base.GetGroups(idFaculty, idCourse, idsSpecialty));
+            return CacheHelper.GetOrPutCached(key, () => base.GetGroups(idFaculty, idCourse, idsSpecialty));
         }
 
         public override IList<Course> GetCourses(int idFaculty, IList<int> idsSpecialty)
         {
             string key = $"courses{idFaculty}_{Api.ConvertIdsToString(idsSpecialty)}";
-            return CacheHelper.GetAndPutInCached(key, () => base.GetCourses(idFaculty, idsSpecialty));
+            return CacheHelper.GetOrPutCached(key, () => base.GetCourses(idFaculty, idsSpecialty));
         }
 
         public override IList<Pulpit> GetPulpits()
         {
             const string key = "pulpits";
-            return CacheHelper.GetAndPutInCached(key, () => base.GetPulpits());
+            return CacheHelper.GetOrPutCached(key, () => base.GetPulpits());
         }
 
         public override IList<Teacher> GetTeacher(int idPulpit)
         {
             string key = $"teacher_{idPulpit}";
-            return CacheHelper.GetAndPutInCached(key, () => base.GetTeacher(idPulpit));
+            return CacheHelper.GetOrPutCached(key, () => base.GetTeacher(idPulpit));
         }
 
         public override IList<Lesson> GetGroupLessons(IList<int> idsSheduleGroup, DateTime dateFrom, DateTime dateTo)
         {
             string key = $"teacher_{Api.ConvertIdsToString(idsSheduleGroup)}_{dateFrom}_{dateTo}";
-            return CacheHelper.GetAndPutInCached(key, () => base.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo));
+            return CacheHelper.GetOrPutCached(key, () => base.GetGroupLessons(idsSheduleGroup, dateFrom, dateTo));
         }
 
         public override IList<Lesson> GetTeacherLessons(IList<int> idsTeacher, DateTime dateFrom, DateTime dateTo)
         {
             string key = $"teacherLessons{Api.ConvertIdsToString(idsTeacher)}_{dateFrom}_{dateTo}";
-            return CacheHelper.GetAndPutInCached(key, () => base.GetTeacherLessons(idsTeacher, dateFrom, dateTo));
+            return CacheHelper.GetOrPutCached(key, () => base.GetTeacherLessons(idsTeacher, dateFrom, dateTo));
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Bukep.Sheduler.Controllers
 
         private void ItemChoiceFaculty()
         {
-            InitChoice(
+            InitSelect(
                 DataProvider.GetFaculties(),
                 InitChoiceSpecialty,
                 faculty => faculty.Info.Value);
@@ -36,7 +36,7 @@ namespace Bukep.Sheduler.Controllers
         private void InitChoiceSpecialty(Faculty faculty)
         {
             _selectedFaculty = faculty;
-            InitChoice(
+            InitSelect(
                 DataProvider.GetSpecialtys(faculty.Info.Key),
                 InitChoiceCourse,
                 specialty => specialty.Info.Value);
@@ -50,7 +50,7 @@ namespace Bukep.Sheduler.Controllers
                 specialty.Info.Key
             );
 
-            InitChoice(
+            InitSelect(
                 courses,
                 InitChoiceGroup,
                 course => course.Info.Value);
@@ -65,7 +65,7 @@ namespace Bukep.Sheduler.Controllers
                 _selectedSpecialty.Info.Key
             );
 
-            InitChoice(
+            InitSelect(
                 groups,
                 StartScheduleActivity,
                 group => $"{group.NameGroup} {group.NameTypeSchedule}");

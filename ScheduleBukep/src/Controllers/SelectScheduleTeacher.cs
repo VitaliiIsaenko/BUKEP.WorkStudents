@@ -22,7 +22,7 @@ namespace Bukep.Sheduler.Controllers
 
         private void InitChoicePulpit()
         {
-            InitChoice(
+            InitSelect(
                 DataProvider.GetPulpits(),
                 InitChoiceTeacher,
                 pulpit => pulpit.NamePulpit);
@@ -30,7 +30,7 @@ namespace Bukep.Sheduler.Controllers
 
         private void InitChoiceTeacher(Pulpit pulpit)
         {
-            InitChoice(
+            InitSelect(
                 DataProvider.GetTeacher(pulpit.IdPulpit),
                 StartScheduleActivity,
                 teacher => teacher.Fio);

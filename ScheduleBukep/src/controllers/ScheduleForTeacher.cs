@@ -37,14 +37,12 @@ namespace Bukep.Sheduler.controllers
 
         protected override void SaveScheduleInFavorites()
         {
-            string key = SelectFavoritesGroup.UserDataKey.FavoritesTeacher.ToString();
-            CacheHelper.PutUserData(key, Teacher);
+            Favorites.AddTeacher(Teacher);
         }
 
         protected override void DeleteScheduleInFavorites()
         {
-            string key = SelectFavoritesGroup.UserDataKey.FavoritesTeacher.ToString();
-            CacheHelper.DeleteUserData(key);
+            Favorites.DeleteTeacher(Teacher);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Bukep.Sheduler.Controllers
 
         protected readonly DataProvider DataProvider;
         
+        //TODO: вынести view сюда
         protected Controller(BaseActivity activity)
         {
             DataProvider = new DataProviderCache(activity);

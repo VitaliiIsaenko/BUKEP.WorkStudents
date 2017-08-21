@@ -22,10 +22,10 @@ namespace Bukep.Sheduler.Controllers
             _view = activity;
         }
 
-        protected void InitChoice<TItems>(IEnumerable<TItems> items, Action<TItems> selectItem,
+        protected void InitSelect<TItems>(IEnumerable<TItems> items, Action<TItems> selectItem,
             Func<TItems, string> convertInString)
         {
-            InitChoice(new List<TItems>(items ?? new List<TItems>()), selectItem, convertInString);
+            InitSelect(new List<TItems>(items ?? new List<TItems>()), selectItem, convertInString);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Bukep.Sheduler.Controllers
         /// <param name="items">Список объектов</param>
         /// <param name="selectItem">Действие обработки выбранного элемента</param>
         /// <param name="convertInString">Функция преобразующая объект в строку</param>
-        protected void InitChoice<TItems>(List<TItems> items, Action<TItems> selectItem,
+        protected void InitSelect<TItems>(List<TItems> items, Action<TItems> selectItem,
             Func<TItems, string> convertInString)
         {
             string[] namesItem = items.ConvertAll(convertInString.Invoke).ToArray();

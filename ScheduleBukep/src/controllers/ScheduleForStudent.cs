@@ -46,12 +46,12 @@ namespace Bukep.Sheduler.Controllers
 
         protected override void SaveScheduleInFavorites()
         {
-            CacheHelper.PutUserData(UserDataGroupsJson, Group);
+            Favorites.AddGroup(Group);
         }
 
         protected override void DeleteScheduleInFavorites()
         {
-            CacheHelper.DeleteUserData(UserDataGroupsJson);
+            Favorites.DeleteGroup(Group);
         }
     }
 }

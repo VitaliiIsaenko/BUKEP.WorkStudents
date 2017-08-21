@@ -148,6 +148,7 @@
     <Compile Include="src\controllers\factory\SelectItemFactory.cs" />
     <Compile Include="src\controllers\Schedule.cs" />
     <Compile Include="src\controllers\ScheduleForTeacher.cs" />
+    <Compile Include="src\logic\Favorites.cs" />
     <Compile Include="src\logic\Periods.cs" />
     <Compile Include="src\logic\CacheHelper.cs" />
     <Compile Include="src\logic\DataProvider.cs" />
