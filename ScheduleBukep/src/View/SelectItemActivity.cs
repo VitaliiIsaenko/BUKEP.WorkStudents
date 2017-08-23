@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 using Bukep.Sheduler.controllers.factory;
 using Bukep.Sheduler.Controllers;
@@ -39,7 +40,9 @@ namespace Bukep.Sheduler.View
         {
             LinearLayout contenerListView = FindViewById<LinearLayout>(Resource.Id.ContenerForListItemChoices);
 
-            ListView listView = new ListView(this);
+            var layoutParams = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
+
+            ListView listView = new ListView(this){LayoutParameters = layoutParams };
             contenerListView.RemoveAllViews();
             contenerListView.AddView(listView);
 
