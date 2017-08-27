@@ -21,7 +21,7 @@ namespace Bukep.Sheduler.View
         private TextView _toolbarGroop;
         private TextView _toolbarDate;
         private TextView _toolbarPeriod;
-        private ImageView _imageFavorites;
+        public ImageView ImageFavorites { get; set; }
         private const string Tag = "ScheduleActivity";
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -38,7 +38,7 @@ namespace Bukep.Sheduler.View
             InitNavigationView();
             InitToolbarPeriod();
 
-            _imageFavorites = FindViewById<ImageView>(Resource.Id.toolbarImageFavorites);
+            ImageFavorites = FindViewById<ImageView>(Resource.Id.toolbarImageFavorites);
             _toolbarDate = FindViewById<TextView>(Resource.Id.toolbarDate);
             _toolbarGroop = FindViewById<TextView>(Resource.Id.toolbarGroop);
         }
@@ -47,11 +47,6 @@ namespace Bukep.Sheduler.View
         {
             _toolbarPeriod = FindViewById<TextView>(Resource.Id.toolbarSchedulesPeriod);
             _toolbarPeriod.Click += ClickSchedulesPeriod;
-        }
-
-        public void AddListenerForImageFavorites(EventHandler handler)
-        {
-            _imageFavorites.Click += handler;
         }
 
         private void InitController()

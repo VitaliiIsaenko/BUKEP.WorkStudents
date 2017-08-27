@@ -1,8 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.logic
 {
+    /// <summary>
+    /// Нужен для добавления и получения избранного из кэша.
+    /// </summary>
     public static class Favorites
     {
         private static readonly string KeyTeachers = UserDataKey.FavoritesTeachers.ToString();
@@ -16,46 +22,87 @@ namespace Bukep.Sheduler.logic
 
         public static void AddGroup(Group group)
         {
-            var groups = GetGroups();
-            groups.Add(group);
-            CacheHelper.PutUserData(KeyGroups, groups);
+            UseGroups(groups => groups.Add(group));
         }
 
         public static void AddTeacher(Teacher teacher)
         {
-            var teachers = GetTeachers();
-            teachers.Add(teacher);
-            CacheHelper.PutUserData(KeyTeachers, teacher);
+            UseTeachers(teachers => teachers.Add(teacher));
         }
 
         public static void DeleteGroup(Group group)
         {
-            var groups = GetGroups();
-            groups.Remove(group);
-            CacheHelper.PutUserData(KeyGroups, groups);
+            UseGroups(groups =>
+            {
+                groups.RemoveAll(
+                    group1 => group.IdsSchedulGroup.SequenceEqual(group.IdsSchedulGroup));
+            });
         }
 
         public static void DeleteTeacher(Teacher teacher)
         {
-            var teachers = GetTeachers();
-            teachers.Remove(teacher);
-            CacheHelper.PutUserData(KeyTeachers, teacher);
+            UseTeachers(teachers =>
+            {
+                teachers.RemoveAll(
+                    teacherComparable => teacherComparable.IdsTeacher.SequenceEqual(teacher.IdsTeacher)
+                );
+            });
         }
 
         public static List<Teacher> GetTeachers()
         {
-            List<Teacher> teachers = CacheHelper.GetOrPutUserData(
+            var teachers = CacheHelper.GetOrPutUserData(
                 KeyTeachers,
-                () => new List<Teacher>());
+                () => new List<Teacher>()
+            );
             return teachers;
         }
 
         public static List<Group> GetGroups()
         {
-            List<Group> groups = CacheHelper.GetOrPutUserData(
+            var group = CacheHelper.GetOrPutUserData(
                 KeyGroups,
-                () => new List<Group>());
-            return groups;
+                () => new List<Group>()
+            );
+            return group;
+        }
+
+        public static bool ExistTeacher(Teacher teacher)
+        {
+            var isExist = false;
+            UseTeachers(list =>
+            {
+                isExist = list.Any(teacherComparable =>
+                    teacherComparable.IdsTeacher.SequenceEqual(teacher.IdsTeacher));
+            });
+
+            return isExist;
+        }
+
+        public static bool ExistGroup(Group group)
+        {
+            var isExist = false;
+            UseGroups(list =>
+            {
+                isExist = list.Any(groupComparable =>
+                    groupComparable.IdsSchedulGroup.SequenceEqual(group.IdsSchedulGroup));
+            });
+
+            return isExist;
+        }
+
+        public static void UseTeachers(Action<List<Teacher>> action)
+        {
+            List<Teacher> teachers = GetTeachers();
+            action.Invoke(teachers);
+            CacheHelper.PutUserData(KeyTeachers, teachers);
+        }
+
+        public static void UseGroups(Action<List<Group>> action)
+        {
+            List<Group> groups = GetGroups();
+            action.Invoke(groups);
+            CacheHelper.PutUserData(KeyTeachers, groups);
         }
     }
 }

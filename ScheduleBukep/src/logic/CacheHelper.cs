@@ -13,13 +13,13 @@ namespace Bukep.Sheduler.logic
         private static readonly IBlobCache UserData = BlobCache.UserAccount;
 
         /// <summary>
-        /// Получаем кэш по ключу, 
-        /// если кэша нет взять данные из переданной функции и записать в кэш.
+        /// РџРѕР»СѓС‡Р°РµРј РєСЌС€ РїРѕ РєР»СЋС‡Сѓ, 
+        /// РµСЃР»Рё РєСЌС€Р° РЅРµС‚ РІР·СЏС‚СЊ РґР°РЅРЅС‹Рµ РёР· РїРµСЂРµРґР°РЅРЅРѕР№ С„СѓРЅРєС†РёРё Рё Р·Р°РїРёСЃР°С‚СЊ РІ РєСЌС€.
         /// </summary>
-        /// <typeparam name="T">Тип данных получаемых из кеша.</typeparam>
-        /// <param name="key">Ключ кеша.</param>
-        /// <param name="fetchFunc">Функция получения данных.Вывозится в случаи если данных нет в кеше.</param>
-        /// <returns>Данные из кеша</returns>
+        /// <typeparam name="T">РўРёРї РґР°РЅРЅС‹С… РїРѕР»СѓС‡Р°РµРјС‹С… РёР· РєРµС€Р°.</typeparam>
+        /// <param name="key">РљР»СЋС‡ РєРµС€Р°.</param>
+        /// <param name="fetchFunc">Р¤СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ РґР°РЅРЅС‹С….Р’С‹РІРѕР·РёС‚СЃСЏ РІ СЃР»СѓС‡Р°Рё РµСЃР»Рё РґР°РЅРЅС‹С… РЅРµС‚ РІ РєРµС€Рµ.</param>
+        /// <returns>Р”Р°РЅРЅС‹Рµ РёР· РєРµС€Р°</returns>
         public static T GetOrPutCached<T>(string key, Func<T> fetchFunc)
         {
             try
@@ -37,30 +37,24 @@ namespace Bukep.Sheduler.logic
             }
         }
 
-        //TODO: такой же как и GetOrPutInCached
+        //TODO: С‚Р°РєРѕР№ Р¶Рµ РєР°Рє Рё GetOrPutInCached
         public static T GetOrPutUserData<T>(string key, Func<T> fetchFunc)
         {
-            try
-            {
-                T result = UserData.GetObject<T>(key).Wait();
-                if (result == null)
-                {
-                    return PutUserData(key, fetchFunc.Invoke());
-                }
-                return result;
-            }
-            catch (KeyNotFoundException)
-            {
-                return PutUserData(key, fetchFunc.Invoke());
-            }
+            return UserData.GetOrCreateObject(key, fetchFunc, DateTimeOffset.MaxValue).Wait();
+        }
+        
+        public static void ClearAll()
+        {
+            UserData.InvalidateAll();
+            Cache.InvalidateAll();
         }
 
         /// <summary>
-        /// Записываем данные в кэш и возвращаем их.
+        /// Р—Р°РїРёСЃС‹РІР°РµРј РґР°РЅРЅС‹Рµ РІ РєСЌС€ Рё РІРѕР·РІСЂР°С‰Р°РµРј РёС….
         /// </summary>
-        /// <typeparam name="T">Тип добавляемых данных в кеша.</typeparam>
-        /// <param name="key">Ключ кеша.</param>
-        /// <param name="value">Данные которые нужно добавить.</param>
+        /// <typeparam name="T">РўРёРї РґРѕР±Р°РІР»СЏРµРјС‹С… РґР°РЅРЅС‹С… РІ РєРµС€Р°.</typeparam>
+        /// <param name="key">РљР»СЋС‡ РєРµС€Р°.</param>
+        /// <param name="value">Р”Р°РЅРЅС‹Рµ РєРѕС‚РѕСЂС‹Рµ РЅСѓР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ.</param>
         /// <returns>value</returns>
         private static T PutCache<T>(string key, T value)
         {

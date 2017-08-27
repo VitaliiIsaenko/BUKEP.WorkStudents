@@ -1,5 +1,6 @@
 using System;
 using Android.Content;
+using Android.Widget;
 using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI.helpers;
@@ -32,6 +33,8 @@ namespace Bukep.Sheduler.Controllers
 
         public void ClickScheduleBell(object sender, EventArgs e)
         {
+            CacheHelper.ClearAll();
+            Toast.MakeText(_view,"Clear all cache",ToastLength.Short).Show();
         }
 
         public void ClickScheduleFavorite(object sender, EventArgs e)

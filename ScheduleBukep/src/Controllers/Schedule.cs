@@ -14,7 +14,7 @@ namespace Bukep.Sheduler.Controllers
         protected const string ToolbarDateFormat = "ddd, dd MMM";
 
         /// <summary>
-        /// Используется для получения данных из Intent.
+        /// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РґР°РЅРЅС‹С… РёР· Intent.
         /// </summary>
         public enum IntentKey
         {
@@ -23,7 +23,7 @@ namespace Bukep.Sheduler.Controllers
         }
 
         /// <summary>
-        /// Используется для отслужевания состояния кнопки добавить в избранное.
+        /// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РѕС‚СЃР»СѓР¶РµРІР°РЅРёСЏ СЃРѕСЃС‚РѕСЏРЅРёСЏ РєРЅРѕРїРєРё РґРѕР±Р°РІРёС‚СЊ РІ РёР·Р±СЂР°РЅРЅРѕРµ.
         /// </summary>
         private bool _isClickImageFavorites;
 
@@ -31,7 +31,7 @@ namespace Bukep.Sheduler.Controllers
         protected readonly Intent intent;
 
         /// <summary>
-        /// Используется для настройки периода отображения расписания.
+        /// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РЅР°СЃС‚СЂРѕР№РєРё РїРµСЂРёРѕРґР° РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ СЂР°СЃРїРёСЃР°РЅРёСЏ.
         /// </summary>
         public Periods Periods { get; }
 
@@ -41,7 +41,7 @@ namespace Bukep.Sheduler.Controllers
             intent = view.Intent;
             Periods = new Periods(this.view, this);
 
-            view.AddListenerForImageFavorites(ClickImageFavorites);
+            view.ImageFavorites.Click += ClickImageFavorites;
         }
 
         public override void Update()
@@ -54,15 +54,14 @@ namespace Bukep.Sheduler.Controllers
         protected abstract IList<Lesson> GetLessons();
 
         /// <summary>
-        /// Сохраняет расписание или удаляет его из избранного.
+        /// РЎРѕС…СЂР°РЅСЏРµС‚ СЂР°СЃРїРёСЃР°РЅРёРµ РёР»Рё СѓРґР°Р»СЏРµС‚ РµРіРѕ РёР· РёР·Р±СЂР°РЅРЅРѕРіРѕ.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ClickImageFavorites(object sender, EventArgs e)
         {
-            var imageFavorites = (ImageView) sender;
-            ChangeImageForFavorites(imageFavorites);
             _isClickImageFavorites = !_isClickImageFavorites;
+            ChangeImageForFavorites(_isClickImageFavorites);
 
             if (_isClickImageFavorites)
             {
@@ -72,7 +71,6 @@ namespace Bukep.Sheduler.Controllers
             {
                 DeleteScheduleInFavorites();
             }
-            
         }
 
         protected abstract void DeleteScheduleInFavorites();
@@ -80,16 +78,16 @@ namespace Bukep.Sheduler.Controllers
         protected abstract void SaveScheduleInFavorites();
 
         /// <summary>
-        /// Используется для смены картинки при нажатии 
-        /// на кнопку добавить в избранное(звёздочка).
+        /// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ СЃРјРµРЅС‹ РєР°СЂС‚РёРЅРєРё РїСЂРё РЅР°Р¶Р°С‚РёРё 
+        /// РЅР° РєРЅРѕРїРєСѓ РґРѕР±Р°РІРёС‚СЊ РІ РёР·Р±СЂР°РЅРЅРѕРµ(Р·РІС‘Р·РґРѕС‡РєР°).
         /// </summary>
-        /// <param name="imageFavorites"></param>
-        private void ChangeImageForFavorites(ImageView imageFavorites)
+        /// <param name="clickImageFavorites"></param>
+        protected void ChangeImageForFavorites(bool clickImageFavorites)
         {
-            imageFavorites.SetImageResource(
-                _isClickImageFavorites
-                    ? Resource.Drawable.favorites_empty
-                    : Resource.Drawable.favorites);
+            view.ImageFavorites.SetImageResource(
+                clickImageFavorites
+                    ? Resource.Drawable.favorites
+                    : Resource.Drawable.favorites_empty);
         }
     }
 }
