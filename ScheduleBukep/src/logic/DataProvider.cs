@@ -9,13 +9,13 @@ using ScheduleBukepAPI.service;
 namespace Bukep.Sheduler.logic
 {
     /// <summary>
-    /// Предоставляет данные для приложения.
+    /// РџСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ РґР°РЅРЅС‹Рµ РґР»СЏ РїСЂРёР»РѕР¶РµРЅРёСЏ.
     /// </summary>
     public class DataProvider
     {
         private const string Tag = "DataProvider";
 
-        //TODO: добавить ApiFactory
+        //TODO: РґРѕР±Р°РІРёС‚СЊ ApiFactory
         private readonly Api _api = new Api(
             new FilteringFacultiesService(new HttpRequstHelper()),
             new SchedulesService(new HttpRequstHelper())

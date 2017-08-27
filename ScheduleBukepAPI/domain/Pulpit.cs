@@ -5,7 +5,10 @@ namespace ScheduleBukepAPI.domain
 {
     public class Pulpit
     {
-        public int IdPulpit { get; set; }
+        /// <summary>
+        /// Key - id
+        /// Value - name
+        /// </summary>
         [JsonProperty("pulpit")]
         public KeyValuePair<int, string> Info { get; set; }
         public bool IsActiveSchedule { get; set; }

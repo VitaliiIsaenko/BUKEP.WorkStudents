@@ -27,7 +27,7 @@ namespace ScheduleBukepAPITest
         private static void SelectTeacher()
         {
             Pulpit selectPulpit = SelectPulpit();
-            var selectTeacher = SelectTeacher(selectPulpit.IdPulpit);
+            var selectTeacher = SelectTeacher(selectPulpit.Info.Key);
 
             DateTime dateTime = DateTime.Today.AddDays(1);
             IList<int> idTeacher = selectTeacher.IdsTeacher;
@@ -54,7 +54,7 @@ namespace ScheduleBukepAPITest
             for (var i = 0; i < pulpits.Count; i++)
             {
                 var pulpit = pulpits[i];
-                Console.WriteLine("{0}. {1} = {2} ", i, pulpit.Info, pulpit.IdPulpit);
+                Console.WriteLine("{0}. {1} = {2} ", i, pulpit.Info.Value, pulpit.Info.Key);
             }
             var selectedNumber = AskNumber();
 

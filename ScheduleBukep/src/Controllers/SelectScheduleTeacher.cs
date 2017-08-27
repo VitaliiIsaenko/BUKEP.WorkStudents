@@ -27,7 +27,7 @@ namespace Bukep.Sheduler.Controllers
 
         private void InitChoiceTeacher(Pulpit pulpit)
         {
-            IList<Teacher> teachers = DataProvider.GetTeacher(pulpit.IdPulpit);
+            IList<Teacher> teachers = DataProvider.GetTeacher(pulpit.Info.Key);
             InitSelect(
                 teachers,
                 StartScheduleActivity,
