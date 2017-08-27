@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace ScheduleBukepAPI.helpers
 {
@@ -6,7 +7,11 @@ namespace ScheduleBukepAPI.helpers
     {
         public static List<T> ConvertToList<T>(string json)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<List<T>>(json);
+            var jsonSerializerSettings = new JsonSerializerSettings
+            {
+                MissingMemberHandling = MissingMemberHandling.Error
+            };
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<List<T>>(json, jsonSerializerSettings);
         }
 
         public static T ConvertTo<T>(string json)

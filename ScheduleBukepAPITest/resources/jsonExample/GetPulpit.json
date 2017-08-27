@@ -1,122 +1,170 @@
 [
-  {
-    "idPulpit": 28,
-    "namePulpit": "Административного и таможенного права",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 40,
-    "namePulpit": "Бухгалтерского учета, анализа и статистики",
-    "isActiveSchedule": false
-  },
-  {
-    "idPulpit": 47,
-    "namePulpit": "Гражданского права и процесса",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 36,
-    "namePulpit": "Гуманитарных и социально-экономических наук",
-    "isActiveSchedule": false
-  },
-  {
-    "idPulpit": 46,
-    "namePulpit": "Естественнонаучных дисциплин",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 30,
-    "namePulpit": "Иностранных языков",
-    "isActiveSchedule": false
-  },
-  {
-    "idPulpit": 16,
-    "namePulpit": "Информационных систем и технологий",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 50,
-    "namePulpit": "Коммерческой деятельности и рекламы",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 48,
-    "namePulpit": "Конституционного и международного права",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 41,
-    "namePulpit": "Маркетинга и менеджмента",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 22,
-    "namePulpit": "Организации и технологии защиты информации",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 29,
-    "namePulpit": "Сервиса и туризма",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 33,
-    "namePulpit": "Социальной работы и психологии",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 24,
-    "namePulpit": "Таможенных операций и таможенного контроля",
-    "isActiveSchedule": false
-  },
-  {
-    "idPulpit": 31,
-    "namePulpit": "Теории и истории государства и права",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 42,
-    "namePulpit": "Теории и истории кооперативного движения",
-    "isActiveSchedule": false
-  },
-  {
-    "idPulpit": 43,
-    "namePulpit": "Технологии и организации общественного питания",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 38,
-    "namePulpit": "Товароведения непродовольственных товаров и таможенной экспертизы",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 35,
-    "namePulpit": "Товароведения продовольственных товаров и таможенной экспертизы",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 37,
-    "namePulpit": "Трудового и предпринимательского права",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 39,
-    "namePulpit": "Уголовного права и процесса",
-    "isActiveSchedule": true
-  },
-  {
-    "idPulpit": 34,
-    "namePulpit": "Физической культуры и спорта",
-    "isActiveSchedule": false
-  },
-  {
-    "idPulpit": 27,
-    "namePulpit": "Финансов и таможенных доходов",
-    "isActiveSchedule": false
-  },
-  {
-    "idPulpit": 32,
-    "namePulpit": "Экономики",
-    "isActiveSchedule": true
-  }
+    {
+        "pulpit": {
+            "key": 28,
+            "value": "Административного и таможенного права"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 40,
+            "value": "Бухгалтерского учета, анализа и статистики"
+        },
+        "isActiveSchedule": false
+    },
+    {
+        "pulpit": {
+            "key": 47,
+            "value": "Гражданского права и процесса"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 36,
+            "value": "Гуманитарных и социально-экономических наук"
+        },
+        "isActiveSchedule": false
+    },
+    {
+        "pulpit": {
+            "key": 46,
+            "value": "Естественнонаучных дисциплин"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 30,
+            "value": "Иностранных языков"
+        },
+        "isActiveSchedule": false
+    },
+    {
+        "pulpit": {
+            "key": 16,
+            "value": "Информационных систем и технологий"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 50,
+            "value": "Коммерческой деятельности и рекламы"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 48,
+            "value": "Конституционного и международного права"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 41,
+            "value": "Маркетинга и менеджмента"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 22,
+            "value": "Организации и технологии защиты информации"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 29,
+            "value": "Сервиса и туризма"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 33,
+            "value": "Социальной работы и психологии"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 24,
+            "value": "Таможенных операций и таможенного контроля"
+        },
+        "isActiveSchedule": false
+    },
+    {
+        "pulpit": {
+            "key": 31,
+            "value": "Теории и истории государства и права"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 42,
+            "value": "Теории и истории кооперативного движения"
+        },
+        "isActiveSchedule": false
+    },
+    {
+        "pulpit": {
+            "key": 43,
+            "value": "Технологии и организации общественного питания"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 38,
+            "value": "Товароведения непродовольственных товаров и таможенной экспертизы"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 35,
+            "value": "Товароведения продовольственных товаров и таможенной экспертизы"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 37,
+            "value": "Трудового и предпринимательского права"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 39,
+            "value": "Уголовного права и процесса"
+        },
+        "isActiveSchedule": true
+    },
+    {
+        "pulpit": {
+            "key": 34,
+            "value": "Физической культуры и спорта"
+        },
+        "isActiveSchedule": false
+    },
+    {
+        "pulpit": {
+            "key": 27,
+            "value": "Финансов и таможенных доходов"
+        },
+        "isActiveSchedule": false
+    },
+    {
+        "pulpit": {
+            "key": 32,
+            "value": "Экономики"
+        },
+        "isActiveSchedule": true
+    }
 ]

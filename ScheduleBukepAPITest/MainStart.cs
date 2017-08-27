@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
+using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service;
 
 namespace ScheduleBukepAPITest
@@ -9,17 +10,17 @@ namespace ScheduleBukepAPITest
     /// <summary>
     /// Класс для работы с API через консоль.
     /// </summary>
-    internal class MainStart
+    public class MainStart
     {
         private static readonly Api Api = new Api(
-            new FilteringFacultiesService(new FakeHttpRequstHelper()),
-            new SchedulesService(new FakeHttpRequstHelper())
+            new FilteringFacultiesService(new HttpRequstHelper()),
+            new SchedulesService(new HttpRequstHelper())
         );
 
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            SelectSchedules();
-            //SelectTeacher();
+            //SelectSchedules();
+            SelectTeacher();
             Console.Read();
         }
 
@@ -53,7 +54,7 @@ namespace ScheduleBukepAPITest
             for (var i = 0; i < pulpits.Count; i++)
             {
                 var pulpit = pulpits[i];
-                Console.WriteLine("{0}. {1} = {2} ", i, pulpit.NamePulpit, pulpit.IdPulpit);
+                Console.WriteLine("{0}. {1} = {2} ", i, pulpit.Info, pulpit.IdPulpit);
             }
             var selectedNumber = AskNumber();
 

@@ -1,8 +1,4 @@
-﻿using System;
-using Android.Content;
-using Bukep.Sheduler.controllers;
-using Bukep.Sheduler.logic;
-using Bukep.Sheduler.logic.extension;
+﻿using System.Collections.Generic;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI.domain;
 
@@ -22,16 +18,18 @@ namespace Bukep.Sheduler.Controllers
 
         private void InitChoicePulpit()
         {
+            IList<Pulpit> pulpits = DataProvider.GetPulpits();
             InitSelect(
-                DataProvider.GetPulpits(),
+                pulpits,
                 InitChoiceTeacher,
-                pulpit => pulpit.NamePulpit);
+                pulpit => pulpit.Info.Value);
         }
 
         private void InitChoiceTeacher(Pulpit pulpit)
         {
+            IList<Teacher> teachers = DataProvider.GetTeacher(pulpit.IdPulpit);
             InitSelect(
-                DataProvider.GetTeacher(pulpit.IdPulpit),
+                teachers,
                 StartScheduleActivity,
                 teacher => teacher.Fio);
         }
