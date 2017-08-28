@@ -28,6 +28,7 @@ namespace Bukep.Sheduler.View
             builder
                 .SetTitle(GetString(Resource.String.in_app_happened_error))
                 .SetMessage(mesages)
+                .SetCancelable(false)
                 .SetNegativeButton("Ок", 
                 (sender, args) =>
                 {
