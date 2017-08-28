@@ -8,7 +8,7 @@ using Bukep.Sheduler.View;
 namespace Bukep.Sheduler.logic
 {
     /// <summary>
-    /// Нужен для проверки интернета перед выполнением каких либо действий.
+    /// РќСѓР¶РµРЅ РґР»СЏ РїСЂРѕРІРµСЂРєРё РёРЅС‚РµСЂРЅРµС‚Р° РїРµСЂРµРґ РІС‹РїРѕР»РЅРµРЅРёРµРј РєР°РєРёС… Р»РёР±Рѕ РґРµР№СЃС‚РІРёР№.
     /// </summary>
     public class ExecutorInternetOperations
     {
@@ -22,19 +22,19 @@ namespace Bukep.Sheduler.logic
         }
 
         /// <summary>
-        /// Используется для проверки подключение к интернету перед выполнением функции.
-        /// Если нет подключения выводит сообщение об ошибке.
+        /// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё РїРѕРґРєР»СЋС‡РµРЅРёРµ Рє РёРЅС‚РµСЂРЅРµС‚Сѓ РїРµСЂРµРґ РІС‹РїРѕР»РЅРµРЅРёРµРј С„СѓРЅРєС†РёРё.
+        /// Р•СЃР»Рё РЅРµС‚ РїРѕРґРєР»СЋС‡РµРЅРёСЏ РІС‹РІРѕРґРёС‚ СЃРѕРѕР±С‰РµРЅРёРµ РѕР± РѕС€РёР±РєРµ.
         /// </summary>
-        /// <typeparam name="TResult">Результат выполнения функции.</typeparam>
-        /// <param name="func">Функция которую нужно выполнить.</param>
-        /// <param name="defaultValue">Возвращает в случии неудачи.</param>
+        /// <typeparam name="TResult">Р РµР·СѓР»СЊС‚Р°С‚ РІС‹РїРѕР»РЅРµРЅРёСЏ С„СѓРЅРєС†РёРё.</typeparam>
+        /// <param name="func">Р¤СѓРЅРєС†РёСЏ РєРѕС‚РѕСЂСѓСЋ РЅСѓР¶РЅРѕ РІС‹РїРѕР»РЅРёС‚СЊ.</param>
+        /// <param name="defaultValue">Р’РѕР·РІСЂР°С‰Р°РµС‚ РІ СЃР»СѓС‡РёРё РЅРµСѓРґР°С‡Рё.</param>
         /// <returns></returns>
         public TResult ExecuteOperation<TResult>(Func<TResult> func, TResult defaultValue)
         {
             if (!CheckInternetConnect())
             {
                 //TODO: move in res
-                _activity.ShowError("Отсутствует подключение к интернету.");
+                _activity.ShowError("РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РїРѕРґРєР»СЋС‡РµРЅРёРµ Рє РёРЅС‚РµСЂРЅРµС‚Сѓ.");
                 return defaultValue;
             }
 

@@ -7,6 +7,7 @@ namespace Bukep.Sheduler.View
     /// <summary>
     /// Используется для работы с общей логикой навигации в Activity.
     /// </summary>
+    //TODO: delete this
     public abstract class NavigationActivity : BaseActivity
     {
         /// <summary>

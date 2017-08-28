@@ -69,7 +69,7 @@ namespace ScheduleBukepAPI.service
         {
             if (startDate == null || endDate == null) return false;
             var today = DateTime.Today;
-            var result = (today >= startDate && today < endDate);
+            var result = today >= startDate && today < endDate;
             Console.WriteLine(
                 $"TodayIsInRange() Range {startDate} - {endDate} result = {result}"
             );

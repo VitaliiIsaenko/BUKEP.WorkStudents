@@ -31,9 +31,10 @@ namespace Bukep.Sheduler.controllers
                     return "Группы";
                 case FavoritesSections.Teather:
                     return "Преподаватели";
+                default:
+                    throw new ArgumentOutOfRangeException(
+                        "Не удалось выбрать тип избранного. FavoritesSections = " + sections);
             }
-            throw new ArgumentOutOfRangeException(
-                "Failed select FavoritesSections. FavoritesSections = " + sections);
         }
 
         public override void Update()
@@ -49,14 +50,15 @@ namespace Bukep.Sheduler.controllers
                 case FavoritesSections.Group:
                     List<Group> groups = Favorites.GetGroups();
                     InitSelect(groups, ShowScheduleFavoritesGroup, group => group.Info);
-                    return;
+                    break;
                 case FavoritesSections.Teather:
                     List<Teacher> teachers = Favorites.GetTeachers();
                     InitSelect(teachers, ShowScheduleFavoritesTeacher, teacher => teacher.Fio);
-                    return;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(
+                        "Не удалось выбрать тип избранного. FavoritesSections = " + sections);
             }
-            throw new ArgumentOutOfRangeException(
-                "Failed select FavoritesSections. FavoritesSections = " + sections);
         }
 
         private void ShowScheduleFavoritesTeacher(Teacher teacher)

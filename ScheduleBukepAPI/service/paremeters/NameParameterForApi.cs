@@ -14,6 +14,6 @@
         IdTeacher,
         IdsScheduleGroup,
         DateFrom,
-        DateTo,
+        DateTo
     }
 }

@@ -110,6 +110,9 @@ namespace Bukep.Sheduler.View
                 case 2:
                     _controller.Periods.SelectPeriodWeek();
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException(
+                        "Не удалось выбрать период. Periods = " + e.Which);
             }
         }
 
