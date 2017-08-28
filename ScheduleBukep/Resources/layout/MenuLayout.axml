@@ -37,4 +37,11 @@
         android:layout_below="@id/schedule_bell"
         android:layout_alignRight="@id/schedule_bell"
         android:layout_alignLeft="@id/schedule_bell" />
+    <Button
+            android:text="Очистить кэш"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clear_сache"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"/>
 </RelativeLayout>

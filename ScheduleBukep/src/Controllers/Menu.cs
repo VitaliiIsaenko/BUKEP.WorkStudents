@@ -29,13 +29,18 @@ namespace Bukep.Sheduler.Controllers
 
         public void ClickScheduleBell(object sender, EventArgs e)
         {
-            CacheHelper.ClearAll();
-            Toast.MakeText(View, "Clear all cache", ToastLength.Short).Show();
+            
         }
 
         public void ClickScheduleFavorite(object sender, EventArgs e)
         {
             StartActivitySchedule(SelectItemType.SelectFavoritesGroup);
+        }
+
+        public void Click—lear—ache(object sender, EventArgs e)
+        {
+            CacheHelper.ClearAll();
+            Toast.MakeText(View, "Clear all cache", ToastLength.Short).Show();
         }
 
         private void StartActivitySchedule(SelectItemType selectItemType)

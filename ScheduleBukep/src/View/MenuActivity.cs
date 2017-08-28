@@ -32,6 +32,9 @@ namespace Bukep.Sheduler.View
 
             var scheduleFavorite = FindViewById<Button>(Resource.Id.schedule_favorite);
             scheduleFavorite.Click += _menu.ClickScheduleFavorite;
+
+            var clearCache = FindViewById<Button>(Resource.Id.clear_сache);
+            clearCache.Click += _menu.ClickСlearСache;
         }
     }
 }
