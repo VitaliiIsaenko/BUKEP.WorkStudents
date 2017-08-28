@@ -27,7 +27,7 @@ namespace ScheduleBukepAPI.service
             return ConvertToList<Faculty>(json);
         }
 
-        public List<Specialty> GetSpecialtys(int year, int idFilial, int idFaculty)
+        public virtual List<Specialty> GetSpecialtys(int year, int idFilial, int idFaculty)
         {
             IDictionary<string, string> parameters = _parameterConstructor
                 .SetParameter(NameParameterForApi.Year, year)
@@ -38,7 +38,7 @@ namespace ScheduleBukepAPI.service
             return ConvertToList<Specialty>(json);
         }
 
-        public List<Course> GetCourses(int year, int idFilial, int idFaculty, IList<int> idsSpecialty)
+        public virtual List<Course> GetCourses(int year, int idFilial, int idFaculty, IList<int> idsSpecialty)
         {
             IDictionary<string, string> parameters = _parameterConstructor
                 .SetParameter(NameParameterForApi.Year, year)
@@ -63,7 +63,7 @@ namespace ScheduleBukepAPI.service
             return ConvertToList<Group>(json);
         }
 
-        public List<Pulpit> GetPulpits(int year, int idFilial)
+        public virtual List<Pulpit> GetPulpits(int year, int idFilial)
         {
             IDictionary<string, string> parameters = _parameterConstructor
                 .SetParameter(NameParameterForApi.Year, year)
@@ -73,7 +73,7 @@ namespace ScheduleBukepAPI.service
             return ConvertToList<Pulpit>(json);
         }
 
-        public List<Teacher> GetTeacher(int year, int idPulpit)
+        public virtual List<Teacher> GetTeacher(int year, int idPulpit)
         {
             IDictionary<string, string> parameters = _parameterConstructor
                 .SetParameter(NameParameterForApi.Year, year)
@@ -83,7 +83,7 @@ namespace ScheduleBukepAPI.service
             return ConvertToList<Teacher>(json);
         }
 
-        public List<TimeLesson> GetLessonTime(int idFilial)
+        public virtual List<TimeLesson> GetLessonTime(int idFilial)
         {
             IDictionary<string, string> parameters = _parameterConstructor
                 .SetParameter(NameParameterForApi.IdFilial, idFilial)

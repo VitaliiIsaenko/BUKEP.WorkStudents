@@ -8,17 +8,17 @@ using Assert = NUnit.Framework.Assert;
 
 namespace ScheduleBukepAPIUniteTests
 {
-    [TestFixture()]
+    [TestFixture]
     public class FacadeApiTests
     {
         private static readonly Mock<IFacultiesService> MockFaculties = new Mock<IFacultiesService>();
         private static readonly Mock<ISchedulesService> MockSchedules = new Mock<ISchedulesService>();
         private static readonly Api Api = new Api(MockFaculties.Object, MockSchedules.Object);
 
-        [Test()]
+        [Test]
         public void GetFacultiesTest()
         {
-            var value = new List<Faculty>()
+            var value = new List<Faculty>
             {
                 new Faculty(),
                 new Faculty()

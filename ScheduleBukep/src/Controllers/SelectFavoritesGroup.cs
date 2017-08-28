@@ -48,7 +48,7 @@ namespace Bukep.Sheduler.controllers
             {
                 case FavoritesSections.Group:
                     List<Group> groups = Favorites.GetGroups();
-                    InitSelect(groups, ShowScheduleFavoritesGroup, group => group.NameGroup);
+                    InitSelect(groups, ShowScheduleFavoritesGroup, group => group.Info);
                     return;
                 case FavoritesSections.Teather:
                     List<Teacher> teachers = Favorites.GetTeachers();

@@ -39,7 +39,7 @@ namespace Bukep.Sheduler.logic
                 if (foundLessonOnDay == null)
                 {
                     Console.WriteLine("Create new LessonOnDay " + dateTimeLesson);
-                    foundLessonOnDay = new LessonOnDay() {DateLesson = dateTimeLesson};
+                    foundLessonOnDay = new LessonOnDay {DateLesson = dateTimeLesson};
                     lessonOnDays.Add(foundLessonOnDay);
                 }
                 Console.WriteLine("Add groupLesson in lessonOnDay");

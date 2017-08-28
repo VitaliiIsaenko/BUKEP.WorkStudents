@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.logic
 {

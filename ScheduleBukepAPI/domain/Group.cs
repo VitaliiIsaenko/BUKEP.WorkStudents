@@ -8,7 +8,7 @@ namespace ScheduleBukepAPI.domain
     {
         [JsonProperty("idsSchedulGroup")]
         public IList<int> Ids { get; set; }
-        [JsonProperty("gr oup")]
+        [JsonProperty("group")]
         public string Info { get; set; }
         public string AffixusNameGroup { get; set; }
         public string NameGroupOld { get; set; }

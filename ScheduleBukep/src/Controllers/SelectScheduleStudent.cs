@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Android.Content;
-using Bukep.Sheduler.logic;
-using Bukep.Sheduler.logic.extension;
+﻿using System.Collections.Generic;
 using Bukep.Sheduler.View;
-using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
-using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {
@@ -68,7 +62,7 @@ namespace Bukep.Sheduler.Controllers
             InitSelect(
                 groups,
                 StartScheduleActivity,
-                group => $"{group.NameGroup} {group.NameTypeSchedule}");
+                group => $"{group.Info} {group.NameTypeSchedule}");
         }
 
         protected void StartScheduleActivity(Group group)

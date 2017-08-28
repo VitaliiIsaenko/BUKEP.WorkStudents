@@ -23,6 +23,7 @@ namespace Bukep.Sheduler.controllers
 
         public ScheduleForTeacher(ScheduleActivity view) : base(view)
         {
+            ChangeImageForFavorites(Favorites.ExistTeacher(Teacher));
         }
 
         protected override IList<Lesson> GetLessons()

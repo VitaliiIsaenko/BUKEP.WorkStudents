@@ -5,10 +5,10 @@ using Assert = NUnit.Framework.Assert;
 
 namespace ScheduleBukepAPIUniteTests.service.paremeters
 {
-    [TestFixture()]
+    [TestFixture]
     public class ParameterConstructorTests
     {
-        [Test()]
+        [Test]
         public void CheckBuildParameter()
         {
             var builder = new ParameterConstructor();

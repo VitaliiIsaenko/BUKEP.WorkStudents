@@ -6,32 +6,30 @@ using ScheduleBukepAPI.helpers;
 namespace ScheduleBukepAPI.service
 {
     //TODO: Добавить UnitTest
+    /// <summary>
+    /// Используется для фильтрации данных расписания.
+    /// </summary>
     public class FilteringFacultiesService : FacultiesService
     {
         public FilteringFacultiesService(HttpRequstHelper httpRequestHelper) : base(httpRequestHelper)
         {
         }
 
-        public FilteringFacultiesService()
-        {
-        }
-
+        /// <summary>
+        /// Удаляет все не актуальные факультеты.
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="idFilial"></param>
+        /// <returns></returns>
         public override List<Faculty> GetFaculties(int year, int idFilial)
         {
-            var Faculties = base.GetFaculties(year, idFilial);
-            var faculty = new List<Faculty>(Faculties);
-            for (int i = 0; i < Faculties.Count; i++)
-            {
-                if(Faculties[i].IsActiveSchedule==false)
-                {
-                    faculty.Remove(Faculties[i]);
-                }
-            }
-            return faculty;
+            var faculties = base.GetFaculties(year, idFilial);
+            faculties.RemoveAll(faculty => faculty.IsActiveSchedule == false);
+            return faculties;
         }
 
         /// <summary>
-        /// Добавляет дополнительную сортировку по актуальности расписания группы.
+        /// Удаляет все не актуальные группы.
         /// </summary>
         /// <param name="year"></param>
         /// <param name="idFilial"></param>
@@ -76,6 +74,19 @@ namespace ScheduleBukepAPI.service
                 $"TodayIsInRange() Range {startDate} - {endDate} result = {result}"
             );
             return result;
+        }
+
+        /// <summary>
+        /// Удаляет все не актуальные кафедры.
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="idFilial"></param>
+        /// <returns></returns>
+        public override List<Pulpit> GetPulpits(int year, int idFilial)
+        {
+            var pulpits = base.GetPulpits(year, idFilial);
+            pulpits.RemoveAll(pulpit => pulpit.IsActiveSchedule == false);
+            return pulpits;
         }
     }
 }

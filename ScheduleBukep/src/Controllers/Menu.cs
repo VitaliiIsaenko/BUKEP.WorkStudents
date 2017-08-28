@@ -1,9 +1,7 @@
 using System;
-using Android.Content;
 using Android.Widget;
 using Bukep.Sheduler.logic;
 using Bukep.Sheduler.View;
-using ScheduleBukepAPI.helpers;
 
 namespace Bukep.Sheduler.Controllers
 {

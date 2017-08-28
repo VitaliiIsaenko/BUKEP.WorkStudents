@@ -2,10 +2,10 @@
 
 namespace ScheduleBukepAPIUniteTests.decorators
 {
-    [TestClass()]
+    [TestClass]
     public class FilterGroupDecoratorTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void GetGroupsTest()
         {
             //TODO: написать тест

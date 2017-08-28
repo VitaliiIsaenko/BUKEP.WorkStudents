@@ -14,7 +14,7 @@ using ScheduleBukepAPI.domain;
 
 namespace Bukep.Sheduler.View
 {
-    [Activity()]
+    [Activity]
     public class ScheduleActivity : NavigationActivity
     {
         private Schedule _controller;

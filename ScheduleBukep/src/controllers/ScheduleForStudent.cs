@@ -25,6 +25,7 @@ namespace Bukep.Sheduler.Controllers
 
         public ScheduleForStudent(ScheduleActivity view) : base(view)
         {
+            ChangeImageForFavorites(Favorites.ExistGroup(Group));
         }
 
         public override void Update()
@@ -35,9 +36,9 @@ namespace Bukep.Sheduler.Controllers
 
         protected override IList<Lesson> GetLessons()
         {
-            view.SetGroopName(Group.NameGroup);
+            view.SetGroopName(Group.Info);
             var lessons = DataProvider.GetGroupLessons(
-                Group.IdsSchedulGroup,
+                Group.Ids,
                 intent.GetDateTime(IntentKey.DateLessonStart.ToString()),
                 intent.GetDateTime(IntentKey.DateLessonEnd.ToString())
             );

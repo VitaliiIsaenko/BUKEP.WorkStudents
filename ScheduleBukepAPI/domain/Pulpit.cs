@@ -3,6 +3,9 @@ using Newtonsoft.Json;
 
 namespace ScheduleBukepAPI.domain
 {
+    /// <summary>
+    /// Кафедра
+    /// </summary>
     public class Pulpit
     {
         /// <summary>

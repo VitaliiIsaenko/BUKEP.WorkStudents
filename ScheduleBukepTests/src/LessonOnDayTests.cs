@@ -6,10 +6,10 @@ using NUnit.Framework;
 
 namespace ScheduleBukepTests
 {
-    [TestFixture()]
+    [TestFixture]
     public class LessonOnDayTests
     {
-        [Test()]
+        [Test]
         public void ParseTest()
         {
             var lessons = new List<Lesson>

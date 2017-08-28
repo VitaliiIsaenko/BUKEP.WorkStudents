@@ -4,10 +4,10 @@ using ScheduleBukepAPI.helpers;
 
 namespace ScheduleBukepAPIUniteTests.helpers
 {
-    [TestClass()]
+    [TestClass]
     public class CreatorUrlTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void CreateUrlTest()
         {
             var dictionary = new Dictionary<string, string>
