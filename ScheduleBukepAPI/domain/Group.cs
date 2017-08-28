@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace ScheduleBukepAPI.domain
 {
     public class Group
     {
-        public IList<int> IdsSchedulGroup { get; set; }
-        public string NameGroup { get; set; }
+        [JsonProperty("idsSchedulGroup")]
+        public IList<int> Ids { get; set; }
+        [JsonProperty("gr oup")]
+        public string Info { get; set; }
         public string AffixusNameGroup { get; set; }
         public string NameGroupOld { get; set; }
         public int IdSemestr { get; set; }

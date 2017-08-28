@@ -35,7 +35,7 @@ namespace Bukep.Sheduler.logic
             UseGroups(groups =>
             {
                 groups.RemoveAll(
-                    group1 => group.IdsSchedulGroup.SequenceEqual(group.IdsSchedulGroup));
+                    group1 => group.Ids.SequenceEqual(group.Ids));
             });
         }
 
@@ -85,7 +85,7 @@ namespace Bukep.Sheduler.logic
             UseGroups(list =>
             {
                 isExist = list.Any(groupComparable =>
-                    groupComparable.IdsSchedulGroup.SequenceEqual(group.IdsSchedulGroup));
+                    groupComparable.Ids.SequenceEqual(group.Ids));
             });
 
             return isExist;

@@ -93,7 +93,7 @@ namespace ScheduleBukepAPITest
         private static IEnumerable<Lesson> SelectedLessonsGroup(Group selectedGroup)
         {
             return Api.GetGroupLessons(
-                selectedGroup.IdsSchedulGroup,
+                selectedGroup.Ids,
                 DateTime.Parse("2017-05-15"),
                 DateTime.Parse("2017-05-15")
             );
@@ -109,8 +109,8 @@ namespace ScheduleBukepAPITest
             for (var i = 0; i < groups.Count; i++)
             {
                 var group = groups[i];
-                Console.WriteLine("{0}. {1} {2} = {3} ", i, group.NameGroup, group.NameTypeSchedule,
-                    Api.ConvertIdsToString(group.IdsSchedulGroup));
+                Console.WriteLine("{0}. {1} {2} = {3} ", i, group.Info, group.NameTypeSchedule,
+                    Api.ConvertIdsToString(group.Ids));
             }
 
             var numberGroup = AskNumber();
