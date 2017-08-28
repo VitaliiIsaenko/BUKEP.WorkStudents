@@ -36,7 +36,7 @@ namespace Bukep.Sheduler.Controllers
 
         protected void StartScheduleActivity(Teacher teacher)
         {
-            ScheduleActivity.StartScheduleActivity(_view, teacher);
+            ScheduleActivity.StartScheduleActivity(View, teacher);
         }
     }
 }

@@ -7,7 +7,7 @@ using ScheduleBukepAPI.domain;
 
 namespace Bukep.Sheduler.Controllers
 {
-    public abstract class Schedule : Controller
+    public abstract class Schedule : Controller<ScheduleActivity>
     {
         private const string Tag = "Schedule";
         protected const string ToolbarDateFormat = "ddd, dd MMM";
@@ -25,8 +25,6 @@ namespace Bukep.Sheduler.Controllers
         /// Используется для отслужевания состояния кнопки добавить в избранное.
         /// </summary>
         private bool _isClickImageFavorites;
-
-        protected readonly ScheduleActivity view;
         protected readonly Intent intent;
 
         /// <summary>
@@ -36,9 +34,8 @@ namespace Bukep.Sheduler.Controllers
 
         protected Schedule(ScheduleActivity view) : base(view)
         {
-            this.view = view;
             intent = view.Intent;
-            Periods = new Periods(this.view, this);
+            Periods = new Periods(View, this);
 
             view.ImageFavorites.Click += ClickImageFavorites;
         }
@@ -46,8 +43,8 @@ namespace Bukep.Sheduler.Controllers
         public override void Update()
         {
             var lessonOnDays = LessonOnDay.Parse(GetLessons());
-            view.ShowLessonOnDay(lessonOnDays);
-            view.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
+            View.ShowLessonOnDay(lessonOnDays);
+            View.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
         }
 
         protected abstract IList<Lesson> GetLessons();
@@ -83,7 +80,7 @@ namespace Bukep.Sheduler.Controllers
         /// <param name="clickImageFavorites"></param>
         protected void ChangeImageForFavorites(bool clickImageFavorites)
         {
-            view.ImageFavorites.SetImageResource(
+            View.ImageFavorites.SetImageResource(
                 clickImageFavorites
                     ? Resource.Drawable.favorites
                     : Resource.Drawable.favorites_empty);

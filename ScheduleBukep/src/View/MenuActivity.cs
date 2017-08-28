@@ -6,7 +6,7 @@ using Bukep.Sheduler.Controllers;
 namespace Bukep.Sheduler.View
 {
     [Activity(MainLauncher = true)]
-    public class MenuActivity : NavigationActivity
+    public class MenuActivity : BaseActivity
     {
         private const string Tag = "MenuActivity";
         private readonly Menu _menu;
@@ -32,8 +32,6 @@ namespace Bukep.Sheduler.View
 
             var scheduleFavorite = FindViewById<Button>(Resource.Id.schedule_favorite);
             scheduleFavorite.Click += _menu.ClickScheduleFavorite;
-
-            InitNavigationView();
         }
     }
 }

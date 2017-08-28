@@ -8,18 +8,14 @@ namespace Bukep.Sheduler.Controllers
     /// <summary>
     /// Общий контроллер для выбора расписания
     /// </summary>
-    public abstract class SelectItem : Controller
+    public abstract class SelectItem : Controller<SelectItemActivity>
     {
-        protected readonly SelectItemActivity _view;
-        
-
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="activity">Activity которое будет отображать рассписание</param>
-        protected SelectItem(SelectItemActivity activity) : base(activity)
+        /// <param name="view">Activity которое будет отображать рассписание</param>
+        protected SelectItem(SelectItemActivity view) : base(view)
         {
-            _view = activity;
         }
 
         protected void InitSelect<TItems>(IEnumerable<TItems> items, Action<TItems> selectItem,
@@ -41,9 +37,9 @@ namespace Bukep.Sheduler.Controllers
             string[] namesItem = items.ConvertAll(convertInString.Invoke).ToArray();
 
             ArrayAdapter<string> arrayAdapter = new ArrayAdapter<string>(
-                _view, Resource.Layout.ChooseItem, namesItem);
+                View, Resource.Layout.ChooseItem, namesItem);
 
-            _view.ShowChoiceItem(arrayAdapter, selectIndex => selectItem(items[selectIndex]));
+            View.ShowChoiceItem(arrayAdapter, selectIndex => selectItem(items[selectIndex]));
         }
     }
 }

@@ -37,7 +37,4 @@
         android:layout_below="@id/schedule_bell"
         android:layout_alignRight="@id/schedule_bell"
         android:layout_alignLeft="@id/schedule_bell" />
-    <include
-        android:id="@+id/bottom_navigation"
-        layout="@layout/BottomNavigationView" />
 </RelativeLayout>

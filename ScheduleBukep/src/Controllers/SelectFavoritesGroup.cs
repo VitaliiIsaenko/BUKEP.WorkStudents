@@ -10,7 +10,7 @@ namespace Bukep.Sheduler.controllers
 {
     internal class SelectFavoritesGroup : SelectItem
     {
-        public SelectFavoritesGroup(SelectItemActivity activity) : base(activity)
+        public SelectFavoritesGroup(SelectItemActivity view) : base(view)
         {
         }
 
@@ -63,12 +63,12 @@ namespace Bukep.Sheduler.controllers
 
         private void ShowScheduleFavoritesTeacher(Teacher teacher)
         {
-            ScheduleActivity.StartScheduleActivity(_view, teacher);
+            ScheduleActivity.StartScheduleActivity(View, teacher);
         }
 
         private void ShowScheduleFavoritesGroup(Group group)
         {
-            ScheduleActivity.StartScheduleActivity(_view, group);
+            ScheduleActivity.StartScheduleActivity(View, group);
         }
     }
 }

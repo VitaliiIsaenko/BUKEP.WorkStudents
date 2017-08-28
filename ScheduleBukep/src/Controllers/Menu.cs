@@ -5,14 +5,12 @@ using Bukep.Sheduler.View;
 
 namespace Bukep.Sheduler.Controllers
 {
-    public class Menu : Controller
+    public class Menu : Controller<MenuActivity>
     {
         private const string Tag = "Menu";
-        private readonly MenuActivity _view;
 
         public Menu(MenuActivity view) : base(view)
         {
-            _view = view;
         }
 
         public override void Update()
@@ -32,7 +30,7 @@ namespace Bukep.Sheduler.Controllers
         public void ClickScheduleBell(object sender, EventArgs e)
         {
             CacheHelper.ClearAll();
-            Toast.MakeText(_view,"Clear all cache",ToastLength.Short).Show();
+            Toast.MakeText(View, "Clear all cache", ToastLength.Short).Show();
         }
 
         public void ClickScheduleFavorite(object sender, EventArgs e)
@@ -42,7 +40,7 @@ namespace Bukep.Sheduler.Controllers
 
         private void StartActivitySchedule(SelectItemType selectItemType)
         {
-            SelectItemActivity.StartSelectItemActivity(_view,selectItemType);
+            SelectItemActivity.StartSelectItemActivity(View, selectItemType);
         }
     }
 }

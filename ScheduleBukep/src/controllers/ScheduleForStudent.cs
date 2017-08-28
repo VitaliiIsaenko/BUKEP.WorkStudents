@@ -31,12 +31,12 @@ namespace Bukep.Sheduler.Controllers
         public override void Update()
         {
             base.Update();
-            view.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
+            View.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
         }
 
         protected override IList<Lesson> GetLessons()
         {
-            view.SetGroopName(Group.Info);
+            View.SetGroopName(Group.Info);
             var lessons = DataProvider.GetGroupLessons(
                 Group.Ids,
                 intent.GetDateTime(IntentKey.DateLessonStart.ToString()),

@@ -67,7 +67,7 @@ namespace Bukep.Sheduler.Controllers
 
         protected void StartScheduleActivity(Group group)
         {
-            ScheduleActivity.StartScheduleActivity(_view, group);
+            ScheduleActivity.StartScheduleActivity(View, group);
         }
     }
 }

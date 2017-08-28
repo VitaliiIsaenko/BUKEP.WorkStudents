@@ -16,7 +16,7 @@ namespace Bukep.Sheduler.View
     ///  Используется для выбора элемента из списка.
     /// </summary>
     [Activity(Icon = "@drawable/icon")]
-    public class SelectItemActivity : NavigationActivity
+    public class SelectItemActivity : BaseActivity
     {
         private const string Tag = "IdentifyScheduleActivity";
         public const string IntentKeyDateSelectItemType = "SchedulesType";
@@ -27,7 +27,6 @@ namespace Bukep.Sheduler.View
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.IdentifyScheduleLayout);
 
-            InitNavigationView();
             InitController();
         }
 

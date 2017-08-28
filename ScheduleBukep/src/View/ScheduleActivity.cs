@@ -15,7 +15,7 @@ using ScheduleBukepAPI.domain;
 namespace Bukep.Sheduler.View
 {
     [Activity]
-    public class ScheduleActivity : NavigationActivity
+    public class ScheduleActivity : BaseActivity
     {
         private Schedule _controller;
         private TextView _toolbarGroop;
@@ -35,7 +35,6 @@ namespace Bukep.Sheduler.View
 
         private void InitView()
         {
-            InitNavigationView();
             InitToolbarPeriod();
 
             ImageFavorites = FindViewById<ImageView>(Resource.Id.toolbarImageFavorites);
@@ -133,7 +132,7 @@ namespace Bukep.Sheduler.View
             }
         }
 
-        internal static void StartScheduleActivity(SelectItemActivity view, Teacher teacher)
+        internal static void StartScheduleActivity(BaseActivity view, Teacher teacher)
         {
             var intent = new Intent(view, typeof(ScheduleActivity));
 
@@ -145,7 +144,7 @@ namespace Bukep.Sheduler.View
             view.StartActivity(intent);
         }
 
-        internal static void StartScheduleActivity(SelectItemActivity view, Group group)
+        internal static void StartScheduleActivity(BaseActivity view, Group group)
         {
             var intent = new Intent(view, typeof(ScheduleActivity));
 
