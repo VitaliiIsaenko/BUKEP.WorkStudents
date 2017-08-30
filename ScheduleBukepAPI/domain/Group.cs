@@ -84,6 +84,70 @@ namespace ScheduleBukepAPI.domain
         /// <summary>
         /// Аффикс группы. Только для групп, обучающихся на базе 9 или 11 классов
         /// </summary>
+        public GroupInfo[] Info { get; set; }
+
+        /// <summary>
+        /// ССФ
+        /// </summary>
+        public KeyValuePair<int, string> Ssf { get; set; }
+
+        /// <summary>
+        /// Семестр
+        /// </summary>
+        public int Semestr { get; set; }
+
+        /// <summary>
+        /// Тип расписания
+        /// </summary>
+        public KeyValuePair<int, string> TypeShedule { get; set; }
+
+        /// <summary>
+        /// Существование расписания на текущий момент времени
+        /// </summary>
+        public bool IsActive { get; set; }
+
+        /// <summary>
+        /// Дата начала расписания
+        /// </summary>
+        public DateTime ScheduleDateFrom { get; set; }
+
+        /// <summary>
+        /// Дата окончания расписания
+        /// </summary>
+        public DateTime ScheduleDateTo { get; set; }
+
+        public string GetName()
+        {
+            return Info[0].Group.Value + TypeShedule.Value;
+        }
+    }
+
+    /// <summary>
+    /// Информация о группе
+    /// </summary>
+    public class GroupInfo
+    {
+        
+        public GroupInfo()
+        {
+            Group = new KeyValuePair<int, string>();
+            Form = new KeyValuePair<int, string>();
+        }
+
+        
+        /// <summary>
+        /// Група
+        /// </summary>
+        public KeyValuePair<int, string> Group { get; set; }
+
+        /// <summary>
+        /// Фантомная група
+        /// </summary>
+        public bool IsPhantomGroup { get; set; }
+
+        /// <summary>
+        /// Аффикс группы. Только для групп, обучающихся на базе 9 или 11 классов
+        /// </summary>
         public string AffixusNameGroup { get; set; }
 
         /// <summary>
