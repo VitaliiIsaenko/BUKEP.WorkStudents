@@ -34,10 +34,10 @@ namespace Bukep.Sheduler.Controllers
 
         public void ClickScheduleFavorite(object sender, EventArgs e)
         {
-            StartActivitySchedule(SelectItemType.SelectFavoritesGroup);
+            StartActivitySchedule(SelectItemType.SelectFavorites);
         }
 
-        public void Click—lear—ache(object sender, EventArgs e)
+        public void Click–°lear–°ache(object sender, EventArgs e)
         {
             CacheHelper.ClearAll();
             Toast.MakeText(View, "Clear all cache", ToastLength.Short).Show();

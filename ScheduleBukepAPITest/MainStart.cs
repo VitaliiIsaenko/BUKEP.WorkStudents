@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Web;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
@@ -21,34 +19,10 @@ namespace ScheduleBukepAPITest
 
         public static void Main(string[] args)
         {
-            string NameMethod = "GetPulpit";
-            var parameters=new Dictionary<string, string>();
-            parameters["year"] = "2016";
-            parameters["idFilial"] = "1000";
-
-            var uriBuilder=new UriBuilder();
-            uriBuilder.Scheme = "https";
-            uriBuilder.Host = "my.bukep.ru";
-            uriBuilder.Path = "api/Schedule/" + NameMethod;
-            uriBuilder.Port = 447;
-
-            NameValueCollection parametersQuery = HttpUtility.ParseQueryString(string.Empty);
-            foreach (var keyValuePair in parameters)
-            {
-                parametersQuery[keyValuePair.Key] = keyValuePair.Value;
-            }
-
-             uriBuilder.Query = parametersQuery.ToString();
-             Console.WriteLine(uriBuilder.Uri.ToString());           
-             Console.Read();
-            
-           // SelectSchedules();
-            SelectPulpit();
+            //SelectSchedules();
             SelectTeacher();
             Console.Read();
         }
-
-        
 
         private static void SelectTeacher()
         {

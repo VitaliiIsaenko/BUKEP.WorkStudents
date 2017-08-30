@@ -16,7 +16,7 @@ namespace ScheduleBukepAPI.service
         public FacultiesService()
         {
         }
-        //TODO: parameters переименовать как parametersForApi убрать NameParameterForApi
+        
         public virtual List<Faculty> GetFaculties(int year, int idFilial)
         {
             IDictionary<string, string> parameters = _parameterConstructor

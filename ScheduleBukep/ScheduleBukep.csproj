@@ -226,6 +226,10 @@
     <AndroidResource Include="Resources\drawable\gps.png" />
   </ItemGroup>
   <ItemGroup>
+      <ProjectReference Include="..\ScheduleBukepAPITest\ScheduleBukepAPITest.csproj">
+          <Project>{67639a80-8308-4198-9329-510166ad0e83}</Project>
+          <Name>ScheduleBukepAPITest</Name>
+      </ProjectReference>
     <ProjectReference Include="..\ScheduleBukepAPI\ScheduleBukepAPI.csproj">
       <Project>{6c7e5e15-f4e0-40b7-9d2f-78d93b927cbe}</Project>
       <Name>ScheduleBukepAPI</Name>

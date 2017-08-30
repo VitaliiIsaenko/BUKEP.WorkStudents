@@ -62,7 +62,7 @@ namespace Bukep.Sheduler.Controllers
             InitSelect(
                 groups,
                 StartScheduleActivity,
-                group => $"{group.Info} {group.NameTypeSchedule}");
+                group => $"{group.Info[0].Group.Value} {group.TypeShedule.Value}");
         }
 
         protected void StartScheduleActivity(Group group)

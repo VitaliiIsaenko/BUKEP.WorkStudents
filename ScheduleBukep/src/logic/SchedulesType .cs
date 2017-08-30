@@ -4,6 +4,6 @@
     {
         SelectScheduleTeacher = 1,
         SelectScheduleStudent = 2,
-        SelectFavoritesGroup = 3
+        SelectFavorites = 3
     }
 }

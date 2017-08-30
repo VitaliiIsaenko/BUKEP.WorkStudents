@@ -18,7 +18,7 @@ namespace Bukep.Sheduler.controllers.factory
                 case SelectItemType.SelectScheduleTeacher:
                     selectItem = new SelectScheduleTeacher(activity);
                     break;
-                case SelectItemType.SelectFavoritesGroup:
+                case SelectItemType.SelectFavorites:
                     selectItem = new SelectFavoritesGroup(activity);
                     break;
                 default:

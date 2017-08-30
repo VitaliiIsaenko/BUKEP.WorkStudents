@@ -50,8 +50,8 @@ namespace Bukep.Sheduler.View
 
         private void InitController()
         {
-            int schedulesTypeInt = Intent.GetIntExtra(SelectItemActivity.IntentKeyDateSelectItemType, 1);
-            SelectItemType selectItemType = (SelectItemType) schedulesTypeInt;
+            SelectItemType selectItemType = 
+                Intent.GetObject<SelectItemType>(SelectItemActivity.IntentKeySelectItemType);
             //TODO: вынести в фабрику
             switch (selectItemType)
             {
@@ -61,9 +61,11 @@ namespace Bukep.Sheduler.View
                 case SelectItemType.SelectScheduleTeacher:
                     _controller = new ScheduleForTeacher(this);
                     break;
+                case SelectItemType.SelectFavorites:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(
-                        "Не удалось выбрать тип расписания. SchedulesType = " + schedulesTypeInt);
+                        "Не удалось выбрать тип расписания. SchedulesType = " + selectItemType);
             }
             _controller.Update();
         }
@@ -136,7 +138,7 @@ namespace Bukep.Sheduler.View
         {
             var intent = new Intent(view, typeof(ScheduleActivity));
 
-            intent.PutObject(SelectItemActivity.IntentKeyDateSelectItemType, SelectItemType.SelectScheduleTeacher);
+            intent.PutObject(SelectItemActivity.IntentKeySelectItemType, SelectItemType.SelectScheduleTeacher);
             intent.PutObject(ScheduleForTeacher.IntentKeyTeacherJson, teacher);
             intent.PutDateTime(Schedule.IntentKey.DateLessonStart.ToString(), DateTime.Today);
             intent.PutDateTime(Schedule.IntentKey.DateLessonEnd.ToString(), DateTime.Today);
@@ -148,11 +150,13 @@ namespace Bukep.Sheduler.View
         {
             var intent = new Intent(view, typeof(ScheduleActivity));
 
-            intent.PutObject(SelectItemActivity.IntentKeyDateSelectItemType, SelectItemType.SelectFavoritesGroup);
+            intent.PutObject(SelectItemActivity.IntentKeySelectItemType, SelectItemType.SelectScheduleStudent);
             intent.PutObject(ScheduleForStudent.IntentKeyGroupsJson, group);
             intent.PutDateTime(Schedule.IntentKey.DateLessonStart.ToString(), DateTime.Today);
             intent.PutDateTime(Schedule.IntentKey.DateLessonEnd.ToString(), DateTime.Today);
 
+            
+            
             view.StartActivity(intent);
         }
     }
