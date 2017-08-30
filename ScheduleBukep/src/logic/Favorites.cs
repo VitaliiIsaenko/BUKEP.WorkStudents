@@ -34,7 +34,7 @@ namespace Bukep.Sheduler.logic
             UseGroups(groups =>
             {
                 groups.RemoveAll(
-                    group1 => group.Ids.SequenceEqual(group.Ids));
+                    groupComparable => groupComparable.Ids.SequenceEqual(group.Ids));
             });
         }
 
@@ -101,7 +101,7 @@ namespace Bukep.Sheduler.logic
         {
             List<Group> groups = GetGroups();
             action.Invoke(groups);
-            CacheHelper.PutUserData(KeyTeachers, groups);
+            CacheHelper.PutUserData(KeyGroups, groups);
         }
     }
 }

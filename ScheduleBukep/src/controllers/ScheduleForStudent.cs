@@ -36,7 +36,7 @@ namespace Bukep.Sheduler.Controllers
 
         protected override IList<Lesson> GetLessons()
         {
-            View.SetGroopName(Group.Info);
+            View.SetGroopName(Group.Info[0].Group.Value);
             var lessons = DataProvider.GetGroupLessons(
                 Group.Ids,
                 intent.GetDateTime(IntentKey.DateLessonStart.ToString()),

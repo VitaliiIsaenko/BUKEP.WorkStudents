@@ -6,7 +6,8 @@ namespace ScheduleBukepAPI.domain
 {
     public class Lesson
     {
-        public KeyValuePair<int, string> TypeSchedule { get; set; }
+        [JsonProperty("typeShedule")]
+        public KeyValuePair<int, string> TypeShedule { get; set; }
         public KeyValuePair<int, string> TypeWeek { get; set; }
         public KeyValuePair<int, string> Day { get; set; }
         [JsonProperty("lesson")]

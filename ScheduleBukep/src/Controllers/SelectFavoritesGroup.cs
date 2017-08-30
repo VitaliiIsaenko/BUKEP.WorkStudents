@@ -49,7 +49,7 @@ namespace Bukep.Sheduler.controllers
             {
                 case FavoritesSections.Group:
                     List<Group> groups = Favorites.GetGroups();
-                    InitSelect(groups, ShowScheduleFavoritesGroup, group => group.Info);
+                    InitSelect(groups, ShowScheduleFavoritesGroup, group => group.Info[0].Group.Value + group.TypeShedule.Value);
                     break;
                 case FavoritesSections.Teather:
                     List<Teacher> teachers = Favorites.GetTeachers();

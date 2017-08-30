@@ -19,7 +19,7 @@ namespace Bukep.Sheduler.View
     public class SelectItemActivity : BaseActivity
     {
         private const string Tag = "IdentifyScheduleActivity";
-        public const string IntentKeyDateSelectItemType = "SchedulesType";
+        public const string IntentKeySelectItemType = "SchedulesType";
         private SelectItem _controller;
 
         protected override void OnCreate(Bundle bundle)
@@ -57,7 +57,7 @@ namespace Bukep.Sheduler.View
         private void InitController()
         {
             SelectItemType selectItemType = Intent.GetObject<SelectItemType>(
-            IntentKeyDateSelectItemType);
+            IntentKeySelectItemType);
             _controller = SelectItemFactory.CreateSelectItem(this, selectItemType);
             _controller.Update();
         }
@@ -66,7 +66,7 @@ namespace Bukep.Sheduler.View
         {
             var intent = new Intent(view, typeof(SelectItemActivity));
             intent.PutObject(
-                IntentKeyDateSelectItemType,
+                IntentKeySelectItemType,
                 JsonConvert.ConvertToJson(selectItemType));
             view.StartActivity(intent);
         }

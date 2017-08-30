@@ -19,8 +19,8 @@ namespace ScheduleBukepAPITest
 
         public static void Main(string[] args)
         {
-            //SelectSchedules();
-            SelectTeacher();
+            SelectSchedules();
+            //SelectTeacher();
             Console.Read();
         }
 
@@ -109,7 +109,7 @@ namespace ScheduleBukepAPITest
             for (var i = 0; i < groups.Count; i++)
             {
                 var group = groups[i];
-                Console.WriteLine("{0}. {1} {2} = {3} ", i, group.Info, group.NameTypeSchedule,
+                Console.WriteLine("{0}. {1} {2} = {3} ", i, group.Info[0].Group.Value, group.TypeShedule.Value,
                     Api.ConvertIdsToString(group.Ids));
             }
 
