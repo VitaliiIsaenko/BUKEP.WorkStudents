@@ -5,6 +5,7 @@ using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service;
+using ScheduleBukepAPITest;
 
 namespace Bukep.Sheduler.logic
 {
@@ -17,8 +18,8 @@ namespace Bukep.Sheduler.logic
 
         //TODO: добавить ApiFactory
         private readonly Api _api = new Api(
-            new FilteringFacultiesService(new HttpRequstHelper()),
-            new SchedulesService(new HttpRequstHelper())
+            new FilteringFacultiesService(new FakeHttpRequstHelper()),
+            new SchedulesService(new FakeHttpRequstHelper())
         );
 
         protected readonly ExecutorInternetOperations ExecutorInternetOperations;
