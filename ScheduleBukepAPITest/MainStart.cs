@@ -19,7 +19,6 @@ namespace ScheduleBukepAPITest
 
         public static void Main(string[] args)
         {
-            
             SelectSchedules();
             //SelectTeacher();
             Console.Read();
