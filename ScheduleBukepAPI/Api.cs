@@ -20,7 +20,7 @@ namespace ScheduleBukepAPI
         public const string DateTimeFormat = "yyyy-MM-dd";
 
         //TODO: написать метод который бы получал учебный год.
-        private const int Year = 2016;
+        private const int Year = 2017;
 
         private const int IdFilial = 1000;
 

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{67639A80-8308-4198-9329-510166AD0E83}</ProjectGuid>
-      <OutputType>Library</OutputType>
+      <OutputType>Exe</OutputType>
     <RootNamespace>ScheduleBukepAPITest</RootNamespace>
     <AssemblyName>ScheduleBukepAPITest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
