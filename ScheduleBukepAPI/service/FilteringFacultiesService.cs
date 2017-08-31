@@ -55,7 +55,11 @@ namespace ScheduleBukepAPI.service
         {
             DateTime? startDate = group.ScheduleDateFrom;
             DateTime? endDate = group.ScheduleDateTo;
-
+            
+            // При сравнении периода, отнимаем 3 дня в начале периода.
+            // Это сделано для того чтобы можно было знать о расписании за 3 дня.
+            startDate = startDate?.AddDays(-3);
+            
             return !TodayIsInRange(startDate, endDate);
         }
 
