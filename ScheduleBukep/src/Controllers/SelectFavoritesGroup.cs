@@ -8,6 +8,7 @@ using ScheduleBukepAPI.domain;
 
 namespace Bukep.Sheduler.controllers
 {
+    //TODO: rename in SelectFavorites
     internal class SelectFavoritesGroup : SelectItem
     {
         public SelectFavoritesGroup(SelectItemActivity view) : base(view)
@@ -40,7 +41,11 @@ namespace Bukep.Sheduler.controllers
         public override void Update()
         {
             var items = Enum.GetValues(typeof(FavoritesSections)).Cast<FavoritesSections>();
-            InitSelect(items, ShowSelectSections, FavoritesSectionsConvertInString);
+            var selectOption = new SelectOption<FavoritesSections>();
+            selectOption.SetItems(items)
+                .SetConvertInString(FavoritesSectionsConvertInString)
+                .SetOnClickItem(ShowSelectSections);
+            View.ShowSelectItem(selectOption);
         }
 
         private void ShowSelectSections(FavoritesSections sections)
@@ -48,17 +53,38 @@ namespace Bukep.Sheduler.controllers
             switch (sections)
             {
                 case FavoritesSections.Group:
-                    List<Group> groups = Favorites.GetGroups();
-                    InitSelect(groups, ShowScheduleFavoritesGroup, group => group.Info[0].Group.Value + group.TypeShedule.Value);
+                    ShowFavoritesGroup();
                     break;
                 case FavoritesSections.Teather:
-                    List<Teacher> teachers = Favorites.GetTeachers();
-                    InitSelect(teachers, ShowScheduleFavoritesTeacher, teacher => teacher.Fio);
+                    ShowFavoritesTeather();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(
                         "Не удалось выбрать тип избранного. FavoritesSections = " + sections);
             }
+        }
+
+        private void ShowFavoritesTeather()
+        {
+            List<Teacher> teachers = Favorites.GetTeachers();
+            var selectOption = new SelectOption<Teacher>();
+            selectOption
+                .SetItems(teachers)
+                .SetOnClickItem(ShowScheduleFavoritesTeacher)
+                .SetConvertInString(teacher => teacher.Fio);
+            
+            View.ShowSelectItem(selectOption);
+        }
+
+        private void ShowFavoritesGroup()
+        {
+            List<Group> groups = Favorites.GetGroups();
+
+            var selectOption = new SelectOption<Group>();
+            selectOption.SetItems(groups)
+                .SetOnClickItem(ShowScheduleFavoritesGroup)
+                .SetConvertInString(group => group.GetName());
+            View.ShowSelectItem(selectOption);
         }
 
         private void ShowScheduleFavoritesTeacher(Teacher teacher)
