@@ -56,6 +56,11 @@ namespace ScheduleBukepAPI.domain
         /// Дата окончания расписания
         /// </summary>
         public DateTime ScheduleDateTo { get; set; }
+
+        public string GetName()
+        {
+            return Info[0].Group.Value + TypeShedule.Value;
+        }
     }
 
     /// <summary>

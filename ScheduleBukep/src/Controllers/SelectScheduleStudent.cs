@@ -21,19 +21,30 @@ namespace Bukep.Sheduler.Controllers
 
         private void ItemChoiceFaculty()
         {
-            InitSelect(
-                DataProvider.GetFaculties(),
-                InitChoiceSpecialty,
-                faculty => faculty.Info.Value);
+            IList<Faculty> faculties = DataProvider.GetFaculties();
+            var selectOption = new SelectOption<Faculty>();
+            
+            selectOption
+                .SetItems(faculties)
+                .SetOnClickItem(InitChoiceSpecialty)
+                .SetConvertInString(faculty => faculty.Info.Value);
+            
+            View.ShowSelectItem(selectOption);
         }
 
         private void InitChoiceSpecialty(Faculty faculty)
         {
             _selectedFaculty = faculty;
-            InitSelect(
-                DataProvider.GetSpecialtys(faculty.Info.Key),
-                InitChoiceCourse,
-                specialty => specialty.Info.Value);
+            IList<Specialty> specialties = DataProvider.GetSpecialtys(faculty.Info.Key);
+            
+            var selectOption = new SelectOption<Specialty>();
+            
+            selectOption
+                .SetItems(specialties)
+                .SetOnClickItem(InitChoiceCourse)
+                .SetConvertInString(specialty => specialty.Info.Value);
+            
+            View.ShowSelectItem(selectOption);
         }
 
         private void InitChoiceCourse(Specialty specialty)
@@ -43,11 +54,15 @@ namespace Bukep.Sheduler.Controllers
                 _selectedFaculty.Info.Key,
                 specialty.Info.Key
             );
-
-            InitSelect(
-                courses,
-                InitChoiceGroup,
-                course => course.Info.Value);
+            
+            var selectOption = new SelectOption<Course>();
+            
+            selectOption
+                .SetItems(courses)
+                .SetOnClickItem(InitChoiceGroup)
+                .SetConvertInString(course => course.Info.Value);
+            
+            View.ShowSelectItem(selectOption);
         }
 
         private void InitChoiceGroup(Course course)
@@ -59,10 +74,14 @@ namespace Bukep.Sheduler.Controllers
                 _selectedSpecialty.Info.Key
             );
 
-            InitSelect(
-                groups,
-                StartScheduleActivity,
-                group => $"{group.Info[0].Group.Value} {group.TypeShedule.Value}");
+            var selectOption = new SelectOption<Group>();
+            
+            selectOption
+                .SetItems(groups)
+                .SetOnClickItem(StartScheduleActivity)
+                .SetConvertInString(group => group.GetName());
+            
+            View.ShowSelectItem(selectOption);
         }
 
         protected void StartScheduleActivity(Group group)
