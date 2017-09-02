@@ -1,5 +1,7 @@
 ﻿﻿﻿﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Web;
 using ScheduleBukepAPI;
 using ScheduleBukepAPI.domain;
 using ScheduleBukepAPI.helpers;
@@ -19,11 +21,34 @@ namespace ScheduleBukepAPITest
 
         public static void Main(string[] args)
         {
+            string NameMethod = "GetPulpit";
+            var parameters=new Dictionary<string, string>();
+            parameters["year"] = "2016";
+            parameters["idFilial"] = "1000";
+
+            var uriBuilder=new UriBuilder();
+            uriBuilder.Scheme = "https";
+            uriBuilder.Host = "my.bukep.ru";
+            uriBuilder.Path = "api/Schedule/" + NameMethod;
+            uriBuilder.Port = 447;
+
+            NameValueCollection parametersQuery = HttpUtility.ParseQueryString(string.Empty);
+            foreach (var keyValuePair in parameters)
+            {
+                parametersQuery[keyValuePair.Key] = keyValuePair.Value;
+            }
+
+             uriBuilder.Query = parametersQuery.ToString();
+             Console.WriteLine(uriBuilder.Uri.ToString());           
+             Console.Read();
             
-            SelectSchedules();
-            //SelectTeacher();
+           // SelectSchedules();
+            SelectPulpit();
+            SelectTeacher();
             Console.Read();
         }
+
+        
 
         private static void SelectTeacher()
         {
@@ -110,7 +135,7 @@ namespace ScheduleBukepAPITest
             for (var i = 0; i < groups.Count; i++)
             {
                 var group = groups[i];
-                Console.WriteLine("{0}. {1} {2} = {3} ", i, group.Info[0].Group.Value, group.TypeShedule.Value,
+                Console.WriteLine("{0}. {1} {2} = {3} ", i, group.Info, group.NameTypeSchedule,
                     Api.ConvertIdsToString(group.Ids));
             }
 
