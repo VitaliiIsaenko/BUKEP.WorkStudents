@@ -19,19 +19,23 @@ namespace Bukep.Sheduler.Controllers
         private void InitChoicePulpit()
         {
             IList<Pulpit> pulpits = DataProvider.GetPulpits();
-            InitSelect(
-                pulpits,
-                InitChoiceTeacher,
-                pulpit => pulpit.Info.Value);
+            
+            var selectOption = new SelectOption<Pulpit>();
+            selectOption.SetItems(pulpits)
+                .SetOnClickItem(InitChoiceTeacher)
+                .SetConvertInString(pulpit => pulpit.Info.Value);
+            View.ShowSelectItem(selectOption);
         }
 
         private void InitChoiceTeacher(Pulpit pulpit)
         {
             IList<Teacher> teachers = DataProvider.GetTeacher(pulpit.Info.Key);
-            InitSelect(
-                teachers,
-                StartScheduleActivity,
-                teacher => teacher.Fio);
+            
+            var selectOption = new SelectOption<Teacher>();
+            selectOption.SetItems(teachers)
+                .SetOnClickItem(StartScheduleActivity)
+                .SetConvertInString(teacher => teacher.Fio);
+            View.ShowSelectItem(selectOption);
         }
 
         protected void StartScheduleActivity(Teacher teacher)

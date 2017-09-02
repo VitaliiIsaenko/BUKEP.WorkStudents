@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/select_item_main_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/Toolbar" />
-  <LinearLayout
-    android:id="@+id/ContenerForListItemChoices"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
-</LinearLayout>
+            android:id="@+id/toolbar"
+            layout="@layout/Toolbar"/>
+    <LinearLayout
+            android:id="@+id/contener_for_list_item_choices"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    <TextView
+            android:id="@+id/text_element_not_present"
+            android:text="Элементы для выбора не найдены"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+    />
+</RelativeLayout>
