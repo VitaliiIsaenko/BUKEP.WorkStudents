@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using ScheduleBukepAPI.helpers;
 using ScheduleBukepAPI.service.paremeters;
+using System;
+using System.Collections.Specialized;
+using System.Web;
 
 namespace ScheduleBukepAPI.service
 {
@@ -34,14 +37,29 @@ namespace ScheduleBukepAPI.service
 
         protected string ExecuteGet(MethodApi nameMethod, IDictionary<string, string> parameters)
         {
-            var url = CreatorUrl.CreateUrl(nameMethod.ToString(), parameters);
+            var url = UriBuilder(parameters);
             return _httpRequestHelper.ExecuteGet(url);
+        }
+
+        private static string UriBuilder(IDictionary<string, string> parameters)
+        {
+            var uriBuilder = new UriBuilder();
+            uriBuilder.Host = "https";
+            uriBuilder.Scheme = "my.bukep.ru";
+
+            NameValueCollection parametersQuery = HttpUtility.ParseQueryString(string.Empty);
+            foreach(var ketValuePair in parameters)
+            {
+                parametersQuery[ketValuePair.Key] = ketValuePair.Value;
+            }
+            uriBuilder.Query = parametersQuery.ToString();
+            return uriBuilder.Uri.ToString();
         }
 
         protected string ExecutePost(MethodApi nameMethod, IDictionary<string, string> parameters,
             IList<int> bodyForPost)
         {
-            var url = CreatorUrl.CreateUrl(nameMethod.ToString(), parameters);
+            var url = UriBuilder(parameters);
             return _httpRequestHelper.ExecutePost(url, bodyForPost);
         }
     }

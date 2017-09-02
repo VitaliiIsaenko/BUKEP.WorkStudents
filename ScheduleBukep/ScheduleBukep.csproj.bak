@@ -18,7 +18,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -56,13 +56,49 @@
     <AndroidSupportedAbis />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Akavache, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\akavache.core.5.0.0\lib\MonoAndroid\Akavache.dll</HintPath>
+    </Reference>
+    <Reference Include="Akavache.Sqlite3, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\akavache.sqlite3.5.0.0\lib\Portable-Net45+Win8+WP8+Wpa81\Akavache.Sqlite3.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="Splat, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Splat.1.6.0\lib\monoandroid\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_e_sqlite3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=17faffbb2a73a73f, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.0\lib\MonoAndroid\SQLitePCLRaw.batteries_e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.0\lib\MonoAndroid\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.0\lib\MonoAndroid\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.lib.e_sqlite3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e4ad490600e2234c, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.lib.e_sqlite3.android.1.1.0\lib\MonoAndroid\SQLitePCLRaw.lib.e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.e_sqlite3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9c301db686d0bd12, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.e_sqlite3.android.1.1.0\lib\MonoAndroid\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -106,29 +142,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="src\logic\extension\IntentExtension.cs" />
+    <Compile Include="src\controllers\SelectFavoritesGroup.cs" />
+    <Compile Include="src\controllers\factory\SelectItemFactory.cs" />
     <Compile Include="src\controllers\Schedule.cs" />
     <Compile Include="src\controllers\ScheduleForTeacher.cs" />
-    <Compile Include="src\controllers\SchedulesManager.cs" />
+    <Compile Include="src\logic\Favorites.cs" />
+    <Compile Include="src\logic\Periods.cs" />
+    <Compile Include="src\logic\CacheHelper.cs" />
     <Compile Include="src\logic\DataProvider.cs" />
-    <Compile Include="src\controllers\IdentifyScheduleTeacher.cs" />
-    <Compile Include="src\logic\InternetChecker.cs" />
+    <Compile Include="src\controllers\SelectScheduleTeacher.cs" />
+    <Compile Include="src\logic\DataProviderCache.cs" />
+    <Compile Include="src\logic\ExecutorInternetOperations.cs" />
     <Compile Include="src\logic\SchedulesType .cs" />
     <Compile Include="src\view\BaseActivity.cs" />
     <Compile Include="src\logic\LessonOnDay.cs" />
     <Compile Include="src\controllers\Menu.cs" />
     <Compile Include="src\view\factory\MainFactory.cs" />
-    <Compile Include="src\controllers\IdentifySchedule.cs" />
-    <Compile Include="src\view\NavigationActivity.cs" />
+    <Compile Include="src\controllers\SelectItem.cs" />
     <Compile Include="src\controllers\Controller.cs" />
-    <Compile Include="src\controllers\IdentifyScheduleStudent.cs" />
+    <Compile Include="src\controllers\SelectScheduleStudent.cs" />
     <Compile Include="src\controllers\ScheduleForStudent.cs" />
-    <Compile Include="src\view\IdentifyScheduleActivity.cs" />
+    <Compile Include="src\view\SelectItemActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\view\MenuActivity.cs" />
     <Compile Include="src\view\ScheduleActivity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
@@ -149,9 +192,6 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\LessonOnDayView.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\ChooseItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -186,10 +226,6 @@
     <AndroidResource Include="Resources\drawable\gps.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ScheduleBukepAPITest\ScheduleBukepAPITest.csproj">
-      <Project>{67639a80-8308-4198-9329-510166ad0e83}</Project>
-      <Name>ScheduleBukepAPITest</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ScheduleBukepAPI\ScheduleBukepAPI.csproj">
       <Project>{6c7e5e15-f4e0-40b7-9d2f-78d93b927cbe}</Project>
       <Name>ScheduleBukepAPI</Name>
@@ -213,12 +249,11 @@
     <AndroidResource Include="Resources\drawable\list_task.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\BottomNavigationView.xml" />
+      <AndroidResource Include="Resources\drawable\favorites_empty.png"/>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\favorites_empty.png" />
+      <AndroidResource Include="Resources\layout\ChooseItem.axml"/>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Annotations.25.3.1\build\MonoAndroid70\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.25.3.1\build\MonoAndroid70\Xamarin.Android.Support.Annotations.targets')" />
   <Import Project="..\packages\Xamarin.Android.Support.v7.CardView.25.3.1\build\MonoAndroid70\Xamarin.Android.Support.v7.CardView.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.CardView.25.3.1\build\MonoAndroid70\Xamarin.Android.Support.v7.CardView.targets')" />
