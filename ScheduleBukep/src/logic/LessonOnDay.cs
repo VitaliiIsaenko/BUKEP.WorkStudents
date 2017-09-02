@@ -18,6 +18,7 @@ namespace Bukep.Sheduler.logic
         public DateTime DateLesson { get; set; }
         public IList<Lesson> Lessons { get; }
 
+        //TODO: попробывать использовать ILookup<TKey, TValue>
         /// <summary>
         /// Сортирует Lessons по дате и помещает в GroupLesson.
         /// </summary>
