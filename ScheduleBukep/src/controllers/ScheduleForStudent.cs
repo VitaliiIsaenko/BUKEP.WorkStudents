@@ -31,7 +31,7 @@ namespace Bukep.Sheduler.Controllers
         public override void Update()
         {
             base.Update();
-            View.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
+            View.SetDateTimePeriod(DateTime.Today.ToString(ToolbarDateFormat));
         }
 
         protected override IList<Lesson> GetLessons()

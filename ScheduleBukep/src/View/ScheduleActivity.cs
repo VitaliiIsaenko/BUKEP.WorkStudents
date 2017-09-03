@@ -45,7 +45,7 @@ namespace Bukep.Sheduler.View
             InitToolbarPeriod();
             
             _switchNextWeek = FindViewById<SwitchCompat>(Resource.Id.toolbar_switch_schedules);
-            _switchNextWeek.Click += delegate(object sender, EventArgs args)
+            _switchNextWeek.Click += delegate
             {
                 _controller.UpdatePeriods();
                 _controller.Update();
@@ -84,12 +84,12 @@ namespace Bukep.Sheduler.View
             _controller.Update();
         }
 
-        public void SetPeriodForToolbar(string name)
+        public void SetPeriodName(string name)
         {
             _toolbarPeriod.Text = name;
         }
 
-        public void SetTodayForToolbar(string today)
+        public void SetDateTimePeriod(string today)
         {
             _toolbarDate.Text = today;
         }

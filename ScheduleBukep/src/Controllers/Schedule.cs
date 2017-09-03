@@ -46,7 +46,7 @@ namespace Bukep.Sheduler.Controllers
         {
             var lessonOnDays = LessonOnDay.Parse(GetLessons());
             View.ShowLessonOnDay(lessonOnDays);
-            View.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
+            View.SetDateTimePeriod(DateTime.Today.ToString(ToolbarDateFormat));
         }
 
         /// <summary>

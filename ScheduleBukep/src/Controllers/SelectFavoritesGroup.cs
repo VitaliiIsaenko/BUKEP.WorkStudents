@@ -69,6 +69,7 @@ namespace Bukep.Sheduler.controllers
             List<Teacher> teachers = Favorites.GetTeachers();
             var selectOption = new SelectOption<Teacher>();
             selectOption
+                .SetMessagesIfNotElement("Не избранного расписания для преподавателей.")
                 .SetItems(teachers)
                 .SetOnClickItem(ShowScheduleFavoritesTeacher)
                 .SetConvertInString(teacher => teacher.Fio);
@@ -82,6 +83,7 @@ namespace Bukep.Sheduler.controllers
 
             var selectOption = new SelectOption<Group>();
             selectOption.SetItems(groups)
+                .SetMessagesIfNotElement("Не избранного расписания для групп.")
                 .SetOnClickItem(ShowScheduleFavoritesGroup)
                 .SetConvertInString(group => group.GetName());
             View.ShowSelectItem(selectOption);

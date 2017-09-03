@@ -1,5 +1,9 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
+using Android.Content;
+using Android.Content.PM;
 using Android.OS;
+using Android.Support.Compat;
 using Android.Widget;
 using Bukep.Sheduler.Controllers;
 
@@ -35,6 +39,12 @@ namespace Bukep.Sheduler.View
 
             var clearCache = FindViewById<Button>(Resource.Id.clear_сache);
             clearCache.Click += _menu.ClickСlearСache;
+
+            Context context = ApplicationContext;
+
+            TextView versionName = FindViewById<TextView>(Resource.Id.version_name);
+            versionName.Text = context.PackageManager.GetPackageInfo(context.PackageName, 0).VersionName;
+
         }
     }
 }

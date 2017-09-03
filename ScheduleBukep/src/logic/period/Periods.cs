@@ -84,7 +84,7 @@ namespace Bukep.Sheduler.logic.period
 
         private void ChangePeriod(string periodsName)
         {
-            _view.SetPeriodForToolbar(periodsName);
+            _view.SetPeriodName(periodsName);
         }
 
         /// <summary>
