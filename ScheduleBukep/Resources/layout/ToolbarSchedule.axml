@@ -59,13 +59,14 @@
             android:id="@+id/toolbarImageFavorites"
             android:src="@drawable/favorites_empty"
             android:layout_width="32.0dp"
-            android:layout_height="21.5dp"
+            android:layout_height="31.0dp"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textView1" />
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/toolbarSwitchSchedules"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35.5dp"
             android:checked="false"
             android:rotation="90"
             android:layout_below="@id/toolbarImageFavorites"

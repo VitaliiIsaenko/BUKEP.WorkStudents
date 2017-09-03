@@ -2722,8 +2722,8 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f070051
 			public const int textSpacerNoTitle = 2131165265;
 			
-			// aapt resource value: 0x7f0700ba
-			public const int textView1 = 2131165370;
+			// aapt resource value: 0x7f0700b9
+			public const int textView1 = 2131165369;
 			
 			// aapt resource value: 0x7f0700bb
 			public const int textView2 = 2131165371;
@@ -2776,8 +2776,8 @@ namespace Bukep.Sheduler
 			// aapt resource value: 0x7f0700b7
 			public const int toolbarSchedulesPeriod = 2131165367;
 			
-			// aapt resource value: 0x7f0700b9
-			public const int toolbarSwitchSchedules = 2131165369;
+			// aapt resource value: 0x7f0700ba
+			public const int toolbarSwitchSchedules = 2131165370;
 			
 			// aapt resource value: 0x7f0700b4
 			public const int toolbarTitle = 2131165364;
