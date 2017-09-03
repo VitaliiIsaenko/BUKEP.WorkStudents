@@ -27,6 +27,7 @@ namespace Bukep.Sheduler.View
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            //TODO: переделать отображение как в статье https://habrahabr.ru/post/237101/
             SetContentView(Resource.Layout.ScheduleLayout);
 
             InitView();

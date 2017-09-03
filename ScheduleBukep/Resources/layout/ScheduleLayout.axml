@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
     <include
         android:id="@+id/toolbar"
         layout="@layout/ToolbarSchedule" />
@@ -11,24 +11,22 @@
         android:fillViewport="false"
         android:focusable="false"
         android:orientation="vertical"
-        android:layout_marginTop="0.0dp"
-        android:layout_below="@id/toolbar"
-        android:layout_marginBottom="0.0dp">
+        android:layout_below="@id/toolbar">
         <LinearLayout
             android:id="@+id/liner_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="3dp">
             <include
                 android:id="@+id/card1"
-                layout="@layout/CardViewLesson" />
+                layout="@layout/LessonOnDayView" />
             <include
                 android:id="@+id/card2"
-                layout="@layout/CardViewLesson" />
+                layout="@layout/LessonOnDayView" />
             <include
                 android:id="@+id/card3"
-                layout="@layout/CardViewLesson" />
+                layout="@layout/LessonOnDayView" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
