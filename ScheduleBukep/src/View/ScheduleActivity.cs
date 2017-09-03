@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Widget;
 using Bukep.Sheduler.controllers;
 using Bukep.Sheduler.Controllers;
 using Bukep.Sheduler.logic;
 using Bukep.Sheduler.logic.extension;
+using Bukep.Sheduler.logic.period;
 using Bukep.Sheduler.View.factory;
 using ScheduleBukepAPI.domain;
 
@@ -21,7 +23,11 @@ namespace Bukep.Sheduler.View
         private TextView _toolbarGroop;
         private TextView _toolbarDate;
         private TextView _toolbarPeriod;
+        private SwitchCompat _switchNextWeek;
         public ImageView ImageFavorites { get; set; }
+
+        public PeriodsEnum SelectedPeriods { get; private set; } = PeriodsEnum.PeriodOneDay;
+
         private const string Tag = "ScheduleActivity";
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -37,6 +43,13 @@ namespace Bukep.Sheduler.View
         private void InitView()
         {
             InitToolbarPeriod();
+            
+            _switchNextWeek = FindViewById<SwitchCompat>(Resource.Id.toolbar_switch_schedules);
+            _switchNextWeek.Click += delegate(object sender, EventArgs args)
+            {
+                _controller.UpdatePeriods();
+                _controller.Update();
+            };
 
             ImageFavorites = FindViewById<ImageView>(Resource.Id.toolbarImageFavorites);
             _toolbarDate = FindViewById<TextView>(Resource.Id.toolbarDate);
@@ -99,23 +112,21 @@ namespace Bukep.Sheduler.View
 
         private void ClickListPeriod(object sender, DialogClickEventArgs e)
         {
-            Log.Debug(Tag, $"ClickListPeriod() Which = {e.Which}");
-            //TODO: не очень хороший подход, магические числа в switch
-            switch (e.Which)
-            {
-                case 0:
-                    _controller.Periods.SelectPeriodOneDay();
-                    break;
-                case 1:
-                    _controller.Periods.SelectPeriodThreeDay();
-                    break;
-                case 2:
-                    _controller.Periods.SelectPeriodWeek();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(
-                        "Не удалось выбрать период. Periods = " + e.Which);
-            }
+            var periodsEnum = (PeriodsEnum)e.Which;
+            SelectedPeriods = periodsEnum;
+            Log.Debug(Tag, $"ClickListPeriod() Which = {periodsEnum}");
+            
+            _controller.UpdatePeriods();
+            _controller.Update();
+        }
+
+        /// <summary>
+        /// Выбрана ли для отображения следующая неделя.
+        /// </summary>
+        /// <returns>True если выбрана следующая неделя.</returns>
+        public bool IsShowNextWeek()
+        {
+            return _switchNextWeek.Checked;
         }
 
         /// <summary>

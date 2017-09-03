@@ -4,10 +4,10 @@ using Bukep.Sheduler.Controllers;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI;
 
-namespace Bukep.Sheduler.logic
+namespace Bukep.Sheduler.logic.period
 {
     /// <summary>
-    /// Используется для работы с периодами расписания (На день, Три дня, Неделю)
+    /// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РїРµСЂРёРѕРґР°РјРё СЂР°СЃРїРёСЃР°РЅРёСЏ (РќР° РґРµРЅСЊ, РўСЂРё РґРЅСЏ, РќРµРґРµР»СЋ)
     /// </summary>
     public class Periods
     {
@@ -24,21 +24,20 @@ namespace Bukep.Sheduler.logic
         }
 
         /// <summary>
-        /// Устанавливает период в один день и обновляет активити
+        /// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРµСЂРёРѕРґ РІ РѕРґРёРЅ РґРµРЅСЊ Рё РѕР±РЅРѕРІР»СЏРµС‚ Р°РєС‚РёРІРёС‚Рё
         /// </summary>
         public void SelectPeriodOneDay()
         {
             Log.Debug(Tag, "ChoosePeriodOneDay()");
             var startAndEndPeriod = DateTime.Today;
 
-            PutExtraData(Schedule.IntentKey.DateLessonStart, startAndEndPeriod);
-            PutExtraData(Schedule.IntentKey.DateLessonEnd, startAndEndPeriod);
+            SavePeriod(startAndEndPeriod, startAndEndPeriod);
 
             ChangePeriod(_periodNames[0]);
         }
 
         /// <summary>
-        /// Устанавливает период в три деня и обновляет активити
+        /// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРµСЂРёРѕРґ РІ С‚СЂРё РґРµРЅСЏ Рё РѕР±РЅРѕРІР»СЏРµС‚ Р°РєС‚РёРІРёС‚Рё
         /// </summary>
         public void SelectPeriodThreeDay()
         {
@@ -47,8 +46,7 @@ namespace Bukep.Sheduler.logic
             var startPeriod = DateTime.Today;
             var endPeriod = startPeriod.AddDays(2);
 
-            PutExtraData(Schedule.IntentKey.DateLessonStart, startPeriod);
-            PutExtraData(Schedule.IntentKey.DateLessonEnd, endPeriod);
+            SavePeriod(startPeriod, endPeriod);
 
             Log.Debug(Tag, $"today = {startPeriod} threeDayFuture = {endPeriod}");
 
@@ -56,16 +54,15 @@ namespace Bukep.Sheduler.logic
         }
 
         /// <summary>
-        /// Устанавливает период в неделю и обновляет активити
+        /// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРµСЂРёРѕРґ РІ РЅРµРґРµР»СЋ Рё РѕР±РЅРѕРІР»СЏРµС‚ Р°РєС‚РёРІРёС‚Рё
         /// </summary>
         public void SelectPeriodWeek()
         {
             Log.Debug(Tag, "ChoosePeriodWeek()");
-            var startPeriod = GetStartWeek(DateTime.Today);
-            var endPeriod = startPeriod.AddDays(5);
+            DateTime startPeriod = GetStartWeek(DateTime.Today);
+            DateTime endPeriod = startPeriod.AddDays(5);
 
-            PutExtraData(Schedule.IntentKey.DateLessonStart, startPeriod);
-            PutExtraData(Schedule.IntentKey.DateLessonEnd, endPeriod);
+            SavePeriod(startPeriod, endPeriod);
 
             Log.Debug(Tag, $"ChoosePeriodWeek() monday = {startPeriod} saturday = {endPeriod}");
 
@@ -74,14 +71,24 @@ namespace Bukep.Sheduler.logic
             ChangePeriod(periodsName);
         }
 
+        public void SavePeriod(DateTime startPeriod, DateTime endPeriod)
+        {
+            if (_view.IsShowNextWeek())
+            {
+                startPeriod = startPeriod.AddDays(7);
+                endPeriod = endPeriod.AddDays(7); 
+            }
+            PutExtraData(Schedule.IntentKey.DateLessonStart, startPeriod);
+            PutExtraData(Schedule.IntentKey.DateLessonEnd, endPeriod);
+        }
+
         private void ChangePeriod(string periodsName)
         {
             _view.SetPeriodForToolbar(periodsName);
-            _schedule.Update();
         }
 
         /// <summary>
-        /// Возвращает день с которого начинается текущая неделя.  
+        /// Р’РѕР·РІСЂР°С‰Р°РµС‚ РґРµРЅСЊ СЃ РєРѕС‚РѕСЂРѕРіРѕ РЅР°С‡РёРЅР°РµС‚СЃСЏ С‚РµРєСѓС‰Р°СЏ РЅРµРґРµР»СЏ.  
         /// </summary>
         /// <param name="date"></param>
         /// <returns></returns>

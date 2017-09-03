@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/primary_material_dark"
-    android:elevation="4dp"
-    android:minWidth="25px"
-    android:minHeight="25px">
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:background="@color/primary_material_dark"
+                                   android:elevation="4dp"
+                                   android:minWidth="25px"
+                                   android:minHeight="25px">
     <RelativeLayout
         android:minWidth="25px"
         android:minHeight="25px"
@@ -64,27 +63,27 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/textView1" />
         <android.support.v7.widget.SwitchCompat
-            android:id="@+id/toolbarSwitchSchedules"
-            android:layout_width="wrap_content"
-            android:layout_height="35.5dp"
-            android:checked="false"
-            android:rotation="90"
-            android:layout_below="@id/toolbarImageFavorites"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10.0dp" />
+                android:id="@+id/toolbar_switch_schedules"
+                android:layout_width="wrap_content"
+                android:layout_height="35.5dp"
+                android:checked="false"
+                android:rotation="90"
+                android:layout_below="@id/toolbarImageFavorites"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10.0dp"/>
         <TextView
-            android:text="@string/current"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/toolbarSwitchSchedules"
-            android:id="@+id/textView1"
-            android:layout_below="@id/toolbarImageFavorites" />
+                android:text="@string/current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/toolbar_switch_schedules"
+                android:id="@+id/textView1"
+                android:layout_below="@id/toolbarImageFavorites"/>
         <TextView
-            android:text="@string/next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            android:layout_toLeftOf="@id/toolbarSwitchSchedules"
-            android:layout_alignBottom="@id/toolbarSwitchSchedules" />
+                android:text="@string/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:layout_toLeftOf="@id/toolbar_switch_schedules"
+                android:layout_alignBottom="@id/toolbar_switch_schedules"/>
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Android.Content;
 using Bukep.Sheduler.logic;
+using Bukep.Sheduler.logic.period;
 using Bukep.Sheduler.View;
 using ScheduleBukepAPI.domain;
 
@@ -25,6 +26,7 @@ namespace Bukep.Sheduler.Controllers
         /// Используется для отслужевания состояния кнопки добавить в избранное.
         /// </summary>
         private bool _isClickImageFavorites;
+
         protected readonly Intent intent;
 
         /// <summary>
@@ -45,6 +47,30 @@ namespace Bukep.Sheduler.Controllers
             var lessonOnDays = LessonOnDay.Parse(GetLessons());
             View.ShowLessonOnDay(lessonOnDays);
             View.SetTodayForToolbar(DateTime.Today.ToString(ToolbarDateFormat));
+        }
+
+        /// <summary>
+        /// Обновления периода.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">Если не удалось выбрать период.</exception>
+        public void UpdatePeriods()
+        {
+            var selectedPeriods = View.SelectedPeriods;
+            switch (selectedPeriods)
+            {
+                case PeriodsEnum.PeriodOneDay:
+                    Periods.SelectPeriodOneDay();
+                    break;
+                case PeriodsEnum.PeriodThreeDay:
+                    Periods.SelectPeriodThreeDay();
+                    break;
+                case PeriodsEnum.PeriodWeek:
+                    Periods.SelectPeriodWeek();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(
+                        "Не удалось выбрать период. Periods = " + selectedPeriods);
+            }
         }
 
         protected abstract IList<Lesson> GetLessons();
