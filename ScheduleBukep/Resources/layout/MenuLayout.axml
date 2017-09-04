@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/MainLight"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     <include
@@ -38,21 +39,21 @@
         android:layout_alignRight="@id/schedule_bell"
         android:layout_alignLeft="@id/schedule_bell" />
     <Button
-            android:text="Очистить кэш"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/clear_сache"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"/>
+        android:text="Очистить кэш"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clear_сache"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true" />
     <TextView
-            android:text="Version name"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/version_name"
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@id/clear_сache"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="5.0dp"
-            android:layout_marginLeft="3.0dp"/>
+        android:text="Version name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/version_name"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/clear_сache"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="5.0dp"
+        android:layout_marginLeft="3.0dp" />
 </RelativeLayout>

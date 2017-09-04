@@ -24,7 +24,7 @@ namespace Bukep.Sheduler.logic.period
         }
 
         /// <summary>
-        /// Устанавливает период в один день и обновляет активити
+        /// Устанавливает период в один день.
         /// </summary>
         public void SelectPeriodOneDay()
         {
@@ -37,7 +37,7 @@ namespace Bukep.Sheduler.logic.period
         }
 
         /// <summary>
-        /// Устанавливает период в три деня и обновляет активити
+        /// Устанавливает период в три деня.
         /// </summary>
         public void SelectPeriodThreeDay()
         {
@@ -54,7 +54,7 @@ namespace Bukep.Sheduler.logic.period
         }
 
         /// <summary>
-        /// Устанавливает период в неделю и обновляет активити
+        /// Устанавливает период в неделю.
         /// </summary>
         public void SelectPeriodWeek()
         {
